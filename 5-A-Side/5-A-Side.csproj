@@ -61,13 +61,13 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="playerInputForm.Designer.cs" />
-    <DependentUpon>playerInputForm.cs</DependentUpon>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="HomePage.resx">
       <DependentUpon>HomePage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MatchViewer.resx" />
+      <DependentUpon>MatchViewer.cs</DependentUpon>
     <EmbeddedResource Include="playerInputForm.resx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
