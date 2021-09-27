@@ -56,12 +56,10 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MatchViewer.Designer.cs" />
-    <DependentUpon>MatchViewer.cs</DependentUpon>
     <Compile Include="playerInputForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="playerInputForm.Designer.cs" />
-    <DependentUpon>playerInputForm.cs</DependentUpon>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="HomePage.resx">
