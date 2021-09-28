@@ -283,7 +283,7 @@ namespace _5_A_Side
             this.playerInputTabs.Location = new System.Drawing.Point(47, 141);
             this.playerInputTabs.Name = "playerInputTabs";
             this.playerInputTabs.SelectedIndex = 0;
-            this.playerInputTabs.Size = new System.Drawing.Size(1013, 441);
+            this.playerInputTabs.Size = new System.Drawing.Size(1013, 415);
             this.playerInputTabs.TabIndex = 0;
             // 
             // tabPage1
@@ -295,7 +295,7 @@ namespace _5_A_Side
             this.tabPage1.Margin = new System.Windows.Forms.Padding(1000);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(1000);
-            this.tabPage1.Size = new System.Drawing.Size(1025, 582);
+            this.tabPage1.Size = new System.Drawing.Size(1005, 387);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Instructions";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -320,8 +320,8 @@ namespace _5_A_Side
             // 
             // enterTeamName
             // 
-            this.enterTeamName.Font = new System.Drawing.Font("Segoe UI Black", 8F);
-            this.enterTeamName.Location = new System.Drawing.Point(13, 22);
+            this.enterTeamName.Font = new System.Drawing.Font("Segoe UI Black", 14F);
+            this.enterTeamName.Location = new System.Drawing.Point(3, 0);
             this.enterTeamName.Name = "enterTeamName";
             this.enterTeamName.Size = new System.Drawing.Size(1065, 397);
             this.enterTeamName.TabIndex = 0;
@@ -361,7 +361,7 @@ namespace _5_A_Side
             this.tabPage2.Location = new System.Drawing.Point(4, 24);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1005, 413);
+            this.tabPage2.Size = new System.Drawing.Size(1005, 387);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Team Captain";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -675,22 +675,22 @@ namespace _5_A_Side
             this.tabPage8.Location = new System.Drawing.Point(4, 24);
             this.tabPage8.Name = "tabPage8";
             this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage8.Size = new System.Drawing.Size(1005, 413);
+            this.tabPage8.Size = new System.Drawing.Size(1005, 387);
             this.tabPage8.TabIndex = 7;
             this.tabPage8.Text = "Player 2";
             this.tabPage8.UseVisualStyleBackColor = true;
             // 
             // p2ShirtTxt
             // 
-            this.p2ShirtTxt.Location = new System.Drawing.Point(185, 153);
+            this.p2ShirtTxt.Location = new System.Drawing.Point(162, 90);
             this.p2ShirtTxt.Name = "p2ShirtTxt";
-            this.p2ShirtTxt.Size = new System.Drawing.Size(299, 24);
+            this.p2ShirtTxt.Size = new System.Drawing.Size(322, 24);
             this.p2ShirtTxt.TabIndex = 28;
             // 
             // p2ShirtLabel
             // 
             this.p2ShirtLabel.AutoSize = true;
-            this.p2ShirtLabel.Location = new System.Drawing.Point(14, 159);
+            this.p2ShirtLabel.Location = new System.Drawing.Point(14, 99);
             this.p2ShirtLabel.Name = "p2ShirtLabel";
             this.p2ShirtLabel.Size = new System.Drawing.Size(91, 15);
             this.p2ShirtLabel.TabIndex = 27;
@@ -700,7 +700,7 @@ namespace _5_A_Side
             // 
             this.p2CurrAgression.AutoSize = true;
             this.p2CurrAgression.BackColor = System.Drawing.SystemColors.Control;
-            this.p2CurrAgression.Location = new System.Drawing.Point(794, 531);
+            this.p2CurrAgression.Location = new System.Drawing.Point(794, 337);
             this.p2CurrAgression.Name = "p2CurrAgression";
             this.p2CurrAgression.Size = new System.Drawing.Size(14, 15);
             this.p2CurrAgression.TabIndex = 26;
@@ -708,7 +708,7 @@ namespace _5_A_Side
             // 
             // p2AggressionSlider
             // 
-            this.p2AggressionSlider.Location = new System.Drawing.Point(644, 470);
+            this.p2AggressionSlider.Location = new System.Drawing.Point(644, 307);
             this.p2AggressionSlider.Maximum = 100;
             this.p2AggressionSlider.Name = "p2AggressionSlider";
             this.p2AggressionSlider.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -719,7 +719,7 @@ namespace _5_A_Side
             // p2AggroLabel
             // 
             this.p2AggroLabel.AutoSize = true;
-            this.p2AggroLabel.Location = new System.Drawing.Point(513, 487);
+            this.p2AggroLabel.Location = new System.Drawing.Point(545, 318);
             this.p2AggroLabel.Name = "p2AggroLabel";
             this.p2AggroLabel.Size = new System.Drawing.Size(74, 15);
             this.p2AggroLabel.TabIndex = 24;
@@ -729,7 +729,7 @@ namespace _5_A_Side
             // 
             this.p2CurrTackle.AutoSize = true;
             this.p2CurrTackle.BackColor = System.Drawing.SystemColors.Control;
-            this.p2CurrTackle.Location = new System.Drawing.Point(794, 410);
+            this.p2CurrTackle.Location = new System.Drawing.Point(794, 265);
             this.p2CurrTackle.Name = "p2CurrTackle";
             this.p2CurrTackle.Size = new System.Drawing.Size(14, 15);
             this.p2CurrTackle.TabIndex = 23;
@@ -737,7 +737,7 @@ namespace _5_A_Side
             // 
             // p2TackleSlider
             // 
-            this.p2TackleSlider.Location = new System.Drawing.Point(644, 360);
+            this.p2TackleSlider.Location = new System.Drawing.Point(644, 235);
             this.p2TackleSlider.Maximum = 100;
             this.p2TackleSlider.Name = "p2TackleSlider";
             this.p2TackleSlider.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -748,7 +748,7 @@ namespace _5_A_Side
             // p2TackelLabel
             // 
             this.p2TackelLabel.AutoSize = true;
-            this.p2TackelLabel.Location = new System.Drawing.Point(513, 384);
+            this.p2TackelLabel.Location = new System.Drawing.Point(553, 253);
             this.p2TackelLabel.Name = "p2TackelLabel";
             this.p2TackelLabel.Size = new System.Drawing.Size(63, 15);
             this.p2TackelLabel.TabIndex = 21;
@@ -758,7 +758,7 @@ namespace _5_A_Side
             // 
             this.p2CurrReliable.AutoSize = true;
             this.p2CurrReliable.BackColor = System.Drawing.SystemColors.Control;
-            this.p2CurrReliable.Location = new System.Drawing.Point(794, 282);
+            this.p2CurrReliable.Location = new System.Drawing.Point(794, 190);
             this.p2CurrReliable.Name = "p2CurrReliable";
             this.p2CurrReliable.Size = new System.Drawing.Size(14, 15);
             this.p2CurrReliable.TabIndex = 20;
@@ -766,7 +766,7 @@ namespace _5_A_Side
             // 
             // p2ReliableSlider
             // 
-            this.p2ReliableSlider.Location = new System.Drawing.Point(644, 234);
+            this.p2ReliableSlider.Location = new System.Drawing.Point(644, 160);
             this.p2ReliableSlider.Maximum = 100;
             this.p2ReliableSlider.Name = "p2ReliableSlider";
             this.p2ReliableSlider.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -777,7 +777,7 @@ namespace _5_A_Side
             // p2ReliableLabel
             // 
             this.p2ReliableLabel.AutoSize = true;
-            this.p2ReliableLabel.Location = new System.Drawing.Point(513, 259);
+            this.p2ReliableLabel.Location = new System.Drawing.Point(543, 178);
             this.p2ReliableLabel.Name = "p2ReliableLabel";
             this.p2ReliableLabel.Size = new System.Drawing.Size(73, 15);
             this.p2ReliableLabel.TabIndex = 18;
@@ -787,7 +787,7 @@ namespace _5_A_Side
             // 
             this.p2CurrPhysical.AutoSize = true;
             this.p2CurrPhysical.BackColor = System.Drawing.SystemColors.Control;
-            this.p2CurrPhysical.Location = new System.Drawing.Point(794, 170);
+            this.p2CurrPhysical.Location = new System.Drawing.Point(794, 120);
             this.p2CurrPhysical.Name = "p2CurrPhysical";
             this.p2CurrPhysical.Size = new System.Drawing.Size(14, 15);
             this.p2CurrPhysical.TabIndex = 17;
@@ -795,7 +795,7 @@ namespace _5_A_Side
             // 
             // p2PhysicalitySlider
             // 
-            this.p2PhysicalitySlider.Location = new System.Drawing.Point(644, 112);
+            this.p2PhysicalitySlider.Location = new System.Drawing.Point(644, 90);
             this.p2PhysicalitySlider.Maximum = 100;
             this.p2PhysicalitySlider.Name = "p2PhysicalitySlider";
             this.p2PhysicalitySlider.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -806,7 +806,7 @@ namespace _5_A_Side
             // p2PhysicalLabel
             // 
             this.p2PhysicalLabel.AutoSize = true;
-            this.p2PhysicalLabel.Location = new System.Drawing.Point(489, 138);
+            this.p2PhysicalLabel.Location = new System.Drawing.Point(543, 109);
             this.p2PhysicalLabel.Name = "p2PhysicalLabel";
             this.p2PhysicalLabel.Size = new System.Drawing.Size(76, 15);
             this.p2PhysicalLabel.TabIndex = 15;
@@ -816,7 +816,7 @@ namespace _5_A_Side
             // 
             this.p2PointsLeftLabel.AutoSize = true;
             this.p2PointsLeftLabel.Font = new System.Drawing.Font("Segoe UI Black", 30F, System.Drawing.FontStyle.Bold);
-            this.p2PointsLeftLabel.Location = new System.Drawing.Point(869, 13);
+            this.p2PointsLeftLabel.Location = new System.Drawing.Point(828, 10);
             this.p2PointsLeftLabel.Name = "p2PointsLeftLabel";
             this.p2PointsLeftLabel.Size = new System.Drawing.Size(96, 54);
             this.p2PointsLeftLabel.TabIndex = 14;
@@ -826,7 +826,7 @@ namespace _5_A_Side
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Segoe UI Black", 13F, System.Drawing.FontStyle.Bold);
-            this.label14.Location = new System.Drawing.Point(513, 16);
+            this.label14.Location = new System.Drawing.Point(639, 10);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(183, 50);
             this.label14.TabIndex = 13;
@@ -836,7 +836,7 @@ namespace _5_A_Side
             // 
             this.p2CurrPace.AutoSize = true;
             this.p2CurrPace.BackColor = System.Drawing.SystemColors.Control;
-            this.p2CurrPace.Location = new System.Drawing.Point(294, 531);
+            this.p2CurrPace.Location = new System.Drawing.Point(294, 337);
             this.p2CurrPace.Name = "p2CurrPace";
             this.p2CurrPace.Size = new System.Drawing.Size(14, 15);
             this.p2CurrPace.TabIndex = 12;
@@ -846,7 +846,7 @@ namespace _5_A_Side
             // 
             this.p2CurrDribbling.AutoSize = true;
             this.p2CurrDribbling.BackColor = System.Drawing.SystemColors.Control;
-            this.p2CurrDribbling.Location = new System.Drawing.Point(294, 410);
+            this.p2CurrDribbling.Location = new System.Drawing.Point(294, 253);
             this.p2CurrDribbling.Name = "p2CurrDribbling";
             this.p2CurrDribbling.Size = new System.Drawing.Size(14, 15);
             this.p2CurrDribbling.TabIndex = 11;
@@ -856,7 +856,7 @@ namespace _5_A_Side
             // 
             this.p2CurrShooting.AutoSize = true;
             this.p2CurrShooting.BackColor = System.Drawing.SystemColors.Control;
-            this.p2CurrShooting.Location = new System.Drawing.Point(294, 282);
+            this.p2CurrShooting.Location = new System.Drawing.Point(294, 168);
             this.p2CurrShooting.Name = "p2CurrShooting";
             this.p2CurrShooting.Size = new System.Drawing.Size(14, 15);
             this.p2CurrShooting.TabIndex = 10;
@@ -866,7 +866,7 @@ namespace _5_A_Side
             // 
             this.p2PaceSlider.BackColor = System.Drawing.SystemColors.Control;
             this.p2PaceSlider.Cursor = System.Windows.Forms.Cursors.Default;
-            this.p2PaceSlider.Location = new System.Drawing.Point(157, 470);
+            this.p2PaceSlider.Location = new System.Drawing.Point(162, 307);
             this.p2PaceSlider.Maximum = 100;
             this.p2PaceSlider.Name = "p2PaceSlider";
             this.p2PaceSlider.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -877,7 +877,7 @@ namespace _5_A_Side
             // p2PaceLabel
             // 
             this.p2PaceLabel.AutoSize = true;
-            this.p2PaceLabel.Location = new System.Drawing.Point(66, 487);
+            this.p2PaceLabel.Location = new System.Drawing.Point(45, 318);
             this.p2PaceLabel.Name = "p2PaceLabel";
             this.p2PaceLabel.Size = new System.Drawing.Size(39, 15);
             this.p2PaceLabel.TabIndex = 8;
@@ -887,7 +887,7 @@ namespace _5_A_Side
             // 
             this.p2DribblingSlider.BackColor = System.Drawing.SystemColors.Control;
             this.p2DribblingSlider.Cursor = System.Windows.Forms.Cursors.Default;
-            this.p2DribblingSlider.Location = new System.Drawing.Point(157, 360);
+            this.p2DribblingSlider.Location = new System.Drawing.Point(162, 223);
             this.p2DribblingSlider.Maximum = 100;
             this.p2DribblingSlider.Name = "p2DribblingSlider";
             this.p2DribblingSlider.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -898,7 +898,7 @@ namespace _5_A_Side
             // p2DribbleLabel
             // 
             this.p2DribbleLabel.AutoSize = true;
-            this.p2DribbleLabel.Location = new System.Drawing.Point(11, 384);
+            this.p2DribbleLabel.Location = new System.Drawing.Point(18, 253);
             this.p2DribbleLabel.Name = "p2DribbleLabel";
             this.p2DribbleLabel.Size = new System.Drawing.Size(69, 15);
             this.p2DribbleLabel.TabIndex = 6;
@@ -906,14 +906,14 @@ namespace _5_A_Side
             // 
             // p2lastNameTxt
             // 
-            this.p2lastNameTxt.Location = new System.Drawing.Point(162, 84);
+            this.p2lastNameTxt.Location = new System.Drawing.Point(162, 49);
             this.p2lastNameTxt.Name = "p2lastNameTxt";
             this.p2lastNameTxt.Size = new System.Drawing.Size(322, 24);
             this.p2lastNameTxt.TabIndex = 5;
             // 
             // p2ShootingSlider
             // 
-            this.p2ShootingSlider.Location = new System.Drawing.Point(162, 234);
+            this.p2ShootingSlider.Location = new System.Drawing.Point(162, 138);
             this.p2ShootingSlider.Maximum = 100;
             this.p2ShootingSlider.Name = "p2ShootingSlider";
             this.p2ShootingSlider.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -924,7 +924,7 @@ namespace _5_A_Side
             // p2ShootingLabel
             // 
             this.p2ShootingLabel.AutoSize = true;
-            this.p2ShootingLabel.Location = new System.Drawing.Point(14, 259);
+            this.p2ShootingLabel.Location = new System.Drawing.Point(18, 160);
             this.p2ShootingLabel.Name = "p2ShootingLabel";
             this.p2ShootingLabel.Size = new System.Drawing.Size(66, 15);
             this.p2ShootingLabel.TabIndex = 3;
@@ -933,7 +933,7 @@ namespace _5_A_Side
             // p2LastNameLabel
             // 
             this.p2LastNameLabel.AutoSize = true;
-            this.p2LastNameLabel.Location = new System.Drawing.Point(14, 87);
+            this.p2LastNameLabel.Location = new System.Drawing.Point(11, 52);
             this.p2LastNameLabel.Name = "p2LastNameLabel";
             this.p2LastNameLabel.Size = new System.Drawing.Size(73, 15);
             this.p2LastNameLabel.TabIndex = 2;
@@ -989,22 +989,22 @@ namespace _5_A_Side
             this.tabPage3.Location = new System.Drawing.Point(4, 24);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(1005, 413);
+            this.tabPage3.Size = new System.Drawing.Size(1005, 387);
             this.tabPage3.TabIndex = 8;
             this.tabPage3.Text = "Player 3";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // p3ShirtTxt
             // 
-            this.p3ShirtTxt.Location = new System.Drawing.Point(185, 153);
+            this.p3ShirtTxt.Location = new System.Drawing.Point(162, 103);
             this.p3ShirtTxt.Name = "p3ShirtTxt";
-            this.p3ShirtTxt.Size = new System.Drawing.Size(299, 24);
+            this.p3ShirtTxt.Size = new System.Drawing.Size(322, 24);
             this.p3ShirtTxt.TabIndex = 28;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(17, 162);
+            this.label4.Location = new System.Drawing.Point(17, 112);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(91, 15);
             this.label4.TabIndex = 27;
@@ -1014,7 +1014,7 @@ namespace _5_A_Side
             // 
             this.p3CurrAggro.AutoSize = true;
             this.p3CurrAggro.BackColor = System.Drawing.SystemColors.Control;
-            this.p3CurrAggro.Location = new System.Drawing.Point(797, 534);
+            this.p3CurrAggro.Location = new System.Drawing.Point(797, 344);
             this.p3CurrAggro.Name = "p3CurrAggro";
             this.p3CurrAggro.Size = new System.Drawing.Size(14, 15);
             this.p3CurrAggro.TabIndex = 26;
@@ -1022,7 +1022,7 @@ namespace _5_A_Side
             // 
             // p3AggroSlider
             // 
-            this.p3AggroSlider.Location = new System.Drawing.Point(644, 470);
+            this.p3AggroSlider.Location = new System.Drawing.Point(644, 314);
             this.p3AggroSlider.Maximum = 100;
             this.p3AggroSlider.Name = "p3AggroSlider";
             this.p3AggroSlider.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -1033,7 +1033,7 @@ namespace _5_A_Side
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(516, 490);
+            this.label6.Location = new System.Drawing.Point(533, 332);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(74, 15);
             this.label6.TabIndex = 24;
@@ -1043,7 +1043,7 @@ namespace _5_A_Side
             // 
             this.p3CurrTackle.AutoSize = true;
             this.p3CurrTackle.BackColor = System.Drawing.SystemColors.Control;
-            this.p3CurrTackle.Location = new System.Drawing.Point(797, 413);
+            this.p3CurrTackle.Location = new System.Drawing.Point(797, 262);
             this.p3CurrTackle.Name = "p3CurrTackle";
             this.p3CurrTackle.Size = new System.Drawing.Size(14, 15);
             this.p3CurrTackle.TabIndex = 23;
@@ -1051,7 +1051,7 @@ namespace _5_A_Side
             // 
             // p3TackleSlider
             // 
-            this.p3TackleSlider.Location = new System.Drawing.Point(644, 360);
+            this.p3TackleSlider.Location = new System.Drawing.Point(644, 232);
             this.p3TackleSlider.Maximum = 100;
             this.p3TackleSlider.Name = "p3TackleSlider";
             this.p3TackleSlider.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -1062,7 +1062,7 @@ namespace _5_A_Side
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(516, 387);
+            this.label8.Location = new System.Drawing.Point(534, 251);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(63, 15);
             this.label8.TabIndex = 21;
@@ -1072,7 +1072,7 @@ namespace _5_A_Side
             // 
             this.p3CurrReliable.AutoSize = true;
             this.p3CurrReliable.BackColor = System.Drawing.SystemColors.Control;
-            this.p3CurrReliable.Location = new System.Drawing.Point(797, 285);
+            this.p3CurrReliable.Location = new System.Drawing.Point(797, 202);
             this.p3CurrReliable.Name = "p3CurrReliable";
             this.p3CurrReliable.Size = new System.Drawing.Size(14, 15);
             this.p3CurrReliable.TabIndex = 20;
@@ -1080,7 +1080,7 @@ namespace _5_A_Side
             // 
             // p3ReliableSlider
             // 
-            this.p3ReliableSlider.Location = new System.Drawing.Point(644, 234);
+            this.p3ReliableSlider.Location = new System.Drawing.Point(644, 172);
             this.p3ReliableSlider.Maximum = 100;
             this.p3ReliableSlider.Name = "p3ReliableSlider";
             this.p3ReliableSlider.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -1091,7 +1091,7 @@ namespace _5_A_Side
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(516, 262);
+            this.label10.Location = new System.Drawing.Point(534, 190);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(73, 15);
             this.label10.TabIndex = 18;
@@ -1101,7 +1101,7 @@ namespace _5_A_Side
             // 
             this.p3CurrPhysical.AutoSize = true;
             this.p3CurrPhysical.BackColor = System.Drawing.SystemColors.Control;
-            this.p3CurrPhysical.Location = new System.Drawing.Point(797, 173);
+            this.p3CurrPhysical.Location = new System.Drawing.Point(797, 133);
             this.p3CurrPhysical.Name = "p3CurrPhysical";
             this.p3CurrPhysical.Size = new System.Drawing.Size(14, 15);
             this.p3CurrPhysical.TabIndex = 17;
@@ -1109,7 +1109,7 @@ namespace _5_A_Side
             // 
             // p3PhysicalSlider
             // 
-            this.p3PhysicalSlider.Location = new System.Drawing.Point(644, 112);
+            this.p3PhysicalSlider.Location = new System.Drawing.Point(644, 103);
             this.p3PhysicalSlider.Maximum = 100;
             this.p3PhysicalSlider.Name = "p3PhysicalSlider";
             this.p3PhysicalSlider.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -1120,7 +1120,7 @@ namespace _5_A_Side
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(492, 141);
+            this.label12.Location = new System.Drawing.Point(531, 121);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(76, 15);
             this.label12.TabIndex = 15;
@@ -1130,7 +1130,7 @@ namespace _5_A_Side
             // 
             this.p3PointsRemaining.AutoSize = true;
             this.p3PointsRemaining.Font = new System.Drawing.Font("Segoe UI Black", 30F, System.Drawing.FontStyle.Bold);
-            this.p3PointsRemaining.Location = new System.Drawing.Point(872, 16);
+            this.p3PointsRemaining.Location = new System.Drawing.Point(778, 19);
             this.p3PointsRemaining.Name = "p3PointsRemaining";
             this.p3PointsRemaining.Size = new System.Drawing.Size(96, 54);
             this.p3PointsRemaining.TabIndex = 14;
@@ -1140,7 +1140,7 @@ namespace _5_A_Side
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Segoe UI Black", 13F, System.Drawing.FontStyle.Bold);
-            this.label15.Location = new System.Drawing.Point(516, 19);
+            this.label15.Location = new System.Drawing.Point(580, 23);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(183, 50);
             this.label15.TabIndex = 13;
@@ -1150,7 +1150,7 @@ namespace _5_A_Side
             // 
             this.p3CurrPace.AutoSize = true;
             this.p3CurrPace.BackColor = System.Drawing.SystemColors.Control;
-            this.p3CurrPace.Location = new System.Drawing.Point(297, 534);
+            this.p3CurrPace.Location = new System.Drawing.Point(297, 344);
             this.p3CurrPace.Name = "p3CurrPace";
             this.p3CurrPace.Size = new System.Drawing.Size(14, 15);
             this.p3CurrPace.TabIndex = 12;
@@ -1160,7 +1160,7 @@ namespace _5_A_Side
             // 
             this.p3CurrDribbling.AutoSize = true;
             this.p3CurrDribbling.BackColor = System.Drawing.SystemColors.Control;
-            this.p3CurrDribbling.Location = new System.Drawing.Point(297, 413);
+            this.p3CurrDribbling.Location = new System.Drawing.Point(297, 262);
             this.p3CurrDribbling.Name = "p3CurrDribbling";
             this.p3CurrDribbling.Size = new System.Drawing.Size(14, 15);
             this.p3CurrDribbling.TabIndex = 11;
@@ -1170,7 +1170,7 @@ namespace _5_A_Side
             // 
             this.p3CurrShooting.AutoSize = true;
             this.p3CurrShooting.BackColor = System.Drawing.SystemColors.Control;
-            this.p3CurrShooting.Location = new System.Drawing.Point(297, 285);
+            this.p3CurrShooting.Location = new System.Drawing.Point(297, 190);
             this.p3CurrShooting.Name = "p3CurrShooting";
             this.p3CurrShooting.Size = new System.Drawing.Size(14, 15);
             this.p3CurrShooting.TabIndex = 10;
@@ -1180,7 +1180,7 @@ namespace _5_A_Side
             // 
             this.p3PaceSlider.BackColor = System.Drawing.SystemColors.Control;
             this.p3PaceSlider.Cursor = System.Windows.Forms.Cursors.Default;
-            this.p3PaceSlider.Location = new System.Drawing.Point(157, 470);
+            this.p3PaceSlider.Location = new System.Drawing.Point(157, 314);
             this.p3PaceSlider.Maximum = 100;
             this.p3PaceSlider.Name = "p3PaceSlider";
             this.p3PaceSlider.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -1191,7 +1191,7 @@ namespace _5_A_Side
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(69, 490);
+            this.label19.Location = new System.Drawing.Point(38, 332);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(39, 15);
             this.label19.TabIndex = 8;
@@ -1201,7 +1201,7 @@ namespace _5_A_Side
             // 
             this.p3DribblingSlider.BackColor = System.Drawing.SystemColors.Control;
             this.p3DribblingSlider.Cursor = System.Windows.Forms.Cursors.Default;
-            this.p3DribblingSlider.Location = new System.Drawing.Point(157, 360);
+            this.p3DribblingSlider.Location = new System.Drawing.Point(157, 232);
             this.p3DribblingSlider.Maximum = 100;
             this.p3DribblingSlider.Name = "p3DribblingSlider";
             this.p3DribblingSlider.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -1212,7 +1212,7 @@ namespace _5_A_Side
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(14, 387);
+            this.label20.Location = new System.Drawing.Point(24, 251);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(69, 15);
             this.label20.TabIndex = 6;
@@ -1220,14 +1220,14 @@ namespace _5_A_Side
             // 
             // p3LastNameTxt
             // 
-            this.p3LastNameTxt.Location = new System.Drawing.Point(162, 84);
+            this.p3LastNameTxt.Location = new System.Drawing.Point(162, 57);
             this.p3LastNameTxt.Name = "p3LastNameTxt";
             this.p3LastNameTxt.Size = new System.Drawing.Size(322, 24);
             this.p3LastNameTxt.TabIndex = 5;
             // 
             // p3ShootingSlider
             // 
-            this.p3ShootingSlider.Location = new System.Drawing.Point(162, 234);
+            this.p3ShootingSlider.Location = new System.Drawing.Point(157, 160);
             this.p3ShootingSlider.Maximum = 100;
             this.p3ShootingSlider.Name = "p3ShootingSlider";
             this.p3ShootingSlider.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -1238,7 +1238,7 @@ namespace _5_A_Side
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(17, 262);
+            this.label21.Location = new System.Drawing.Point(24, 173);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(66, 15);
             this.label21.TabIndex = 3;
@@ -1247,7 +1247,7 @@ namespace _5_A_Side
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(17, 90);
+            this.label22.Location = new System.Drawing.Point(17, 66);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(73, 15);
             this.label22.TabIndex = 2;
@@ -1303,14 +1303,14 @@ namespace _5_A_Side
             this.tabPage4.Location = new System.Drawing.Point(4, 24);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(1005, 413);
+            this.tabPage4.Size = new System.Drawing.Size(1005, 387);
             this.tabPage4.TabIndex = 9;
             this.tabPage4.Text = "Player 4";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
             // p4ShirtTxt
             // 
-            this.p4ShirtTxt.Location = new System.Drawing.Point(185, 153);
+            this.p4ShirtTxt.Location = new System.Drawing.Point(162, 89);
             this.p4ShirtTxt.Name = "p4ShirtTxt";
             this.p4ShirtTxt.Size = new System.Drawing.Size(299, 24);
             this.p4ShirtTxt.TabIndex = 28;
@@ -1318,7 +1318,7 @@ namespace _5_A_Side
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(17, 162);
+            this.label24.Location = new System.Drawing.Point(17, 92);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(91, 15);
             this.label24.TabIndex = 27;
@@ -1328,7 +1328,7 @@ namespace _5_A_Side
             // 
             this.p4CurrAggro.AutoSize = true;
             this.p4CurrAggro.BackColor = System.Drawing.SystemColors.Control;
-            this.p4CurrAggro.Location = new System.Drawing.Point(797, 534);
+            this.p4CurrAggro.Location = new System.Drawing.Point(797, 336);
             this.p4CurrAggro.Name = "p4CurrAggro";
             this.p4CurrAggro.Size = new System.Drawing.Size(14, 15);
             this.p4CurrAggro.TabIndex = 26;
@@ -1336,7 +1336,7 @@ namespace _5_A_Side
             // 
             // p4AgrroSlider
             // 
-            this.p4AgrroSlider.Location = new System.Drawing.Point(644, 470);
+            this.p4AgrroSlider.Location = new System.Drawing.Point(644, 306);
             this.p4AgrroSlider.Maximum = 100;
             this.p4AgrroSlider.Name = "p4AgrroSlider";
             this.p4AgrroSlider.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -1347,7 +1347,7 @@ namespace _5_A_Side
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(516, 490);
+            this.label26.Location = new System.Drawing.Point(535, 326);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(74, 15);
             this.label26.TabIndex = 24;
@@ -1357,7 +1357,7 @@ namespace _5_A_Side
             // 
             this.p4CurrTackle.AutoSize = true;
             this.p4CurrTackle.BackColor = System.Drawing.SystemColors.Control;
-            this.p4CurrTackle.Location = new System.Drawing.Point(797, 413);
+            this.p4CurrTackle.Location = new System.Drawing.Point(797, 253);
             this.p4CurrTackle.Name = "p4CurrTackle";
             this.p4CurrTackle.Size = new System.Drawing.Size(14, 15);
             this.p4CurrTackle.TabIndex = 23;
@@ -1365,7 +1365,7 @@ namespace _5_A_Side
             // 
             // p4TackleSlider
             // 
-            this.p4TackleSlider.Location = new System.Drawing.Point(644, 360);
+            this.p4TackleSlider.Location = new System.Drawing.Point(644, 223);
             this.p4TackleSlider.Maximum = 100;
             this.p4TackleSlider.Name = "p4TackleSlider";
             this.p4TackleSlider.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -1376,7 +1376,7 @@ namespace _5_A_Side
             // label28
             // 
             this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(516, 387);
+            this.label28.Location = new System.Drawing.Point(543, 243);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(63, 15);
             this.label28.TabIndex = 21;
@@ -1386,7 +1386,7 @@ namespace _5_A_Side
             // 
             this.p4CurrReliable.AutoSize = true;
             this.p4CurrReliable.BackColor = System.Drawing.SystemColors.Control;
-            this.p4CurrReliable.Location = new System.Drawing.Point(797, 285);
+            this.p4CurrReliable.Location = new System.Drawing.Point(797, 190);
             this.p4CurrReliable.Name = "p4CurrReliable";
             this.p4CurrReliable.Size = new System.Drawing.Size(14, 15);
             this.p4CurrReliable.TabIndex = 20;
@@ -1394,7 +1394,7 @@ namespace _5_A_Side
             // 
             // p4ReliableSlider
             // 
-            this.p4ReliableSlider.Location = new System.Drawing.Point(644, 234);
+            this.p4ReliableSlider.Location = new System.Drawing.Point(644, 160);
             this.p4ReliableSlider.Maximum = 100;
             this.p4ReliableSlider.Name = "p4ReliableSlider";
             this.p4ReliableSlider.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -1405,7 +1405,7 @@ namespace _5_A_Side
             // label30
             // 
             this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(516, 262);
+            this.label30.Location = new System.Drawing.Point(533, 173);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(73, 15);
             this.label30.TabIndex = 18;
@@ -1415,7 +1415,7 @@ namespace _5_A_Side
             // 
             this.p4CurrPhysical.AutoSize = true;
             this.p4CurrPhysical.BackColor = System.Drawing.SystemColors.Control;
-            this.p4CurrPhysical.Location = new System.Drawing.Point(797, 173);
+            this.p4CurrPhysical.Location = new System.Drawing.Point(797, 122);
             this.p4CurrPhysical.Name = "p4CurrPhysical";
             this.p4CurrPhysical.Size = new System.Drawing.Size(14, 15);
             this.p4CurrPhysical.TabIndex = 17;
@@ -1423,7 +1423,7 @@ namespace _5_A_Side
             // 
             // p4PhysicalSlider
             // 
-            this.p4PhysicalSlider.Location = new System.Drawing.Point(644, 112);
+            this.p4PhysicalSlider.Location = new System.Drawing.Point(644, 92);
             this.p4PhysicalSlider.Maximum = 100;
             this.p4PhysicalSlider.Name = "p4PhysicalSlider";
             this.p4PhysicalSlider.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -1434,7 +1434,7 @@ namespace _5_A_Side
             // label32
             // 
             this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(492, 141);
+            this.label32.Location = new System.Drawing.Point(533, 109);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(76, 15);
             this.label32.TabIndex = 15;
@@ -1444,7 +1444,7 @@ namespace _5_A_Side
             // 
             this.p4PointsRemaining.AutoSize = true;
             this.p4PointsRemaining.Font = new System.Drawing.Font("Segoe UI Black", 30F, System.Drawing.FontStyle.Bold);
-            this.p4PointsRemaining.Location = new System.Drawing.Point(872, 16);
+            this.p4PointsRemaining.Location = new System.Drawing.Point(820, 19);
             this.p4PointsRemaining.Name = "p4PointsRemaining";
             this.p4PointsRemaining.Size = new System.Drawing.Size(96, 54);
             this.p4PointsRemaining.TabIndex = 14;
@@ -1454,7 +1454,7 @@ namespace _5_A_Side
             // 
             this.label34.AutoSize = true;
             this.label34.Font = new System.Drawing.Font("Segoe UI Black", 13F, System.Drawing.FontStyle.Bold);
-            this.label34.Location = new System.Drawing.Point(516, 19);
+            this.label34.Location = new System.Drawing.Point(615, 19);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(183, 50);
             this.label34.TabIndex = 13;
@@ -1464,7 +1464,7 @@ namespace _5_A_Side
             // 
             this.p4CurrPace.AutoSize = true;
             this.p4CurrPace.BackColor = System.Drawing.SystemColors.Control;
-            this.p4CurrPace.Location = new System.Drawing.Point(297, 534);
+            this.p4CurrPace.Location = new System.Drawing.Point(297, 336);
             this.p4CurrPace.Name = "p4CurrPace";
             this.p4CurrPace.Size = new System.Drawing.Size(14, 15);
             this.p4CurrPace.TabIndex = 12;
@@ -1474,7 +1474,7 @@ namespace _5_A_Side
             // 
             this.p4CurrDribbling.AutoSize = true;
             this.p4CurrDribbling.BackColor = System.Drawing.SystemColors.Control;
-            this.p4CurrDribbling.Location = new System.Drawing.Point(297, 413);
+            this.p4CurrDribbling.Location = new System.Drawing.Point(297, 253);
             this.p4CurrDribbling.Name = "p4CurrDribbling";
             this.p4CurrDribbling.Size = new System.Drawing.Size(14, 15);
             this.p4CurrDribbling.TabIndex = 11;
@@ -1484,7 +1484,7 @@ namespace _5_A_Side
             // 
             this.p4CurrShooting.AutoSize = true;
             this.p4CurrShooting.BackColor = System.Drawing.SystemColors.Control;
-            this.p4CurrShooting.Location = new System.Drawing.Point(297, 285);
+            this.p4CurrShooting.Location = new System.Drawing.Point(297, 173);
             this.p4CurrShooting.Name = "p4CurrShooting";
             this.p4CurrShooting.Size = new System.Drawing.Size(14, 15);
             this.p4CurrShooting.TabIndex = 10;
@@ -1494,7 +1494,7 @@ namespace _5_A_Side
             // 
             this.p4PaceSlider.BackColor = System.Drawing.SystemColors.Control;
             this.p4PaceSlider.Cursor = System.Windows.Forms.Cursors.Default;
-            this.p4PaceSlider.Location = new System.Drawing.Point(157, 470);
+            this.p4PaceSlider.Location = new System.Drawing.Point(162, 306);
             this.p4PaceSlider.Maximum = 100;
             this.p4PaceSlider.Name = "p4PaceSlider";
             this.p4PaceSlider.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -1505,7 +1505,7 @@ namespace _5_A_Side
             // label38
             // 
             this.label38.AutoSize = true;
-            this.label38.Location = new System.Drawing.Point(69, 490);
+            this.label38.Location = new System.Drawing.Point(69, 326);
             this.label38.Name = "label38";
             this.label38.Size = new System.Drawing.Size(39, 15);
             this.label38.TabIndex = 8;
@@ -1515,7 +1515,7 @@ namespace _5_A_Side
             // 
             this.p4DribblingSlider.BackColor = System.Drawing.SystemColors.Control;
             this.p4DribblingSlider.Cursor = System.Windows.Forms.Cursors.Default;
-            this.p4DribblingSlider.Location = new System.Drawing.Point(157, 360);
+            this.p4DribblingSlider.Location = new System.Drawing.Point(162, 223);
             this.p4DribblingSlider.Maximum = 100;
             this.p4DribblingSlider.Name = "p4DribblingSlider";
             this.p4DribblingSlider.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -1526,7 +1526,7 @@ namespace _5_A_Side
             // label39
             // 
             this.label39.AutoSize = true;
-            this.label39.Location = new System.Drawing.Point(14, 387);
+            this.label39.Location = new System.Drawing.Point(39, 243);
             this.label39.Name = "label39";
             this.label39.Size = new System.Drawing.Size(69, 15);
             this.label39.TabIndex = 6;
@@ -1534,14 +1534,14 @@ namespace _5_A_Side
             // 
             // p4LastNameTxt
             // 
-            this.p4LastNameTxt.Location = new System.Drawing.Point(162, 84);
+            this.p4LastNameTxt.Location = new System.Drawing.Point(162, 46);
             this.p4LastNameTxt.Name = "p4LastNameTxt";
             this.p4LastNameTxt.Size = new System.Drawing.Size(322, 24);
             this.p4LastNameTxt.TabIndex = 5;
             // 
             // p4ShootingSlider
             // 
-            this.p4ShootingSlider.Location = new System.Drawing.Point(162, 234);
+            this.p4ShootingSlider.Location = new System.Drawing.Point(162, 143);
             this.p4ShootingSlider.Maximum = 100;
             this.p4ShootingSlider.Name = "p4ShootingSlider";
             this.p4ShootingSlider.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -1552,7 +1552,7 @@ namespace _5_A_Side
             // label40
             // 
             this.label40.AutoSize = true;
-            this.label40.Location = new System.Drawing.Point(17, 262);
+            this.label40.Location = new System.Drawing.Point(42, 160);
             this.label40.Name = "label40";
             this.label40.Size = new System.Drawing.Size(66, 15);
             this.label40.TabIndex = 3;
@@ -1561,7 +1561,7 @@ namespace _5_A_Side
             // label41
             // 
             this.label41.AutoSize = true;
-            this.label41.Location = new System.Drawing.Point(17, 90);
+            this.label41.Location = new System.Drawing.Point(17, 55);
             this.label41.Name = "label41";
             this.label41.Size = new System.Drawing.Size(73, 15);
             this.label41.TabIndex = 2;
@@ -1617,14 +1617,14 @@ namespace _5_A_Side
             this.tabPage5.Location = new System.Drawing.Point(4, 24);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(1005, 413);
+            this.tabPage5.Size = new System.Drawing.Size(1005, 387);
             this.tabPage5.TabIndex = 10;
             this.tabPage5.Text = "Player 5";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
             // p5ShirtTxt
             // 
-            this.p5ShirtTxt.Location = new System.Drawing.Point(185, 153);
+            this.p5ShirtTxt.Location = new System.Drawing.Point(162, 101);
             this.p5ShirtTxt.Name = "p5ShirtTxt";
             this.p5ShirtTxt.Size = new System.Drawing.Size(299, 24);
             this.p5ShirtTxt.TabIndex = 28;
@@ -1632,7 +1632,7 @@ namespace _5_A_Side
             // label43
             // 
             this.label43.AutoSize = true;
-            this.label43.Location = new System.Drawing.Point(17, 162);
+            this.label43.Location = new System.Drawing.Point(17, 112);
             this.label43.Name = "label43";
             this.label43.Size = new System.Drawing.Size(91, 15);
             this.label43.TabIndex = 27;
@@ -1642,7 +1642,7 @@ namespace _5_A_Side
             // 
             this.p5CurrAggro.AutoSize = true;
             this.p5CurrAggro.BackColor = System.Drawing.SystemColors.Control;
-            this.p5CurrAggro.Location = new System.Drawing.Point(797, 534);
+            this.p5CurrAggro.Location = new System.Drawing.Point(797, 315);
             this.p5CurrAggro.Name = "p5CurrAggro";
             this.p5CurrAggro.Size = new System.Drawing.Size(14, 15);
             this.p5CurrAggro.TabIndex = 26;
@@ -1650,7 +1650,7 @@ namespace _5_A_Side
             // 
             // p5AggroSlider
             // 
-            this.p5AggroSlider.Location = new System.Drawing.Point(644, 470);
+            this.p5AggroSlider.Location = new System.Drawing.Point(644, 285);
             this.p5AggroSlider.Maximum = 100;
             this.p5AggroSlider.Name = "p5AggroSlider";
             this.p5AggroSlider.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -1661,7 +1661,7 @@ namespace _5_A_Side
             // label45
             // 
             this.label45.AutoSize = true;
-            this.label45.Location = new System.Drawing.Point(516, 490);
+            this.label45.Location = new System.Drawing.Point(547, 301);
             this.label45.Name = "label45";
             this.label45.Size = new System.Drawing.Size(74, 15);
             this.label45.TabIndex = 24;
@@ -1671,7 +1671,7 @@ namespace _5_A_Side
             // 
             this.p5CurrTackle.AutoSize = true;
             this.p5CurrTackle.BackColor = System.Drawing.SystemColors.Control;
-            this.p5CurrTackle.Location = new System.Drawing.Point(797, 413);
+            this.p5CurrTackle.Location = new System.Drawing.Point(797, 239);
             this.p5CurrTackle.Name = "p5CurrTackle";
             this.p5CurrTackle.Size = new System.Drawing.Size(14, 15);
             this.p5CurrTackle.TabIndex = 23;
@@ -1679,7 +1679,7 @@ namespace _5_A_Side
             // 
             // p5TackleSlider
             // 
-            this.p5TackleSlider.Location = new System.Drawing.Point(644, 360);
+            this.p5TackleSlider.Location = new System.Drawing.Point(644, 209);
             this.p5TackleSlider.Maximum = 100;
             this.p5TackleSlider.Name = "p5TackleSlider";
             this.p5TackleSlider.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -1690,7 +1690,7 @@ namespace _5_A_Side
             // label47
             // 
             this.label47.AutoSize = true;
-            this.label47.Location = new System.Drawing.Point(516, 387);
+            this.label47.Location = new System.Drawing.Point(558, 233);
             this.label47.Name = "label47";
             this.label47.Size = new System.Drawing.Size(63, 15);
             this.label47.TabIndex = 21;
@@ -1700,7 +1700,7 @@ namespace _5_A_Side
             // 
             this.p5CurrReliability.AutoSize = true;
             this.p5CurrReliability.BackColor = System.Drawing.SystemColors.Control;
-            this.p5CurrReliability.Location = new System.Drawing.Point(797, 285);
+            this.p5CurrReliability.Location = new System.Drawing.Point(797, 173);
             this.p5CurrReliability.Name = "p5CurrReliability";
             this.p5CurrReliability.Size = new System.Drawing.Size(14, 15);
             this.p5CurrReliability.TabIndex = 20;
@@ -1708,7 +1708,7 @@ namespace _5_A_Side
             // 
             // p5ReliableSlider
             // 
-            this.p5ReliableSlider.Location = new System.Drawing.Point(644, 234);
+            this.p5ReliableSlider.Location = new System.Drawing.Point(644, 143);
             this.p5ReliableSlider.Maximum = 100;
             this.p5ReliableSlider.Name = "p5ReliableSlider";
             this.p5ReliableSlider.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -1719,7 +1719,7 @@ namespace _5_A_Side
             // label49
             // 
             this.label49.AutoSize = true;
-            this.label49.Location = new System.Drawing.Point(516, 262);
+            this.label49.Location = new System.Drawing.Point(548, 160);
             this.label49.Name = "label49";
             this.label49.Size = new System.Drawing.Size(73, 15);
             this.label49.TabIndex = 18;
@@ -1729,7 +1729,7 @@ namespace _5_A_Side
             // 
             this.p5CurrPhysical.AutoSize = true;
             this.p5CurrPhysical.BackColor = System.Drawing.SystemColors.Control;
-            this.p5CurrPhysical.Location = new System.Drawing.Point(797, 173);
+            this.p5CurrPhysical.Location = new System.Drawing.Point(797, 112);
             this.p5CurrPhysical.Name = "p5CurrPhysical";
             this.p5CurrPhysical.Size = new System.Drawing.Size(14, 15);
             this.p5CurrPhysical.TabIndex = 17;
@@ -1737,7 +1737,7 @@ namespace _5_A_Side
             // 
             // p5PhysicalitySlider
             // 
-            this.p5PhysicalitySlider.Location = new System.Drawing.Point(644, 112);
+            this.p5PhysicalitySlider.Location = new System.Drawing.Point(644, 82);
             this.p5PhysicalitySlider.Maximum = 100;
             this.p5PhysicalitySlider.Name = "p5PhysicalitySlider";
             this.p5PhysicalitySlider.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -1748,7 +1748,7 @@ namespace _5_A_Side
             // label51
             // 
             this.label51.AutoSize = true;
-            this.label51.Location = new System.Drawing.Point(492, 141);
+            this.label51.Location = new System.Drawing.Point(548, 101);
             this.label51.Name = "label51";
             this.label51.Size = new System.Drawing.Size(76, 15);
             this.label51.TabIndex = 15;
@@ -1758,7 +1758,7 @@ namespace _5_A_Side
             // 
             this.p5PointsRemaining.AutoSize = true;
             this.p5PointsRemaining.Font = new System.Drawing.Font("Segoe UI Black", 30F, System.Drawing.FontStyle.Bold);
-            this.p5PointsRemaining.Location = new System.Drawing.Point(872, 16);
+            this.p5PointsRemaining.Location = new System.Drawing.Point(791, 19);
             this.p5PointsRemaining.Name = "p5PointsRemaining";
             this.p5PointsRemaining.Size = new System.Drawing.Size(96, 54);
             this.p5PointsRemaining.TabIndex = 14;
@@ -1768,7 +1768,7 @@ namespace _5_A_Side
             // 
             this.label53.AutoSize = true;
             this.label53.Font = new System.Drawing.Font("Segoe UI Black", 13F, System.Drawing.FontStyle.Bold);
-            this.label53.Location = new System.Drawing.Point(516, 19);
+            this.label53.Location = new System.Drawing.Point(602, 23);
             this.label53.Name = "label53";
             this.label53.Size = new System.Drawing.Size(183, 50);
             this.label53.TabIndex = 13;
@@ -1778,7 +1778,7 @@ namespace _5_A_Side
             // 
             this.p5CurrPace.AutoSize = true;
             this.p5CurrPace.BackColor = System.Drawing.SystemColors.Control;
-            this.p5CurrPace.Location = new System.Drawing.Point(297, 534);
+            this.p5CurrPace.Location = new System.Drawing.Point(297, 315);
             this.p5CurrPace.Name = "p5CurrPace";
             this.p5CurrPace.Size = new System.Drawing.Size(14, 15);
             this.p5CurrPace.TabIndex = 12;
@@ -1788,7 +1788,7 @@ namespace _5_A_Side
             // 
             this.p5CurrDribbling.AutoSize = true;
             this.p5CurrDribbling.BackColor = System.Drawing.SystemColors.Control;
-            this.p5CurrDribbling.Location = new System.Drawing.Point(297, 413);
+            this.p5CurrDribbling.Location = new System.Drawing.Point(297, 239);
             this.p5CurrDribbling.Name = "p5CurrDribbling";
             this.p5CurrDribbling.Size = new System.Drawing.Size(14, 15);
             this.p5CurrDribbling.TabIndex = 11;
@@ -1798,7 +1798,7 @@ namespace _5_A_Side
             // 
             this.p5CurrShooting.AutoSize = true;
             this.p5CurrShooting.BackColor = System.Drawing.SystemColors.Control;
-            this.p5CurrShooting.Location = new System.Drawing.Point(297, 285);
+            this.p5CurrShooting.Location = new System.Drawing.Point(297, 173);
             this.p5CurrShooting.Name = "p5CurrShooting";
             this.p5CurrShooting.Size = new System.Drawing.Size(14, 15);
             this.p5CurrShooting.TabIndex = 10;
@@ -1808,7 +1808,7 @@ namespace _5_A_Side
             // 
             this.p5PaceSlider.BackColor = System.Drawing.SystemColors.Control;
             this.p5PaceSlider.Cursor = System.Windows.Forms.Cursors.Default;
-            this.p5PaceSlider.Location = new System.Drawing.Point(157, 470);
+            this.p5PaceSlider.Location = new System.Drawing.Point(162, 285);
             this.p5PaceSlider.Maximum = 100;
             this.p5PaceSlider.Name = "p5PaceSlider";
             this.p5PaceSlider.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -1819,7 +1819,7 @@ namespace _5_A_Side
             // label57
             // 
             this.label57.AutoSize = true;
-            this.label57.Location = new System.Drawing.Point(69, 490);
+            this.label57.Location = new System.Drawing.Point(102, 301);
             this.label57.Name = "label57";
             this.label57.Size = new System.Drawing.Size(39, 15);
             this.label57.TabIndex = 8;
@@ -1829,7 +1829,7 @@ namespace _5_A_Side
             // 
             this.p5DribblingSlider.BackColor = System.Drawing.SystemColors.Control;
             this.p5DribblingSlider.Cursor = System.Windows.Forms.Cursors.Default;
-            this.p5DribblingSlider.Location = new System.Drawing.Point(157, 360);
+            this.p5DribblingSlider.Location = new System.Drawing.Point(159, 209);
             this.p5DribblingSlider.Maximum = 100;
             this.p5DribblingSlider.Name = "p5DribblingSlider";
             this.p5DribblingSlider.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -1840,7 +1840,7 @@ namespace _5_A_Side
             // label58
             // 
             this.label58.AutoSize = true;
-            this.label58.Location = new System.Drawing.Point(14, 387);
+            this.label58.Location = new System.Drawing.Point(84, 223);
             this.label58.Name = "label58";
             this.label58.Size = new System.Drawing.Size(69, 15);
             this.label58.TabIndex = 6;
@@ -1848,14 +1848,14 @@ namespace _5_A_Side
             // 
             // p5LastNameTxt
             // 
-            this.p5LastNameTxt.Location = new System.Drawing.Point(162, 84);
+            this.p5LastNameTxt.Location = new System.Drawing.Point(162, 56);
             this.p5LastNameTxt.Name = "p5LastNameTxt";
             this.p5LastNameTxt.Size = new System.Drawing.Size(322, 24);
             this.p5LastNameTxt.TabIndex = 5;
             // 
             // p5ShootingSlider
             // 
-            this.p5ShootingSlider.Location = new System.Drawing.Point(162, 234);
+            this.p5ShootingSlider.Location = new System.Drawing.Point(159, 143);
             this.p5ShootingSlider.Maximum = 100;
             this.p5ShootingSlider.Name = "p5ShootingSlider";
             this.p5ShootingSlider.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -1866,7 +1866,7 @@ namespace _5_A_Side
             // label59
             // 
             this.label59.AutoSize = true;
-            this.label59.Location = new System.Drawing.Point(17, 262);
+            this.label59.Location = new System.Drawing.Point(84, 160);
             this.label59.Name = "label59";
             this.label59.Size = new System.Drawing.Size(66, 15);
             this.label59.TabIndex = 3;
@@ -1875,7 +1875,7 @@ namespace _5_A_Side
             // label60
             // 
             this.label60.AutoSize = true;
-            this.label60.Location = new System.Drawing.Point(17, 90);
+            this.label60.Location = new System.Drawing.Point(17, 65);
             this.label60.Name = "label60";
             this.label60.Size = new System.Drawing.Size(73, 15);
             this.label60.TabIndex = 2;
@@ -1931,14 +1931,14 @@ namespace _5_A_Side
             this.tabPage6.Location = new System.Drawing.Point(4, 24);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(1005, 413);
+            this.tabPage6.Size = new System.Drawing.Size(1005, 387);
             this.tabPage6.TabIndex = 11;
             this.tabPage6.Text = "Substitute";
             this.tabPage6.UseVisualStyleBackColor = true;
             // 
             // subShirtTxt
             // 
-            this.subShirtTxt.Location = new System.Drawing.Point(185, 153);
+            this.subShirtTxt.Location = new System.Drawing.Point(162, 89);
             this.subShirtTxt.Name = "subShirtTxt";
             this.subShirtTxt.Size = new System.Drawing.Size(299, 24);
             this.subShirtTxt.TabIndex = 28;
@@ -1946,7 +1946,7 @@ namespace _5_A_Side
             // label62
             // 
             this.label62.AutoSize = true;
-            this.label62.Location = new System.Drawing.Point(6, 156);
+            this.label62.Location = new System.Drawing.Point(50, 92);
             this.label62.Name = "label62";
             this.label62.Size = new System.Drawing.Size(91, 15);
             this.label62.TabIndex = 27;
@@ -1956,7 +1956,7 @@ namespace _5_A_Side
             // 
             this.subCurrAggro.AutoSize = true;
             this.subCurrAggro.BackColor = System.Drawing.SystemColors.Control;
-            this.subCurrAggro.Location = new System.Drawing.Point(797, 534);
+            this.subCurrAggro.Location = new System.Drawing.Point(797, 302);
             this.subCurrAggro.Name = "subCurrAggro";
             this.subCurrAggro.Size = new System.Drawing.Size(14, 15);
             this.subCurrAggro.TabIndex = 26;
@@ -1964,7 +1964,7 @@ namespace _5_A_Side
             // 
             // subAggroSlider
             // 
-            this.subAggroSlider.Location = new System.Drawing.Point(644, 470);
+            this.subAggroSlider.Location = new System.Drawing.Point(644, 272);
             this.subAggroSlider.Maximum = 100;
             this.subAggroSlider.Name = "subAggroSlider";
             this.subAggroSlider.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -1975,7 +1975,7 @@ namespace _5_A_Side
             // label64
             // 
             this.label64.AutoSize = true;
-            this.label64.Location = new System.Drawing.Point(516, 490);
+            this.label64.Location = new System.Drawing.Point(555, 292);
             this.label64.Name = "label64";
             this.label64.Size = new System.Drawing.Size(74, 15);
             this.label64.TabIndex = 24;
@@ -1985,7 +1985,7 @@ namespace _5_A_Side
             // 
             this.subCurrTackle.AutoSize = true;
             this.subCurrTackle.BackColor = System.Drawing.SystemColors.Control;
-            this.subCurrTackle.Location = new System.Drawing.Point(797, 413);
+            this.subCurrTackle.Location = new System.Drawing.Point(797, 228);
             this.subCurrTackle.Name = "subCurrTackle";
             this.subCurrTackle.Size = new System.Drawing.Size(14, 15);
             this.subCurrTackle.TabIndex = 23;
@@ -1993,7 +1993,7 @@ namespace _5_A_Side
             // 
             // subTackleSlider
             // 
-            this.subTackleSlider.Location = new System.Drawing.Point(644, 360);
+            this.subTackleSlider.Location = new System.Drawing.Point(644, 198);
             this.subTackleSlider.Maximum = 100;
             this.subTackleSlider.Name = "subTackleSlider";
             this.subTackleSlider.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -2004,7 +2004,7 @@ namespace _5_A_Side
             // label66
             // 
             this.label66.AutoSize = true;
-            this.label66.Location = new System.Drawing.Point(516, 387);
+            this.label66.Location = new System.Drawing.Point(556, 207);
             this.label66.Name = "label66";
             this.label66.Size = new System.Drawing.Size(63, 15);
             this.label66.TabIndex = 21;
@@ -2014,7 +2014,7 @@ namespace _5_A_Side
             // 
             this.subCurrReliable.AutoSize = true;
             this.subCurrReliable.BackColor = System.Drawing.SystemColors.Control;
-            this.subCurrReliable.Location = new System.Drawing.Point(797, 285);
+            this.subCurrReliable.Location = new System.Drawing.Point(797, 160);
             this.subCurrReliable.Name = "subCurrReliable";
             this.subCurrReliable.Size = new System.Drawing.Size(14, 15);
             this.subCurrReliable.TabIndex = 20;
@@ -2022,7 +2022,7 @@ namespace _5_A_Side
             // 
             // subReliableSlider
             // 
-            this.subReliableSlider.Location = new System.Drawing.Point(644, 234);
+            this.subReliableSlider.Location = new System.Drawing.Point(644, 130);
             this.subReliableSlider.Maximum = 100;
             this.subReliableSlider.Name = "subReliableSlider";
             this.subReliableSlider.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -2033,7 +2033,7 @@ namespace _5_A_Side
             // label68
             // 
             this.label68.AutoSize = true;
-            this.label68.Location = new System.Drawing.Point(516, 262);
+            this.label68.Location = new System.Drawing.Point(556, 146);
             this.label68.Name = "label68";
             this.label68.Size = new System.Drawing.Size(73, 15);
             this.label68.TabIndex = 18;
@@ -2043,7 +2043,7 @@ namespace _5_A_Side
             // 
             this.subCurrPhysical.AutoSize = true;
             this.subCurrPhysical.BackColor = System.Drawing.SystemColors.Control;
-            this.subCurrPhysical.Location = new System.Drawing.Point(797, 173);
+            this.subCurrPhysical.Location = new System.Drawing.Point(797, 103);
             this.subCurrPhysical.Name = "subCurrPhysical";
             this.subCurrPhysical.Size = new System.Drawing.Size(14, 15);
             this.subCurrPhysical.TabIndex = 17;
@@ -2051,7 +2051,7 @@ namespace _5_A_Side
             // 
             // subPhysicalSlider
             // 
-            this.subPhysicalSlider.Location = new System.Drawing.Point(644, 112);
+            this.subPhysicalSlider.Location = new System.Drawing.Point(644, 73);
             this.subPhysicalSlider.Maximum = 100;
             this.subPhysicalSlider.Name = "subPhysicalSlider";
             this.subPhysicalSlider.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -2062,7 +2062,7 @@ namespace _5_A_Side
             // label70
             // 
             this.label70.AutoSize = true;
-            this.label70.Location = new System.Drawing.Point(492, 141);
+            this.label70.Location = new System.Drawing.Point(553, 92);
             this.label70.Name = "label70";
             this.label70.Size = new System.Drawing.Size(76, 15);
             this.label70.TabIndex = 15;
@@ -2072,7 +2072,7 @@ namespace _5_A_Side
             // 
             this.subPointsRemaining.AutoSize = true;
             this.subPointsRemaining.Font = new System.Drawing.Font("Segoe UI Black", 30F, System.Drawing.FontStyle.Bold);
-            this.subPointsRemaining.Location = new System.Drawing.Point(872, 16);
+            this.subPointsRemaining.Location = new System.Drawing.Point(777, 19);
             this.subPointsRemaining.Name = "subPointsRemaining";
             this.subPointsRemaining.Size = new System.Drawing.Size(96, 54);
             this.subPointsRemaining.TabIndex = 14;
@@ -2082,7 +2082,7 @@ namespace _5_A_Side
             // 
             this.label72.AutoSize = true;
             this.label72.Font = new System.Drawing.Font("Segoe UI Black", 13F, System.Drawing.FontStyle.Bold);
-            this.label72.Location = new System.Drawing.Point(516, 19);
+            this.label72.Location = new System.Drawing.Point(601, 20);
             this.label72.Name = "label72";
             this.label72.Size = new System.Drawing.Size(183, 50);
             this.label72.TabIndex = 13;
@@ -2092,7 +2092,7 @@ namespace _5_A_Side
             // 
             this.subCurrPace.AutoSize = true;
             this.subCurrPace.BackColor = System.Drawing.SystemColors.Control;
-            this.subCurrPace.Location = new System.Drawing.Point(297, 534);
+            this.subCurrPace.Location = new System.Drawing.Point(297, 302);
             this.subCurrPace.Name = "subCurrPace";
             this.subCurrPace.Size = new System.Drawing.Size(14, 15);
             this.subCurrPace.TabIndex = 12;
@@ -2102,7 +2102,7 @@ namespace _5_A_Side
             // 
             this.subCurrDribbling.AutoSize = true;
             this.subCurrDribbling.BackColor = System.Drawing.SystemColors.Control;
-            this.subCurrDribbling.Location = new System.Drawing.Point(297, 413);
+            this.subCurrDribbling.Location = new System.Drawing.Point(297, 228);
             this.subCurrDribbling.Name = "subCurrDribbling";
             this.subCurrDribbling.Size = new System.Drawing.Size(14, 15);
             this.subCurrDribbling.TabIndex = 11;
@@ -2112,7 +2112,7 @@ namespace _5_A_Side
             // 
             this.subCurrShooting.AutoSize = true;
             this.subCurrShooting.BackColor = System.Drawing.SystemColors.Control;
-            this.subCurrShooting.Location = new System.Drawing.Point(297, 285);
+            this.subCurrShooting.Location = new System.Drawing.Point(297, 160);
             this.subCurrShooting.Name = "subCurrShooting";
             this.subCurrShooting.Size = new System.Drawing.Size(14, 15);
             this.subCurrShooting.TabIndex = 10;
@@ -2122,7 +2122,7 @@ namespace _5_A_Side
             // 
             this.subPaceSlider.BackColor = System.Drawing.SystemColors.Control;
             this.subPaceSlider.Cursor = System.Windows.Forms.Cursors.Default;
-            this.subPaceSlider.Location = new System.Drawing.Point(157, 470);
+            this.subPaceSlider.Location = new System.Drawing.Point(157, 272);
             this.subPaceSlider.Maximum = 100;
             this.subPaceSlider.Name = "subPaceSlider";
             this.subPaceSlider.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -2133,7 +2133,7 @@ namespace _5_A_Side
             // label76
             // 
             this.label76.AutoSize = true;
-            this.label76.Location = new System.Drawing.Point(69, 490);
+            this.label76.Location = new System.Drawing.Point(75, 283);
             this.label76.Name = "label76";
             this.label76.Size = new System.Drawing.Size(39, 15);
             this.label76.TabIndex = 8;
@@ -2143,7 +2143,7 @@ namespace _5_A_Side
             // 
             this.subDribblingSlider.BackColor = System.Drawing.SystemColors.Control;
             this.subDribblingSlider.Cursor = System.Windows.Forms.Cursors.Default;
-            this.subDribblingSlider.Location = new System.Drawing.Point(157, 360);
+            this.subDribblingSlider.Location = new System.Drawing.Point(157, 198);
             this.subDribblingSlider.Maximum = 100;
             this.subDribblingSlider.Name = "subDribblingSlider";
             this.subDribblingSlider.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -2154,7 +2154,7 @@ namespace _5_A_Side
             // label77
             // 
             this.label77.AutoSize = true;
-            this.label77.Location = new System.Drawing.Point(14, 387);
+            this.label77.Location = new System.Drawing.Point(69, 216);
             this.label77.Name = "label77";
             this.label77.Size = new System.Drawing.Size(69, 15);
             this.label77.TabIndex = 6;
@@ -2162,14 +2162,14 @@ namespace _5_A_Side
             // 
             // subLastNameTxt
             // 
-            this.subLastNameTxt.Location = new System.Drawing.Point(162, 84);
+            this.subLastNameTxt.Location = new System.Drawing.Point(162, 49);
             this.subLastNameTxt.Name = "subLastNameTxt";
             this.subLastNameTxt.Size = new System.Drawing.Size(322, 24);
             this.subLastNameTxt.TabIndex = 5;
             // 
             // subShootingSlider
             // 
-            this.subShootingSlider.Location = new System.Drawing.Point(162, 234);
+            this.subShootingSlider.Location = new System.Drawing.Point(157, 130);
             this.subShootingSlider.Maximum = 100;
             this.subShootingSlider.Name = "subShootingSlider";
             this.subShootingSlider.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -2180,7 +2180,7 @@ namespace _5_A_Side
             // label78
             // 
             this.label78.AutoSize = true;
-            this.label78.Location = new System.Drawing.Point(17, 262);
+            this.label78.Location = new System.Drawing.Point(75, 146);
             this.label78.Name = "label78";
             this.label78.Size = new System.Drawing.Size(66, 15);
             this.label78.TabIndex = 3;
@@ -2189,7 +2189,7 @@ namespace _5_A_Side
             // label79
             // 
             this.label79.AutoSize = true;
-            this.label79.Location = new System.Drawing.Point(17, 90);
+            this.label79.Location = new System.Drawing.Point(52, 58);
             this.label79.Name = "label79";
             this.label79.Size = new System.Drawing.Size(73, 15);
             this.label79.TabIndex = 2;
@@ -2205,7 +2205,7 @@ namespace _5_A_Side
             // label80
             // 
             this.label80.AutoSize = true;
-            this.label80.Location = new System.Drawing.Point(12, 19);
+            this.label80.Location = new System.Drawing.Point(50, 19);
             this.label80.Name = "label80";
             this.label80.Size = new System.Drawing.Size(75, 15);
             this.label80.TabIndex = 0;
