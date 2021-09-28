@@ -459,6 +459,7 @@ namespace _5_A_Side
         {
             if (Convert.ToInt32(pointsRemainingNum.Text) == 0 && Convert.ToInt32(p2PointsLeftLabel.Text) == 0 && Convert.ToInt32(p3PointsRemaining.Text) == 0 && Convert.ToInt32(p4PointsRemaining.Text) == 0 && Convert.ToInt32(p5PointsRemaining.Text) == 0 && Convert.ToInt32(subPointsRemaining.Text) == 0)
             {
+                ///yes
              //   SimulationStarter simulation = new SimulationStarter();
               //  simulation.Show();
                 this.Hide();
