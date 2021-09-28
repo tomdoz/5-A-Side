@@ -470,10 +470,5 @@ namespace _5_A_Side
                 MessageBox.Show(message, title);
             }
         }
-
-        private void playerInputForm_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

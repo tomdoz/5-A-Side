@@ -39,16 +39,17 @@ namespace _5_A_Side
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Black", 30F, System.Drawing.FontStyle.Bold);
+            this.label1.Font = new System.Drawing.Font("Segoe UI Black", 90F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.Maroon;
-            this.label1.Location = new System.Drawing.Point(218, 9);
+            this.label1.Location = new System.Drawing.Point(26, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(942, 212);
+            this.label1.Size = new System.Drawing.Size(1411, 318);
             this.label1.TabIndex = 0;
             this.label1.Text = "FIVE-A-SIDE FANTASY \r\n    DREAM LEAGUE";
             // 
             // signUpButton
             // 
+            this.signUpButton.Font = new System.Drawing.Font("Segoe UI Black", 25F, System.Drawing.FontStyle.Bold);
             this.signUpButton.Location = new System.Drawing.Point(220, 390);
             this.signUpButton.Name = "signUpButton";
             this.signUpButton.Size = new System.Drawing.Size(294, 141);
@@ -58,6 +59,7 @@ namespace _5_A_Side
             // 
             // loginButton
             // 
+            this.loginButton.Font = new System.Drawing.Font("Segoe UI Black", 25F, System.Drawing.FontStyle.Bold);
             this.loginButton.Location = new System.Drawing.Point(883, 390);
             this.loginButton.Name = "loginButton";
             this.loginButton.Size = new System.Drawing.Size(294, 141);
@@ -67,7 +69,7 @@ namespace _5_A_Side
             // 
             // HomePage
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 30F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;

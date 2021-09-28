@@ -52,23 +52,44 @@
     <Compile Include="HomePage.Designer.cs">
       <DependentUpon>HomePage.cs</DependentUpon>
     </Compile>
+    <Compile Include="LoginMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginMenu.designer.cs">
+      <DependentUpon>LoginMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="MatchViewer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MatchViewer.Designer.cs" />
-    <DependentUpon>MatchViewer.cs</DependentUpon>
+    <Compile Include="MatchViewer.Designer.cs">
+      <DependentUpon>MatchViewer.cs</DependentUpon>
+    </Compile>
     <Compile Include="playerInputForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="playerInputForm.Designer.cs" />
+    <Compile Include="playerInputForm.Designer.cs">
+      <DependentUpon>playerInputForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TeamDisplay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TeamDisplay.designer.cs">
+      <DependentUpon>TeamDisplay.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="HomePage.resx">
       <DependentUpon>HomePage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MatchViewer.resx" />
+    <EmbeddedResource Include="LoginMenu.resx">
+      <DependentUpon>LoginMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MatchViewer.resx">
       <DependentUpon>MatchViewer.cs</DependentUpon>
-    <EmbeddedResource Include="playerInputForm.resx" />
+    </EmbeddedResource>
+    <EmbeddedResource Include="playerInputForm.resx">
+      <DependentUpon>playerInputForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -79,6 +100,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="TeamDisplay.resx">
+      <DependentUpon>TeamDisplay.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
