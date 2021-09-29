@@ -5,13 +5,15 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using System.Data.SqlClient;
+using System.Data.Sql;
 
 namespace _5_A_Side
 {
     public partial class MatchViewer : Form
     {
         //variables for individual player attributes (user team);
-        
+
         //captain attribute variables
         public int p1ShootingVal = 80;
         public int p1DribblingVal = 80;

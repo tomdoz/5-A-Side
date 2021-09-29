@@ -16,7 +16,7 @@ namespace _5_A_Side
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new playerInputForm());
+            Application.Run(new SignUpForm());
         }
     }
 }
