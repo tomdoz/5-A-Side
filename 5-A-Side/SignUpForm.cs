@@ -12,8 +12,6 @@ namespace _5_A_Side
 {
     public partial class SignUpForm : Form
     {
-        SqlCommand cmd;
-        SqlConnection cn;
         SqlDataAdapter dataAdapt;
 
         public SignUpForm()
@@ -23,16 +21,16 @@ namespace _5_A_Side
 
         private void signUpButton_Click(object sender, EventArgs e)
         {
-            cn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;Initial Catalog=F:\a levels\PROJ\newTomdoz\5 - A - Side\5 - A - Side\FiveAsideDB.mdf;Integrated Security=True");
-            cn.Open();
-            cmd = new SqlCommand("INSERT INTO [User] (Username, Password, Name) " + "VALUES (@Username ,@Password ,@Name)", cn);
-            cmd.Parameters.AddWithValue("@Username", userNameTxt.Text);
-            cmd.Parameters.AddWithValue("@Password", PWTxt.Text);
-            cmd.Parameters.AddWithValue("@Name", firstName.Text);
-            cmd.ExecuteNonQuery();
-            //playerInputForm inputTeam = new playerInputForm();
-            //inputTeam.Show();
-           this.Close();
+            using (SqlConnection connection = new SqlConnection(Properties.Settings.Default.FiveAsideDBConnectionString))
+            {
+                connection.Open();
+                SqlCommand cmd = new SqlCommand("INSERT INTO dbo.[User] (Username) VALUES (@Username)", connection);
+                cmd.Connection = connection;
+                cmd.Parameters.Add("@Username", SqlDbType.NVarChar);
+                cmd.Parameters["@Username"].Value = userNameTxt.Text;
+                MessageBox.Show(Convert.ToString(cmd.ExecuteNonQuery()), "Siuuu");
+            }
+            //this.Close();
         }
     }
 }
