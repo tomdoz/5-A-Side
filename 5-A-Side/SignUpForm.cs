@@ -12,7 +12,6 @@ namespace _5_A_Side
 {
     public partial class SignUpForm : Form
     {
-        SqlDataAdapter dataAdapt;
 
         public SignUpForm()
         {
@@ -23,8 +22,7 @@ namespace _5_A_Side
         {
             using (SqlConnection connection = new SqlConnection(Properties.Settings.Default.FiveAsideDBConnectionString))
             {
-                connection.Open();
-                SqlCommand cmd = new SqlCommand("INSERT INTO dbo.[User] (Username, Password, Name) VALUES (@Username, @Password, @Name)", connection);
+                SqlCommand cmd = new SqlCommand("INSERT INTO UserTable (Username, Password, Name) VALUES (@Username, @Password, @Name)", connection);
                 cmd.Connection = connection;
                 cmd.Parameters.Add("@Username", SqlDbType.NVarChar, 50);
                 cmd.Parameters["@Username"].Value = userNameTxt.Text;
@@ -32,7 +30,9 @@ namespace _5_A_Side
                 cmd.Parameters["@Password"].Value = PWTxt.Text;
                 cmd.Parameters.Add("@Name", SqlDbType.NVarChar, 50);
                 cmd.Parameters["@Name"].Value = textBox1.Text;
+                connection.Open();
                 MessageBox.Show(Convert.ToString(cmd.ExecuteNonQuery()), "Siuuu");
+                connection.Close();
             }
             //this.Close();
         }

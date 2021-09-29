@@ -61,11 +61,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FiveAsideDBDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>FiveAsideDBDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="HomePage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -132,17 +127,6 @@
     <EmbeddedResource Include="TeamDisplay.resx">
       <DependentUpon>TeamDisplay.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="FiveAsideDBDataSet.xsc">
-      <DependentUpon>FiveAsideDBDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="FiveAsideDBDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>FiveAsideDBDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="FiveAsideDBDataSet.xss">
-      <DependentUpon>FiveAsideDBDataSet.xsd</DependentUpon>
-    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
