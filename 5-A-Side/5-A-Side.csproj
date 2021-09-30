@@ -61,11 +61,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="HomePage.cs">
+    <Compile Include="MainMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="HomePage.Designer.cs">
-      <DependentUpon>HomePage.cs</DependentUpon>
+    <Compile Include="MainMenu.Designer.cs">
+      <DependentUpon>MainMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="LoginMenu.cs">
       <SubType>Form</SubType>
@@ -99,8 +99,8 @@
     <Compile Include="TeamDisplay.designer.cs">
       <DependentUpon>TeamDisplay.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="HomePage.resx">
-      <DependentUpon>HomePage.cs</DependentUpon>
+    <EmbeddedResource Include="MainMenu.resx">
+      <DependentUpon>MainMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginMenu.resx">
       <DependentUpon>LoginMenu.cs</DependentUpon>
