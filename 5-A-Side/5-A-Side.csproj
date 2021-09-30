@@ -105,6 +105,9 @@
     <Compile Include="TeamDisplay.designer.cs">
       <DependentUpon>TeamDisplay.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="HomePage.resx">
+      <DependentUpon>HomePage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
     </EmbeddedResource>
