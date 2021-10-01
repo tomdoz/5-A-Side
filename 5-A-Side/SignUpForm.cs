@@ -20,7 +20,7 @@ namespace _5_A_Side
 
         private void signUpButton_Click(object sender, EventArgs e)
         {
-            using (SqlConnection connection = new SqlConnection(Properties.Settings.Default.FiveAsideDBConnectionString))
+            using (SqlConnection connection = new SqlConnection(Properties.Settings.Default.SimulationFootballDBConnectionString))
             {
                 SqlCommand cmd = new SqlCommand("INSERT INTO UserTable (Username, Password, Name) VALUES (@Username, @Password, @Name)", connection);
                 cmd.Connection = connection;

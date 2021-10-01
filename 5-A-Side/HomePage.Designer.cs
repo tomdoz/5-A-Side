@@ -31,7 +31,10 @@ namespace _5_A_Side
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HomePage));
             this.TitleLabel = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.displayTopScorersButton = new System.Windows.Forms.Button();
+            this.playNextMatchButton = new System.Windows.Forms.Button();
+            this.teamInputButton = new System.Windows.Forms.Button();
+            this.teamDisplayButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // TitleLabel
@@ -47,13 +50,50 @@ namespace _5_A_Side
             this.TitleLabel.TabIndex = 2;
             this.TitleLabel.Text = "Five-A-Side Fantasy Dream League";
             // 
-            // button1
+            // displayTopScorersButton
             // 
-            this.button1.Location = new System.Drawing.Point(337, 326);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(131, 73);
-            this.button1.TabIndex = 3;
-            this.button1.UseVisualStyleBackColor = true;
+            this.displayTopScorersButton.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.displayTopScorersButton.Location = new System.Drawing.Point(622, 201);
+            this.displayTopScorersButton.Name = "displayTopScorersButton";
+            this.displayTopScorersButton.Size = new System.Drawing.Size(150, 86);
+            this.displayTopScorersButton.TabIndex = 3;
+            this.displayTopScorersButton.Text = "Display Top Scorers";
+            this.displayTopScorersButton.UseVisualStyleBackColor = true;
+            this.displayTopScorersButton.Click += new System.EventHandler(this.displayTopScorersButton_Click);
+            // 
+            // playNextMatchButton
+            // 
+            this.playNextMatchButton.Font = new System.Drawing.Font("Segoe UI Black", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.playNextMatchButton.Location = new System.Drawing.Point(280, 166);
+            this.playNextMatchButton.Name = "playNextMatchButton";
+            this.playNextMatchButton.Size = new System.Drawing.Size(238, 156);
+            this.playNextMatchButton.TabIndex = 4;
+            this.playNextMatchButton.Text = "Play Next Match!";
+            this.playNextMatchButton.UseVisualStyleBackColor = true;
+            this.playNextMatchButton.Click += new System.EventHandler(this.playNextMatchButton_Click);
+            // 
+            // teamInputButton
+            // 
+            this.teamInputButton.Font = new System.Drawing.Font("Segoe UI Black", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.teamInputButton.Location = new System.Drawing.Point(280, 166);
+            this.teamInputButton.Name = "teamInputButton";
+            this.teamInputButton.Size = new System.Drawing.Size(238, 156);
+            this.teamInputButton.TabIndex = 5;
+            this.teamInputButton.Text = "You need to create your team!";
+            this.teamInputButton.UseVisualStyleBackColor = true;
+            this.teamInputButton.Visible = false;
+            this.teamInputButton.Click += new System.EventHandler(this.teamInputButton_Click);
+            // 
+            // teamDisplayButton
+            // 
+            this.teamDisplayButton.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.teamDisplayButton.Location = new System.Drawing.Point(12, 201);
+            this.teamDisplayButton.Name = "teamDisplayButton";
+            this.teamDisplayButton.Size = new System.Drawing.Size(150, 86);
+            this.teamDisplayButton.TabIndex = 6;
+            this.teamDisplayButton.Text = "View your Team\'s Attributes";
+            this.teamDisplayButton.UseVisualStyleBackColor = true;
+            this.teamDisplayButton.Click += new System.EventHandler(this.teamDisplayButton_Click);
             // 
             // HomePage
             // 
@@ -62,9 +102,12 @@ namespace _5_A_Side
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(784, 411);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.teamDisplayButton);
+            this.Controls.Add(this.displayTopScorersButton);
             this.Controls.Add(this.TitleLabel);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Controls.Add(this.teamInputButton);
+            this.Controls.Add(this.playNextMatchButton);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "HomePage";
             this.Text = "HomePage";
             this.ResumeLayout(false);
@@ -75,6 +118,9 @@ namespace _5_A_Side
         #endregion
 
         private System.Windows.Forms.Label TitleLabel;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button displayTopScorersButton;
+        private System.Windows.Forms.Button playNextMatchButton;
+        private System.Windows.Forms.Button teamInputButton;
+        private System.Windows.Forms.Button teamDisplayButton;
     }
 }
