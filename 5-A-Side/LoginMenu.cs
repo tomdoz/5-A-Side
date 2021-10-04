@@ -17,8 +17,8 @@ namespace _5_A_Side
 
         private void loginButton_Click(object sender, EventArgs e)
         {
-          // HomePage home = new HomePage();
-         //  home.Show();
+           HomePage home = new HomePage();
+           home.Show();
            this.Close();
         }
 

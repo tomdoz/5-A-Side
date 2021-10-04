@@ -13,7 +13,7 @@ namespace _5_A_Side
     public partial class HomePage : Form
     {
         public int UserID;
-        public int TeamID;
+        public int TeamID = 1;
 
         public HomePage()
         {
@@ -68,7 +68,8 @@ namespace _5_A_Side
 
         private void teamInputButton_Click(object sender, EventArgs e)
         {
-           // teamInputButton teamInput 
+            playerInputForm teamInput = new playerInputForm();
+            teamInput.Show();
         }
     }
 }
