@@ -43,6 +43,7 @@ namespace _5_A_Side
             this.userNameTxt = new System.Windows.Forms.TextBox();
             this.enterUserLabel = new System.Windows.Forms.Label();
             this.signUpButton = new System.Windows.Forms.Button();
+            this.testReadButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,11 +51,12 @@ namespace _5_A_Side
             // 
             this.topTitleLabel.AutoSize = true;
             this.topTitleLabel.BackColor = System.Drawing.Color.Transparent;
-            this.topTitleLabel.Font = new System.Drawing.Font("Segoe UI Black", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.topTitleLabel.Font = new System.Drawing.Font("Segoe UI Black", 30F, System.Drawing.FontStyle.Bold);
             this.topTitleLabel.ForeColor = System.Drawing.Color.DarkRed;
-            this.topTitleLabel.Location = new System.Drawing.Point(193, 22);
+            this.topTitleLabel.Location = new System.Drawing.Point(89, 9);
+            this.topTitleLabel.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.topTitleLabel.Name = "topTitleLabel";
-            this.topTitleLabel.Size = new System.Drawing.Size(1083, 106);
+            this.topTitleLabel.Size = new System.Drawing.Size(538, 54);
             this.topTitleLabel.TabIndex = 1;
             this.topTitleLabel.Text = "Five-A-Side Dream League";
             // 
@@ -71,9 +73,11 @@ namespace _5_A_Side
             this.groupBox1.Controls.Add(this.enterPWLabel);
             this.groupBox1.Controls.Add(this.userNameTxt);
             this.groupBox1.Controls.Add(this.enterUserLabel);
-            this.groupBox1.Location = new System.Drawing.Point(59, 189);
+            this.groupBox1.Location = new System.Drawing.Point(27, 77);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(1);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(688, 437);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(1);
+            this.groupBox1.Size = new System.Drawing.Size(318, 178);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Create your account here!";
@@ -82,110 +86,136 @@ namespace _5_A_Side
             // 
             this.enterDOB.AutoSize = true;
             this.enterDOB.BackColor = System.Drawing.SystemColors.Window;
-            this.enterDOB.Location = new System.Drawing.Point(72, 368);
+            this.enterDOB.Location = new System.Drawing.Point(33, 150);
+            this.enterDOB.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.enterDOB.Name = "enterDOB";
-            this.enterDOB.Size = new System.Drawing.Size(155, 32);
+            this.enterDOB.Size = new System.Drawing.Size(68, 13);
             this.enterDOB.TabIndex = 9;
             this.enterDOB.Text = "Date of birth:";
             // 
             // dobPicker
             // 
-            this.dobPicker.Location = new System.Drawing.Point(233, 368);
+            this.dobPicker.Location = new System.Drawing.Point(108, 150);
+            this.dobPicker.Margin = new System.Windows.Forms.Padding(1);
             this.dobPicker.Name = "dobPicker";
-            this.dobPicker.Size = new System.Drawing.Size(400, 39);
+            this.dobPicker.Size = new System.Drawing.Size(187, 20);
             this.dobPicker.TabIndex = 8;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(233, 276);
+            this.textBox1.Location = new System.Drawing.Point(108, 112);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(1);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(359, 39);
+            this.textBox1.Size = new System.Drawing.Size(168, 20);
             this.textBox1.TabIndex = 7;
             // 
             // firstName
             // 
             this.firstName.AutoSize = true;
             this.firstName.BackColor = System.Drawing.SystemColors.Window;
-            this.firstName.Location = new System.Drawing.Point(31, 279);
+            this.firstName.Location = new System.Drawing.Point(14, 113);
+            this.firstName.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.firstName.Name = "firstName";
-            this.firstName.Size = new System.Drawing.Size(196, 32);
+            this.firstName.Size = new System.Drawing.Size(87, 13);
             this.firstName.TabIndex = 6;
             this.firstName.Text = "Enter your name:";
             // 
             // emailAddTxt
             // 
-            this.emailAddTxt.Location = new System.Drawing.Point(233, 208);
+            this.emailAddTxt.Location = new System.Drawing.Point(108, 84);
+            this.emailAddTxt.Margin = new System.Windows.Forms.Padding(1);
             this.emailAddTxt.Name = "emailAddTxt";
-            this.emailAddTxt.Size = new System.Drawing.Size(359, 39);
+            this.emailAddTxt.Size = new System.Drawing.Size(168, 20);
             this.emailAddTxt.TabIndex = 5;
             // 
             // emailLabel
             // 
             this.emailLabel.AutoSize = true;
             this.emailLabel.BackColor = System.Drawing.SystemColors.Window;
-            this.emailLabel.Location = new System.Drawing.Point(0, 211);
+            this.emailLabel.Location = new System.Drawing.Point(0, 86);
+            this.emailLabel.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.emailLabel.Name = "emailLabel";
-            this.emailLabel.Size = new System.Drawing.Size(227, 32);
+            this.emailLabel.Size = new System.Drawing.Size(102, 13);
             this.emailLabel.TabIndex = 4;
             this.emailLabel.Text = "Enter email address:";
             // 
             // PWTxt
             // 
-            this.PWTxt.Location = new System.Drawing.Point(233, 148);
+            this.PWTxt.Location = new System.Drawing.Point(108, 60);
+            this.PWTxt.Margin = new System.Windows.Forms.Padding(1);
             this.PWTxt.Name = "PWTxt";
             this.PWTxt.PasswordChar = '*';
-            this.PWTxt.Size = new System.Drawing.Size(359, 39);
+            this.PWTxt.Size = new System.Drawing.Size(168, 20);
             this.PWTxt.TabIndex = 3;
             // 
             // enterPWLabel
             // 
             this.enterPWLabel.AutoSize = true;
             this.enterPWLabel.BackColor = System.Drawing.SystemColors.Window;
-            this.enterPWLabel.Location = new System.Drawing.Point(33, 148);
+            this.enterPWLabel.Location = new System.Drawing.Point(15, 60);
+            this.enterPWLabel.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.enterPWLabel.Name = "enterPWLabel";
-            this.enterPWLabel.Size = new System.Drawing.Size(194, 32);
+            this.enterPWLabel.Size = new System.Drawing.Size(89, 13);
             this.enterPWLabel.TabIndex = 2;
             this.enterPWLabel.Text = "Create password:";
             // 
             // userNameTxt
             // 
-            this.userNameTxt.Location = new System.Drawing.Point(233, 91);
+            this.userNameTxt.Location = new System.Drawing.Point(108, 37);
+            this.userNameTxt.Margin = new System.Windows.Forms.Padding(1);
             this.userNameTxt.Name = "userNameTxt";
-            this.userNameTxt.Size = new System.Drawing.Size(359, 39);
+            this.userNameTxt.Size = new System.Drawing.Size(168, 20);
             this.userNameTxt.TabIndex = 1;
             // 
             // enterUserLabel
             // 
             this.enterUserLabel.AutoSize = true;
             this.enterUserLabel.BackColor = System.Drawing.SystemColors.Window;
-            this.enterUserLabel.Location = new System.Drawing.Point(22, 94);
+            this.enterUserLabel.Location = new System.Drawing.Point(10, 38);
+            this.enterUserLabel.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.enterUserLabel.Name = "enterUserLabel";
-            this.enterUserLabel.Size = new System.Drawing.Size(205, 32);
+            this.enterUserLabel.Size = new System.Drawing.Size(93, 13);
             this.enterUserLabel.TabIndex = 0;
             this.enterUserLabel.Text = "Enter a username:";
             // 
             // signUpButton
             // 
-            this.signUpButton.Font = new System.Drawing.Font("Segoe UI Black", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.signUpButton.Location = new System.Drawing.Point(968, 348);
+            this.signUpButton.Font = new System.Drawing.Font("Segoe UI Black", 18F, System.Drawing.FontStyle.Bold);
+            this.signUpButton.Location = new System.Drawing.Point(450, 77);
+            this.signUpButton.Margin = new System.Windows.Forms.Padding(1);
             this.signUpButton.Name = "signUpButton";
-            this.signUpButton.Size = new System.Drawing.Size(346, 212);
+            this.signUpButton.Size = new System.Drawing.Size(160, 86);
             this.signUpButton.TabIndex = 3;
             this.signUpButton.Text = "Create Account";
             this.signUpButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             this.signUpButton.UseVisualStyleBackColor = true;
             this.signUpButton.Click += new System.EventHandler(this.signUpButton_Click);
             // 
+            // testReadButton
+            // 
+            this.testReadButton.Font = new System.Drawing.Font("Segoe UI Black", 18F, System.Drawing.FontStyle.Bold);
+            this.testReadButton.Location = new System.Drawing.Point(450, 169);
+            this.testReadButton.Margin = new System.Windows.Forms.Padding(1);
+            this.testReadButton.Name = "testReadButton";
+            this.testReadButton.Size = new System.Drawing.Size(160, 86);
+            this.testReadButton.TabIndex = 4;
+            this.testReadButton.Text = "Read usernames";
+            this.testReadButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.testReadButton.UseVisualStyleBackColor = true;
+            this.testReadButton.Click += new System.EventHandler(this.testReadButton_Click);
+            // 
             // SignUpForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1470, 847);
+            this.ClientSize = new System.Drawing.Size(678, 344);
+            this.Controls.Add(this.testReadButton);
             this.Controls.Add(this.signUpButton);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.topTitleLabel);
+            this.Margin = new System.Windows.Forms.Padding(1);
             this.Name = "SignUpForm";
             this.Text = "Sign Up!";
             this.groupBox1.ResumeLayout(false);
@@ -210,5 +240,6 @@ namespace _5_A_Side
         private System.Windows.Forms.Label emailLabel;
         private System.Windows.Forms.TextBox PWTxt;
         private System.Windows.Forms.Button signUpButton;
+        private System.Windows.Forms.Button testReadButton;
     }
 }

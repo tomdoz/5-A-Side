@@ -34,7 +34,27 @@ namespace _5_A_Side
                 MessageBox.Show(Convert.ToString(cmd.ExecuteNonQuery()), "Siuuu");
                 connection.Close();
             }
+
             //this.Close();
+        }
+
+        private void testReadButton_Click(object sender, EventArgs e)
+        {
+            using (SqlConnection connection = new SqlConnection(Properties.Settings.Default.SimulationFootballDBConnectionString))
+            {
+                SqlDataReader dataReader;
+                String Output = "";
+                SqlCommand cmd = new SqlCommand("Select Id, Username from UserTable", connection);
+                cmd.Connection = connection;
+                connection.Open();
+                dataReader = cmd.ExecuteReader();
+                while (dataReader.Read())
+                {
+                    Output = Output + dataReader.GetValue(0) + " - " + dataReader.GetValue(1) + "\n";
+                }
+                connection.Close();
+                MessageBox.Show(Output);
+            }
         }
     }
 }
