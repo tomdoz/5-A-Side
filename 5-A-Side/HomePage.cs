@@ -12,8 +12,6 @@ namespace _5_A_Side
 {
     public partial class HomePage : Form
     {
-        public int UserID;
-        public int TeamID = 1;
 
         public HomePage()
         {
@@ -23,7 +21,7 @@ namespace _5_A_Side
 
         public void UserHasTeam()
         {
-            if (TeamID == 0) //Checking if user account has a team associated with it
+            if (LoginMenu.TeamID == 0) //Checking if user account has a team associated with it
             {
                 displayTopScorersButton.Visible = false;
                 playNextMatchButton.Visible = false;

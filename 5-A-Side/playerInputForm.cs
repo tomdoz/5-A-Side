@@ -5,11 +5,16 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using System.Data.SqlClient;
+using System.Data.Sql;
 
 namespace _5_A_Side
 {
     public partial class playerInputForm : Form
     {
+        SqlConnection Con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\tomra\OneDrive\Documents\FootballGame.mdf;Integrated Security=True;Connect Timeout=30");
+        SqlCommand Com = new SqlCommand();
+
         //captain attribute variables
         public int p1ShootingVal = 0;
         public int p1DribblingVal = 0;
@@ -459,17 +464,52 @@ namespace _5_A_Side
         {
             if (Convert.ToInt32(pointsRemainingNum.Text) == 0 && Convert.ToInt32(p2PointsLeftLabel.Text) == 0 && Convert.ToInt32(p3PointsRemaining.Text) == 0 && Convert.ToInt32(p4PointsRemaining.Text) == 0 && Convert.ToInt32(p5PointsRemaining.Text) == 0 && Convert.ToInt32(subPointsRemaining.Text) == 0)
             {
-                ///yes
-             //   SimulationStarter simulation = new SimulationStarter();
-              //  simulation.Show();
-                this.Hide();
+                CreateTeam();
+                InsertToDB(p1ShootingVal, p1DribblingVal, p1PaceVal, p1PhysicalVal, p1ReliableVal, p1TackleVal, p1AggroVal, textBox1.Text, lastNameTXT.Text, Convert.ToInt32(shirtTxt.Text));
+                InsertToDB(p2ShootingVal, p2DribblingVal, p2PaceVal, p2PhysicalVal, p2ReliableVal, p2TackleVal, p2AggroVal, p2firstNameTxt.Text, p2lastNameTxt.Text, Convert.ToInt32(p2ShirtTxt.Text));
+                InsertToDB(p3ShootingVal, p3DribblingVal, p3PaceVal, p3PhysicalVal, p3ReliableVal, p3TackleVal, p3AggroVal, p3FirstNameTxt.Text, p3LastNameTxt.Text, Convert.ToInt32(p3ShirtTxt.Text));
+                InsertToDB(p4ShootingVal, p4DribblingVal, p4PaceVal, p4PhysicalVal, p4ReliableVal, p4TackleVal, p4AggroVal, p4FirstNameTxt.Text, p4LastNameTxt.Text, Convert.ToInt32(p4ShirtTxt.Text));
+                InsertToDB(p5ShootingVal, p5DribblingVal, p5PaceVal, p5PhysicalVal, p5ReliableVal, p5TackleVal, p5AggroVal, p5firstNameTxt.Text, p5LastNameTxt.Text, Convert.ToInt32(p5ShirtTxt.Text));
+                InsertToDB(subShootingVal, subDribblingVal, subPaceVal, subPhysicalVal, subReliableVal, subTackleVal, subAggroVal, subFirstNameTxt.Text, subLastNameTxt.Text, Convert.ToInt32(subShirtTxt.Text));
+                MessageBox.Show("Your team was inputted to the database, and your account is now ready to stsrt simulating games", "Team Creation Successful!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                HomePage home = new HomePage();
+                home.Show();
+                this.Close();
             }
             else
             {
+                CreateTeam();
                 string message = "You need to use all the available skill points for each player!";
                 string title = "Couldn't submit team";
                 MessageBox.Show(message, title);
             }
+        }
+
+        private void InsertToDB(int Shooting, int Dribbling, int Pace, int Physicality, int Reliability, int Tackling, int Aggression, string FirstName, string LastName, int ShirtNum)
+        {
+            Con.Open();
+            string query = "insert into Players (Shooting, Dribbling, Pace, Physicality, Reliability, Tackling, Aggression, Name, ShirtNum) values('" + Shooting + "', '" + Dribbling + "', '" + Pace + "', '" + Physicality + "', '" + Reliability + "', '" + Tackling + "', '" + Aggression + "', '" + (FirstName + " " + LastName) + "', '" + ShirtNum + "')";
+            SqlCommand cmd = new SqlCommand(query, Con);
+            cmd.ExecuteNonQuery();
+            Con.Close();
+        }
+
+        private void CreateTeam()
+        {
+            Con.Open();
+            string selectQuery = "select * from UserTable where Id=" + Convert.ToString(LoginMenu.UserID);
+            Com.CommandText = selectQuery;
+            Com.Connection = Con;
+            SqlDataReader reader = Com.ExecuteReader();
+            string NameVal = "";
+            while (reader.Read())
+            {
+                NameVal = (reader["Name"].ToString());
+            }
+            string query = "insert into Teams (TeamName, Manager) values('" + teamNameTxt + "', '" + NameVal + "')";
+            SqlCommand cmd = new SqlCommand(query, Con);
+            cmd.ExecuteNonQuery();
+            Con.Close();
         }
     }
 }

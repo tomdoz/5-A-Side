@@ -72,7 +72,6 @@ namespace _5_A_Side
             this.userTxt.Name = "userTxt";
             this.userTxt.Size = new System.Drawing.Size(267, 20);
             this.userTxt.TabIndex = 3;
-            this.userTxt.TextChanged += new System.EventHandler(this.userTxt_TextChanged);
             // 
             // Username
             // 
