@@ -43,7 +43,6 @@ namespace _5_A_Side
             this.userNameTxt = new System.Windows.Forms.TextBox();
             this.enterUserLabel = new System.Windows.Forms.Label();
             this.signUpButton = new System.Windows.Forms.Button();
-            this.testReadButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -74,9 +73,9 @@ namespace _5_A_Side
             this.groupBox1.Controls.Add(this.userNameTxt);
             this.groupBox1.Controls.Add(this.enterUserLabel);
             this.groupBox1.Location = new System.Drawing.Point(54, 148);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(636, 342);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
@@ -96,7 +95,7 @@ namespace _5_A_Side
             // dobPicker
             // 
             this.dobPicker.Location = new System.Drawing.Point(216, 288);
-            this.dobPicker.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dobPicker.Margin = new System.Windows.Forms.Padding(2);
             this.dobPicker.Name = "dobPicker";
             this.dobPicker.Size = new System.Drawing.Size(370, 31);
             this.dobPicker.TabIndex = 8;
@@ -104,7 +103,7 @@ namespace _5_A_Side
             // nameTxt
             // 
             this.nameTxt.Location = new System.Drawing.Point(216, 215);
-            this.nameTxt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.nameTxt.Margin = new System.Windows.Forms.Padding(2);
             this.nameTxt.Name = "nameTxt";
             this.nameTxt.Size = new System.Drawing.Size(332, 31);
             this.nameTxt.TabIndex = 7;
@@ -123,7 +122,7 @@ namespace _5_A_Side
             // emailAddTxt
             // 
             this.emailAddTxt.Location = new System.Drawing.Point(216, 162);
-            this.emailAddTxt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.emailAddTxt.Margin = new System.Windows.Forms.Padding(2);
             this.emailAddTxt.Name = "emailAddTxt";
             this.emailAddTxt.Size = new System.Drawing.Size(332, 31);
             this.emailAddTxt.TabIndex = 5;
@@ -142,7 +141,7 @@ namespace _5_A_Side
             // PWTxt
             // 
             this.PWTxt.Location = new System.Drawing.Point(216, 115);
-            this.PWTxt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.PWTxt.Margin = new System.Windows.Forms.Padding(2);
             this.PWTxt.Name = "PWTxt";
             this.PWTxt.PasswordChar = '*';
             this.PWTxt.Size = new System.Drawing.Size(332, 31);
@@ -162,7 +161,7 @@ namespace _5_A_Side
             // userNameTxt
             // 
             this.userNameTxt.Location = new System.Drawing.Point(216, 71);
-            this.userNameTxt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.userNameTxt.Margin = new System.Windows.Forms.Padding(2);
             this.userNameTxt.Name = "userNameTxt";
             this.userNameTxt.Size = new System.Drawing.Size(332, 31);
             this.userNameTxt.TabIndex = 1;
@@ -181,8 +180,8 @@ namespace _5_A_Side
             // signUpButton
             // 
             this.signUpButton.Font = new System.Drawing.Font("Segoe UI Black", 18F, System.Drawing.FontStyle.Bold);
-            this.signUpButton.Location = new System.Drawing.Point(900, 148);
-            this.signUpButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.signUpButton.Location = new System.Drawing.Point(827, 253);
+            this.signUpButton.Margin = new System.Windows.Forms.Padding(2);
             this.signUpButton.Name = "signUpButton";
             this.signUpButton.Size = new System.Drawing.Size(320, 165);
             this.signUpButton.TabIndex = 3;
@@ -191,19 +190,6 @@ namespace _5_A_Side
             this.signUpButton.UseVisualStyleBackColor = true;
             this.signUpButton.Click += new System.EventHandler(this.signUpButton_Click);
             // 
-            // testReadButton
-            // 
-            this.testReadButton.Font = new System.Drawing.Font("Segoe UI Black", 18F, System.Drawing.FontStyle.Bold);
-            this.testReadButton.Location = new System.Drawing.Point(900, 325);
-            this.testReadButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.testReadButton.Name = "testReadButton";
-            this.testReadButton.Size = new System.Drawing.Size(320, 165);
-            this.testReadButton.TabIndex = 4;
-            this.testReadButton.Text = "Read usernames";
-            this.testReadButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            this.testReadButton.UseVisualStyleBackColor = true;
-            this.testReadButton.Click += new System.EventHandler(this.testReadButton_Click);
-            // 
             // SignUpForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -211,11 +197,10 @@ namespace _5_A_Side
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1356, 662);
-            this.Controls.Add(this.testReadButton);
             this.Controls.Add(this.signUpButton);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.topTitleLabel);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "SignUpForm";
             this.Text = "Sign Up!";
             this.groupBox1.ResumeLayout(false);
@@ -240,6 +225,5 @@ namespace _5_A_Side
         private System.Windows.Forms.Label emailLabel;
         private System.Windows.Forms.TextBox PWTxt;
         private System.Windows.Forms.Button signUpButton;
-        private System.Windows.Forms.Button testReadButton;
     }
 }

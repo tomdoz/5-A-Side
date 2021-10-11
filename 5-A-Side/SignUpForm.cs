@@ -27,23 +27,9 @@ namespace _5_A_Side
             SqlCommand cmd = new SqlCommand(query, Con);
             cmd.ExecuteNonQuery();
             Con.Close();
-            //this.Close();
-        }
-
-        private void testReadButton_Click(object sender, EventArgs e)
-        {
-            SqlDataReader dataReader;
-            String Output = "";
-            SqlCommand cmd = new SqlCommand("Select Id, Username from UserTable", Con);
-            cmd.Connection = Con;
-            Con.Open();
-            dataReader = cmd.ExecuteReader();
-            while (dataReader.Read())
-            {
-                Output = Output + dataReader.GetValue(0) + " - " + dataReader.GetValue(1) + "\n";
-            }
-            Con.Close();
-            MessageBox.Show(Output);
+            LoginMenu login = new LoginMenu();
+            login.Show();
+            this.Close();
         }
     }
 }

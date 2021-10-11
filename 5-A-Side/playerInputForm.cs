@@ -465,12 +465,12 @@ namespace _5_A_Side
             if (Convert.ToInt32(pointsRemainingNum.Text) == 0 && Convert.ToInt32(p2PointsLeftLabel.Text) == 0 && Convert.ToInt32(p3PointsRemaining.Text) == 0 && Convert.ToInt32(p4PointsRemaining.Text) == 0 && Convert.ToInt32(p5PointsRemaining.Text) == 0 && Convert.ToInt32(subPointsRemaining.Text) == 0)
             {
                CreateTeam();
-               InsertToDB(p1ShootingVal, p1DribblingVal, p1PaceVal, p1PhysicalVal, p1ReliableVal, p1TackleVal, p1AggroVal, textBox1.Text, lastNameTXT.Text, Convert.ToInt32(shirtTxt.Text), LoginMenu.TeamID);
-               InsertToDB(p2ShootingVal, p2DribblingVal, p2PaceVal, p2PhysicalVal, p2ReliableVal, p2TackleVal, p2AggroVal, p2firstNameTxt.Text, p2lastNameTxt.Text, Convert.ToInt32(p2ShirtTxt.Text), LoginMenu.TeamID);
-               InsertToDB(p3ShootingVal, p3DribblingVal, p3PaceVal, p3PhysicalVal, p3ReliableVal, p3TackleVal, p3AggroVal, p3FirstNameTxt.Text, p3LastNameTxt.Text, Convert.ToInt32(p3ShirtTxt.Text), LoginMenu.TeamID);
-               InsertToDB(p4ShootingVal, p4DribblingVal, p4PaceVal, p4PhysicalVal, p4ReliableVal, p4TackleVal, p4AggroVal, p4FirstNameTxt.Text, p4LastNameTxt.Text, Convert.ToInt32(p4ShirtTxt.Text), LoginMenu.TeamID);
-               InsertToDB(p5ShootingVal, p5DribblingVal, p5PaceVal, p5PhysicalVal, p5ReliableVal, p5TackleVal, p5AggroVal, p5firstNameTxt.Text, p5LastNameTxt.Text, Convert.ToInt32(p5ShirtTxt.Text), LoginMenu.TeamID);
-               InsertToDB(subShootingVal, subDribblingVal, subPaceVal, subPhysicalVal, subReliableVal, subTackleVal, subAggroVal, subFirstNameTxt.Text, subLastNameTxt.Text, Convert.ToInt32(subShirtTxt.Text), LoginMenu.TeamID);
+               InsertToDB(p1ShootingVal, p1DribblingVal, p1PaceVal, p1PhysicalVal, p1ReliableVal, p1TackleVal, p1AggroVal, textBox1.Text, lastNameTXT.Text, Convert.ToInt32(shirtTxt.Text), LoginMenu.TeamID, 1);
+               InsertToDB(p2ShootingVal, p2DribblingVal, p2PaceVal, p2PhysicalVal, p2ReliableVal, p2TackleVal, p2AggroVal, p2firstNameTxt.Text, p2lastNameTxt.Text, Convert.ToInt32(p2ShirtTxt.Text), LoginMenu.TeamID, 2);
+               InsertToDB(p3ShootingVal, p3DribblingVal, p3PaceVal, p3PhysicalVal, p3ReliableVal, p3TackleVal, p3AggroVal, p3FirstNameTxt.Text, p3LastNameTxt.Text, Convert.ToInt32(p3ShirtTxt.Text), LoginMenu.TeamID, 3);
+               InsertToDB(p4ShootingVal, p4DribblingVal, p4PaceVal, p4PhysicalVal, p4ReliableVal, p4TackleVal, p4AggroVal, p4FirstNameTxt.Text, p4LastNameTxt.Text, Convert.ToInt32(p4ShirtTxt.Text), LoginMenu.TeamID, 4);
+               InsertToDB(p5ShootingVal, p5DribblingVal, p5PaceVal, p5PhysicalVal, p5ReliableVal, p5TackleVal, p5AggroVal, p5firstNameTxt.Text, p5LastNameTxt.Text, Convert.ToInt32(p5ShirtTxt.Text), LoginMenu.TeamID, 5);
+               InsertToDB(subShootingVal, subDribblingVal, subPaceVal, subPhysicalVal, subReliableVal, subTackleVal, subAggroVal, subFirstNameTxt.Text, subLastNameTxt.Text, Convert.ToInt32(subShirtTxt.Text), LoginMenu.TeamID, 6);
                MessageBox.Show("Your team was inputted to the database, and your account is now ready to stsrt simulating games", "Team Creation Successful!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                HomePage home = new HomePage();
                home.Show();
@@ -484,10 +484,10 @@ namespace _5_A_Side
             }
         }
 
-        private void InsertToDB(int Shooting, int Dribbling, int Pace, int Physicality, int Reliability, int Tackling, int Aggression, string FirstName, string LastName, int ShirtNum, int TeamID)
+        private void InsertToDB(int Shooting, int Dribbling, int Pace, int Physicality, int Reliability, int Tackling, int Aggression, string FirstName, string LastName, int ShirtNum, int TeamID, int PlayerType)
         {
             Con.Open();
-            string query = "insert into Players (Shooting, Dribbling, Pace, Physicality, Reliability, Tackling, Aggression, Name, ShirtNum, TeamID) values('" + Shooting + "', '" + Dribbling + "', '" + Pace + "', '" + Physicality + "', '" + Reliability + "', '" + Tackling + "', '" + Aggression + "', '" + (FirstName + " " + LastName) + "', '" + ShirtNum + "', '" + TeamID + "')";
+            string query = "insert into Players (Shooting, Dribbling, Pace, Physicality, Reliability, Tackling, Aggression, Name, ShirtNum, TeamID, PlayerType) values('" + Shooting + "', '" + Dribbling + "', '" + Pace + "', '" + Physicality + "', '" + Reliability + "', '" + Tackling + "', '" + Aggression + "', '" + (FirstName + " " + LastName) + "', '" + ShirtNum + "', '" + TeamID + "', '" + PlayerType + "')";
             SqlCommand cmd = new SqlCommand(query, Con);
             cmd.ExecuteNonQuery();
             Con.Close();
@@ -502,10 +502,8 @@ namespace _5_A_Side
             Com.Connection = Con;
             SqlDataReader reader = Com.ExecuteReader();
             string NameVal = "";
-            if(reader.Read())
-            {
-                NameVal = (reader["Name"].ToString());
-            }
+            reader.Read();
+            NameVal = (reader["Name"].ToString());
             //Inserting team name and manager name into Teams table
             reader.Close();
             string query = "insert into Teams (TeamName, Manager) values('" + teamNameTxt.Text + "', '" + NameVal + "')";
