@@ -465,6 +465,7 @@ namespace _5_A_Side
             if (Convert.ToInt32(pointsRemainingNum.Text) == 0 && Convert.ToInt32(p2PointsLeftLabel.Text) == 0 && Convert.ToInt32(p3PointsRemaining.Text) == 0 && Convert.ToInt32(p4PointsRemaining.Text) == 0 && Convert.ToInt32(p5PointsRemaining.Text) == 0 && Convert.ToInt32(subPointsRemaining.Text) == 0)
             {
                 CreateTeam();
+                LoginMenu.TeamID = 
                 InsertToDB(p1ShootingVal, p1DribblingVal, p1PaceVal, p1PhysicalVal, p1ReliableVal, p1TackleVal, p1AggroVal, textBox1.Text, lastNameTXT.Text, Convert.ToInt32(shirtTxt.Text));
                 InsertToDB(p2ShootingVal, p2DribblingVal, p2PaceVal, p2PhysicalVal, p2ReliableVal, p2TackleVal, p2AggroVal, p2firstNameTxt.Text, p2lastNameTxt.Text, Convert.ToInt32(p2ShirtTxt.Text));
                 InsertToDB(p3ShootingVal, p3DribblingVal, p3PaceVal, p3PhysicalVal, p3ReliableVal, p3TackleVal, p3AggroVal, p3FirstNameTxt.Text, p3LastNameTxt.Text, Convert.ToInt32(p3ShirtTxt.Text));
@@ -478,17 +479,16 @@ namespace _5_A_Side
             }
             else
             {
-                CreateTeam();
                 string message = "You need to use all the available skill points for each player!";
                 string title = "Couldn't submit team";
                 MessageBox.Show(message, title);
             }
         }
 
-        private void InsertToDB(int Shooting, int Dribbling, int Pace, int Physicality, int Reliability, int Tackling, int Aggression, string FirstName, string LastName, int ShirtNum)
+        private void InsertToDB(int Shooting, int Dribbling, int Pace, int Physicality, int Reliability, int Tackling, int Aggression, string FirstName, string LastName, int ShirtNum, int TeamID)
         {
             Con.Open();
-            string query = "insert into Players (Shooting, Dribbling, Pace, Physicality, Reliability, Tackling, Aggression, Name, ShirtNum) values('" + Shooting + "', '" + Dribbling + "', '" + Pace + "', '" + Physicality + "', '" + Reliability + "', '" + Tackling + "', '" + Aggression + "', '" + (FirstName + " " + LastName) + "', '" + ShirtNum + "')";
+            string query = "insert into Players (Shooting, Dribbling, Pace, Physicality, Reliability, Tackling, Aggression, Name, ShirtNum, TeamID) values('" + Shooting + "', '" + Dribbling + "', '" + Pace + "', '" + Physicality + "', '" + Reliability + "', '" + Tackling + "', '" + Aggression + "', '" + (FirstName + " " + LastName) + "', '" + ShirtNum + "', '" + TeamID + "')";
             SqlCommand cmd = new SqlCommand(query, Con);
             cmd.ExecuteNonQuery();
             Con.Close();
@@ -502,13 +502,15 @@ namespace _5_A_Side
             Com.Connection = Con;
             SqlDataReader reader = Com.ExecuteReader();
             string NameVal = "";
-            while (reader.Read())
-            {
-                NameVal = (reader["Name"].ToString());
-            }
+            reader.Read();
+            NameVal = (reader["Name"].ToString());
             string query = "insert into Teams (TeamName, Manager) values('" + teamNameTxt + "', '" + NameVal + "')";
             SqlCommand cmd = new SqlCommand(query, Con);
             cmd.ExecuteNonQuery();
+            Com.CommandText = "select * from Teams";
+            Com.Connection = Con;
+            SqlDataReader reader2 = Com.ExecuteReader();
+            //need to select the Team ID 
             Con.Close();
         }
     }
