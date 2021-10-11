@@ -294,7 +294,7 @@ namespace _5_A_Side
             // submitTeamButton
             // 
             this.submitTeamButton.Font = new System.Drawing.Font("Segoe UI Black", 30F, System.Drawing.FontStyle.Bold);
-            this.submitTeamButton.Location = new System.Drawing.Point(1081, 325);
+            this.submitTeamButton.Location = new System.Drawing.Point(1049, 327);
             this.submitTeamButton.Name = "submitTeamButton";
             this.submitTeamButton.Size = new System.Drawing.Size(291, 138);
             this.submitTeamButton.TabIndex = 3;
@@ -2254,7 +2254,7 @@ namespace _5_A_Side
             this.playerInputTabs.Controls.Add(this.tabPage4);
             this.playerInputTabs.Controls.Add(this.tabPage5);
             this.playerInputTabs.Controls.Add(this.tabPage6);
-            this.playerInputTabs.Location = new System.Drawing.Point(79, 289);
+            this.playerInputTabs.Location = new System.Drawing.Point(12, 233);
             this.playerInputTabs.Name = "playerInputTabs";
             this.playerInputTabs.SelectedIndex = 0;
             this.playerInputTabs.Size = new System.Drawing.Size(1013, 415);
