@@ -42,6 +42,10 @@ namespace _5_A_Side
             this.awayTeam2Score = new System.Windows.Forms.Label();
             this.homeTeam2Score = new System.Windows.Forms.Label();
             this.advanceButton = new System.Windows.Forms.Button();
+            this.home2ScoreChanceLabel = new System.Windows.Forms.Label();
+            this.home1ScoreChanceLabel = new System.Windows.Forms.Label();
+            this.away1ScoreChanceLabel = new System.Windows.Forms.Label();
+            this.away2ScoreChanceLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // title
@@ -62,7 +66,7 @@ namespace _5_A_Side
             this.homeTeam1.BackColor = System.Drawing.Color.Transparent;
             this.homeTeam1.Font = new System.Drawing.Font("Segoe UI Black", 13.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.homeTeam1.ForeColor = System.Drawing.Color.White;
-            this.homeTeam1.Location = new System.Drawing.Point(339, 200);
+            this.homeTeam1.Location = new System.Drawing.Point(339, 144);
             this.homeTeam1.Name = "homeTeam1";
             this.homeTeam1.Size = new System.Drawing.Size(270, 50);
             this.homeTeam1.TabIndex = 1;
@@ -74,7 +78,7 @@ namespace _5_A_Side
             this.awayTeam1.BackColor = System.Drawing.Color.Transparent;
             this.awayTeam1.Font = new System.Drawing.Font("Segoe UI Black", 13.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.awayTeam1.ForeColor = System.Drawing.Color.White;
-            this.awayTeam1.Location = new System.Drawing.Point(766, 200);
+            this.awayTeam1.Location = new System.Drawing.Point(760, 144);
             this.awayTeam1.Name = "awayTeam1";
             this.awayTeam1.Size = new System.Drawing.Size(262, 50);
             this.awayTeam1.TabIndex = 2;
@@ -86,7 +90,7 @@ namespace _5_A_Side
             this.awayTeam2.BackColor = System.Drawing.Color.Transparent;
             this.awayTeam2.Font = new System.Drawing.Font("Segoe UI Black", 13.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.awayTeam2.ForeColor = System.Drawing.Color.White;
-            this.awayTeam2.Location = new System.Drawing.Point(778, 382);
+            this.awayTeam2.Location = new System.Drawing.Point(780, 347);
             this.awayTeam2.Name = "awayTeam2";
             this.awayTeam2.Size = new System.Drawing.Size(266, 50);
             this.awayTeam2.TabIndex = 4;
@@ -98,7 +102,7 @@ namespace _5_A_Side
             this.homeTeam2.BackColor = System.Drawing.Color.Transparent;
             this.homeTeam2.Font = new System.Drawing.Font("Segoe UI Black", 13.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.homeTeam2.ForeColor = System.Drawing.Color.White;
-            this.homeTeam2.Location = new System.Drawing.Point(351, 382);
+            this.homeTeam2.Location = new System.Drawing.Point(339, 347);
             this.homeTeam2.Name = "homeTeam2";
             this.homeTeam2.Size = new System.Drawing.Size(274, 50);
             this.homeTeam2.TabIndex = 3;
@@ -111,7 +115,7 @@ namespace _5_A_Side
             this.homeTeam1Score.CausesValidation = false;
             this.homeTeam1Score.Font = new System.Drawing.Font("Segoe UI Black", 20F, System.Drawing.FontStyle.Bold);
             this.homeTeam1Score.ForeColor = System.Drawing.Color.White;
-            this.homeTeam1Score.Location = new System.Drawing.Point(615, 187);
+            this.homeTeam1Score.Location = new System.Drawing.Point(604, 194);
             this.homeTeam1Score.Name = "homeTeam1Score";
             this.homeTeam1Score.Size = new System.Drawing.Size(62, 72);
             this.homeTeam1Score.TabIndex = 5;
@@ -124,7 +128,7 @@ namespace _5_A_Side
             this.awayTeam1Score.CausesValidation = false;
             this.awayTeam1Score.Font = new System.Drawing.Font("Segoe UI Black", 20F, System.Drawing.FontStyle.Bold);
             this.awayTeam1Score.ForeColor = System.Drawing.Color.White;
-            this.awayTeam1Score.Location = new System.Drawing.Point(711, 187);
+            this.awayTeam1Score.Location = new System.Drawing.Point(712, 194);
             this.awayTeam1Score.Name = "awayTeam1Score";
             this.awayTeam1Score.Size = new System.Drawing.Size(62, 72);
             this.awayTeam1Score.TabIndex = 6;
@@ -196,6 +200,58 @@ namespace _5_A_Side
             this.advanceButton.UseVisualStyleBackColor = false;
             this.advanceButton.Click += new System.EventHandler(this.advanceButton_Click);
             // 
+            // home2ScoreChanceLabel
+            // 
+            this.home2ScoreChanceLabel.AutoSize = true;
+            this.home2ScoreChanceLabel.BackColor = System.Drawing.Color.Transparent;
+            this.home2ScoreChanceLabel.CausesValidation = false;
+            this.home2ScoreChanceLabel.Font = new System.Drawing.Font("Segoe UI Black", 20F, System.Drawing.FontStyle.Bold);
+            this.home2ScoreChanceLabel.ForeColor = System.Drawing.Color.White;
+            this.home2ScoreChanceLabel.Location = new System.Drawing.Point(149, 347);
+            this.home2ScoreChanceLabel.Name = "home2ScoreChanceLabel";
+            this.home2ScoreChanceLabel.Size = new System.Drawing.Size(62, 72);
+            this.home2ScoreChanceLabel.TabIndex = 12;
+            this.home2ScoreChanceLabel.Text = "0";
+            // 
+            // home1ScoreChanceLabel
+            // 
+            this.home1ScoreChanceLabel.AutoSize = true;
+            this.home1ScoreChanceLabel.BackColor = System.Drawing.Color.Transparent;
+            this.home1ScoreChanceLabel.CausesValidation = false;
+            this.home1ScoreChanceLabel.Font = new System.Drawing.Font("Segoe UI Black", 20F, System.Drawing.FontStyle.Bold);
+            this.home1ScoreChanceLabel.ForeColor = System.Drawing.Color.White;
+            this.home1ScoreChanceLabel.Location = new System.Drawing.Point(194, 144);
+            this.home1ScoreChanceLabel.Name = "home1ScoreChanceLabel";
+            this.home1ScoreChanceLabel.Size = new System.Drawing.Size(62, 72);
+            this.home1ScoreChanceLabel.TabIndex = 13;
+            this.home1ScoreChanceLabel.Text = "0";
+            // 
+            // away1ScoreChanceLabel
+            // 
+            this.away1ScoreChanceLabel.AutoSize = true;
+            this.away1ScoreChanceLabel.BackColor = System.Drawing.Color.Transparent;
+            this.away1ScoreChanceLabel.CausesValidation = false;
+            this.away1ScoreChanceLabel.Font = new System.Drawing.Font("Segoe UI Black", 20F, System.Drawing.FontStyle.Bold);
+            this.away1ScoreChanceLabel.ForeColor = System.Drawing.Color.White;
+            this.away1ScoreChanceLabel.Location = new System.Drawing.Point(1077, 127);
+            this.away1ScoreChanceLabel.Name = "away1ScoreChanceLabel";
+            this.away1ScoreChanceLabel.Size = new System.Drawing.Size(62, 72);
+            this.away1ScoreChanceLabel.TabIndex = 14;
+            this.away1ScoreChanceLabel.Text = "0";
+            // 
+            // away2ScoreChanceLabel
+            // 
+            this.away2ScoreChanceLabel.AutoSize = true;
+            this.away2ScoreChanceLabel.BackColor = System.Drawing.Color.Transparent;
+            this.away2ScoreChanceLabel.CausesValidation = false;
+            this.away2ScoreChanceLabel.Font = new System.Drawing.Font("Segoe UI Black", 20F, System.Drawing.FontStyle.Bold);
+            this.away2ScoreChanceLabel.ForeColor = System.Drawing.Color.White;
+            this.away2ScoreChanceLabel.Location = new System.Drawing.Point(1102, 347);
+            this.away2ScoreChanceLabel.Name = "away2ScoreChanceLabel";
+            this.away2ScoreChanceLabel.Size = new System.Drawing.Size(62, 72);
+            this.away2ScoreChanceLabel.TabIndex = 15;
+            this.away2ScoreChanceLabel.Text = "0";
+            // 
             // RestOfLeagueResults
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -203,6 +259,10 @@ namespace _5_A_Side
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1391, 814);
+            this.Controls.Add(this.away2ScoreChanceLabel);
+            this.Controls.Add(this.away1ScoreChanceLabel);
+            this.Controls.Add(this.home1ScoreChanceLabel);
+            this.Controls.Add(this.home2ScoreChanceLabel);
             this.Controls.Add(this.advanceButton);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.awayTeam2Score);
@@ -236,5 +296,9 @@ namespace _5_A_Side
         private System.Windows.Forms.Label awayTeam2Score;
         private System.Windows.Forms.Label homeTeam2Score;
         private System.Windows.Forms.Button advanceButton;
+        private System.Windows.Forms.Label home2ScoreChanceLabel;
+        private System.Windows.Forms.Label home1ScoreChanceLabel;
+        private System.Windows.Forms.Label away1ScoreChanceLabel;
+        private System.Windows.Forms.Label away2ScoreChanceLabel;
     }
 }

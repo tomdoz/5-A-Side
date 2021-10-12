@@ -278,27 +278,45 @@ namespace _5_A_Side
             AssignTeams();
             TeamAvgStats();
             home1ScoreChance = home1ChanceGenerator();
+            home1ScoreChanceLabel.Text = Convert.ToString(home1ScoreChance);
             away1ScoreChance = away1ChanceGenerator();
+            away1ScoreChanceLabel.Text = Convert.ToString(away1ScoreChance);
             home2ScoreChance = home2ChanceGenerator();
+            home2ScoreChanceLabel.Text = Convert.ToString(home2ScoreChance);
             away2ScoreChance = away2ChanceGenerator();
+            away2ScoreChanceLabel.Text = Convert.ToString(away2ScoreChance);
             SimulateGames();
         }
 
         public void SimulateGames()
         {
-            for (int i = 0; i < 19; i++)
-            {
-                ScoreGoalCheck();
-            }
+            ScoreGoalCheck();
+            ScoreGoalCheck();
+            ScoreGoalCheck();
+            ScoreGoalCheck();
+            ScoreGoalCheck();
+            ScoreGoalCheck();
+            ScoreGoalCheck();
+            ScoreGoalCheck();
+            ScoreGoalCheck();
+            ScoreGoalCheck();
+            ScoreGoalCheck();
+            ScoreGoalCheck();
+            ScoreGoalCheck();
+            ScoreGoalCheck();
+            ScoreGoalCheck();
+            ScoreGoalCheck();
+            ScoreGoalCheck();
+            ScoreGoalCheck();
+            ScoreGoalCheck();
             LeagueTableUpdater();
             UpdateCurrFixture();
-
         }
 
         public void UpdateCurrFixture()
         {
             Con.Open();
-            Com.CommandText = "Update UserTable Set CurrFixtureID = " + (fixtureID + 2) + " Where Id = " + LoginMenu.UserID;
+            Com.CommandText = "Update UserTable Set CurrFixtureID = " + (fixtureID + 1) + " Where Id = " + LoginMenu.UserID;
             Com.Connection = Con;
             Com.ExecuteNonQuery();
             Con.Close();
@@ -474,6 +492,7 @@ namespace _5_A_Side
         public void Home1ScoreGoal()
         {
             homeTeam1Score.Text = Convert.ToString(Convert.ToInt32(homeTeam1Score.Text) + 1);
+            home1ScoreChanceLabel.Text = "test";
         }
 
         public void Away1ScoreGoal()
@@ -495,7 +514,7 @@ namespace _5_A_Side
         {
             home1ScoreChance = Convert.ToInt32(((0.6 * home1SHO) + (0.5 * home1PAC) + (0.3 * home1DRI) + (0.1 * home1PHY)) / 4); //loading the home1 attacking attribute stats into weighted average equation
             home1ScoreChance = home1ScoreChance - Convert.ToInt32(((0.5 * away1TAC) + (0.4 * away1PHY) + (0.2 * away1AGG) + (0.2 * away1REL)) / 4); //weighted average then found using CPU defensive attribute stats
-            home1ScoreChance = Convert.ToInt32(Convert.ToDouble(home1ScoreChance) / 0.42857142857); //home adv. modifier = 3:7 ratio of A:H fans so we 3/7 as modifier
+            //home1ScoreChance = Convert.ToInt32(Convert.ToDouble(home1ScoreChance) / 0.42857142857); //home adv. modifier = 3:7 ratio of A:H fans so we 3/7 as modifier
             return home1ScoreChance;
         }
 
@@ -503,7 +522,7 @@ namespace _5_A_Side
         {
             away1ScoreChance = Convert.ToInt32(((0.6 * away1SHO) + (0.5 * away1PAC) + (0.3 * away1DRI) + (0.1 * away1PHY)) / 4); //loading the away1 attacking attribute stats into weighted average equation
             away1ScoreChance = away1ScoreChance - Convert.ToInt32(((0.5 * away1TAC) + (0.4 * away1PHY) + (0.2 * away1AGG) + (0.2 * away1REL)) / 4); //weighted average then found using CPU defensive attribute stats
-            away1ScoreChance = Convert.ToInt32(Convert.ToDouble(away1ScoreChance) / 2.33333333333); //away disadv. modifier = 7:3 ratio of H:A fans so we use 7/3 as modifier
+           // away1ScoreChance = Convert.ToInt32(Convert.ToDouble(away1ScoreChance) / 2.33333333333); //away disadv. modifier = 7:3 ratio of H:A fans so we use 7/3 as modifier
             return away1ScoreChance;
         }
 
@@ -511,7 +530,7 @@ namespace _5_A_Side
         {
             home2ScoreChance = Convert.ToInt32(((0.6 * home2SHO) + (0.5 * home2PAC) + (0.3 * home2DRI) + (0.1 * home2PHY)) / 4); //loading the home2 attacking attribute stats into weighted average equation
             home2ScoreChance = home2ScoreChance - Convert.ToInt32(((0.5 * away2TAC) + (0.4 * away2PHY) + (0.2 * away2AGG) + (0.2 * away2REL)) / 4); //weighted average then found using CPU defensive attribute stats
-            home2ScoreChance = Convert.ToInt32(Convert.ToDouble(home2ScoreChance) / 0.42857142857); //home adv. modifier = 3:7 ratio of A:H fans so we 3/7 as modifier
+           // home2ScoreChance = Convert.ToInt32(Convert.ToDouble(home2ScoreChance) / 0.42857142857); //home adv. modifier = 3:7 ratio of A:H fans so we 3/7 as modifier
             return home2ScoreChance;
         }
 
@@ -519,7 +538,7 @@ namespace _5_A_Side
         {
             away2ScoreChance = Convert.ToInt32(((0.6 * away2SHO) + (0.5 * away2PAC) + (0.3 * away2DRI) + (0.1 * away2PHY)) / 4); //loading the away2 attacking attribute stats into weighted average equation
             away2ScoreChance = away2ScoreChance - Convert.ToInt32(((0.5 * away2TAC) + (0.4 * away2PHY) + (0.2 * away2AGG) + (0.2 * away2REL)) / 4); //weighted average then found using CPU defensive attribute stats
-            away2ScoreChance = Convert.ToInt32(Convert.ToDouble(away2ScoreChance) / 2.33333333333); //away disadv. modifier = 7:3 ratio of H:A fans so we use 7/3 as modifier
+           // away2ScoreChance = Convert.ToInt32(Convert.ToDouble(away2ScoreChance) / 2.33333333333); //away disadv. modifier = 7:3 ratio of H:A fans so we use 7/3 as modifier
             return away2ScoreChance;
         }
 
@@ -565,13 +584,6 @@ namespace _5_A_Side
             reader.Read();
             away1ID = Convert.ToInt32(reader["AwayTeamID"]);
             home1ID = Convert.ToInt32(reader["HomeTeamID"]);
-            reader.Close();
-            Com.CommandText = "Select * from Fixtures where Id = " + (fixtureID + 1);
-            Com.Connection = Con;
-            reader = Com.ExecuteReader();
-            reader.Read();
-            away2ID = Convert.ToInt32(reader["AwayTeamID"]);
-            home2ID = Convert.ToInt32(reader["HomeTeamID"]);
             reader.Close();
             //selecting and assigning the home team from first fixture's player attributes
             Com.CommandText = "Select * from Players Where TeamId = " + home1ID;
@@ -734,7 +746,6 @@ namespace _5_A_Side
             awayTeam1.Text = Convert.ToString(reader["TeamName"]);
             reader.Close();
             fixtureID++;
-
             //selecting 2nd Fixture from Fixtures table
             Com.CommandText = "Select * from Fixtures where Id = " + fixtureID;
             Com.Connection = Con;

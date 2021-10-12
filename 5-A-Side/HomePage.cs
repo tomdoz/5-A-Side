@@ -7,11 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
+using System.Data.Sql;
 
 namespace _5_A_Side
 {
     public partial class HomePage : Form
     {
+        SqlConnection Con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\tomra\OneDrive\Documents\FootballGame.mdf;Integrated Security=True;Connect Timeout=30");
+        SqlCommand Com = new SqlCommand();
 
         public HomePage()
         {
@@ -68,6 +72,19 @@ namespace _5_A_Side
         {
             playerInputForm teamInput = new playerInputForm();
             teamInput.Show();
+        }
+
+        private void reset_Click(object sender, EventArgs e)
+        {
+            Con.Open();
+            Com.CommandText = "Update Teams SET Wins = " + 0 + ", Draws = " + 0 + ", Losses = " + 0 + ", GF = " + 0 + ", GA = " + 0 + ", Points = " + 0 + ", NumMatches = " + 0;
+            Com.Connection = Con;
+            Com.ExecuteNonQuery();
+            Com.CommandText = "Update UserTable SET CurrFixtureID = " + 1;
+            Com.Connection = Con;
+            Com.ExecuteNonQuery();
+            Con.Close();
+            MessageBox.Show("All league table data is cleared, and the current matchweek has been reset to the first round of fixtures!", "Success!");
         }
     }
 }

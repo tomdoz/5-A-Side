@@ -519,11 +519,11 @@ namespace _5_A_Side
             {
                 //user draw
                 Con.Open();
-                Com.CommandText = "Update Teams SET (Wins = " + userWins + ", Draws = " + (userDraws + 1) + ", Losses = " + userLosses + ", GF = " + (userGF + Convert.ToInt32(userScoreLabel.Text)) + ", GA = " + (userGA + Convert.ToInt32(cpuScoreLabel.Text)) + ", Points = " + (userPoints + 1) + ", NumMatches = " + (userNumMatches + 1) + " ) WHERE Id = " + LoginMenu.TeamID;
+                Com.CommandText = "Update Teams SET Wins = " + userWins + ", Draws = " + (userDraws + 1) + ", Losses = " + userLosses + ", GF = " + (userGF + Convert.ToInt32(userScoreLabel.Text)) + ", GA = " + (userGA + Convert.ToInt32(cpuScoreLabel.Text)) + ", Points = " + (userPoints + 1) + ", NumMatches = " + (userNumMatches + 1) + "  WHERE Id = " + LoginMenu.TeamID;
                 Com.Connection = Con;
                 Com.ExecuteNonQuery();
                 //cpu loss
-                Com.CommandText = "Update Teams SET (Wins = " + cpuWins + ", Draws = " + (cpuDraws + 1) + ", Losses = " + cpuLosses + ", GF = " + (cpuGF + Convert.ToInt32(cpuScoreLabel.Text)) + ", GA = " + (cpuGA + Convert.ToInt32(userScoreLabel.Text)) + ", Points = " + (cpuPoints + 1) + ", NumMatches = " + (cpuNumMatches + 1) + " ) WHERE Id = " + cpuTeamID;
+                Com.CommandText = "Update Teams SET Wins = " + cpuWins + ", Draws = " + (cpuDraws + 1) + ", Losses = " + cpuLosses + ", GF = " + (cpuGF + Convert.ToInt32(cpuScoreLabel.Text)) + ", GA = " + (cpuGA + Convert.ToInt32(userScoreLabel.Text)) + ", Points = " + (cpuPoints + 1) + ", NumMatches = " + (cpuNumMatches + 1) + "  WHERE Id = " + cpuTeamID;
                 Com.Connection = Con;
                 Com.ExecuteNonQuery();
                 Con.Close();
