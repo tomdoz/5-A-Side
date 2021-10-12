@@ -55,7 +55,7 @@ namespace _5_A_Side
             // 
             this.displayTopScorersButton.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.displayTopScorersButton.Location = new System.Drawing.Point(1244, 387);
-            this.displayTopScorersButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.displayTopScorersButton.Margin = new System.Windows.Forms.Padding(6);
             this.displayTopScorersButton.Name = "displayTopScorersButton";
             this.displayTopScorersButton.Size = new System.Drawing.Size(300, 165);
             this.displayTopScorersButton.TabIndex = 3;
@@ -67,7 +67,7 @@ namespace _5_A_Side
             // 
             this.playNextMatchButton.Font = new System.Drawing.Font("Segoe UI Black", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.playNextMatchButton.Location = new System.Drawing.Point(560, 319);
-            this.playNextMatchButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.playNextMatchButton.Margin = new System.Windows.Forms.Padding(6);
             this.playNextMatchButton.Name = "playNextMatchButton";
             this.playNextMatchButton.Size = new System.Drawing.Size(476, 300);
             this.playNextMatchButton.TabIndex = 4;
@@ -79,7 +79,7 @@ namespace _5_A_Side
             // 
             this.teamInputButton.Font = new System.Drawing.Font("Segoe UI Black", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.teamInputButton.Location = new System.Drawing.Point(560, 319);
-            this.teamInputButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.teamInputButton.Margin = new System.Windows.Forms.Padding(6);
             this.teamInputButton.Name = "teamInputButton";
             this.teamInputButton.Size = new System.Drawing.Size(476, 300);
             this.teamInputButton.TabIndex = 5;
@@ -92,7 +92,7 @@ namespace _5_A_Side
             // 
             this.teamDisplayButton.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.teamDisplayButton.Location = new System.Drawing.Point(24, 387);
-            this.teamDisplayButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.teamDisplayButton.Margin = new System.Windows.Forms.Padding(6);
             this.teamDisplayButton.Name = "teamDisplayButton";
             this.teamDisplayButton.Size = new System.Drawing.Size(300, 165);
             this.teamDisplayButton.TabIndex = 6;
@@ -103,10 +103,10 @@ namespace _5_A_Side
             // reset
             // 
             this.reset.Font = new System.Drawing.Font("Segoe UI Black", 9F, System.Drawing.FontStyle.Bold);
-            this.reset.Location = new System.Drawing.Point(1432, 672);
+            this.reset.Location = new System.Drawing.Point(1412, 672);
             this.reset.Margin = new System.Windows.Forms.Padding(6);
             this.reset.Name = "reset";
-            this.reset.Size = new System.Drawing.Size(121, 103);
+            this.reset.Size = new System.Drawing.Size(141, 103);
             this.reset.TabIndex = 7;
             this.reset.Text = "RESET SEASON";
             this.reset.UseVisualStyleBackColor = true;
@@ -125,7 +125,7 @@ namespace _5_A_Side
             this.Controls.Add(this.TitleLabel);
             this.Controls.Add(this.teamInputButton);
             this.Controls.Add(this.playNextMatchButton);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximumSize = new System.Drawing.Size(1594, 861);
             this.MinimumSize = new System.Drawing.Size(1594, 861);
             this.Name = "HomePage";

@@ -392,7 +392,10 @@ namespace _5_A_Side
             {
                 userScoreChance = Convert.ToInt32(Convert.ToDouble(userScoreChance) / 2.33333333333); //away disadv. modifier = 7:3 ratio of H:A fans so we use 7/3 as modifier
             }
-            p1ChanceScore.Text = Convert.ToString(userScoreChance);
+            if (userScoreChance < 1)
+            {
+                userScoreChance = 1;
+            }
             return userScoreChance;
         }
 
@@ -404,12 +407,14 @@ namespace _5_A_Side
             {
                 cpuScoreChance = Convert.ToInt32(Convert.ToDouble(cpuScoreChance) / 0.42857142857); //home adv. modifier = 3:7 ratio of A:H fans so we 3/7 as modifier
             }
-
             else
             {
                 cpuScoreChance = Convert.ToInt32(Convert.ToDouble(cpuScoreChance) / 2.33333333333); //away disadv. modifier = 7:3 ratio of H:A fans so we use 7/3 as modifier
             }
-            p2ChanceScore.Text = Convert.ToString(cpuScoreChance);
+            if (cpuScoreChance < 1)
+            {
+                cpuScoreChance = 1;
+            }
             return cpuScoreChance;
         }
 

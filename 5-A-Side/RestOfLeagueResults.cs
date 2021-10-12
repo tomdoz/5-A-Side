@@ -257,6 +257,9 @@ namespace _5_A_Side
         public int rollAway1Probabilities;
         public int rollHome2Probabilities;
         public int rollAway2Probabilities;
+        public bool matchEnded = false;
+        public int gameClockIncrementer = 0;
+        Random rand = new Random();
 
         public RestOfLeagueResults()
         {
@@ -282,38 +285,27 @@ namespace _5_A_Side
             AssignTeams();
             TeamAvgStats();
             home1ScoreChance = home1ChanceGenerator();
-            home1ScoreChanceLabel.Text = Convert.ToString(home1ScoreChance);
             away1ScoreChance = away1ChanceGenerator();
-            away1ScoreChanceLabel.Text = Convert.ToString(away1ScoreChance);
             home2ScoreChance = home2ChanceGenerator();
-            home2ScoreChanceLabel.Text = Convert.ToString(home2ScoreChance);
             away2ScoreChance = away2ChanceGenerator();
-            away2ScoreChanceLabel.Text = Convert.ToString(away2ScoreChance);
-            SimulateGames();
         }
 
-        public void SimulateGames()
+        static int GenerateRandom(Random rand)
         {
-            ScoreGoalCheck();
-            ScoreGoalCheck();
-            ScoreGoalCheck();
-            ScoreGoalCheck();
-            ScoreGoalCheck();
-            ScoreGoalCheck();
-            ScoreGoalCheck();
-            ScoreGoalCheck();
-            ScoreGoalCheck();
-            ScoreGoalCheck();
-            ScoreGoalCheck();
-            ScoreGoalCheck();
-            ScoreGoalCheck();
-            ScoreGoalCheck();
-            ScoreGoalCheck();
-            ScoreGoalCheck();
-            ScoreGoalCheck();
-            ScoreGoalCheck();
-            ScoreGoalCheck();
-            LeagueTableUpdater();
+            int randomProb = rand.Next(0,100);
+            return randomProb;
+        }
+
+        public void ScoreGoalCheck()
+        {
+            rollHome1Probabilities = GenerateRandom(rand);
+            rollAway1Probabilities = GenerateRandom(rand);
+            rollHome2Probabilities = GenerateRandom(rand);
+            rollAway2Probabilities = GenerateRandom(rand);
+            Home1ScoreGoal();
+            Away1ScoreGoal();
+            Home2ScoreGoal();
+            Away2ScoreGoal();
             UpdateCurrFixture();
         }
 
@@ -468,55 +460,36 @@ namespace _5_A_Side
             }
         }
 
-        public void ScoreGoalCheck()
-        {
-            Random random = new Random();
-            rollHome1Probabilities = random.Next(0, 100);
-            rollAway1Probabilities = random.Next(0, 100);
-            if (rollHome1Probabilities <= home1ScoreChance)
-            {
-                Home1ScoreGoal();
-                home1ScoreChanceLabel.Text = "test";
-            }
-            if (rollAway1Probabilities <= away1ScoreChance)
-            {
-                Away1ScoreGoal();
-                away1ScoreChanceLabel.Text = "test";
-            }
-
-            rollAway2Probabilities = random.Next(0, away2ScoreChance);
-            if (rollAway2Probabilities <= away2ScoreChance)
-            {
-                Away2ScoreGoal();
-                away2ScoreChanceLabel.Text = "test";
-            }
-            rollHome2Probabilities = random.Next(0, (home2ScoreChance* -1));
-            if (rollHome2Probabilities <= home2ScoreChance)
-            {
-                Home2ScoreGoal();
-                home2ScoreChanceLabel.Text = "test";
-            }
-        }
-
         public void Home1ScoreGoal()
         {
-            homeTeam1Score.Text = Convert.ToString(Convert.ToInt32(homeTeam1Score.Text) + 1);
-            home1ScoreChanceLabel.Text = "test";
+            if (rollHome1Probabilities <= home1ScoreChance)
+            {
+                homeTeam1Score.Text = Convert.ToString(Convert.ToInt32(homeTeam1Score.Text) + 1);
+            }
         }
 
         public void Away1ScoreGoal()
         {
-            awayTeam1Score.Text = Convert.ToString(Convert.ToInt32(awayTeam1Score.Text) + 1);
+            if (rollAway1Probabilities <= away1ScoreChance)
+            {
+                awayTeam1Score.Text = Convert.ToString(Convert.ToInt32(awayTeam1Score.Text) + 1);
+            }
         }
 
-        public void Home2ScoreGoal()
+        public void Home2ScoreGoal() 
         {
-            homeTeam2Score.Text = Convert.ToString(Convert.ToInt32(homeTeam2Score.Text) + 1);
+            if (rollHome2Probabilities <= home2ScoreChance)
+            {
+                homeTeam2Score.Text = Convert.ToString(Convert.ToInt32(homeTeam2Score.Text) + 1);
+            }
         }
 
         public void Away2ScoreGoal()
         {
-            awayTeam2Score.Text = Convert.ToString(Convert.ToInt32(awayTeam2Score.Text) + 1);
+            if (rollAway2Probabilities <= away2ScoreChance)
+            {
+                awayTeam2Score.Text = Convert.ToString(Convert.ToInt32(awayTeam2Score.Text) + 1);
+            }
         }
 
         public int home1ChanceGenerator()
@@ -524,30 +497,44 @@ namespace _5_A_Side
             home1ScoreChance = Convert.ToInt32(((0.6 * home1SHO) + (0.5 * home1PAC) + (0.3 * home1DRI) + (0.1 * home1PHY)) / 4); //loading the home1 attacking attribute stats into weighted average equation
             home1ScoreChance = home1ScoreChance - Convert.ToInt32(((0.5 * away1TAC) + (0.4 * away1PHY) + (0.2 * away1AGG) + (0.2 * away1REL)) / 4); //weighted average then found using CPU defensive attribute stats
             //home1ScoreChance = Convert.ToInt32(Convert.ToDouble(home1ScoreChance) / 0.42857142857); //home adv. modifier = 3:7 ratio of A:H fans so we 3/7 as modifier
+            if (home1ScoreChance < 1)
+            {
+                home1ScoreChance = 1;
+            }
             return home1ScoreChance;
         }
 
         public int away1ChanceGenerator()
         {
             away1ScoreChance = Convert.ToInt32(((0.6 * away1SHO) + (0.5 * away1PAC) + (0.3 * away1DRI) + (0.1 * away1PHY)) / 4); //loading the away1 attacking attribute stats into weighted average equation
-            away1ScoreChance = away1ScoreChance - Convert.ToInt32(((0.5 * away1TAC) + (0.4 * away1PHY) + (0.2 * away1AGG) + (0.2 * away1REL)) / 4); //weighted average then found using CPU defensive attribute stats
-           // away1ScoreChance = Convert.ToInt32(Convert.ToDouble(away1ScoreChance) / 2.33333333333); //away disadv. modifier = 7:3 ratio of H:A fans so we use 7/3 as modifier
+            away1ScoreChance = away1ScoreChance - Convert.ToInt32(((0.5 * home1TAC) + (0.4 * home1PHY) + (0.2 * home1AGG) + (0.2 * home1REL)) / 4); //weighted average then found using CPU defensive attribute stats                                                                                                                                        // away1ScoreChance = Convert.ToInt32(Convert.ToDouble(away1ScoreChance) / 2.33333333333); //away disadv. modifier = 7:3 ratio of H:A fans so we use 7/3 as modifier
+            if (away1ScoreChance < 1)
+            {
+                away1ScoreChance = 1;
+            }
             return away1ScoreChance;
         }
 
         public int home2ChanceGenerator()
         {
             home2ScoreChance = Convert.ToInt32(((0.6 * home2SHO) + (0.5 * home2PAC) + (0.3 * home2DRI) + (0.1 * home2PHY)) / 4); //loading the home2 attacking attribute stats into weighted average equation
-            home2ScoreChance = home2ScoreChance - Convert.ToInt32(((0.5 * away2TAC) + (0.4 * away2PHY) + (0.2 * away2AGG) + (0.2 * away2REL)) / 4); //weighted average then found using CPU defensive attribute stats
-           // home2ScoreChance = Convert.ToInt32(Convert.ToDouble(home2ScoreChance) / 0.42857142857); //home adv. modifier = 3:7 ratio of A:H fans so we 3/7 as modifier
+            home2ScoreChance = home2ScoreChance - Convert.ToInt32(((0.5 * away2TAC) + (0.4 * away2PHY) + (0.2 * away2AGG) + (0.2 * away2REL)) / 4); //weighted average then found using CPU defensive attribute stats                                                                                                                                          // home2ScoreChance = Convert.ToInt32(Convert.ToDouble(home2ScoreChance) / 0.42857142857); //home adv. modifier = 3:7 ratio of A:H fans so we 3/7 as modifier
+            if (home2ScoreChance < 1)
+            {
+                home2ScoreChance = 1;
+            }
             return home2ScoreChance;
         }
 
         public int away2ChanceGenerator()
         {
             away2ScoreChance = Convert.ToInt32(((0.6 * away2SHO) + (0.5 * away2PAC) + (0.3 * away2DRI) + (0.1 * away2PHY)) / 4); //loading the away2 attacking attribute stats into weighted average equation
-            away2ScoreChance = away2ScoreChance - Convert.ToInt32(((0.5 * away2TAC) + (0.4 * away2PHY) + (0.2 * away2AGG) + (0.2 * away2REL)) / 4); //weighted average then found using CPU defensive attribute stats
-           // away2ScoreChance = Convert.ToInt32(Convert.ToDouble(away2ScoreChance) / 2.33333333333); //away disadv. modifier = 7:3 ratio of H:A fans so we use 7/3 as modifier
+            away2ScoreChance = away2ScoreChance - Convert.ToInt32(((0.5 * home2TAC) + (0.4 * home2PHY) + (0.2 * home2AGG) + (0.2 * home2REL)) / 4); //weighted average then found using CPU defensive attribute stats
+                                                                                                                                                    // away2ScoreChance = Convert.ToInt32(Convert.ToDouble(away2ScoreChance) / 2.33333333333); //away disadv. modifier = 7:3 ratio of H:A fans so we use 7/3 as modifier
+            if (away2ScoreChance < 1)
+            {
+                away2ScoreChance = 1;
+            }
             return away2ScoreChance;
         }
 
@@ -932,6 +919,21 @@ namespace _5_A_Side
             HomePage home = new HomePage();
             home.Show();
             this.Close();
+        }
+
+        private void matchTimer_Tick(object sender, EventArgs e)
+        {
+            if (matchEnded == false)
+            {
+                gameClockIncrementer += 5;
+                ScoreGoalCheck();
+                if (gameClockIncrementer == 90)
+                {
+                    matchEnded = true;
+                    LeagueTableUpdater();
+                    UpdateCurrFixture();
+                }
+            }
         }
     }
 }
