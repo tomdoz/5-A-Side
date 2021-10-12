@@ -253,6 +253,10 @@ namespace _5_A_Side
         public int away1ScoreChance;
         public int home2ScoreChance;
         public int away2ScoreChance;
+        public int rollHome1Probabilities;
+        public int rollAway1Probabilities;
+        public int rollHome2Probabilities;
+        public int rollAway2Probabilities;
 
         public RestOfLeagueResults()
         {
@@ -467,25 +471,30 @@ namespace _5_A_Side
         public void ScoreGoalCheck()
         {
             Random random = new Random();
-            int rollHome1Probabilities = random.Next(0, 100);
-            int rollAway1Probabilities = random.Next(0, 100);
-            int rollHome2Probabilities = random.Next(0, 100);
-            int rollAway2Probabilities = random.Next(0, 100);
+            rollHome1Probabilities = random.Next(0, 100);
+            rollAway1Probabilities = random.Next(0, 100);
             if (rollHome1Probabilities <= home1ScoreChance)
             {
                 Home1ScoreGoal();
+                home1ScoreChanceLabel.Text = "test";
             }
             if (rollAway1Probabilities <= away1ScoreChance)
             {
                 Away1ScoreGoal();
+                away1ScoreChanceLabel.Text = "test";
             }
-            if (rollHome2Probabilities <= home2ScoreChance)
-            {
-                Home2ScoreGoal();
-            }
+
+            rollAway2Probabilities = random.Next(0, away2ScoreChance);
             if (rollAway2Probabilities <= away2ScoreChance)
             {
                 Away2ScoreGoal();
+                away2ScoreChanceLabel.Text = "test";
+            }
+            rollHome2Probabilities = random.Next(0, (home2ScoreChance* -1));
+            if (rollHome2Probabilities <= home2ScoreChance)
+            {
+                Home2ScoreGoal();
+                home2ScoreChanceLabel.Text = "test";
             }
         }
 
