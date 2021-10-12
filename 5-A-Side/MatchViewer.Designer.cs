@@ -209,7 +209,7 @@ namespace _5_A_Side
             // 
             // matchTimer
             // 
-            this.matchTimer.Interval = 7000;
+            this.matchTimer.Interval = 500;
             this.matchTimer.Tick += new System.EventHandler(this.matchTimer_Tick);
             // 
             // label4

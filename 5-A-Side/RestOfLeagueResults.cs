@@ -213,7 +213,7 @@ namespace _5_A_Side
         public int away2SubTackleVal;
         public int away2SubAggroVal;
 
-        //variables for averages of each attribute for each stat for user and cpu teams
+        //variables for averages of each attribute for each stat for teams
         public int home1SHO;
         public int home1DRI;
         public int home1PAC;
@@ -248,7 +248,7 @@ namespace _5_A_Side
         public int away1ID;
         public int home2ID;
         public int away2ID;
-        public int fixtureID = 2;
+        public int fixtureID;
         public int home1ScoreChance;
         public int away1ScoreChance;
         public int home2ScoreChance;
@@ -260,8 +260,21 @@ namespace _5_A_Side
             LoadTeams();
         }
 
+        public void GetCurrentFixture()
+        {
+            Con.Open();
+            Com.CommandText = "Select CurrFixtureID from UserTable Where Id = " + LoginMenu.UserID;
+            Com.Connection = Con;
+            SqlDataReader reader = Com.ExecuteReader();
+            reader.Read();
+            fixtureID = Convert.ToInt32(reader["CurrFixtureID"]);
+            reader.Close();
+            Con.Close();
+        }
+
         public void LoadTeams()
         {
+            GetCurrentFixture();
             AssignTeams();
             TeamAvgStats();
             home1ScoreChance = home1ChanceGenerator();
@@ -278,11 +291,159 @@ namespace _5_A_Side
                 ScoreGoalCheck();
             }
             LeagueTableUpdater();
+            UpdateCurrFixture();
+
+        }
+
+        public void UpdateCurrFixture()
+        {
+            Con.Open();
+            Com.CommandText = "Update UserTable Set CurrFixtureID = " + (fixtureID + 2) + " Where Id = " + LoginMenu.UserID;
+            Com.Connection = Con;
+            Com.ExecuteNonQuery();
+            Con.Close();
         }
 
         public void LeagueTableUpdater()
         {
             //create this 
+            //selecting leagueTableData for user so it can be updated
+            Con.Open();
+            Com.CommandText = "Select * from Teams Where Id = " + home1ID;
+            Com.Connection = Con;
+            SqlDataReader reader = Com.ExecuteReader();
+            reader.Read();
+            int home1Points = Convert.ToInt32(reader["Points"]);
+            int home1Wins = Convert.ToInt32(reader["Wins"]);
+            int home1Losses = Convert.ToInt32(reader["Losses"]);
+            int home1Draws = Convert.ToInt32(reader["Draws"]);
+            int home1GF = Convert.ToInt32(reader["GF"]);
+            int home1GA = Convert.ToInt32(reader["GA"]);
+            int home1NumMatches = Convert.ToInt32(reader["NumMatches"]);
+            reader.Close();
+            //selecting leagueTableData for cpu so it can be updated
+            Com.CommandText = "Select * from Teams Where Id = " + away1ID;
+            Com.Connection = Con;
+            reader = Com.ExecuteReader();
+            reader.Read();
+            int away1Points = Convert.ToInt32(reader["Points"]);
+            int away1Wins = Convert.ToInt32(reader["Wins"]);
+            int away1Losses = Convert.ToInt32(reader["Losses"]);
+            int away1Draws = Convert.ToInt32(reader["Draws"]);
+            int away1GF = Convert.ToInt32(reader["GF"]);
+            int away1GA = Convert.ToInt32(reader["GA"]);
+            int away1NumMatches = Convert.ToInt32(reader["NumMatches"]);
+            reader.Close();
+            Con.Close();
+
+            if (Convert.ToInt32(homeTeam1Score.Text) > Convert.ToInt32(awayTeam1Score.Text))
+            {
+                //home1 win
+                Con.Open();
+                Com.CommandText = "Update Teams SET Wins = " + (home1Wins + 1) + ", Draws = " + home1Draws + ", Losses = " + home1Losses + ", GF = " + (home1GF + Convert.ToInt32(homeTeam1Score.Text)) + ", GA = " + (home1GA + Convert.ToInt32(awayTeam1Score.Text)) + ", Points = " + (home1Points + 3) + ", NumMatches = " + (home1NumMatches + 1) + " WHERE Id = " + home1ID;
+                Com.Connection = Con;
+                Com.ExecuteNonQuery();
+                //away1 loss
+                Com.CommandText = "Update Teams SET Wins = " + away1Wins + ", Draws = " + away1Draws + ", Losses = " + (away1Losses + 1) + ", GF = " + (away1GF + Convert.ToInt32(awayTeam1Score.Text)) + ", GA = " + (away1GA + Convert.ToInt32(homeTeam1Score.Text)) + ", Points = " + away1Points + ", NumMatches = " + (away1NumMatches + 1) + " WHERE Id = " + away1ID;
+                Com.Connection = Con;
+                Com.ExecuteNonQuery();
+                Con.Close();
+            }
+            else if (Convert.ToInt32(homeTeam1Score.Text) < Convert.ToInt32(awayTeam1Score.Text))
+            {
+                //away1 win
+                Con.Open();
+                Com.CommandText = "Update Teams SET Wins = " + (away1Wins + 1) + ", Draws = " + away1Draws + ", Losses = " + away1Losses + ", GF = " + (away1GF + Convert.ToInt32(awayTeam1Score.Text)) + ", GA = " + (away1GA + Convert.ToInt32(homeTeam1Score.Text)) + ", Points = " + (away1Points + 3) + ", NumMatches = " + (away1NumMatches + 1) + " WHERE Id = " + away1ID;
+                Com.Connection = Con;
+                Com.ExecuteNonQuery();
+                //home1 loss
+                Com.CommandText = "Update Teams SET Wins = " + home1Wins + ", Draws = " + home1Draws + ", Losses = " + (home1Losses + 1) + ", GF = " + (home1GF + Convert.ToInt32(homeTeam1Score.Text)) + ", GA = " + (home1GA + Convert.ToInt32(awayTeam1Score.Text)) + ", Points = " + home1Points + ", NumMatches = " + (home1NumMatches + 1) + " WHERE Id = " + home1ID;
+                Com.Connection = Con;
+                Com.ExecuteNonQuery();
+                Con.Close();
+            }
+            else
+            {
+                //home1 draw
+                Con.Open();
+                Com.CommandText = "Update Teams SET Wins = " + home1Wins + ", Draws = " + (home1Draws + 1) + ", Losses = " + home1Losses + ", GF = " + (home1GF + Convert.ToInt32(homeTeam1Score.Text)) + ", GA = " + (home1GA + Convert.ToInt32(awayTeam1Score.Text)) + ", Points = " + (home1Points + 1) + ", NumMatches = " + (home1NumMatches + 1) + " WHERE Id = " + home1ID;
+                Com.Connection = Con;
+                Com.ExecuteNonQuery();
+                //away1 draw
+                Com.CommandText = "Update Teams SET Wins = " + away1Wins + ", Draws = " + (away1Draws + 1) + ", Losses = " + away1Losses + ", GF = " + (away1GF + Convert.ToInt32(awayTeam1Score.Text)) + ", GA = " + (away1GA + Convert.ToInt32(homeTeam1Score.Text)) + ", Points = " + (away1Points + 1) + ", NumMatches = " + (away1NumMatches + 1) + " WHERE Id = " + away1ID;
+                Com.Connection = Con;
+                Com.ExecuteNonQuery();
+                Con.Close();
+            }
+
+            //selecting leagueTableData for home2 so it can be updated
+            Con.Open();
+            Com.CommandText = "Select * from Teams Where Id = " + home2ID;
+            Com.Connection = Con;
+            reader = Com.ExecuteReader();
+            reader.Read();
+            int home2Points = Convert.ToInt32(reader["Points"]);
+            int home2Wins = Convert.ToInt32(reader["Wins"]);
+            int home2Losses = Convert.ToInt32(reader["Losses"]);
+            int home2Draws = Convert.ToInt32(reader["Draws"]);
+            int home2GF = Convert.ToInt32(reader["GF"]);
+            int home2GA = Convert.ToInt32(reader["GA"]);
+            int home2NumMatches = Convert.ToInt32(reader["NumMatches"]);
+            reader.Close();
+            //selecting leagueTableData for away2 so it can be updated
+            Com.CommandText = "Select * from Teams Where Id = " + away2ID;
+            Com.Connection = Con;
+            reader = Com.ExecuteReader();
+            reader.Read();
+            int away2Points = Convert.ToInt32(reader["Points"]);
+            int away2Wins = Convert.ToInt32(reader["Wins"]);
+            int away2Losses = Convert.ToInt32(reader["Losses"]);
+            int away2Draws = Convert.ToInt32(reader["Draws"]);
+            int away2GF = Convert.ToInt32(reader["GF"]);
+            int away2GA = Convert.ToInt32(reader["GA"]);
+            int away2NumMatches = Convert.ToInt32(reader["NumMatches"]);
+            reader.Close();
+            Con.Close();
+
+            if (Convert.ToInt32(homeTeam2Score.Text) > Convert.ToInt32(awayTeam2Score.Text))
+            {
+                //home2 win
+                Con.Open();
+                Com.CommandText = "Update Teams SET Wins = " + (home2Wins + 1) + ", Draws = " + home2Draws + ", Losses = " + home2Losses + ", GF = " + (home2GF + Convert.ToInt32(homeTeam2Score.Text)) + ", GA = " + (home2GA + Convert.ToInt32(awayTeam2Score.Text)) + ", Points = " + (home2Points + 3) + ", NumMatches = " + (home2NumMatches + 1) + " WHERE Id = " + home2ID;
+                Com.Connection = Con;
+                Com.ExecuteNonQuery();
+                //away2 loss
+                Com.CommandText = "Update Teams SET Wins = " + away2Wins + ", Draws = " + away2Draws + ", Losses = " + (away2Losses + 1) + ", GF = " + (away2GF + Convert.ToInt32(awayTeam2Score.Text)) + ", GA = " + (away2GA + Convert.ToInt32(homeTeam2Score.Text)) + ", Points = " + away2Points +", NumMatches = " + (away2NumMatches + 1) + " WHERE Id = " + away2ID;
+                Com.Connection = Con;
+                Com.ExecuteNonQuery();
+                Con.Close();
+            }
+            else if (Convert.ToInt32(homeTeam2Score.Text) < Convert.ToInt32(awayTeam2Score.Text))
+            {
+                //away2 win
+                Con.Open();
+                Com.CommandText = "Update Teams SET Wins = " + (away2Wins + 1) + ", Draws = " + away2Draws + ", Losses = " + away2Losses + ", GF = " + (away2GF + Convert.ToInt32(awayTeam2Score.Text)) + ", GA = " + (away2GA + Convert.ToInt32(homeTeam2Score.Text)) + ", Points = " + (away2Points + 3) + ", NumMatches = " + (away1NumMatches + 1) + " WHERE Id = " + away2ID;
+                Com.Connection = Con;
+                Com.ExecuteNonQuery();
+                //home2 loss
+                Com.CommandText = "Update Teams SET Wins = " + home2Wins + ", Draws = " + home2Draws + ", Losses = " + (home2Losses + 1) + ", GF = " + (home2GF + Convert.ToInt32(homeTeam2Score.Text)) + ", GA = " + (home2GA + Convert.ToInt32(awayTeam2Score.Text)) + ", Points = " + home2Points + ", NumMatches = " + (home2NumMatches + 1) + " WHERE Id = " + home2ID;
+                Com.Connection = Con;
+                Com.ExecuteNonQuery();
+                Con.Close();
+            }
+            else if (Convert.ToInt32(homeTeam2Score.Text) == Convert.ToInt32(awayTeam2Score.Text))
+            {
+                //home2 draw
+                Con.Open();
+                Com.CommandText = "Update Teams SET Wins = " + home2Wins + ", Draws = " + (home2Draws + 1) + ", Losses = " + home2Losses + ", GF = " + (home2GF + Convert.ToInt32(homeTeam2Score.Text)) + ", GA = " + (home2GA + Convert.ToInt32(awayTeam2Score.Text)) + ", Points = " + (home2Points + 1) + ", NumMatches = " + (home2NumMatches + 1) + " WHERE Id = " + home2ID;
+                Com.Connection = Con;
+                Com.ExecuteNonQuery();
+                //away2 draw
+                Com.CommandText = "Update Teams SET Wins = " + away2Wins + ", Draws = " + (away2Draws + 1) + ", Losses = " + away2Losses + ", GF = " + (away2GF + Convert.ToInt32(awayTeam2Score.Text)) + ", GA = " + (away2GA + Convert.ToInt32(homeTeam2Score.Text)) + ", Points = " + (away2Points + 1) + ", NumMatches = " + (away2NumMatches + 1) + " WHERE Id = " + away2ID;
+                Com.Connection = Con;
+                Com.ExecuteNonQuery();
+                Con.Close();
+            }
         }
 
         public void ScoreGoalCheck()
@@ -404,6 +565,13 @@ namespace _5_A_Side
             reader.Read();
             away1ID = Convert.ToInt32(reader["AwayTeamID"]);
             home1ID = Convert.ToInt32(reader["HomeTeamID"]);
+            reader.Close();
+            Com.CommandText = "Select * from Fixtures where Id = " + (fixtureID + 1);
+            Com.Connection = Con;
+            reader = Com.ExecuteReader();
+            reader.Read();
+            away2ID = Convert.ToInt32(reader["AwayTeamID"]);
+            home2ID = Convert.ToInt32(reader["HomeTeamID"]);
             reader.Close();
             //selecting and assigning the home team from first fixture's player attributes
             Com.CommandText = "Select * from Players Where TeamId = " + home1ID;

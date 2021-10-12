@@ -135,7 +135,7 @@ namespace _5_A_Side
         public int cpuAGG;
 
         //variables for game running
-        public int fixtureID = 1;
+        public int fixtureID;
         public int cpuTeamID;
         public int userScoreChance;
         public int cpuScoreChance;
@@ -148,6 +148,18 @@ namespace _5_A_Side
             InitializeComponent();
             LoadTeams();
             matchTimer.Enabled = true;
+        }
+
+        public void GetCurrentFixture()
+        {
+            Con.Open();
+            Com.CommandText = "Select CurrFixtureID from UserTable Where Id = " + LoginMenu.UserID;
+            Com.Connection = Con;
+            SqlDataReader reader = Com.ExecuteReader();
+            reader.Read();
+            fixtureID = Convert.ToInt32(reader["CurrFixtureID"]);
+            reader.Close();
+            Con.Close();
         }
 
         public void AssignTeams()
@@ -334,6 +346,7 @@ namespace _5_A_Side
 
         public void LoadTeams()
         {
+            GetCurrentFixture();
             AssignTeams();
             //need to add the proper iteration through the teams from CPU
             if(userAtHome == false)
@@ -435,6 +448,15 @@ namespace _5_A_Side
             matchTimer.Start();
         }
 
+        public void UpdateCurrFixture()
+        {
+            Con.Open();
+            Com.CommandText = "Update UserTable Set CurrFixtureID = " + (fixtureID + 1) + " Where Id = " + LoginMenu.UserID;
+            Com.Connection = Con;
+            Com.ExecuteNonQuery();
+            Con.Close();
+        }
+
         public void LeagueTableUpdater()
         {
             //selecting leagueTableData for user so it can be updated
@@ -507,8 +529,7 @@ namespace _5_A_Side
                 Con.Close();
             }
         }
-
-    
+            
         private void matchTimer_Tick(object sender, EventArgs e)
         {
            if (matchEnded == false)
@@ -523,6 +544,10 @@ namespace _5_A_Side
                     string matchEndMsgTitle = "Match Ended";
                     MessageBox.Show(matchEndMsg, matchEndMsgTitle);
                     LeagueTableUpdater();
+                    UpdateCurrFixture();
+                    RestOfLeagueResults rest = new RestOfLeagueResults();
+                    rest.Show();
+                    this.Close();
                 }
             }
         }
