@@ -23,7 +23,7 @@ namespace _5_A_Side
         private void signUpButton_Click(object sender, EventArgs e)
         {
             Con.Open();
-            string query = "insert into UserTable (Username, Password, Name, TeamID) values('" + userNameTxt.Text + "', '" + PWTxt.Text + "', '" + nameTxt.Text + "', '" + 0 + "')";
+            string query = "insert into UserTable (Username, Password, Name, TeamID, currFixtureID) values('" + userNameTxt.Text + "', '" + PWTxt.Text + "', '" + nameTxt.Text + "', '" + 0 + "', '" + 0 + "')";
             SqlCommand cmd = new SqlCommand(query, Con);
             cmd.ExecuteNonQuery();
             Con.Close();

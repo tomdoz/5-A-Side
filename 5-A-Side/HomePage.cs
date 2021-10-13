@@ -91,7 +91,7 @@ namespace _5_A_Side
             Con.Close();
         }
 
-        private void resetIconButton_Click(object sender, EventArgs e)
+        private void resetButton_Click(object sender, EventArgs e)
         {
             Con.Open();
             Com.CommandText = "Update Teams SET Wins = " + 0 + ", Draws = " + 0 + ", Losses = " + 0 + ", GF = " + 0 + ", GA = " + 0 + ", Points = " + 0 + ", NumMatches = " + 0;

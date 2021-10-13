@@ -48,9 +48,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="FontAwesome.Sharp, Version=5.15.3.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\FontAwesome.Sharp.5.15.3\lib\net472\FontAwesome.Sharp.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -114,6 +111,12 @@
     <Compile Include="TeamDisplay.designer.cs">
       <DependentUpon>TeamDisplay.cs</DependentUpon>
     </Compile>
+    <Compile Include="TopScorers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TopScorers.Designer.cs">
+      <DependentUpon>TopScorers.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="HomePage.resx">
       <DependentUpon>HomePage.cs</DependentUpon>
     </EmbeddedResource>
@@ -148,7 +151,9 @@
     <EmbeddedResource Include="TeamDisplay.resx">
       <DependentUpon>TeamDisplay.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="packages.config" />
+    <EmbeddedResource Include="TopScorers.resx">
+      <DependentUpon>TopScorers.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
