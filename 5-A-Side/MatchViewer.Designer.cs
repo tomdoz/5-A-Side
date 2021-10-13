@@ -68,7 +68,7 @@ namespace _5_A_Side
             this.userName.BackColor = System.Drawing.Color.Transparent;
             this.userName.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold);
             this.userName.ForeColor = System.Drawing.Color.White;
-            this.userName.Location = new System.Drawing.Point(584, 117);
+            this.userName.Location = new System.Drawing.Point(518, 117);
             this.userName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.userName.Name = "userName";
             this.userName.Size = new System.Drawing.Size(186, 45);
@@ -81,7 +81,7 @@ namespace _5_A_Side
             this.leftHome.BackColor = System.Drawing.Color.Transparent;
             this.leftHome.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold);
             this.leftHome.ForeColor = System.Drawing.Color.White;
-            this.leftHome.Location = new System.Drawing.Point(524, 119);
+            this.leftHome.Location = new System.Drawing.Point(462, 117);
             this.leftHome.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.leftHome.Name = "leftHome";
             this.leftHome.Size = new System.Drawing.Size(72, 45);
@@ -94,7 +94,7 @@ namespace _5_A_Side
             this.leftAway.BackColor = System.Drawing.Color.Transparent;
             this.leftAway.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold);
             this.leftAway.ForeColor = System.Drawing.Color.White;
-            this.leftAway.Location = new System.Drawing.Point(524, 117);
+            this.leftAway.Location = new System.Drawing.Point(473, 117);
             this.leftAway.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.leftAway.Name = "leftAway";
             this.leftAway.Size = new System.Drawing.Size(70, 45);
@@ -108,7 +108,7 @@ namespace _5_A_Side
             this.cpuTeamLabel.BackColor = System.Drawing.Color.Transparent;
             this.cpuTeamLabel.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold);
             this.cpuTeamLabel.ForeColor = System.Drawing.Color.White;
-            this.cpuTeamLabel.Location = new System.Drawing.Point(811, 117);
+            this.cpuTeamLabel.Location = new System.Drawing.Point(818, 117);
             this.cpuTeamLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.cpuTeamLabel.Name = "cpuTeamLabel";
             this.cpuTeamLabel.Size = new System.Drawing.Size(180, 45);
@@ -121,7 +121,7 @@ namespace _5_A_Side
             this.rightHome.BackColor = System.Drawing.Color.Transparent;
             this.rightHome.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold);
             this.rightHome.ForeColor = System.Drawing.Color.White;
-            this.rightHome.Location = new System.Drawing.Point(976, 119);
+            this.rightHome.Location = new System.Drawing.Point(1089, 117);
             this.rightHome.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.rightHome.Name = "rightHome";
             this.rightHome.Size = new System.Drawing.Size(72, 45);
@@ -135,7 +135,7 @@ namespace _5_A_Side
             this.rightAway.BackColor = System.Drawing.Color.Transparent;
             this.rightAway.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold);
             this.rightAway.ForeColor = System.Drawing.Color.White;
-            this.rightAway.Location = new System.Drawing.Point(978, 117);
+            this.rightAway.Location = new System.Drawing.Point(1077, 117);
             this.rightAway.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.rightAway.Name = "rightAway";
             this.rightAway.Size = new System.Drawing.Size(70, 45);
@@ -218,7 +218,7 @@ namespace _5_A_Side
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold);
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(757, 117);
+            this.label4.Location = new System.Drawing.Point(764, 119);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(54, 45);
@@ -273,8 +273,13 @@ namespace _5_A_Side
             this.Controls.Add(this.leftAway);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(1594, 861);
+            this.MinimumSize = new System.Drawing.Size(1594, 861);
             this.Name = "MatchViewer";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Match Viewer";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.ResumeLayout(false);
             this.PerformLayout();
 

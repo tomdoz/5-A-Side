@@ -223,7 +223,7 @@ namespace _5_A_Side
             this.Controls.Add(this.homeTeam1);
             this.Controls.Add(this.title);
             this.Name = "RestOfLeagueResults";
-            this.Text = "Other matches this week included:";
+            this.Text = "Other Results";
             this.ResumeLayout(false);
             this.PerformLayout();
 

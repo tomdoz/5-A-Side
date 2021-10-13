@@ -129,7 +129,8 @@ namespace _5_A_Side
             this.MaximumSize = new System.Drawing.Size(1594, 861);
             this.MinimumSize = new System.Drawing.Size(1594, 861);
             this.Name = "HomePage";
-            this.Text = "HomePage";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Home Page";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.ResumeLayout(false);
             this.PerformLayout();

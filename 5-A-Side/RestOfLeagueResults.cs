@@ -496,7 +496,7 @@ namespace _5_A_Side
         {
             home1ScoreChance = Convert.ToInt32(((0.6 * home1SHO) + (0.5 * home1PAC) + (0.3 * home1DRI) + (0.1 * home1PHY)) / 4); //loading the home1 attacking attribute stats into weighted average equation
             home1ScoreChance = home1ScoreChance - Convert.ToInt32(((0.5 * away1TAC) + (0.4 * away1PHY) + (0.2 * away1AGG) + (0.2 * away1REL)) / 4); //weighted average then found using CPU defensive attribute stats
-            //home1ScoreChance = Convert.ToInt32(Convert.ToDouble(home1ScoreChance) / 0.42857142857); //home adv. modifier = 3:7 ratio of A:H fans so we 3/7 as modifier
+            home1ScoreChance = Convert.ToInt32(Convert.ToDouble(home1ScoreChance) / 0.42857142857); //home adv. modifier = 3:7 ratio of A:H fans so we 3/7 as modifier
             if (home1ScoreChance < 1)
             {
                 home1ScoreChance = 1;
@@ -508,6 +508,7 @@ namespace _5_A_Side
         {
             away1ScoreChance = Convert.ToInt32(((0.6 * away1SHO) + (0.5 * away1PAC) + (0.3 * away1DRI) + (0.1 * away1PHY)) / 4); //loading the away1 attacking attribute stats into weighted average equation
             away1ScoreChance = away1ScoreChance - Convert.ToInt32(((0.5 * home1TAC) + (0.4 * home1PHY) + (0.2 * home1AGG) + (0.2 * home1REL)) / 4); //weighted average then found using CPU defensive attribute stats                                                                                                                                        // away1ScoreChance = Convert.ToInt32(Convert.ToDouble(away1ScoreChance) / 2.33333333333); //away disadv. modifier = 7:3 ratio of H:A fans so we use 7/3 as modifier
+            away1ScoreChance = Convert.ToInt32(Convert.ToDouble(away1ScoreChance) / 2.33333333333); //away disadv. modifier = 7:3 ratio of H:A fans so we use 7/3 as modifier
             if (away1ScoreChance < 1)
             {
                 away1ScoreChance = 1;
@@ -519,6 +520,8 @@ namespace _5_A_Side
         {
             home2ScoreChance = Convert.ToInt32(((0.6 * home2SHO) + (0.5 * home2PAC) + (0.3 * home2DRI) + (0.1 * home2PHY)) / 4); //loading the home2 attacking attribute stats into weighted average equation
             home2ScoreChance = home2ScoreChance - Convert.ToInt32(((0.5 * away2TAC) + (0.4 * away2PHY) + (0.2 * away2AGG) + (0.2 * away2REL)) / 4); //weighted average then found using CPU defensive attribute stats                                                                                                                                          // home2ScoreChance = Convert.ToInt32(Convert.ToDouble(home2ScoreChance) / 0.42857142857); //home adv. modifier = 3:7 ratio of A:H fans so we 3/7 as modifier
+            home2ScoreChance = Convert.ToInt32(Convert.ToDouble(home2ScoreChance) / 0.42857142857); //home adv. modifier = 3:7 ratio of A:H fans so we 3/7 as modifier
+            away1ScoreChance = Convert.ToInt32(Convert.ToDouble(away1ScoreChance) / 2.33333333333); //away disadv. modifier = 7:3 ratio of H:A fans so we use 7/3 as modifier
             if (home2ScoreChance < 1)
             {
                 home2ScoreChance = 1;
