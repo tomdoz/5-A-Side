@@ -54,7 +54,9 @@ namespace _5_A_Side
 
         private void displayTopScorersButton_Click(object sender, EventArgs e)
         {
-
+            TopScorers top = new TopScorers();
+            top.Show();
+            this.Close();
         }
 
         private void playNextMatchButton_Click(object sender, EventArgs e)
