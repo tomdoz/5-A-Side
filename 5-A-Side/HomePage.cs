@@ -21,11 +21,12 @@ namespace _5_A_Side
         {
             InitializeComponent();
             UserHasTeam();
+            GetNextGameweek();
         }
 
         public void UserHasTeam()
         {
-            if (LoginMenu.TeamID == 0) //Checking if user account has a team associated with it
+            if (LoginMenu.TeamID == 0) //Checking if user account hasn't got a team associated with it
             {
                 displayTopScorersButton.Visible = false;
                 playNextMatchButton.Visible = false;
@@ -35,6 +36,7 @@ namespace _5_A_Side
                 playNextMatchButton.Enabled = false;
                 teamDisplayButton.Enabled = false;
                 teamInputButton.Enabled = true;
+                nextGameweek.Visible = false;
             }
             else //if user account does have a team associated
             {
@@ -46,6 +48,7 @@ namespace _5_A_Side
                 playNextMatchButton.Enabled = true;
                 teamDisplayButton.Enabled = true;
                 teamInputButton.Enabled = false;
+                nextGameweek.Visible = true;
             }
         }
 
@@ -74,7 +77,21 @@ namespace _5_A_Side
             teamInput.Show();
         }
 
-        private void reset_Click(object sender, EventArgs e)
+        public void GetNextGameweek()
+        {
+            Con.Open();
+            Com.CommandText = "Select currFixtureID from UserTable where Id = " + LoginMenu.UserID;
+            Com.Connection = Con;
+            SqlDataReader reader = Com.ExecuteReader();
+            reader.Read();
+            int nextGameweekVal = Convert.ToInt32(reader["currFixtureID"]);
+            int nextGameweekDenominator = nextGameweekVal / 3;
+            nextGameweekVal = nextGameweekVal - (2 * nextGameweekDenominator);
+            nextGameweek.Text = "Next gameweek: " + Convert.ToInt32(nextGameweekVal);
+            Con.Close();
+        }
+
+        private void resetIconButton_Click(object sender, EventArgs e)
         {
             Con.Open();
             Com.CommandText = "Update Teams SET Wins = " + 0 + ", Draws = " + 0 + ", Losses = " + 0 + ", GF = " + 0 + ", GA = " + 0 + ", Points = " + 0 + ", NumMatches = " + 0;
@@ -85,6 +102,7 @@ namespace _5_A_Side
             Com.ExecuteNonQuery();
             Con.Close();
             MessageBox.Show("All league table data is cleared, and the current matchweek has been reset to the first round of fixtures!", "Success!");
+            GetNextGameweek();
         }
     }
 }

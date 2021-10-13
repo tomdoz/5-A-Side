@@ -35,7 +35,8 @@ namespace _5_A_Side
             this.playNextMatchButton = new System.Windows.Forms.Button();
             this.teamInputButton = new System.Windows.Forms.Button();
             this.teamDisplayButton = new System.Windows.Forms.Button();
-            this.reset = new System.Windows.Forms.Button();
+            this.nextGameweek = new System.Windows.Forms.Label();
+            this.resetIconButton = new FontAwesome.Sharp.IconButton();
             this.SuspendLayout();
             // 
             // TitleLabel
@@ -66,7 +67,7 @@ namespace _5_A_Side
             // playNextMatchButton
             // 
             this.playNextMatchButton.Font = new System.Drawing.Font("Segoe UI Black", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.playNextMatchButton.Location = new System.Drawing.Point(560, 319);
+            this.playNextMatchButton.Location = new System.Drawing.Point(560, 283);
             this.playNextMatchButton.Margin = new System.Windows.Forms.Padding(6);
             this.playNextMatchButton.Name = "playNextMatchButton";
             this.playNextMatchButton.Size = new System.Drawing.Size(476, 300);
@@ -78,7 +79,7 @@ namespace _5_A_Side
             // teamInputButton
             // 
             this.teamInputButton.Font = new System.Drawing.Font("Segoe UI Black", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.teamInputButton.Location = new System.Drawing.Point(560, 319);
+            this.teamInputButton.Location = new System.Drawing.Point(560, 283);
             this.teamInputButton.Margin = new System.Windows.Forms.Padding(6);
             this.teamInputButton.Name = "teamInputButton";
             this.teamInputButton.Size = new System.Drawing.Size(476, 300);
@@ -100,17 +101,36 @@ namespace _5_A_Side
             this.teamDisplayButton.UseVisualStyleBackColor = true;
             this.teamDisplayButton.Click += new System.EventHandler(this.teamDisplayButton_Click);
             // 
-            // reset
+            // nextGameweek
             // 
-            this.reset.Font = new System.Drawing.Font("Segoe UI Black", 9F, System.Drawing.FontStyle.Bold);
-            this.reset.Location = new System.Drawing.Point(1412, 672);
-            this.reset.Margin = new System.Windows.Forms.Padding(6);
-            this.reset.Name = "reset";
-            this.reset.Size = new System.Drawing.Size(141, 103);
-            this.reset.TabIndex = 7;
-            this.reset.Text = "RESET SEASON";
-            this.reset.UseVisualStyleBackColor = true;
-            this.reset.Click += new System.EventHandler(this.reset_Click);
+            this.nextGameweek.AutoSize = true;
+            this.nextGameweek.BackColor = System.Drawing.Color.Transparent;
+            this.nextGameweek.Font = new System.Drawing.Font("Segoe UI Black", 30F, System.Drawing.FontStyle.Bold);
+            this.nextGameweek.ForeColor = System.Drawing.Color.Black;
+            this.nextGameweek.Location = new System.Drawing.Point(400, 132);
+            this.nextGameweek.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.nextGameweek.Name = "nextGameweek";
+            this.nextGameweek.Size = new System.Drawing.Size(769, 106);
+            this.nextGameweek.TabIndex = 8;
+            this.nextGameweek.Text = "Next gameweek: 1";
+            // 
+            // resetIconButton
+            // 
+            this.resetIconButton.BackColor = System.Drawing.Color.Transparent;
+            this.resetIconButton.FlatAppearance.BorderSize = 0;
+            this.resetIconButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.resetIconButton.Font = new System.Drawing.Font("Segoe UI Black", 9F, System.Drawing.FontStyle.Bold);
+            this.resetIconButton.IconChar = FontAwesome.Sharp.IconChar.FastBackward;
+            this.resetIconButton.IconColor = System.Drawing.SystemColors.Control;
+            this.resetIconButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.resetIconButton.IconSize = 220;
+            this.resetIconButton.Location = new System.Drawing.Point(690, 612);
+            this.resetIconButton.Name = "resetIconButton";
+            this.resetIconButton.Size = new System.Drawing.Size(192, 150);
+            this.resetIconButton.TabIndex = 9;
+            this.resetIconButton.Text = "Reset Season\r\n ";
+            this.resetIconButton.UseVisualStyleBackColor = false;
+            this.resetIconButton.Click += new System.EventHandler(this.resetIconButton_Click);
             // 
             // HomePage
             // 
@@ -119,12 +139,13 @@ namespace _5_A_Side
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1568, 790);
-            this.Controls.Add(this.reset);
+            this.Controls.Add(this.resetIconButton);
+            this.Controls.Add(this.nextGameweek);
             this.Controls.Add(this.teamDisplayButton);
             this.Controls.Add(this.displayTopScorersButton);
             this.Controls.Add(this.TitleLabel);
-            this.Controls.Add(this.teamInputButton);
             this.Controls.Add(this.playNextMatchButton);
+            this.Controls.Add(this.teamInputButton);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximumSize = new System.Drawing.Size(1594, 861);
             this.MinimumSize = new System.Drawing.Size(1594, 861);
@@ -144,6 +165,7 @@ namespace _5_A_Side
         private System.Windows.Forms.Button playNextMatchButton;
         private System.Windows.Forms.Button teamInputButton;
         private System.Windows.Forms.Button teamDisplayButton;
-        private System.Windows.Forms.Button reset;
+        private System.Windows.Forms.Label nextGameweek;
+        private FontAwesome.Sharp.IconButton resetIconButton;
     }
 }
