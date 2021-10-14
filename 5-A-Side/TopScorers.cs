@@ -153,72 +153,82 @@ namespace _5_A_Side
             SqlDataReader reader = Com.ExecuteReader();
             reader.Read();
             int CurrFixtureID = Convert.ToInt32(reader["CurrFixtureID"]); 
-            for (int i = 0; i < CurrFixtureID; i++)
+            if (CurrFixtureID == 31)
             {
                 reader.Close();
                 Con.Close();
-                CurrFixtureID++;
-                Con.Open();
-                Com.CommandText = "SELECT * FROM Fixtures WHERE Id = " + CurrFixtureID;  
-                Com.Connection = Con;
-                reader = Com.ExecuteReader();
-                reader.Read();
-                if (Convert.ToInt32(reader["HomeTeamID"]) == TeamIDForFixtures)
-                {
-                    if (Convert.ToInt32(reader["AwayTeamID"]) == 1)
-                    {
-                        reader.Close();
-                        Com.CommandText = "SELECT TeamName FROM Teams WHERE Id = " + LoginMenu.TeamID;
-                        Com.Connection = Con;
-                        reader = Com.ExecuteReader();
-                        reader.Read();
-                        string awayTeam = Convert.ToString(reader["TeamName"]);
-                        NextMatch = teamName + " v " + awayTeam;
-                        break;
-                    }
-                    else
-                    {
-                        int AwayID = Convert.ToInt32(reader["AwayTeamID"]);
-                        reader.Close();
-                        Com.CommandText = "SELECT TeamName FROM Teams WHERE Id = " + AwayID;
-                        Com.Connection = Con;
-                        reader = Com.ExecuteReader();
-                        reader.Read();
-                        string awayTeam = Convert.ToString(reader["TeamName"]);
-                        NextMatch = teamName + " v " + awayTeam;
-                        break;
-                    }
-                }
-
-                if (Convert.ToInt32(reader["AwayTeamID"]) == TeamIDForFixtures)
-                {
-                    if (Convert.ToInt32(reader["HomeTeamID"]) == 1)
-                    {
-                        reader.Close();
-                        Com.CommandText = "SELECT TeamName FROM Teams WHERE Id = " + LoginMenu.TeamID;
-                        Com.Connection = Con;
-                        reader = Com.ExecuteReader();
-                        reader.Read();
-                        string homeTeam = Convert.ToString(reader["TeamName"]);
-                        NextMatch = homeTeam + " v " + teamName;
-                        break;
-                    }
-                    else
-                    {
-                        int HomeID = Convert.ToInt32(reader["HomeTeamID"]);
-                        reader.Close();
-                        Com.CommandText = "SELECT TeamName FROM Teams WHERE Id = " + HomeID;
-                        Com.Connection = Con;
-                        reader = Com.ExecuteReader();
-                        reader.Read();
-                        string homeTeam = Convert.ToString(reader["TeamName"]);
-                        NextMatch = homeTeam + " v " + teamName;
-                        break;
-                    }
-                }
+                NextMatch = "N/A";
+                FillRow(Rank);
             }
-            Con.Close();
-            FillRow(Rank);
+            else
+            {
+                for (int i = 0; i < CurrFixtureID; i++)
+                {
+                    reader.Close();
+                    Con.Close();
+                    CurrFixtureID++;
+                    Con.Open();
+                    Com.CommandText = "SELECT * FROM Fixtures WHERE Id = " + CurrFixtureID;
+                    Com.Connection = Con;
+                    reader = Com.ExecuteReader();
+                    reader.Read();
+                    if (Convert.ToInt32(reader["HomeTeamID"]) == TeamIDForFixtures)
+                    {
+                        if (Convert.ToInt32(reader["AwayTeamID"]) == 1)
+                        {
+                            reader.Close();
+                            Com.CommandText = "SELECT TeamName FROM Teams WHERE Id = " + LoginMenu.TeamID;
+                            Com.Connection = Con;
+                            reader = Com.ExecuteReader();
+                            reader.Read();
+                            string awayTeam = Convert.ToString(reader["TeamName"]);
+                            NextMatch = teamName + " v " + awayTeam;
+                            break;
+                        }
+                        else
+                        {
+                            int AwayID = Convert.ToInt32(reader["AwayTeamID"]);
+                            reader.Close();
+                            Com.CommandText = "SELECT TeamName FROM Teams WHERE Id = " + AwayID;
+                            Com.Connection = Con;
+                            reader = Com.ExecuteReader();
+                            reader.Read();
+                            string awayTeam = Convert.ToString(reader["TeamName"]);
+                            NextMatch = teamName + " v " + awayTeam;
+                            break;
+                        }
+                    }
+
+                    if (Convert.ToInt32(reader["AwayTeamID"]) == TeamIDForFixtures)
+                    {
+                        if (Convert.ToInt32(reader["HomeTeamID"]) == 1)
+                        {
+                            reader.Close();
+                            Com.CommandText = "SELECT TeamName FROM Teams WHERE Id = " + LoginMenu.TeamID;
+                            Com.Connection = Con;
+                            reader = Com.ExecuteReader();
+                            reader.Read();
+                            string homeTeam = Convert.ToString(reader["TeamName"]);
+                            NextMatch = homeTeam + " v " + teamName;
+                            break;
+                        }
+                        else
+                        {
+                            int HomeID = Convert.ToInt32(reader["HomeTeamID"]);
+                            reader.Close();
+                            Com.CommandText = "SELECT TeamName FROM Teams WHERE Id = " + HomeID;
+                            Com.Connection = Con;
+                            reader = Com.ExecuteReader();
+                            reader.Read();
+                            string homeTeam = Convert.ToString(reader["TeamName"]);
+                            NextMatch = homeTeam + " v " + teamName;
+                            break;
+                        }
+                    }
+                }
+                Con.Close();
+                FillRow(Rank);
+            }
         }
 
         public void FillRow(int Rank)

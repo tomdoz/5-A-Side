@@ -37,6 +37,8 @@ namespace _5_A_Side
                 teamDisplayButton.Enabled = false;
                 teamInputButton.Enabled = true;
                 nextGameweek.Visible = false;
+                showLeagueTable.Visible = false;
+                showLeagueTable.Enabled = false;
             }
             else //if user account does have a team associated
             {
@@ -49,6 +51,8 @@ namespace _5_A_Side
                 teamDisplayButton.Enabled = true;
                 teamInputButton.Enabled = false;
                 nextGameweek.Visible = true;
+                showLeagueTable.Visible = false;
+                showLeagueTable.Enabled = false;
             }
         }
 
@@ -89,8 +93,26 @@ namespace _5_A_Side
             int nextGameweekVal = Convert.ToInt32(reader["currFixtureID"]);
             int nextGameweekDenominator = nextGameweekVal / 3;
             nextGameweekVal = nextGameweekVal - (2 * nextGameweekDenominator);
-            nextGameweek.Text = "Next gameweek: " + Convert.ToInt32(nextGameweekVal);
+            if (nextGameweekVal == 11)
+            {
+                nextGameweek.Text = "Season has ended!";
+                SeasonEnded();
+            }
+            else
+            {
+                nextGameweek.Text = "Next gameweek: " + Convert.ToInt32(nextGameweekVal);
+            }
             Con.Close();
+        }
+
+        public void SeasonEnded()
+        {
+            showLeagueTable.Visible = true;
+            showLeagueTable.Enabled = true;
+            playNextMatchButton.Visible = false;
+            playNextMatchButton.Enabled = false;
+
+
         }
 
         private void resetButton_Click(object sender, EventArgs e)
@@ -105,6 +127,11 @@ namespace _5_A_Side
             Con.Close();
             MessageBox.Show("All league table data is cleared, and the current matchweek has been reset to the first round of fixtures!", "Success!");
             GetNextGameweek();
+        }
+
+        private void showLeagueTable_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

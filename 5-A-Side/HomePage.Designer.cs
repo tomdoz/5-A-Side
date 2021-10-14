@@ -37,6 +37,7 @@ namespace _5_A_Side
             this.teamDisplayButton = new System.Windows.Forms.Button();
             this.nextGameweek = new System.Windows.Forms.Label();
             this.resetButton = new System.Windows.Forms.Button();
+            this.showLeagueTable = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // TitleLabel
@@ -56,7 +57,7 @@ namespace _5_A_Side
             // 
             this.displayTopScorersButton.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.displayTopScorersButton.Location = new System.Drawing.Point(1244, 387);
-            this.displayTopScorersButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.displayTopScorersButton.Margin = new System.Windows.Forms.Padding(6);
             this.displayTopScorersButton.Name = "displayTopScorersButton";
             this.displayTopScorersButton.Size = new System.Drawing.Size(300, 165);
             this.displayTopScorersButton.TabIndex = 3;
@@ -68,7 +69,7 @@ namespace _5_A_Side
             // 
             this.playNextMatchButton.Font = new System.Drawing.Font("Segoe UI Black", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.playNextMatchButton.Location = new System.Drawing.Point(560, 283);
-            this.playNextMatchButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.playNextMatchButton.Margin = new System.Windows.Forms.Padding(6);
             this.playNextMatchButton.Name = "playNextMatchButton";
             this.playNextMatchButton.Size = new System.Drawing.Size(476, 300);
             this.playNextMatchButton.TabIndex = 4;
@@ -80,7 +81,7 @@ namespace _5_A_Side
             // 
             this.teamInputButton.Font = new System.Drawing.Font("Segoe UI Black", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.teamInputButton.Location = new System.Drawing.Point(560, 283);
-            this.teamInputButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.teamInputButton.Margin = new System.Windows.Forms.Padding(6);
             this.teamInputButton.Name = "teamInputButton";
             this.teamInputButton.Size = new System.Drawing.Size(476, 300);
             this.teamInputButton.TabIndex = 5;
@@ -93,7 +94,7 @@ namespace _5_A_Side
             // 
             this.teamDisplayButton.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.teamDisplayButton.Location = new System.Drawing.Point(24, 387);
-            this.teamDisplayButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.teamDisplayButton.Margin = new System.Windows.Forms.Padding(6);
             this.teamDisplayButton.Name = "teamDisplayButton";
             this.teamDisplayButton.Size = new System.Drawing.Size(300, 165);
             this.teamDisplayButton.TabIndex = 6;
@@ -118,13 +119,25 @@ namespace _5_A_Side
             // 
             this.resetButton.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.resetButton.Location = new System.Drawing.Point(697, 626);
-            this.resetButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.resetButton.Margin = new System.Windows.Forms.Padding(6);
             this.resetButton.Name = "resetButton";
             this.resetButton.Size = new System.Drawing.Size(187, 119);
             this.resetButton.TabIndex = 9;
             this.resetButton.Text = "Reset Season";
             this.resetButton.UseVisualStyleBackColor = true;
             this.resetButton.Click += new System.EventHandler(this.resetButton_Click);
+            // 
+            // showLeagueTable
+            // 
+            this.showLeagueTable.Font = new System.Drawing.Font("Segoe UI Black", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.showLeagueTable.Location = new System.Drawing.Point(560, 283);
+            this.showLeagueTable.Margin = new System.Windows.Forms.Padding(6);
+            this.showLeagueTable.Name = "showLeagueTable";
+            this.showLeagueTable.Size = new System.Drawing.Size(476, 300);
+            this.showLeagueTable.TabIndex = 10;
+            this.showLeagueTable.Text = "See League Standings!";
+            this.showLeagueTable.UseVisualStyleBackColor = true;
+            this.showLeagueTable.Click += new System.EventHandler(this.showLeagueTable_Click);
             // 
             // HomePage
             // 
@@ -133,15 +146,16 @@ namespace _5_A_Side
             this.AutoSize = true;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1372, 760);
+            this.ClientSize = new System.Drawing.Size(1558, 760);
             this.Controls.Add(this.resetButton);
             this.Controls.Add(this.nextGameweek);
             this.Controls.Add(this.teamDisplayButton);
             this.Controls.Add(this.displayTopScorersButton);
             this.Controls.Add(this.TitleLabel);
+            this.Controls.Add(this.showLeagueTable);
             this.Controls.Add(this.playNextMatchButton);
             this.Controls.Add(this.teamInputButton);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximumSize = new System.Drawing.Size(1584, 831);
             this.MinimumSize = new System.Drawing.Size(1356, 831);
             this.Name = "HomePage";
@@ -161,5 +175,6 @@ namespace _5_A_Side
         private System.Windows.Forms.Button teamDisplayButton;
         private System.Windows.Forms.Label nextGameweek;
         private System.Windows.Forms.Button resetButton;
+        private System.Windows.Forms.Button showLeagueTable;
     }
 }
