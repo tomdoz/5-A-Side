@@ -62,7 +62,9 @@ namespace _5_A_Side
             this.team1 = new System.Windows.Forms.Label();
             this.player1 = new System.Windows.Forms.Label();
             this.playerHeading = new System.Windows.Forms.Label();
+            this.homeButton = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.homeButton)).BeginInit();
             this.SuspendLayout();
             // 
             // TitleLabel
@@ -126,6 +128,7 @@ namespace _5_A_Side
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1125, 425);
             this.tableLayoutPanel1.TabIndex = 4;
             // 
@@ -410,6 +413,19 @@ namespace _5_A_Side
             this.playerHeading.Text = "Player Name";
             this.playerHeading.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // homeButton
+            // 
+            this.homeButton.BackColor = System.Drawing.Color.Transparent;
+            this.homeButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("homeButton.BackgroundImage")));
+            this.homeButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.homeButton.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.homeButton.Location = new System.Drawing.Point(704, 586);
+            this.homeButton.Name = "homeButton";
+            this.homeButton.Size = new System.Drawing.Size(209, 192);
+            this.homeButton.TabIndex = 47;
+            this.homeButton.TabStop = false;
+            this.homeButton.Click += new System.EventHandler(this.homeButton_Click);
+            // 
             // TopScorers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -417,12 +433,14 @@ namespace _5_A_Side
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1568, 790);
+            this.Controls.Add(this.homeButton);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.TitleLabel);
             this.Name = "TopScorers";
             this.Text = "TopScorers";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.homeButton)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -462,5 +480,6 @@ namespace _5_A_Side
         private System.Windows.Forms.Label team1;
         private System.Windows.Forms.Label player1;
         private System.Windows.Forms.Label playerHeading;
+        private System.Windows.Forms.PictureBox homeButton;
     }
 }

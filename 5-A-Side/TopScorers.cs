@@ -269,5 +269,12 @@ namespace _5_A_Side
             }
 
         }
+
+        private void homeButton_Click(object sender, EventArgs e)
+        {
+            HomePage home = new HomePage();
+            home.Show();
+            this.Close();
+        }
     }
 }
