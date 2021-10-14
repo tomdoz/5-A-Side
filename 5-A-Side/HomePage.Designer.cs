@@ -45,19 +45,20 @@ namespace _5_A_Side
             this.TitleLabel.BackColor = System.Drawing.Color.Transparent;
             this.TitleLabel.Font = new System.Drawing.Font("Segoe UI Black", 30F, System.Drawing.FontStyle.Bold);
             this.TitleLabel.ForeColor = System.Drawing.Color.DarkRed;
-            this.TitleLabel.Location = new System.Drawing.Point(43, 9);
-            this.TitleLabel.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.TitleLabel.Location = new System.Drawing.Point(86, 17);
+            this.TitleLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.TitleLabel.Name = "TitleLabel";
-            this.TitleLabel.Size = new System.Drawing.Size(699, 54);
+            this.TitleLabel.Size = new System.Drawing.Size(1406, 106);
             this.TitleLabel.TabIndex = 2;
             this.TitleLabel.Text = "Five-A-Side Fantasy Dream League";
             // 
             // displayTopScorersButton
             // 
             this.displayTopScorersButton.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.displayTopScorersButton.Location = new System.Drawing.Point(622, 201);
+            this.displayTopScorersButton.Location = new System.Drawing.Point(1244, 387);
+            this.displayTopScorersButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.displayTopScorersButton.Name = "displayTopScorersButton";
-            this.displayTopScorersButton.Size = new System.Drawing.Size(150, 86);
+            this.displayTopScorersButton.Size = new System.Drawing.Size(300, 165);
             this.displayTopScorersButton.TabIndex = 3;
             this.displayTopScorersButton.Text = "Display Top Scorers";
             this.displayTopScorersButton.UseVisualStyleBackColor = true;
@@ -66,9 +67,10 @@ namespace _5_A_Side
             // playNextMatchButton
             // 
             this.playNextMatchButton.Font = new System.Drawing.Font("Segoe UI Black", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.playNextMatchButton.Location = new System.Drawing.Point(280, 147);
+            this.playNextMatchButton.Location = new System.Drawing.Point(560, 283);
+            this.playNextMatchButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.playNextMatchButton.Name = "playNextMatchButton";
-            this.playNextMatchButton.Size = new System.Drawing.Size(238, 156);
+            this.playNextMatchButton.Size = new System.Drawing.Size(476, 300);
             this.playNextMatchButton.TabIndex = 4;
             this.playNextMatchButton.Text = "Play Next Match!";
             this.playNextMatchButton.UseVisualStyleBackColor = true;
@@ -77,9 +79,10 @@ namespace _5_A_Side
             // teamInputButton
             // 
             this.teamInputButton.Font = new System.Drawing.Font("Segoe UI Black", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.teamInputButton.Location = new System.Drawing.Point(280, 147);
+            this.teamInputButton.Location = new System.Drawing.Point(560, 283);
+            this.teamInputButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.teamInputButton.Name = "teamInputButton";
-            this.teamInputButton.Size = new System.Drawing.Size(238, 156);
+            this.teamInputButton.Size = new System.Drawing.Size(476, 300);
             this.teamInputButton.TabIndex = 5;
             this.teamInputButton.Text = "You need to create your team!";
             this.teamInputButton.UseVisualStyleBackColor = true;
@@ -89,9 +92,10 @@ namespace _5_A_Side
             // teamDisplayButton
             // 
             this.teamDisplayButton.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.teamDisplayButton.Location = new System.Drawing.Point(12, 201);
+            this.teamDisplayButton.Location = new System.Drawing.Point(24, 387);
+            this.teamDisplayButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.teamDisplayButton.Name = "teamDisplayButton";
-            this.teamDisplayButton.Size = new System.Drawing.Size(150, 86);
+            this.teamDisplayButton.Size = new System.Drawing.Size(300, 165);
             this.teamDisplayButton.TabIndex = 6;
             this.teamDisplayButton.Text = "View your Team\'s Attributes";
             this.teamDisplayButton.UseVisualStyleBackColor = true;
@@ -103,32 +107,33 @@ namespace _5_A_Side
             this.nextGameweek.BackColor = System.Drawing.Color.Transparent;
             this.nextGameweek.Font = new System.Drawing.Font("Segoe UI Black", 30F, System.Drawing.FontStyle.Bold);
             this.nextGameweek.ForeColor = System.Drawing.Color.Black;
-            this.nextGameweek.Location = new System.Drawing.Point(200, 69);
-            this.nextGameweek.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.nextGameweek.Location = new System.Drawing.Point(400, 133);
+            this.nextGameweek.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.nextGameweek.Name = "nextGameweek";
-            this.nextGameweek.Size = new System.Drawing.Size(383, 54);
+            this.nextGameweek.Size = new System.Drawing.Size(769, 106);
             this.nextGameweek.TabIndex = 8;
             this.nextGameweek.Text = "Next gameweek: 1";
             // 
             // resetButton
             // 
             this.resetButton.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.resetButton.Location = new System.Drawing.Point(315, 329);
+            this.resetButton.Location = new System.Drawing.Point(697, 626);
+            this.resetButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.resetButton.Name = "resetButton";
-            this.resetButton.Size = new System.Drawing.Size(150, 86);
+            this.resetButton.Size = new System.Drawing.Size(187, 119);
             this.resetButton.TabIndex = 9;
-            this.resetButton.Text = "Display Top Scorers";
+            this.resetButton.Text = "Reset Season";
             this.resetButton.UseVisualStyleBackColor = true;
             this.resetButton.Click += new System.EventHandler(this.resetButton_Click);
             // 
             // HomePage
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(686, 427);
+            this.ClientSize = new System.Drawing.Size(1372, 760);
             this.Controls.Add(this.resetButton);
             this.Controls.Add(this.nextGameweek);
             this.Controls.Add(this.teamDisplayButton);
@@ -136,9 +141,9 @@ namespace _5_A_Side
             this.Controls.Add(this.TitleLabel);
             this.Controls.Add(this.playNextMatchButton);
             this.Controls.Add(this.teamInputButton);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.MaximumSize = new System.Drawing.Size(805, 466);
-            this.MinimumSize = new System.Drawing.Size(691, 466);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MaximumSize = new System.Drawing.Size(1584, 831);
+            this.MinimumSize = new System.Drawing.Size(1356, 831);
             this.Name = "HomePage";
             this.Text = "Home Page";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
