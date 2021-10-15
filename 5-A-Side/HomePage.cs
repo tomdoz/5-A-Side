@@ -131,7 +131,9 @@ namespace _5_A_Side
 
         private void showLeagueTable_Click(object sender, EventArgs e)
         {
-
+            LeagueTable league = new LeagueTable();
+            league.Show();
+            this.Close();
         }
     }
 }

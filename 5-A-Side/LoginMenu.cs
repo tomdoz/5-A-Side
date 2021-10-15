@@ -23,6 +23,7 @@ namespace _5_A_Side
         public LoginMenu()
         {
             InitializeComponent();
+            Con.Close();
         }
 
         private void loginButton_Click(object sender, EventArgs e)
@@ -48,6 +49,7 @@ namespace _5_A_Side
             {
                 MessageBox.Show("Enjoy the time playing!", "Login successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 HomePage home = new HomePage();
+                Con.Close();
                 home.Show();
                 this.Close();
             }
