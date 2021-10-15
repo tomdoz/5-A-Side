@@ -9,20 +9,14 @@ namespace _5_A_Side
 {
     public class Encryption
     {
-        public string Hashing(string password)
+        public static string hashPassword(string password)
         {
-            string hash = "f0xle@rn"
-            string encrypted;
-            byte[] data = UTF8Encoding.UTF8.GetBytes(password);
-            using(MD5CryptoProvider = new Md5CryptoServiceProvider)
+            SHA1CryptoServiceProvider sha1 = new SHA1CryptoServiceProvider();
 
-            return encrypted; 
-        }
+            byte[] password_bytes = Encoding.ASCII.GetBytes(password);
+            byte[] encrypted_bytes = sha1.ComputeHash(password_bytes);
+            return Convert.ToBase64String(encrypted_bytes);
 
-        public string DeHashing(string encrypted)
-        {
-            string password;
-            return password;
         }
     }
 }

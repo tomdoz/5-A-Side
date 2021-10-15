@@ -36,8 +36,9 @@ namespace _5_A_Side
             {
                 string readerUsernameVal = (reader["Username"].ToString());
                 string readerPasswordVal = (reader["Password"].ToString());
+                string test = Encryption.hashPassword(passwordTxt.Text);
 
-                if (userTxt.Text == readerUsernameVal && passwordTxt.Text == readerPasswordVal)
+                if (userTxt.Text == readerUsernameVal && Encryption.hashPassword(passwordTxt.Text) == readerPasswordVal)
                 {
                     loginDetailsCorrect = true;
                     UserID = Convert.ToInt32(reader["Id"]);
