@@ -12,6 +12,7 @@ namespace _5_A_Side
 {
     public partial class MatchViewer : Form
     {
+        //setting the connection string for connecting to the database
         SqlConnection Con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\tomra\OneDrive\Documents\FootballGame.mdf;Integrated Security=True;Connect Timeout=30");
         SqlCommand Com = new SqlCommand();
 
@@ -146,39 +147,39 @@ namespace _5_A_Side
         public MatchViewer()
         {
             InitializeComponent();
-            LoadTeams();
+            LoadTeams(); //when new MatchViewer form is opened, load the correct teams
             matchTimer.Enabled = true;
         }
 
         public void GetCurrentFixture()
         {
-            Con.Open();
-            Com.CommandText = "Select CurrFixtureID from UserTable Where Id = " + LoginMenu.UserID;
-            Com.Connection = Con;
-            SqlDataReader reader = Com.ExecuteReader();
-            reader.Read();
-            fixtureID = Convert.ToInt32(reader["CurrFixtureID"]);
+            Con.Open(); //open connection to DB
+            Com.CommandText = "Select CurrFixtureID from UserTable Where Id = " + LoginMenu.UserID; //selects the which fixture is next to be played for this user's account
+            Com.Connection = Con; 
+            SqlDataReader reader = Com.ExecuteReader(); //execute command
+            reader.Read(); //read the next record that meets the conditions of the select statement
+            fixtureID = Convert.ToInt32(reader["CurrFixtureID"]); 
             reader.Close();
-            Con.Close();
+            Con.Close(); //closing connection
         }
 
         public void AssignTeams()
         {
             Con.Open();
             //selecting Fixture from Fixtures table
-            Com.CommandText = "Select * from Fixtures where Id = " + fixtureID;
+            Com.CommandText = "Select * from Fixtures where Id = " + fixtureID; //using fixtureID pulled from userTable to find out which teams are playing
             Com.Connection = Con;
             SqlDataReader reader = Com.ExecuteReader();
             reader.Read();
-            if (Convert.ToInt32(reader["HomeTeamID"]) == 1)
+            if (Convert.ToInt32(reader["HomeTeamID"]) == 1) //if the ID for the home team is 1 (which is the ID used in the fixture table for the user's team), user is at home
             {
-                userAtHome = true;
-                cpuTeamID = Convert.ToInt32(reader["AwayTeamID"]);
+                userAtHome = true; //user team is at home
+                cpuTeamID = Convert.ToInt32(reader["AwayTeamID"]); //if user is at home, the cpuTeam must be away, so we can assing that teams ID
             }
             else
             {
-                userAtHome = false;
-                cpuTeamID = Convert.ToInt32(reader["HomeTeamID"]);
+                userAtHome = false; //we know the user team is awat
+                cpuTeamID = Convert.ToInt32(reader["HomeTeamID"]); //therefore home team is cpu team
             }
             reader.Close();
             //selecting and assigning the user team's player attributes
@@ -348,21 +349,23 @@ namespace _5_A_Side
         {
             GetCurrentFixture();
             AssignTeams();
-            //need to add the proper iteration through the teams from CPU
             if(userAtHome == false)
             {
+                //user team is always on the left side of the form, so we swap the away and home labels to reflect who is home and who is away
                 leftHome.Hide();
                 leftAway.Show();
                 rightAway.Hide();
                 rightHome.Show();
             }
-            TeamAvgStats();
-            userScoreChance = UserChanceGenerator();
+            TeamAvgStats(); //averaging the the stats of both teams so we have one value for each team for each of the 7 attributes
+            //setting the chances of each team scoring
+            userScoreChance = UserChanceGenerator(); 
             cpuScoreChance = CPUChanceGenerator();
         }
 
         public void TeamAvgStats()
         {
+            //using a simple mean calculation
             userSHO = (p1ShootingVal + p2ShootingVal + p3ShootingVal + p4ShootingVal + p5ShootingVal) / 5;
             userDRI = (p1DribblingVal + p2DribblingVal + p3DribblingVal + p4DribblingVal + p5DribblingVal) / 5;
             userPAC = (p1PaceVal + p2PaceVal + p3PaceVal + p4PaceVal + p5PaceVal) / 5;
@@ -385,6 +388,7 @@ namespace _5_A_Side
             userScoreChance = userScoreChance - Convert.ToInt32(((0.5 * cpuTAC) + (0.4 * cpuPHY) + (0.2 * cpuAGG) + (0.2 * cpuREL)) / 4); //weighted average then found using CPU defensive attribute stats
             if (userAtHome == true)
             {
+       
                 userScoreChance = Convert.ToInt32(Convert.ToDouble(userScoreChance) / 0.42857142857); //home adv. modifier = 3:7 ratio of A:H fans so we 3/7 as modifier
             }
             
@@ -394,7 +398,7 @@ namespace _5_A_Side
             }
             if (userScoreChance < 1)
             {
-                userScoreChance = 1;
+                userScoreChance = 1; //condition so we don't allow a chance of scoring to be lower than 1, as this would interfere with calcs
             }
             return userScoreChance;
         }
@@ -413,15 +417,16 @@ namespace _5_A_Side
             }
             if (cpuScoreChance < 1)
             {
-                cpuScoreChance = 1;
+                cpuScoreChance = 1; //condition so we don't allow a chance of scoring to be lower than 1, as this would interfere with calcs
             }
             return cpuScoreChance;
         }
 
         public void ScoreGoalCheck()
         {
+            //generates a random number between one and a hundred, if this number less than equal to the corresponding teams chance of scoring then they score
             Random random = new Random();
-            int rollUserProbabilities = random.Next(0, 100);
+            int rollUserProbabilities = random.Next(0, 100); 
             int rollCPUProbabilities = random.Next(0, 100);
             if (rollUserProbabilities <= userScoreChance)
             {
