@@ -135,6 +135,15 @@ namespace _5_A_Side
         public int cpuTAC;
         public int cpuAGG;
 
+        //variables for league table data;
+        public int cpuPoints;
+        public int cpuWins;
+        public int cpuLosses;
+        public int cpuDraws;
+        public int cpuGF;
+        public int cpuGA;
+        public int cpuNumMatches;
+
         //variables for game running
         public int fixtureID;
         public int cpuTeamID;
@@ -471,72 +480,284 @@ namespace _5_A_Side
         {
             //selecting leagueTableData for user so it can be updated
             Con.Open();
-            Com.CommandText = "Select * from Teams Where Id = " + LoginMenu.TeamID;
+            Com.CommandText = "Select * from UserTable Where Id = " + LoginMenu.UserID;
             Com.Connection = Con;
             SqlDataReader reader = Com.ExecuteReader();
             reader.Read();
-            int userPoints = Convert.ToInt32(reader["Points"]);
-            int userWins = Convert.ToInt32(reader["Wins"]);
-            int userLosses = Convert.ToInt32(reader["Losses"]);
-            int userDraws = Convert.ToInt32(reader["Draws"]);
-            int userGF = Convert.ToInt32(reader["GF"]);
-            int userGA = Convert.ToInt32(reader["GA"]);
-            int userNumMatches = Convert.ToInt32(reader["NumMatches"]);
+            int userPoints = Convert.ToInt32(reader["UserPoints"]);
+            int userWins = Convert.ToInt32(reader["UserWins"]);
+            int userLosses = Convert.ToInt32(reader["UserLosses"]);
+            int userDraws = Convert.ToInt32(reader["UserDraws"]);
+            int userGF = Convert.ToInt32(reader["UserGF"]);
+            int userGA = Convert.ToInt32(reader["UserGA"]);
+            int userNumMatches = Convert.ToInt32(reader["UserMatches"]);
             reader.Close();
             //selecting leagueTableData for cpu so it can be updated
-            Com.CommandText = "Select * from Teams Where Id = " + cpuTeamID;
+            Com.CommandText = "Select * from UserTable Where Id = " + LoginMenu.UserID;
             Com.Connection = Con;
             reader = Com.ExecuteReader();
             reader.Read();
-            int cpuPoints = Convert.ToInt32(reader["Points"]);
-            int cpuWins = Convert.ToInt32(reader["Wins"]);
-            int cpuLosses = Convert.ToInt32(reader["Losses"]);
-            int cpuDraws = Convert.ToInt32(reader["Draws"]);
-            int cpuGF = Convert.ToInt32(reader["GF"]);
-            int cpuGA = Convert.ToInt32(reader["GA"]);
-            int cpuNumMatches = Convert.ToInt32(reader["NumMatches"]);
-            reader.Close();
-            Con.Close();
+            switch (cpuTeamID)
+            {
+                case 1002:  //if cpuTeam is Man United 
+                    cpuPoints = Convert.ToInt32(reader["MUPoints"]);
+                    cpuWins = Convert.ToInt32(reader["MUWins"]);
+                    cpuLosses = Convert.ToInt32(reader["MULosses"]);
+                    cpuDraws = Convert.ToInt32(reader["MUDraws"]);
+                    cpuGF = Convert.ToInt32(reader["MUGF"]);
+                    cpuGA = Convert.ToInt32(reader["MUGA"]);
+                    cpuNumMatches = Convert.ToInt32(reader["MUMatches"]);
+                    reader.Close();
+                    Con.Close();
+                    if (Convert.ToInt32(userScoreLabel.Text) > Convert.ToInt32(cpuScoreLabel.Text))
+                    {
+                        //user win
+                        Con.Open();
+                        Com.CommandText = "Update UserTable SET UserWins = " + (userWins + 1) + ", UserDraws = " + userDraws + ", UserLosses = " + userLosses + ", UserGF = " + (userGF + Convert.ToInt32(userScoreLabel.Text)) + ", UserGA = " + (userGA + Convert.ToInt32(cpuScoreLabel.Text)) + ", UserPoints = " + (userPoints + 3) + ", UserMatches = " + (userNumMatches + 1) + " WHERE Id = " + LoginMenu.UserID;
+                        Com.Connection = Con;
+                        Com.ExecuteNonQuery();
+                        //cpu loss
+                        Com.CommandText = "Update UserTable SET MUWins = " + cpuWins + ", MUDraws = " + cpuDraws + ", MULosses = " + (cpuLosses + 1) + ", MUGF = " + (cpuGF + Convert.ToInt32(cpuScoreLabel.Text)) + ", MUGA = " + (cpuGA + Convert.ToInt32(userScoreLabel.Text)) + ", MUPoints = " + cpuPoints + ", MUMatches = " + (cpuNumMatches + 1) + " WHERE Id = " + LoginMenu.UserID;
+                        Com.Connection = Con;
+                        Com.ExecuteNonQuery();
+                        Con.Close();
+                    }
+                    else if (Convert.ToInt32(userScoreLabel.Text) < Convert.ToInt32(cpuScoreLabel.Text))
+                    {
+                        //cpu win
+                        Con.Open();
+                        Com.CommandText = "Update UserTable SET MUWins = " + (cpuWins + 1) + ", MUDraws = " + cpuDraws + ", MULosses = " + cpuLosses + ", MUGF = " + (cpuGF + Convert.ToInt32(cpuScoreLabel.Text)) + ", MUGA = " + (cpuGA + Convert.ToInt32(userScoreLabel.Text)) + ", MUPoints = " + (cpuPoints + 3) + ", MUMatches = " + (cpuNumMatches + 1) + " WHERE Id = " + LoginMenu.UserID;
+                        Com.Connection = Con;
+                        Com.ExecuteNonQuery();
+                        //user loss
+                        Com.CommandText = "Update UserTable SET UserWins = " + userWins + ", UserDraws = " + userDraws + ", UserLosses = " + (userLosses + 1) + ", UserGF = " + (userGF + Convert.ToInt32(userScoreLabel.Text)) + ", UserGA = " + (userGA + Convert.ToInt32(cpuScoreLabel.Text)) + ", UserPoints = " + userPoints + ", UserMatches = " + (userNumMatches + 1) + " WHERE Id = " + LoginMenu.UserID;
+                        Com.Connection = Con;
+                        Com.ExecuteNonQuery();
+                        Con.Close();
 
-            if (Convert.ToInt32(userScoreLabel.Text) > Convert.ToInt32(cpuScoreLabel.Text))
-            {
-                //user win
-                Con.Open();
-                Com.CommandText = "Update Teams SET Wins = " + (userWins + 1) + ", Draws = " + userDraws + ", Losses = " + userLosses + ", GF = " + (userGF + Convert.ToInt32(userScoreLabel.Text)) + ", GA = " + (userGA + Convert.ToInt32(cpuScoreLabel.Text)) + ", Points = " + (userPoints + 3) + ", NumMatches = " + (userNumMatches + 1) + " WHERE Id = " + LoginMenu.TeamID;
-                Com.Connection = Con;
-                Com.ExecuteNonQuery();
-                //cpu loss
-                Com.CommandText = "Update Teams SET Wins = " + cpuWins + ", Draws = " + cpuDraws + ", Losses = " + (cpuLosses + 1) + ", GF = " + (cpuGF + Convert.ToInt32(cpuScoreLabel.Text)) + ", GA = " + (cpuGA + Convert.ToInt32(userScoreLabel.Text)) + ", Points = " + cpuPoints + ", NumMatches = " + (cpuNumMatches + 1) + " WHERE Id = " + cpuTeamID;
-                Com.Connection = Con;
-                Com.ExecuteNonQuery();
-                Con.Close();
-            }
-            else if (Convert.ToInt32(userScoreLabel.Text) < Convert.ToInt32(cpuScoreLabel.Text))
-            {
-                //cpu win
-                Con.Open();
-                Com.CommandText = "Update Teams SET Wins = " + (cpuWins + 1) + ", Draws = " + cpuDraws + ", Losses = " + cpuLosses + ", GF = " + (cpuGF + Convert.ToInt32(cpuScoreLabel.Text)) + ", GA = " + (cpuGA + Convert.ToInt32(userScoreLabel.Text)) + ", Points = " + (cpuPoints + 3) + ", NumMatches = " + (cpuNumMatches + 1) + " WHERE Id = " + cpuTeamID;
-                Com.Connection = Con;
-                Com.ExecuteNonQuery();
-                //user loss
-                Com.CommandText = "Update Teams SET Wins = " + userWins + ", Draws = " + userDraws + ", Losses = " + (userLosses + 1) + ", GF = " + (userGF + Convert.ToInt32(userScoreLabel.Text)) + ", GA = " + (userGA + Convert.ToInt32(cpuScoreLabel.Text)) + ", Points = " + userPoints + ", NumMatches = " + (userNumMatches + 1) + " WHERE Id = " + LoginMenu.TeamID;
-                Com.Connection = Con;
-                Com.ExecuteNonQuery();
-                Con.Close();
+                    }
+                    else
+                    {
+                        //user draw
+                        Con.Open();
+                        Com.CommandText = "Update UserTable SET UserWins = " + userWins + ", UserDraws = " + (userDraws + 1) + ", UserLosses = " + userLosses + ", UserGF = " + (userGF + Convert.ToInt32(userScoreLabel.Text)) + ", UserGA = " + (userGA + Convert.ToInt32(cpuScoreLabel.Text)) + ", UserPoints = " + (userPoints + 1) + ", UserMatches = " + (userNumMatches + 1) + "  WHERE Id = " + LoginMenu.UserID;
+                        Com.Connection = Con;
+                        Com.ExecuteNonQuery();
+                        //cpu loss
+                        Com.CommandText = "Update UserTable SET MUWins = " + cpuWins + ", MUDraws = " + (cpuDraws + 1) + ", MULosses = " + cpuLosses + ", MUGF = " + (cpuGF + Convert.ToInt32(cpuScoreLabel.Text)) + ", MUGA = " + (cpuGA + Convert.ToInt32(userScoreLabel.Text)) + ", MUPoints = " + (cpuPoints + 1) + ", MUMatches = " + (cpuNumMatches + 1) + "  WHERE Id = " + LoginMenu.UserID;
+                        Com.Connection = Con;
+                        Com.ExecuteNonQuery();
+                        Con.Close();
+                    }
+                    break;
 
-            }
-            else
-            {
-                //user draw
-                Con.Open();
-                Com.CommandText = "Update Teams SET Wins = " + userWins + ", Draws = " + (userDraws + 1) + ", Losses = " + userLosses + ", GF = " + (userGF + Convert.ToInt32(userScoreLabel.Text)) + ", GA = " + (userGA + Convert.ToInt32(cpuScoreLabel.Text)) + ", Points = " + (userPoints + 1) + ", NumMatches = " + (userNumMatches + 1) + "  WHERE Id = " + LoginMenu.TeamID;
-                Com.Connection = Con;
-                Com.ExecuteNonQuery();
-                //cpu loss
-                Com.CommandText = "Update Teams SET Wins = " + cpuWins + ", Draws = " + (cpuDraws + 1) + ", Losses = " + cpuLosses + ", GF = " + (cpuGF + Convert.ToInt32(cpuScoreLabel.Text)) + ", GA = " + (cpuGA + Convert.ToInt32(userScoreLabel.Text)) + ", Points = " + (cpuPoints + 1) + ", NumMatches = " + (cpuNumMatches + 1) + "  WHERE Id = " + cpuTeamID;
-                Com.Connection = Con;
-                Com.ExecuteNonQuery();
-                Con.Close();
+                case 1003:  //if cpuTeam is Chelsea
+                    cpuPoints = Convert.ToInt32(reader["CHEPoints"]);
+                    cpuWins = Convert.ToInt32(reader["CHEWins"]);
+                    cpuLosses = Convert.ToInt32(reader["CHELosses"]);
+                    cpuDraws = Convert.ToInt32(reader["CHEDraws"]);
+                    cpuGF = Convert.ToInt32(reader["CHEGF"]);
+                    cpuGA = Convert.ToInt32(reader["CHEGA"]);
+                    cpuNumMatches = Convert.ToInt32(reader["CHEMatches"]);
+                    reader.Close();
+                    Con.Close();
+                    if (Convert.ToInt32(userScoreLabel.Text) > Convert.ToInt32(cpuScoreLabel.Text))
+                    {
+                        //user win
+                        Con.Open();
+                        Com.CommandText = "Update UserTable SET UserWins = " + (userWins + 1) + ", UserDraws = " + userDraws + ", UserLosses = " + userLosses + ", UserGF = " + (userGF + Convert.ToInt32(userScoreLabel.Text)) + ", UserGA = " + (userGA + Convert.ToInt32(cpuScoreLabel.Text)) + ", UserPoints = " + (userPoints + 3) + ", UserMatches = " + (userNumMatches + 1) + " WHERE Id = " + LoginMenu.UserID;
+                        Com.Connection = Con;
+                        Com.ExecuteNonQuery();
+                        //cpu loss
+                        Com.CommandText = "Update UserTable SET CHEWins = " + cpuWins + ", CHEDraws = " + cpuDraws + ", CHELosses = " + (cpuLosses + 1) + ", CHEGF = " + (cpuGF + Convert.ToInt32(cpuScoreLabel.Text)) + ", CHEGA = " + (cpuGA + Convert.ToInt32(userScoreLabel.Text)) + ", CHEPoints = " + cpuPoints + ", CHEMatches = " + (cpuNumMatches + 1) + " WHERE Id = " + LoginMenu.UserID;
+                        Com.Connection = Con;
+                        Com.ExecuteNonQuery();
+                        Con.Close();
+                    }
+                    else if (Convert.ToInt32(userScoreLabel.Text) < Convert.ToInt32(cpuScoreLabel.Text))
+                    {
+                        //cpu win
+                        Con.Open();
+                        Com.CommandText = "Update UserTable SET CHEWins = " + (cpuWins + 1) + ", CHEDraws = " + cpuDraws + ", CHELosses = " + cpuLosses + ", CHEGF = " + (cpuGF + Convert.ToInt32(cpuScoreLabel.Text)) + ", CHEGA = " + (cpuGA + Convert.ToInt32(userScoreLabel.Text)) + ", CHEPoints = " + (cpuPoints + 3) + ", CHEMatches = " + (cpuNumMatches + 1) + " WHERE Id = " + LoginMenu.UserID;
+                        Com.Connection = Con;
+                        Com.ExecuteNonQuery();
+                        //user loss
+                        Com.CommandText = "Update UserTable SET UserWins = " + userWins + ", UserDraws = " + userDraws + ", UserLosses = " + (userLosses + 1) + ", UserGF = " + (userGF + Convert.ToInt32(userScoreLabel.Text)) + ", UserGA = " + (userGA + Convert.ToInt32(cpuScoreLabel.Text)) + ", UserPoints = " + userPoints + ", UserMatches = " + (userNumMatches + 1) + " WHERE Id = " + LoginMenu.UserID;
+                        Com.Connection = Con;
+                        Com.ExecuteNonQuery();
+                        Con.Close();
+
+                    }
+                    else
+                    {
+                        //user draw
+                        Con.Open();
+                        Com.CommandText = "Update UserTable SET UserWins = " + userWins + ", UserDraws = " + (userDraws + 1) + ", UserLosses = " + userLosses + ", UserGF = " + (userGF + Convert.ToInt32(userScoreLabel.Text)) + ", UserGA = " + (userGA + Convert.ToInt32(cpuScoreLabel.Text)) + ", UserPoints = " + (userPoints + 1) + ", UserMatches = " + (userNumMatches + 1) + "  WHERE Id = " + LoginMenu.UserID;
+                        Com.Connection = Con;
+                        Com.ExecuteNonQuery();
+                        //cpu loss
+                        Com.CommandText = "Update UserTable SET CHEWins = " + cpuWins + ", CHEDraws = " + (cpuDraws + 1) + ", CHELosses = " + cpuLosses + ", CHEGF = " + (cpuGF + Convert.ToInt32(cpuScoreLabel.Text)) + ", CHEGA = " + (cpuGA + Convert.ToInt32(userScoreLabel.Text)) + ", CHEPoints = " + (cpuPoints + 1) + ", CHEMatches = " + (cpuNumMatches + 1) + "  WHERE Id = " + LoginMenu.UserID;
+                        Com.Connection = Con;
+                        Com.ExecuteNonQuery();
+                        Con.Close();
+                    }
+                    break;
+
+                case 1004:  //if cpuTeam is Southampton
+                    cpuPoints = Convert.ToInt32(reader["SOUPoints"]);
+                    cpuWins = Convert.ToInt32(reader["SOUwins"]);
+                    cpuLosses = Convert.ToInt32(reader["SOULosses"]);
+                    cpuDraws = Convert.ToInt32(reader["SOUDraws"]);
+                    cpuGF = Convert.ToInt32(reader["SOUGF"]);
+                    cpuGA = Convert.ToInt32(reader["SOUGA"]);
+                    cpuNumMatches = Convert.ToInt32(reader["SOUMatches"]);
+                    reader.Close();
+                    Con.Close();
+                    if (Convert.ToInt32(userScoreLabel.Text) > Convert.ToInt32(cpuScoreLabel.Text))
+                    {
+                        //user win
+                        Con.Open();
+                        Com.CommandText = "Update UserTable SET UserWins = " + (userWins + 1) + ", UserDraws = " + userDraws + ", UserLosses = " + userLosses + ", UserGF = " + (userGF + Convert.ToInt32(userScoreLabel.Text)) + ", UserGA = " + (userGA + Convert.ToInt32(cpuScoreLabel.Text)) + ", UserPoints = " + (userPoints + 3) + ", UserMatches = " + (userNumMatches + 1) + " WHERE Id = " + LoginMenu.UserID;
+                        Com.Connection = Con;
+                        Com.ExecuteNonQuery();
+                        //cpu loss
+                        Com.CommandText = "Update UserTable SET SOUWins = " + cpuWins + ", SOUDraws = " + cpuDraws + ", SOULosses = " + (cpuLosses + 1) + ", SOUGF = " + (cpuGF + Convert.ToInt32(cpuScoreLabel.Text)) + ", SOUGA = " + (cpuGA + Convert.ToInt32(userScoreLabel.Text)) + ", SOUPoints = " + cpuPoints + ", SOUMatches = " + (cpuNumMatches + 1) + " WHERE Id = " + LoginMenu.UserID;
+                        Com.Connection = Con;
+                        Com.ExecuteNonQuery();
+                        Con.Close();
+                    }
+                    else if (Convert.ToInt32(userScoreLabel.Text) < Convert.ToInt32(cpuScoreLabel.Text))
+                    {
+                        //cpu win
+                        Con.Open();
+                        Com.CommandText = "Update UserTable SET SOUWins = " + (cpuWins + 1) + ", SOUDraws = " + cpuDraws + ", SOULosses = " + cpuLosses + ", SOUGF = " + (cpuGF + Convert.ToInt32(cpuScoreLabel.Text)) + ", SOUGA = " + (cpuGA + Convert.ToInt32(userScoreLabel.Text)) + ", SOUPoints = " + (cpuPoints + 3) + ", SOUMatches = " + (cpuNumMatches + 1) + " WHERE Id = " + LoginMenu.UserID;
+                        Com.Connection = Con;
+                        Com.ExecuteNonQuery();
+                        //user loss
+                        Com.CommandText = "Update UserTable SET UserWins = " + userWins + ", UserDraws = " + userDraws + ", UserLosses = " + (userLosses + 1) + ", UserGF = " + (userGF + Convert.ToInt32(userScoreLabel.Text)) + ", UserGA = " + (userGA + Convert.ToInt32(cpuScoreLabel.Text)) + ", UserPoints = " + userPoints + ", UserMatches = " + (userNumMatches + 1) + " WHERE Id = " + LoginMenu.UserID;
+                        Com.Connection = Con;
+                        Com.ExecuteNonQuery();
+                        Con.Close();
+
+                    }
+                    else
+                    {
+                        //user draw
+                        Con.Open();
+                        Com.CommandText = "Update UserTable SET UserWins = " + userWins + ", UserDraws = " + (userDraws + 1) + ", UserLosses = " + userLosses + ", UserGF = " + (userGF + Convert.ToInt32(userScoreLabel.Text)) + ", UserGA = " + (userGA + Convert.ToInt32(cpuScoreLabel.Text)) + ", UserPoints = " + (userPoints + 1) + ", UserMatches = " + (userNumMatches + 1) + "  WHERE Id = " + LoginMenu.UserID;
+                        Com.Connection = Con;
+                        Com.ExecuteNonQuery();
+                        //cpu loss
+                        Com.CommandText = "Update UserTable SET SOUWins = " + cpuWins + ", SOUDraws = " + (cpuDraws + 1) + ", SOULosses = " + cpuLosses + ", SOUGF = " + (cpuGF + Convert.ToInt32(cpuScoreLabel.Text)) + ", SOUGA = " + (cpuGA + Convert.ToInt32(userScoreLabel.Text)) + ", SOUPoints = " + (cpuPoints + 1) + ", SOUMatches = " + (cpuNumMatches + 1) + "  WHERE Id = " + LoginMenu.UserID;
+                        Com.Connection = Con;
+                        Com.ExecuteNonQuery();
+                        Con.Close();
+                    }
+                    break;
+
+                case 1005:  //if cpuTeam is Wolves
+                    cpuPoints = Convert.ToInt32(reader["WOLPoints"]);
+                    cpuWins = Convert.ToInt32(reader["WOLwins"]);
+                    cpuLosses = Convert.ToInt32(reader["WOLLosses"]);
+                    cpuDraws = Convert.ToInt32(reader["WOLDraws"]);
+                    cpuGF = Convert.ToInt32(reader["WOLGF"]);
+                    cpuGA = Convert.ToInt32(reader["WOLGA"]);
+                    cpuNumMatches = Convert.ToInt32(reader["WOLMatches"]);
+                    reader.Close();
+                    Con.Close();
+                    if (Convert.ToInt32(userScoreLabel.Text) > Convert.ToInt32(cpuScoreLabel.Text))
+                    {
+                        //user win
+                        Con.Open();
+                        Com.CommandText = "Update UserTable SET UserWins = " + (userWins + 1) + ", UserDraws = " + userDraws + ", UserLosses = " + userLosses + ", UserGF = " + (userGF + Convert.ToInt32(userScoreLabel.Text)) + ", UserGA = " + (userGA + Convert.ToInt32(cpuScoreLabel.Text)) + ", UserPoints = " + (userPoints + 3) + ", UserMatches = " + (userNumMatches + 1) + " WHERE Id = " + LoginMenu.UserID;
+                        Com.Connection = Con;
+                        Com.ExecuteNonQuery();
+                        //cpu loss
+                        Com.CommandText = "Update UserTable SET WOLWins = " + cpuWins + ", WOLDraws = " + cpuDraws + ", WOLLosses = " + (cpuLosses + 1) + ", WOLGF = " + (cpuGF + Convert.ToInt32(cpuScoreLabel.Text)) + ", WOLGA = " + (cpuGA + Convert.ToInt32(userScoreLabel.Text)) + ", WOLPoints = " + cpuPoints + ", WOLMatches = " + (cpuNumMatches + 1) + " WHERE Id = " + LoginMenu.UserID;
+                        Com.Connection = Con;
+                        Com.ExecuteNonQuery();
+                        Con.Close();
+                    }
+                    else if (Convert.ToInt32(userScoreLabel.Text) < Convert.ToInt32(cpuScoreLabel.Text))
+                    {
+                        //cpu win
+                        Con.Open();
+                        Com.CommandText = "Update UserTable SET WOLWins = " + (cpuWins + 1) + ", WOLDraws = " + cpuDraws + ", WOLLosses = " + cpuLosses + ", WOLGF = " + (cpuGF + Convert.ToInt32(cpuScoreLabel.Text)) + ", WOLGA = " + (cpuGA + Convert.ToInt32(userScoreLabel.Text)) + ", WOLPoints = " + (cpuPoints + 3) + ", WOLMatches = " + (cpuNumMatches + 1) + " WHERE Id = " + LoginMenu.UserID;
+                        Com.Connection = Con;
+                        Com.ExecuteNonQuery();
+                        //user loss
+                        Com.CommandText = "Update UserTable SET UserWins = " + userWins + ", UserDraws = " + userDraws + ", UserLosses = " + (userLosses + 1) + ", UserGF = " + (userGF + Convert.ToInt32(userScoreLabel.Text)) + ", UserGA = " + (userGA + Convert.ToInt32(cpuScoreLabel.Text)) + ", UserPoints = " + userPoints + ", UserMatches = " + (userNumMatches + 1) + " WHERE Id = " + LoginMenu.UserID;
+                        Com.Connection = Con;
+                        Com.ExecuteNonQuery();
+                        Con.Close();
+
+                    }
+                    else
+                    {
+                        //user draw
+                        Con.Open();
+                        Com.CommandText = "Update UserTable SET UserWins = " + userWins + ", UserDraws = " + (userDraws + 1) + ", UserLosses = " + userLosses + ", UserGF = " + (userGF + Convert.ToInt32(userScoreLabel.Text)) + ", UserGA = " + (userGA + Convert.ToInt32(cpuScoreLabel.Text)) + ", UserPoints = " + (userPoints + 1) + ", UserMatches = " + (userNumMatches + 1) + "  WHERE Id = " + LoginMenu.UserID;
+                        Com.Connection = Con;
+                        Com.ExecuteNonQuery();
+                        //cpu loss
+                        Com.CommandText = "Update UserTable SET WOLWins = " + cpuWins + ", WOLDraws = " + (cpuDraws + 1) + ", WOLLosses = " + cpuLosses + ", WOLGF = " + (cpuGF + Convert.ToInt32(cpuScoreLabel.Text)) + ", WOLGA = " + (cpuGA + Convert.ToInt32(userScoreLabel.Text)) + ", WOLPoints = " + (cpuPoints + 1) + ", WOLMatches = " + (cpuNumMatches + 1) + "  WHERE Id = " + LoginMenu.UserID;
+                        Com.Connection = Con;
+                        Com.ExecuteNonQuery();
+                        Con.Close();
+                    }
+                    break;
+
+                case 1006:  //if cpuTeam is Norwich
+                    cpuPoints = Convert.ToInt32(reader["NORPoints"]);
+                    cpuWins = Convert.ToInt32(reader["NORwins"]);
+                    cpuLosses = Convert.ToInt32(reader["NORLosses"]);
+                    cpuDraws = Convert.ToInt32(reader["NORDraws"]);
+                    cpuGF = Convert.ToInt32(reader["NORGF"]);
+                    cpuGA = Convert.ToInt32(reader["NORGA"]);
+                    cpuNumMatches = Convert.ToInt32(reader["NORMatches"]);
+                    reader.Close();
+                    Con.Close();
+                    if (Convert.ToInt32(userScoreLabel.Text) > Convert.ToInt32(cpuScoreLabel.Text))
+                    {
+                        //user win
+                        Con.Open();
+                        Com.CommandText = "Update UserTable SET UserWins = " + (userWins + 1) + ", UserDraws = " + userDraws + ", UserLosses = " + userLosses + ", UserGF = " + (userGF + Convert.ToInt32(userScoreLabel.Text)) + ", UserGA = " + (userGA + Convert.ToInt32(cpuScoreLabel.Text)) + ", UserPoints = " + (userPoints + 3) + ", UserMatches = " + (userNumMatches + 1) + " WHERE Id = " + LoginMenu.UserID;
+                        Com.Connection = Con;
+                        Com.ExecuteNonQuery();
+                        //cpu loss
+                        Com.CommandText = "Update UserTable SET NORWins = " + cpuWins + ", NORDraws = " + cpuDraws + ", NORLosses = " + (cpuLosses + 1) + ", NORGF = " + (cpuGF + Convert.ToInt32(cpuScoreLabel.Text)) + ", NORGA = " + (cpuGA + Convert.ToInt32(userScoreLabel.Text)) + ", NORPoints = " + cpuPoints + ", NORMatches = " + (cpuNumMatches + 1) + " WHERE Id = " + LoginMenu.UserID;
+                        Com.Connection = Con;
+                        Com.ExecuteNonQuery();
+                        Con.Close();
+                    }
+                    else if (Convert.ToInt32(userScoreLabel.Text) < Convert.ToInt32(cpuScoreLabel.Text))
+                    {
+                        //cpu win
+                        Con.Open();
+                        Com.CommandText = "Update UserTable SET NORWins = " + (cpuWins + 1) + ", NORDraws = " + cpuDraws + ", NORLosses = " + cpuLosses + ", NORGF = " + (cpuGF + Convert.ToInt32(cpuScoreLabel.Text)) + ", NORGA = " + (cpuGA + Convert.ToInt32(userScoreLabel.Text)) + ", NORPoints = " + (cpuPoints + 3) + ", NORMatches = " + (cpuNumMatches + 1) + " WHERE Id = " + LoginMenu.UserID;
+                        Com.Connection = Con;
+                        Com.ExecuteNonQuery();
+                        //user loss
+                        Com.CommandText = "Update UserTable SET UserWins = " + userWins + ", UserDraws = " + userDraws + ", UserLosses = " + (userLosses + 1) + ", UserGF = " + (userGF + Convert.ToInt32(userScoreLabel.Text)) + ", UserGA = " + (userGA + Convert.ToInt32(cpuScoreLabel.Text)) + ", UserPoints = " + userPoints + ", UserMatches = " + (userNumMatches + 1) + " WHERE Id = " + LoginMenu.UserID;
+                        Com.Connection = Con;
+                        Com.ExecuteNonQuery();
+                        Con.Close();
+
+                    }
+                    else
+                    {
+                        //user draw
+                        Con.Open();
+                        Com.CommandText = "Update UserTable SET UserWins = " + userWins + ", UserDraws = " + (userDraws + 1) + ", UserLosses = " + userLosses + ", UserGF = " + (userGF + Convert.ToInt32(userScoreLabel.Text)) + ", UserGA = " + (userGA + Convert.ToInt32(cpuScoreLabel.Text)) + ", UserPoints = " + (userPoints + 1) + ", UserMatches = " + (userNumMatches + 1) + "  WHERE Id = " + LoginMenu.UserID;
+                        Com.Connection = Con;
+                        Com.ExecuteNonQuery();
+                        //cpu loss
+                        Com.CommandText = "Update UserTable SET NORWins = " + cpuWins + ", NORDraws = " + (cpuDraws + 1) + ", NORLosses = " + cpuLosses + ", NORGF = " + (cpuGF + Convert.ToInt32(cpuScoreLabel.Text)) + ", NORGA = " + (cpuGA + Convert.ToInt32(userScoreLabel.Text)) + ", NORPoints = " + (cpuPoints + 1) + ", NORMatches = " + (cpuNumMatches + 1) + "  WHERE Id = " + LoginMenu.UserID;
+                        Com.Connection = Con;
+                        Com.ExecuteNonQuery();
+                        Con.Close();
+                    }
+                    break;
             }
         }
             

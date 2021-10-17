@@ -243,6 +243,39 @@ namespace _5_A_Side
         public int away2TAC;
         public int away2AGG;
 
+        //league table data variables
+        public int home1Points;
+        public int home1Wins;
+        public int home1Losses;
+        public int home1Draws;
+        public int home1GF;
+        public int home1GA;
+        public int home1NumMatches;
+
+        public int away1Points;
+        public int away1Wins;
+        public int away1Losses;
+        public int away1Draws;
+        public int away1GF;
+        public int away1GA;
+        public int away1NumMatches;
+
+        public int home2Points;
+        public int home2Wins;
+        public int home2Losses;
+        public int home2Draws;
+        public int home2GF;
+        public int home2GA;
+        public int home2NumMatches;
+
+        public int away2Points;
+        public int away2Wins;
+        public int away2Losses;
+        public int away2Draws;
+        public int away2GF;
+        public int away2GA;
+        public int away2NumMatches;
+
         //essential variables
         public int home1ID;
         public int away1ID;
@@ -327,26 +360,26 @@ namespace _5_A_Side
             Com.Connection = Con;
             SqlDataReader reader = Com.ExecuteReader();
             reader.Read();
-            int home1Points = Convert.ToInt32(reader["Points"]);
-            int home1Wins = Convert.ToInt32(reader["Wins"]);
-            int home1Losses = Convert.ToInt32(reader["Losses"]);
-            int home1Draws = Convert.ToInt32(reader["Draws"]);
-            int home1GF = Convert.ToInt32(reader["GF"]);
-            int home1GA = Convert.ToInt32(reader["GA"]);
-            int home1NumMatches = Convert.ToInt32(reader["NumMatches"]);
+            home1Points = Convert.ToInt32(reader["Points"]);
+            home1Wins = Convert.ToInt32(reader["Wins"]);
+            home1Losses = Convert.ToInt32(reader["Losses"]);
+            home1Draws = Convert.ToInt32(reader["Draws"]);
+            home1GF = Convert.ToInt32(reader["GF"]);
+            home1GA = Convert.ToInt32(reader["GA"]);
+            home1NumMatches = Convert.ToInt32(reader["NumMatches"]);
             reader.Close();
-            //selecting leagueTableData for cpu so it can be updated
+            //selecting leagueTableData for away1 so it can be updated
             Com.CommandText = "Select * from Teams Where Id = " + away1ID;
             Com.Connection = Con;
             reader = Com.ExecuteReader();
             reader.Read();
-            int away1Points = Convert.ToInt32(reader["Points"]);
-            int away1Wins = Convert.ToInt32(reader["Wins"]);
-            int away1Losses = Convert.ToInt32(reader["Losses"]);
-            int away1Draws = Convert.ToInt32(reader["Draws"]);
-            int away1GF = Convert.ToInt32(reader["GF"]);
-            int away1GA = Convert.ToInt32(reader["GA"]);
-            int away1NumMatches = Convert.ToInt32(reader["NumMatches"]);
+            away1Points = Convert.ToInt32(reader["Points"]);
+            away1Wins = Convert.ToInt32(reader["Wins"]);
+            away1Losses = Convert.ToInt32(reader["Losses"]);
+            away1Draws = Convert.ToInt32(reader["Draws"]);
+            away1GF = Convert.ToInt32(reader["GF"]);
+            away1GA = Convert.ToInt32(reader["GA"]);
+            away1NumMatches = Convert.ToInt32(reader["NumMatches"]);
             reader.Close();
             Con.Close();
 

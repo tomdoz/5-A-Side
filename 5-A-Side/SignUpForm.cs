@@ -23,7 +23,7 @@ namespace _5_A_Side
         private void signUpButton_Click(object sender, EventArgs e)
         {
             Con.Open();
-            string query = "insert into UserTable (Username, Password, Name, TeamID, currFixtureID) values('" + userNameTxt.Text + "', '" + Encryption.hashPassword(PWTxt.Text) + "', '" + nameTxt.Text + "', '" + 0 + "', '" + 0 + "')";
+            string query = "insert into UserTable (Username, Password, Name, TeamID, currFixtureID, UserPoints , UserWins , UserDraws , UserLosses , UserGF , UserGA , UserMatches , MUPoints , MUWins , MUDraws , MULosses , MUGF , MUGA , MUMatches , CHEPoints , CHEWins , CHEDraws , CHELosses , CHEGF , CHEGA , CHEMatches , WOLPoints , WOLWins , WOLDraws , WOLLosses , WOLGF , WOLGA , WOLMatches , SOUPoints , SOUWins , SOUDraws , SOULosses , SOUGF , SOUGA , SOUMatches , NORPoints , NORWins , NORDraws , NORLosses , NORGF , NORGA , NORMatches) values('" + userNameTxt.Text + "', '" + Encryption.hashPassword(PWTxt.Text) + "', '" + nameTxt.Text + "', '" + 0 + "', '" + 0 + "', '" + 0 + "', '" + 0 + "', '" + 0 + "', '" + 0 + "', '" + 0 + "', '" + 0 + "', '" + 0 + "', '" + 0 + "', '" + 0 + "', '" + 0 + "', '" + 0 + "', '" + 0 + "', '" + 0 + "', '" + 0 + "', '" + 0 + "', '" + 0 + "', '" + 0 + "', '" + 0 + "', '" + 0 + "', '" + 0 + "', '" + 0 + "', '" + 0 + "', '" + 0 + "', '" + 0 + "', '" + 0 + "', '" + 0 + "', '" + 0 + "', '" + 0 + "', '" + 0 + "', '" + 0 + "', '" + 0 + "', '" + 0 + "', '" + 0 + "', '" + 0 + "', '" + 0 + "', '" + 0 + "', '" + 0 + "', '" + 0 + "', '" + 0 + "', '" + 0 + "', '" + 0 + "', '" + 0 + "')";
             SqlCommand cmd = new SqlCommand(query, Con);
             cmd.ExecuteNonQuery();
             Con.Close();
