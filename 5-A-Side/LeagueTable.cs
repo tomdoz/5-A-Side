@@ -42,8 +42,8 @@ namespace _5_A_Side
                     }
                     team1.Text = Convert.ToString(reader["TeamName"]);
                     wins1.Text = Convert.ToString(reader["Wins"]);
-                    losses1.Text = Convert.ToString(reader["Losses"]);
-                    draws1.Text = Convert.ToString(reader["Draws"]);
+                    draws1.Text = Convert.ToString(reader["Losses"]);
+                    losses1.Text = Convert.ToString(reader["Draws"]);
                     points1.Text = Convert.ToString(reader["Points"]);
                     GD1.Text = Convert.ToString((Convert.ToInt32(reader["GF"]) - Convert.ToInt32(reader["GA"])));
                     matches1.Text = Convert.ToString(reader["NumMatches"]);
@@ -62,8 +62,8 @@ namespace _5_A_Side
                     }
                     team2.Text = Convert.ToString(reader["TeamName"]);
                     wins2.Text = Convert.ToString(reader["Wins"]);
-                    losses2.Text = Convert.ToString(reader["Losses"]);
-                    draws2.Text = Convert.ToString(reader["Draws"]);
+                    draws2.Text = Convert.ToString(reader["Losses"]);
+                    losses2.Text = Convert.ToString(reader["Draws"]);
                     points2.Text = Convert.ToString(reader["Points"]);
                     GD2.Text = Convert.ToString((Convert.ToInt32(reader["GF"]) - Convert.ToInt32(reader["GA"])));
                     matches2.Text = Convert.ToString(reader["NumMatches"]);
@@ -82,8 +82,8 @@ namespace _5_A_Side
                     }
                     team3.Text = Convert.ToString(reader["TeamName"]);
                     wins3.Text = Convert.ToString(reader["Wins"]);
-                    losses3.Text = Convert.ToString(reader["Losses"]);
-                    draws3.Text = Convert.ToString(reader["Draws"]);
+                    draws3.Text = Convert.ToString(reader["Losses"]);
+                    losses3.Text = Convert.ToString(reader["Draws"]);
                     points3.Text = Convert.ToString(reader["Points"]);
                     GD3.Text = Convert.ToString((Convert.ToInt32(reader["GF"]) - Convert.ToInt32(reader["GA"])));
                     matches3.Text = Convert.ToString(reader["NumMatches"]);
@@ -102,8 +102,8 @@ namespace _5_A_Side
                     }
                     team4.Text = Convert.ToString(reader["TeamName"]);
                     wins4.Text = Convert.ToString(reader["Wins"]);
-                    losses4.Text = Convert.ToString(reader["Losses"]);
-                    draws4.Text = Convert.ToString(reader["Draws"]);
+                    draws4.Text = Convert.ToString(reader["Losses"]);
+                    losses4.Text = Convert.ToString(reader["Draws"]);
                     points4.Text = Convert.ToString(reader["Points"]);
                     GD4.Text = Convert.ToString((Convert.ToInt32(reader["GF"]) - Convert.ToInt32(reader["GA"])));
                     matches4.Text = Convert.ToString(reader["NumMatches"]);
@@ -122,8 +122,8 @@ namespace _5_A_Side
                     }
                     team5.Text = Convert.ToString(reader["TeamName"]);
                     wins5.Text = Convert.ToString(reader["Wins"]);
-                    losses5.Text = Convert.ToString(reader["Losses"]);
-                    draws5.Text = Convert.ToString(reader["Draws"]);
+                    draws5.Text = Convert.ToString(reader["Losses"]);
+                    losses5.Text = Convert.ToString(reader["Draws"]);
                     points5.Text = Convert.ToString(reader["Points"]);
                     GD5.Text = Convert.ToString((Convert.ToInt32(reader["GF"]) - Convert.ToInt32(reader["GA"])));
                     matches5.Text = Convert.ToString(reader["NumMatches"]);
@@ -142,8 +142,8 @@ namespace _5_A_Side
                     }
                     team6.Text = Convert.ToString(reader["TeamName"]);
                     wins6.Text = Convert.ToString(reader["Wins"]);
-                    losses6.Text = Convert.ToString(reader["Losses"]);
-                    draws6.Text = Convert.ToString(reader["Draws"]);
+                    draws6.Text = Convert.ToString(reader["Losses"]);
+                    losses6.Text = Convert.ToString(reader["Draws"]);
                     points6.Text = Convert.ToString(reader["Points"]);
                     GD6.Text = Convert.ToString((Convert.ToInt32(reader["GF"]) - Convert.ToInt32(reader["GA"])));
                     matches6.Text = Convert.ToString(reader["NumMatches"]);
@@ -151,6 +151,13 @@ namespace _5_A_Side
                     Con.Close();
                     break;
             }
+        }
+
+        private void homeButton_Click(object sender, EventArgs e)
+        {
+            HomePage home = new HomePage();
+            home.Show();
+            this.Close();
         }
     }
 }
