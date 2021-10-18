@@ -543,7 +543,7 @@ namespace _5_A_Side
                         Com.CommandText = "Update UserTable SET UserWins = " + userWins + ", UserDraws = " + (userDraws + 1) + ", UserLosses = " + userLosses + ", UserGF = " + (userGF + Convert.ToInt32(userScoreLabel.Text)) + ", UserGA = " + (userGA + Convert.ToInt32(cpuScoreLabel.Text)) + ", UserPoints = " + (userPoints + 1) + ", UserMatches = " + (userNumMatches + 1) + "  WHERE Id = " + LoginMenu.UserID;
                         Com.Connection = Con;
                         Com.ExecuteNonQuery();
-                        //cpu loss
+                        //cpu draw
                         Com.CommandText = "Update UserTable SET MUWins = " + cpuWins + ", MUDraws = " + (cpuDraws + 1) + ", MULosses = " + cpuLosses + ", MUGF = " + (cpuGF + Convert.ToInt32(cpuScoreLabel.Text)) + ", MUGA = " + (cpuGA + Convert.ToInt32(userScoreLabel.Text)) + ", MUPoints = " + (cpuPoints + 1) + ", MUMatches = " + (cpuNumMatches + 1) + "  WHERE Id = " + LoginMenu.UserID;
                         Com.Connection = Con;
                         Com.ExecuteNonQuery();
