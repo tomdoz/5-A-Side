@@ -98,11 +98,11 @@ namespace _5_A_Side
         public void GetNextGameweek()
         {
             Con.Open(); //open the connection to the database
-            Com.CommandText = "Select NumMatches from Teams where Id = " + LoginMenu.TeamID; //select the number of matches the user has played
+            Com.CommandText = "Select UserMatches from UserTable where Id = " + LoginMenu.UserID; //select the number of matches the user has played
             Com.Connection = Con;
             SqlDataReader reader = Com.ExecuteReader();
             reader.Read(); //read the selected data
-            int nextGameweekVal = Convert.ToInt32(reader["NumMatches"]); //assign the value stored in the selected record in the NumMatches column
+            int nextGameweekVal = Convert.ToInt32(reader["UserMatches"]); //assign the value stored in the selected record in the NumMatches column
             nextGameweekVal++; //increment this value, so it is the NEXT gameweek
             if (nextGameweekVal == 11) //if this value is 11, then the season has ended, so change the label to display that
             {
