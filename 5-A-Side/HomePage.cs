@@ -139,6 +139,9 @@ namespace _5_A_Side
             Com.CommandText = "Update UserTable SET CurrFixtureID = " + 1 + " WHERE Id = " + LoginMenu.UserID; //updates the current fixture ID in the current user's account record to be 0, so when a match is next played the season is started again
             Com.Connection = Con;
             Com.ExecuteNonQuery(); //executes the command
+            Com.CommandText = "Update Teams SET GF = " + 0;
+            Com.Connection = Con;
+            Com.ExecuteNonQuery();
             Con.Close(); //closes the connection
             //notifying the user that this was successful
             MessageBox.Show("All league table data is cleared, and the current matchweek has been reset to the first round of fixtures!", "Success!");

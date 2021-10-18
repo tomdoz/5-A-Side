@@ -492,6 +492,9 @@ namespace _5_A_Side
             int userGA = Convert.ToInt32(reader["UserGA"]);
             int userNumMatches = Convert.ToInt32(reader["UserMatches"]);
             reader.Close();
+            Com.CommandText = "Update Teams SET GF = " + (userGF + Convert.ToInt32(userScoreLabel.Text)) + "Where Id = " + LoginMenu.TeamID;
+            Com.Connection = Con;
+            Com.ExecuteNonQuery();
             //selecting leagueTableData for cpu so it can be updated
             Com.CommandText = "Select * from UserTable Where Id = " + LoginMenu.UserID;
             Com.Connection = Con;
@@ -508,6 +511,9 @@ namespace _5_A_Side
                     cpuGA = Convert.ToInt32(reader["MUGA"]);
                     cpuNumMatches = Convert.ToInt32(reader["MUMatches"]);
                     reader.Close();
+                    Com.CommandText = "Update Teams SET GF = " + (cpuGF + Convert.ToInt32(cpuScoreLabel.Text)) + "Where Id = " + 1002;
+                    Com.Connection = Con;
+                    Com.ExecuteNonQuery();
                     Con.Close();
                     if (Convert.ToInt32(userScoreLabel.Text) > Convert.ToInt32(cpuScoreLabel.Text))
                     {
@@ -560,6 +566,9 @@ namespace _5_A_Side
                     cpuGA = Convert.ToInt32(reader["CHEGA"]);
                     cpuNumMatches = Convert.ToInt32(reader["CHEMatches"]);
                     reader.Close();
+                    Com.CommandText = "Update Teams SET GF = " + (cpuGF + Convert.ToInt32(cpuScoreLabel.Text)) + "Where Id = " + 1003;
+                    Com.Connection = Con;
+                    Com.ExecuteNonQuery();
                     Con.Close();
                     if (Convert.ToInt32(userScoreLabel.Text) > Convert.ToInt32(cpuScoreLabel.Text))
                     {
@@ -612,6 +621,9 @@ namespace _5_A_Side
                     cpuGA = Convert.ToInt32(reader["SOUGA"]);
                     cpuNumMatches = Convert.ToInt32(reader["SOUMatches"]);
                     reader.Close();
+                    Com.CommandText = "Update Teams SET GF = " + (cpuGF + Convert.ToInt32(cpuScoreLabel.Text)) + "Where Id = " + 1004;
+                    Com.Connection = Con;
+                    Com.ExecuteNonQuery();
                     Con.Close();
                     if (Convert.ToInt32(userScoreLabel.Text) > Convert.ToInt32(cpuScoreLabel.Text))
                     {
@@ -664,6 +676,9 @@ namespace _5_A_Side
                     cpuGA = Convert.ToInt32(reader["WOLGA"]);
                     cpuNumMatches = Convert.ToInt32(reader["WOLMatches"]);
                     reader.Close();
+                    Com.CommandText = "Update Teams SET GF = " + (cpuGF + Convert.ToInt32(cpuScoreLabel.Text)) + "Where Id = " + 1005;
+                    Com.Connection = Con;
+                    Com.ExecuteNonQuery();
                     Con.Close();
                     if (Convert.ToInt32(userScoreLabel.Text) > Convert.ToInt32(cpuScoreLabel.Text))
                     {
@@ -716,6 +731,9 @@ namespace _5_A_Side
                     cpuGA = Convert.ToInt32(reader["NORGA"]);
                     cpuNumMatches = Convert.ToInt32(reader["NORMatches"]);
                     reader.Close();
+                    Com.CommandText = "Update Teams SET GF = " + (cpuGF + Convert.ToInt32(cpuScoreLabel.Text)) + "Where Id = " + 1006;
+                    Com.Connection = Con;
+                    Com.ExecuteNonQuery();
                     Con.Close();
                     if (Convert.ToInt32(userScoreLabel.Text) > Convert.ToInt32(cpuScoreLabel.Text))
                     {

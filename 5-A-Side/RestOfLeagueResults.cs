@@ -372,6 +372,9 @@ namespace _5_A_Side
                     home1GA = Convert.ToInt32(reader["MUGA"]);
                     home1NumMatches = Convert.ToInt32(reader["MUMatches"]);
                     reader.Close();
+                    Com.CommandText = "Update Teams SET GF = " + (home1GF + Convert.ToInt32(homeTeam1Score.Text)) + "Where Id = " + 1002;
+                    Com.Connection = Con;
+                    Com.ExecuteNonQuery();
                     Con.Close();
                     if (fixture1Result == 1) //win
                     {
@@ -406,6 +409,9 @@ namespace _5_A_Side
                     home1GA = Convert.ToInt32(reader["CHEGA"]);
                     home1NumMatches = Convert.ToInt32(reader["CHEMatches"]);
                     reader.Close();
+                    Com.CommandText = "Update Teams SET GF = " + (home1GF + Convert.ToInt32(homeTeam1Score.Text)) + "Where Id = " + 1003;
+                    Com.Connection = Con;
+                    Com.ExecuteNonQuery();
                     Con.Close();
                     if (fixture1Result == 1) //win
                     {
@@ -440,6 +446,9 @@ namespace _5_A_Side
                     home1GA = Convert.ToInt32(reader["SOUGA"]);
                     home1NumMatches = Convert.ToInt32(reader["SOUMatches"]);
                     reader.Close();
+                    Com.CommandText = "Update Teams SET GF = " + (home1GF + Convert.ToInt32(homeTeam1Score.Text)) + "Where Id = " + 1004;
+                    Com.Connection = Con;
+                    Com.ExecuteNonQuery();
                     Con.Close();
                     if (fixture1Result == 1) //win
                     {
@@ -476,6 +485,9 @@ namespace _5_A_Side
                     home1GA = Convert.ToInt32(reader["WOLGA"]);
                     home1NumMatches = Convert.ToInt32(reader["WOLMatches"]);
                     reader.Close();
+                    Com.CommandText = "Update Teams SET GF = " + (home1GF + Convert.ToInt32(homeTeam1Score.Text)) + "Where Id = " + 1005;
+                    Com.Connection = Con;
+                    Com.ExecuteNonQuery();
                     Con.Close();
                     if (fixture1Result == 1) //win
                     {
@@ -512,6 +524,9 @@ namespace _5_A_Side
                     home1GA = Convert.ToInt32(reader["NORGA"]);
                     home1NumMatches = Convert.ToInt32(reader["NORMatches"]);
                     reader.Close();
+                    Com.CommandText = "Update Teams SET GF = " + (home1GF + Convert.ToInt32(homeTeam1Score.Text)) + "Where Id = " + 1006;
+                    Com.Connection = Con;
+                    Com.ExecuteNonQuery();
                     Con.Close();
                     if (fixture1Result == 1) //win
                     {
@@ -557,6 +572,9 @@ namespace _5_A_Side
                     away1GA = Convert.ToInt32(reader["MUGA"]);
                     away1NumMatches = Convert.ToInt32(reader["MUMatches"]);
                     reader.Close();
+                    Com.CommandText = "Update Teams SET GF = " + (away1GF + Convert.ToInt32(awayTeam1Score.Text)) + "Where Id = " + 1002;
+                    Com.Connection = Con;
+                    Com.ExecuteNonQuery();
                     Con.Close();
                     if (fixture1Result == 1) //win
                     {
@@ -593,6 +611,9 @@ namespace _5_A_Side
                     away1GA = Convert.ToInt32(reader["CHEGA"]);
                     away1NumMatches = Convert.ToInt32(reader["CHEMatches"]);
                     reader.Close();
+                    Com.CommandText = "Update Teams SET GF = " + (away1GF + Convert.ToInt32(awayTeam1Score.Text)) + "Where Id = " + 1003;
+                    Com.Connection = Con;
+                    Com.ExecuteNonQuery();
                     Con.Close();
                     if (fixture1Result == 2) //win
                     {
@@ -629,6 +650,9 @@ namespace _5_A_Side
                     away1GA = Convert.ToInt32(reader["SOUGA"]);
                     away1NumMatches = Convert.ToInt32(reader["SOUMatches"]);
                     reader.Close();
+                    Com.CommandText = "Update Teams SET GF = " + (away1GF + Convert.ToInt32(awayTeam1Score.Text)) + "Where Id = " + 1004;
+                    Com.Connection = Con;
+                    Com.ExecuteNonQuery();
                     Con.Close();
                     if (fixture1Result == 2) //win
                     {
@@ -665,6 +689,9 @@ namespace _5_A_Side
                     away1GA = Convert.ToInt32(reader["WOLGA"]);
                     away1NumMatches = Convert.ToInt32(reader["WOLMatches"]);
                     reader.Close();
+                    Com.CommandText = "Update Teams SET GF = " + (away1GF + Convert.ToInt32(awayTeam1Score.Text)) + "Where Id = " + 1005;
+                    Com.Connection = Con;
+                    Com.ExecuteNonQuery();
                     Con.Close();
                     if (fixture1Result == 2) //win
                     {
@@ -701,6 +728,9 @@ namespace _5_A_Side
                     away1GA = Convert.ToInt32(reader["NORGA"]);
                     away1NumMatches = Convert.ToInt32(reader["NORMatches"]);
                     reader.Close();
+                    Com.CommandText = "Update Teams SET GF = " + (away1GF + Convert.ToInt32(awayTeam1Score.Text)) + "Where Id = " + 1006;
+                    Com.Connection = Con;
+                    Com.ExecuteNonQuery();
                     Con.Close();
                     if (fixture1Result == 2) //win
                     {
@@ -746,6 +776,9 @@ namespace _5_A_Side
                     home2GA = Convert.ToInt32(reader["MUGA"]);
                     home2NumMatches = Convert.ToInt32(reader["MUMatches"]);
                     reader.Close();
+                    Com.CommandText = "Update Teams SET GF = " + (home2GF + Convert.ToInt32(homeTeam2Score.Text)) + "Where Id = " + 1002;
+                    Com.Connection = Con;
+                    Com.ExecuteNonQuery();
                     Con.Close();
                     if (fixture2Result == 1) //win
                     {
@@ -782,6 +815,9 @@ namespace _5_A_Side
                     home2GA = Convert.ToInt32(reader["CHEGA"]);
                     home2NumMatches = Convert.ToInt32(reader["CHEMatches"]);
                     reader.Close();
+                    Com.CommandText = "Update Teams SET GF = " + (home2GF + Convert.ToInt32(homeTeam2Score.Text)) + "Where Id = " + 1003;
+                    Com.Connection = Con;
+                    Com.ExecuteNonQuery();
                     Con.Close();
                     if (fixture2Result == 1) //win
                     {
@@ -818,6 +854,9 @@ namespace _5_A_Side
                     home2GA = Convert.ToInt32(reader["SOUGA"]);
                     home2NumMatches = Convert.ToInt32(reader["SOUMatches"]);
                     reader.Close();
+                    Com.CommandText = "Update Teams SET GF = " + (home2GF + Convert.ToInt32(homeTeam2Score.Text)) + "Where Id = " + 1004;
+                    Com.Connection = Con;
+                    Com.ExecuteNonQuery();
                     Con.Close();
                     if (fixture2Result == 1) //win
                     {
@@ -854,6 +893,9 @@ namespace _5_A_Side
                     home2GA = Convert.ToInt32(reader["WOLGA"]);
                     home2NumMatches = Convert.ToInt32(reader["WOLMatches"]);
                     reader.Close();
+                    Com.CommandText = "Update Teams SET GF = " + (home2GF + Convert.ToInt32(homeTeam2Score.Text)) + "Where Id = " + 1005;
+                    Com.Connection = Con;
+                    Com.ExecuteNonQuery();
                     Con.Close();
                     if (fixture2Result == 1) //win
                     {
@@ -890,6 +932,9 @@ namespace _5_A_Side
                     home2GA = Convert.ToInt32(reader["NORGA"]);
                     home2NumMatches = Convert.ToInt32(reader["NORMatches"]);
                     reader.Close();
+                    Com.CommandText = "Update Teams SET GF = " + (home2GF + Convert.ToInt32(homeTeam2Score.Text)) + "Where Id = " + 1006;
+                    Com.Connection = Con;
+                    Com.ExecuteNonQuery();
                     Con.Close();
                     if (fixture2Result == 1) //win
                     {
@@ -935,6 +980,9 @@ namespace _5_A_Side
                     away2GA = Convert.ToInt32(reader["MUGA"]);
                     away2NumMatches = Convert.ToInt32(reader["MUMatches"]);
                     reader.Close();
+                    Com.CommandText = "Update Teams SET GF = " + (away2GF + Convert.ToInt32(awayTeam2Score.Text)) + "Where Id = " + 1002;
+                    Com.Connection = Con;
+                    Com.ExecuteNonQuery();
                     Con.Close();
                     if (fixture2Result == 1) //win
                     {
@@ -971,6 +1019,9 @@ namespace _5_A_Side
                     away2GA = Convert.ToInt32(reader["CHEGA"]);
                     away2NumMatches = Convert.ToInt32(reader["CHEMatches"]);
                     reader.Close();
+                    Com.CommandText = "Update Teams SET GF = " + (away2GF + Convert.ToInt32(awayTeam2Score.Text)) + "Where Id = " + 1003;
+                    Com.Connection = Con;
+                    Com.ExecuteNonQuery();
                     Con.Close();
                     if (fixture2Result == 2) //win
                     {
@@ -1007,6 +1058,9 @@ namespace _5_A_Side
                     away2GA = Convert.ToInt32(reader["SOUGA"]);
                     away2NumMatches = Convert.ToInt32(reader["SOUMatches"]);
                     reader.Close();
+                    Com.CommandText = "Update Teams SET GF = " + (away2GF + Convert.ToInt32(awayTeam2Score.Text)) + "Where Id = " + 1004;
+                    Com.Connection = Con;
+                    Com.ExecuteNonQuery();
                     Con.Close();
                     if (fixture2Result == 2) //win
                     {
@@ -1043,6 +1097,9 @@ namespace _5_A_Side
                     away2GA = Convert.ToInt32(reader["WOLGA"]);
                     away2NumMatches = Convert.ToInt32(reader["WOLMatches"]);
                     reader.Close();
+                    Com.CommandText = "Update Teams SET GF = " + (away2GF + Convert.ToInt32(awayTeam2Score.Text)) + "Where Id = " + 1005;
+                    Com.Connection = Con;
+                    Com.ExecuteNonQuery();
                     Con.Close();
                     if (fixture2Result == 2) //win
                     {
@@ -1079,6 +1136,9 @@ namespace _5_A_Side
                     away2GA = Convert.ToInt32(reader["NORGA"]);
                     away2NumMatches = Convert.ToInt32(reader["NORMatches"]);
                     reader.Close();
+                    Com.CommandText = "Update Teams SET GF = " + (away2GF + Convert.ToInt32(awayTeam2Score.Text)) + "Where Id = " + 1006;
+                    Com.Connection = Con;
+                    Com.ExecuteNonQuery();
                     Con.Close();
                     if (fixture2Result == 2) //win
                     {
