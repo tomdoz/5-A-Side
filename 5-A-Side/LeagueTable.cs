@@ -14,17 +14,60 @@ namespace _5_A_Side
 {
     public partial class LeagueTable : Form
     {
-        SqlConnection Con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\tomra\OneDrive\Documents\FootballGame.mdf;Integrated Security=True;Connect Timeout=30"); SqlCommand Com = new SqlCommand();
+        SqlConnection Con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\tomra\OneDrive\Documents\FootballGame.mdf;Integrated Security=True;Connect Timeout=30"); 
+        SqlCommand Com = new SqlCommand();
+        int[] PointTotals = new int[6];
+
         public LeagueTable()
         {
             InitializeComponent();
+            OrderTeams();
             FillRow(1);
             FillRow(2);
             FillRow(3);
             FillRow(4);
-            FillRow(4);
             FillRow(5);
             FillRow(6);
+        }
+
+        public void OrderTeams()
+        {
+            int[] PointsToSort = new int[6];
+            Con.Open();
+            Com.CommandText = "Select * From UserTable Where Id = " + LoginMenu.UserID;
+            Com.Connection = Con;
+            SqlDataReader reader = Com.ExecuteReader();
+            reader.Read();
+            for (int i = 0; i < PointsToSort.Length; i++)
+            {
+                switch (i)
+                {
+                    case 0:
+                        PointsToSort[i] = Convert.ToInt32(reader["UserPoints"]);
+                        break;
+
+                    case 1:
+                        PointsToSort[i] = Convert.ToInt32(reader["MUPoints"]);
+                        break;
+
+                    case 2:
+                        PointsToSort[i] = Convert.ToInt32(reader["CHEPoints"]);
+                        break;
+
+                    case 3:
+                        PointsToSort[i] = Convert.ToInt32(reader["SOUPoints"]);
+                        break;
+
+                    case 4:
+                        PointsToSort[i] = Convert.ToInt32(reader["WOLPoints"]);
+                        break;
+
+                    case 5:
+                        PointsToSort[i] = Convert.ToInt32(reader["NORPoints"]);
+                        break;
+                }
+                PointTotals = Utilities.mergeSort(PointsToSort);
+            }
         }
 
         public void FillRow(int Rank)
