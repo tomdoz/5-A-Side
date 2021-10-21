@@ -386,6 +386,7 @@ namespace _5_A_Side
                     }
                     else if (fixture1Result ==2) //loss
                     {
+                        Con.Open();
                         Com.CommandText = "Update UserTable SET MUWins = " + home1Wins + ", MUDraws = " + home1Draws + ", MULosses = " + (home1Losses + 1) + ", MUGF = " + (home1GF + Convert.ToInt32(homeTeam1Score.Text)) + ", MUGA = " + (home1GA + Convert.ToInt32(awayTeam2Score.Text)) + ", MUPoints = " + home1Points + ", MUMatches = " + (home1NumMatches + 1) + " WHERE Id = " + LoginMenu.UserID;
                         Com.Connection = Con;
                         Com.ExecuteNonQuery();
@@ -393,6 +394,7 @@ namespace _5_A_Side
                     }
                     else if (fixture1Result == 3) //draw
                     {
+                        Con.Open();
                         Com.CommandText = "Update UserTable SET MUWins = " + home1Wins + ", MUDraws = " + (home1Draws + 1) + ", MULosses = " + home1Losses + ", MUGF = " + (home1GF + Convert.ToInt32(homeTeam1Score.Text)) + ", MUGA = " + (home1GA + Convert.ToInt32(awayTeam2Score.Text)) + ", MUPoints = " + (home1Points + 1) + ", MUMatches = " + (home1NumMatches + 1) + "  WHERE Id = " + LoginMenu.UserID;
                         Com.Connection = Con;
                         Com.ExecuteNonQuery();
@@ -423,6 +425,7 @@ namespace _5_A_Side
                     }
                     else if (fixture1Result == 2) //loss
                     {
+                        Con.Open();
                         Com.CommandText = "Update UserTable SET CHEWins = " + home1Wins + ", CHEDraws = " + home1Draws + ", CHELosses = " + (home1Losses + 1) + ", CHEGF = " + (home1GF + Convert.ToInt32(homeTeam1Score.Text)) + ", CHEGA = " + (home1GA + Convert.ToInt32(awayTeam2Score.Text)) + ", CHEPoints = " + home1Points + ", CHEMatches = " + (home1NumMatches + 1) + " WHERE Id = " + LoginMenu.UserID;
                         Com.Connection = Con;
                         Com.ExecuteNonQuery();
@@ -430,6 +433,7 @@ namespace _5_A_Side
                     }
                     else if (fixture1Result == 3) //draw
                     {
+                        Con.Open();
                         Com.CommandText = "Update UserTable SET CHEWins = " + home1Wins + ", CHEDraws = " + (home1Draws + 1) + ", CHELosses = " + home1Losses + ", CHEGF = " + (home1GF + Convert.ToInt32(homeTeam1Score.Text)) + ", CHEGA = " + (home1GA + Convert.ToInt32(awayTeam2Score.Text)) + ", CHEPoints = " + (home1Points + 1) + ", CHEMatches = " + (home1NumMatches + 1) + "  WHERE Id = " + LoginMenu.UserID;
                         Com.Connection = Con;
                         Com.ExecuteNonQuery();
