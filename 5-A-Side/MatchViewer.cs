@@ -135,15 +135,6 @@ namespace _5_A_Side
         public int cpuTAC;
         public int cpuAGG;
 
-        //variables for league table data;
-        public int cpuPoints;
-        public int cpuWins;
-        public int cpuLosses;
-        public int cpuDraws;
-        public int cpuGF;
-        public int cpuGA;
-        public int cpuNumMatches;
-
         //variables for game running
         public int fixtureID;
         public int cpuTeamID;
@@ -491,6 +482,7 @@ namespace _5_A_Side
             int userGF = Convert.ToInt32(reader["UserGF"]);
             int userGA = Convert.ToInt32(reader["UserGA"]);
             int userNumMatches = Convert.ToInt32(reader["UserMatches"]);
+            int cpuPoints, cpuWins, cpuLosses, cpuDraws, cpuGF, cpuGA, cpuNumMatches;
             reader.Close();
             Com.CommandText = "Update Teams SET GF = " + (userGF + Convert.ToInt32(userScoreLabel.Text)) + "Where Id = " + LoginMenu.TeamID;
             Com.Connection = Con;

@@ -243,39 +243,6 @@ namespace _5_A_Side
         public int away2TAC;
         public int away2AGG;
 
-        //league table data variables
-        public int home1Points;
-        public int home1Wins;
-        public int home1Losses;
-        public int home1Draws;
-        public int home1GF;
-        public int home1GA;
-        public int home1NumMatches;
-
-        public int away1Points;
-        public int away1Wins;
-        public int away1Losses;
-        public int away1Draws;
-        public int away1GF;
-        public int away1GA;
-        public int away1NumMatches;
-
-        public int home2Points;
-        public int home2Wins;
-        public int home2Losses;
-        public int home2Draws;
-        public int home2GF;
-        public int home2GA;
-        public int home2NumMatches;
-
-        public int away2Points;
-        public int away2Wins;
-        public int away2Losses;
-        public int away2Draws;
-        public int away2GF;
-        public int away2GA;
-        public int away2NumMatches;
-
         //essential variables
         public int home1ID;
         public int away1ID;
@@ -355,6 +322,7 @@ namespace _5_A_Side
 
         public void LeagueTableUpdater()
         {
+            int home1Points, home1Wins, home1Losses, home1Draws, home1GF, home1GA, home1NumMatches, away1Points, away1Wins, away1Losses, away1Draws, away1GF, away1GA, away1NumMatches, home2Points, home2Wins, home2Losses, home2Draws, home2GF, home2GA, home2NumMatches, away2Points, away2Wins, away2Losses, away2Draws, away2GF, away2GA, away2NumMatches;
             //selecting leagueTableData for home1 so it can be updated
             Con.Open();
             Com.CommandText = "Select * from UserTable Where Id = " + LoginMenu.UserID;

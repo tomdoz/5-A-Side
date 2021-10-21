@@ -277,7 +277,7 @@ namespace _5_A_Side
                     reader.Close();
                     if (Team == "User")
                     {
-                        Com.CommandText = "Select TeamName From Teams Where = " + LoginMenu.UserID;
+                        Com.CommandText = "Select TeamName From Teams Where Id = " + LoginMenu.TeamID;
                         Com.Connection = Con;
                         reader = Com.ExecuteReader();
                         reader.Read();
@@ -321,7 +321,7 @@ namespace _5_A_Side
                     reader.Close();
                     if (Team == "User")
                     {
-                        Com.CommandText = "Select TeamName From Teams Where = " + LoginMenu.UserID;
+                        Com.CommandText = "Select TeamName From Teams Where Id = " + LoginMenu.TeamID;
                         Com.Connection = Con;
                         reader = Com.ExecuteReader();
                         reader.Read();
@@ -365,7 +365,7 @@ namespace _5_A_Side
                     reader.Close();
                     if (Team == "User")
                     {
-                        Com.CommandText = "Select TeamName From Teams Where = " + LoginMenu.UserID;
+                        Com.CommandText = "Select TeamName From Teams Where Id = " + LoginMenu.TeamID;
                         Com.Connection = Con;
                         reader = Com.ExecuteReader();
                         reader.Read();
@@ -409,7 +409,7 @@ namespace _5_A_Side
                     reader.Close();
                     if (Team == "User")
                     {
-                        Com.CommandText = "Select TeamName From Teams Where = " + LoginMenu.UserID;
+                        Com.CommandText = "Select TeamName From Teams Where Id= " + LoginMenu.TeamID;
                         Com.Connection = Con;
                         reader = Com.ExecuteReader();
                         reader.Read();
@@ -453,7 +453,7 @@ namespace _5_A_Side
                     reader.Close();
                     if (Team == "User")
                     {
-                        Com.CommandText = "Select TeamName From Teams Where = " + LoginMenu.UserID;
+                        Com.CommandText = "Select TeamName From Teams Where Id = " + LoginMenu.TeamID;
                         Com.Connection = Con;
                         reader = Com.ExecuteReader();
                         reader.Read();
