@@ -348,8 +348,7 @@ namespace _5_A_Side
                     {
                         Con.Open();
                         Com.CommandText = "Update UserTable SET MUWins = " + (home1Wins + 1) + ", MUDraws = " + home1Draws + ", MULosses = " + home1Losses + ", MUGF = " + (home1GF + Convert.ToInt32(homeTeam1Score.Text)) + ", MUGA = " + (home1GA + Convert.ToInt32(awayTeam2Score.Text)) + ", MUPoints = " + (home1Points + 3) + ", MUMatches = " + (home1NumMatches + 1) + " WHERE Id = " + LoginMenu.UserID;
-                        Com.Connection = Con;
-                        Com.ExecuteNonQuery();
+                        Com.Connection = Con;                        Com.ExecuteNonQuery();
                         Con.Close();
                     }
                     else if (fixture1Result ==2) //loss
@@ -1623,15 +1622,15 @@ namespace _5_A_Side
         public void SetGameResult()
         {
             //fixture 1
-            if (Convert.ToInt32(homeTeam1Score.Text) > Convert.ToInt32(awayTeam2Score.Text))
+            if (Convert.ToInt32(homeTeam1Score.Text) > Convert.ToInt32(awayTeam1Score.Text))
             {
                 fixture1Result = 1; //home win
             }
-            else if (Convert.ToInt32(homeTeam1Score.Text) < Convert.ToInt32(awayTeam2Score.Text))
+            else if (Convert.ToInt32(homeTeam1Score.Text) < Convert.ToInt32(awayTeam1Score.Text))
             {
                 fixture1Result = 2; //away win
             }
-            else if (Convert.ToInt32(homeTeam1Score.Text) == Convert.ToInt32(awayTeam2Score.Text))
+            else if (Convert.ToInt32(homeTeam1Score.Text) == Convert.ToInt32(awayTeam1Score.Text))
             {
                 fixture1Result = 3; //draw
             }

@@ -449,7 +449,7 @@ namespace _5_A_Side
                     losses2.Text = Convert.ToString(reader[Team + "Draws"]);
                     points2.Text = Convert.ToString(reader[Team + "Points"]);
                     GD2.Text = Convert.ToString((Convert.ToInt32(reader[Team + "GF"]) - Convert.ToInt32(reader[Team + "GA"])));
-                    matches3.Text = Convert.ToString(reader[Team + "Matches"]);
+                    matches2.Text = Convert.ToString(reader[Team + "Matches"]);
                     reader.Close();
                     if (Team == "User")
                     {
