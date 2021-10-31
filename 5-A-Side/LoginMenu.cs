@@ -55,6 +55,7 @@ namespace _5_A_Side
             else
             {
                 MessageBox.Show("Wrong/missing credentials. Try again.", "Login unsuccessful", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Con.Close();
             }
         }
     }
