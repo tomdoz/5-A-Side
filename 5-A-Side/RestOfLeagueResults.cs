@@ -1621,12 +1621,17 @@ namespace _5_A_Side
 
         public void SetGameResult()
         {
+            int home1Goal = Convert.ToInt32(homeTeam1Score.Text);
+            int away1Goal = Convert.ToInt32(awayTeam1Score.Text);
+            int home2Goal = Convert.ToInt32(homeTeam1Score.Text);
+            int away2Goal = Convert.ToInt32(awayTeam1Score.Text);
+
             //fixture 1
-            if (Convert.ToInt32(homeTeam1Score.Text) > Convert.ToInt32(awayTeam1Score.Text))
+            if (home1Goal > away1Goal)
             {
                 fixture1Result = 1; //home win
             }
-            else if (Convert.ToInt32(homeTeam1Score.Text) < Convert.ToInt32(awayTeam1Score.Text))
+            else if (home1Goal < away1Goal)
             {
                 fixture1Result = 2; //away win
             }
@@ -1636,11 +1641,11 @@ namespace _5_A_Side
             }
 
             //fixture 2
-            if (Convert.ToInt32(homeTeam2Score.Text) > Convert.ToInt32(awayTeam2Score.Text))
+            if (home2Goal > away2Goal)
             {
                 fixture2Result = 1; //home win
             }
-            else if (Convert.ToInt32(homeTeam2Score.Text) < Convert.ToInt32(awayTeam2Score.Text))
+            else if (home2Goal < away2Goal)
             {
                 fixture2Result = 2; //away win
             }
