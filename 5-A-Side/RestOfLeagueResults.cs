@@ -1630,7 +1630,7 @@ namespace _5_A_Side
             {
                 fixture1Result = 2; //away win
             }
-            else if (Convert.ToInt32(homeTeam1Score.Text) == Convert.ToInt32(awayTeam1Score.Text))
+            else
             {
                 fixture1Result = 3; //draw
             }
@@ -1644,7 +1644,7 @@ namespace _5_A_Side
             {
                 fixture2Result = 2; //away win
             }
-            else if (Convert.ToInt32(homeTeam2Score.Text) == Convert.ToInt32(awayTeam2Score.Text))
+            else
             {
                 fixture2Result = 3; //draw
             }
