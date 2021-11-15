@@ -31,13 +31,13 @@ namespace _5_A_Side
             int UsersCount = Sql.CountRows("UserTable");
             for (int i = 0; i < UsersCount; i++)
             {
-                string readerUsernameVal = Sql.Select("Select * from UserTable", i, "Username", false, 0);
-                string readerPasswordVal = Sql.Select("Select * from UserTable", i, "Password", false, 0);
+                string readerUsernameVal = Sql.Select("Select * from UserTable", i, "Username");
+                string readerPasswordVal = Sql.Select("Select * from UserTable", i, "Password");
                 if (userTxt.Text == readerUsernameVal && Utilities.hashPassword(passwordTxt.Text) == readerPasswordVal)
                 {
                     loginDetailsCorrect = true;
-                    UserID = Convert.ToInt32(Sql.Select("Select * from UserTable", i, "Id", false, 0));
-                    TeamID = Convert.ToInt32(Sql.Select("Select * from UserTable", i, "TeamID", false, 0));
+                    UserID = Convert.ToInt32(Sql.Select("Select * from UserTable", i, "Id"));
+                    TeamID = Convert.ToInt32(Sql.Select("Select * from UserTable", i, "TeamID"));
                 }
             }
 

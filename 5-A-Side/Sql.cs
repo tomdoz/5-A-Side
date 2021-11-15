@@ -22,18 +22,11 @@ namespace _5_A_Side
             Con.Close();
         }
         
-        public static string Select(string command, int readMultiplier, string targetColumn, bool conditional, int condition)
+        public static string Select(string command, int readMultiplier, string targetColumn)
         {
             Con.Open();
             Com.Connection = Con;
-            if (conditional == true)
-            {
-                Com.CommandText = command + condition;
-            }
-            else
-            {
-                Com.CommandText = command;
-            }
+            Com.CommandText = command;
             reader = Com.ExecuteReader();
             for (int i = 0; i < readMultiplier + 1; i++)
             {
