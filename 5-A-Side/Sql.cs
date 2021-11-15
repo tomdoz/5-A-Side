@@ -21,12 +21,19 @@ namespace _5_A_Side
             Com.ExecuteNonQuery();
             Con.Close();
         }
-
-        public static string Select(string command, int readMultiplier, string targetColumn)
+        
+        public static string Select(string command, int readMultiplier, string targetColumn, bool conditional, int condition)
         {
             Con.Open();
             Com.Connection = Con;
-            Com.CommandText = command;
+            if (conditional == true)
+            {
+                Com.CommandText = command + condition;
+            }
+            else
+            {
+                Com.CommandText = command;
+            }
             reader = Com.ExecuteReader();
             for (int i = 0; i < readMultiplier + 1; i++)
             {

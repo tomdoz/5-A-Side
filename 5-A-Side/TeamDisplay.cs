@@ -116,8 +116,8 @@ namespace _5_A_Side
             Com.Connection = Con;
             reader = Com.ExecuteReader();
             reader.Read();
-            teamNameLabel.Text = Sql.Select("Select * from Teams Where Id = " + LoginMenu.TeamID);
-            managerNameLabel.Text = Convert.ToString(reader["Manager"]);
+            teamNameLabel.Text = Sql.Select("Select * from Teams Where Id = ", 0, "TeamName", true, LoginMenu.TeamID);
+            managerNameLabel.Text = Sql.Select("Select * from Teams Where Id = ", 0, "Manager", true, LoginMenu.TeamID);
         }
 
         private void homeButton_Click(object sender, EventArgs e)
