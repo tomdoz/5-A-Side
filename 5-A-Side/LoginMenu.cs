@@ -28,19 +28,16 @@ namespace _5_A_Side
 
         private void loginButton_Click(object sender, EventArgs e)
         {
-            Con.Open();
-            Com.Connection = Con;
-            Com.CommandText = "select * from UserTable";
-            SqlDataReader reader = Com.ExecuteReader();
-            while(reader.Read())
+            int UsersCount = Sql.CountRows("UserTable");
+            for (int i = 0; i < UsersCount; i++)
             {
-                string readerUsernameVal = (reader["Username"].ToString());
-                string readerPasswordVal = (reader["Password"].ToString());
+                string readerUsernameVal = Sql.Select("Select * from UserTable", i, "Username");
+                string readerPasswordVal = Sql.Select("Select * from UserTable", i, "Password");
                 if (userTxt.Text == readerUsernameVal && Utilities.hashPassword(passwordTxt.Text) == readerPasswordVal)
                 {
                     loginDetailsCorrect = true;
-                    UserID = Convert.ToInt32(reader["Id"]);
-                    TeamID = Convert.ToInt32(reader["TeamID"]);
+                    UserID = Convert.ToInt32(Sql.Select("Select * from UserTable", i, "Id"));
+                    TeamID = Convert.ToInt32(Sql.Select("Select * from UserTable", i, "TeamID"));
                 }
             }
 
@@ -48,14 +45,12 @@ namespace _5_A_Side
             {
                 MessageBox.Show("Enjoy the time playing!", "Login successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 HomePage home = new HomePage();
-                Con.Close();
                 home.Show();
                 this.Close();
             }
             else
             {
                 MessageBox.Show("Wrong/missing credentials. Try again.", "Login unsuccessful", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Con.Close();
             }
         }
     }

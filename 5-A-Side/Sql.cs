@@ -28,13 +28,14 @@ namespace _5_A_Side
             Com.Connection = Con;
             Com.CommandText = command;
             reader = Com.ExecuteReader();
-            for (int i = 0; i < readMultiplier; i++)
+            for (int i = 0; i < readMultiplier + 1; i++)
             {
                 reader.Read();
             }
+            string output = Convert.ToString(reader[targetColumn]);
             reader.Close();
             Con.Close();
-            return Convert.ToString(reader[targetColumn]);
+            return output;
         }
 
         public static void Update(string command)
@@ -57,6 +58,7 @@ namespace _5_A_Side
             {
                 count++;
             }
+            Con.Close();
             return count;
         }
     }
