@@ -116,7 +116,7 @@ namespace _5_A_Side
             Com.Connection = Con;
             reader = Com.ExecuteReader();
             reader.Read();
-            teamNameLabel.Text = Convert.ToString(reader["TeamName"]);
+            teamNameLabel.Text = Sql.Select("Select * from Teams Where Id = " + LoginMenu.TeamID);
             managerNameLabel.Text = Convert.ToString(reader["Manager"]);
         }
 
