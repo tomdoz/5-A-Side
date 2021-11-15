@@ -25,6 +25,12 @@ namespace _5_A_Side
         public void LoadTeam()
         {
             int[] capStats = Player.CollectStats(LoginMenu.TeamID, 1);
+            int[] p2Stats = Player.CollectStats(LoginMenu.TeamID, 2);
+            int[] p3Stats = Player.CollectStats(LoginMenu.TeamID, 3);
+            int[] p4Stats = Player.CollectStats(LoginMenu.TeamID, 4);
+            int[] p5Stats = Player.CollectStats(LoginMenu.TeamID, 5);
+            int[] p6Stats = Player.CollectStats(LoginMenu.TeamID, 6);
+
             captainSHO.Text = Convert.ToString(capStats[0]);
             captainDRI.Text = Convert.ToString(capStats[1]);
             captainPAC.Text = Convert.ToString(capStats[2]);
@@ -35,7 +41,6 @@ namespace _5_A_Side
             captainName.Text = Player.GetAttribute("Name", LoginMenu.TeamID, 1);
             captainShirtNum.Text = Player.GetAttribute("ShirtNum", LoginMenu.TeamID, 1);
 
-            int[] p2Stats = Player.CollectStats(LoginMenu.TeamID, 2);
             p2SHO.Text = Convert.ToString(p2Stats[0]);
             p2DRI.Text = Convert.ToString(p2Stats[1]);
             p2PAC.Text = Convert.ToString(p2Stats[2]);
@@ -46,7 +51,6 @@ namespace _5_A_Side
             p2Name.Text = Player.GetAttribute("Name", LoginMenu.TeamID, 2);
             p2ShirtNum.Text = Player.GetAttribute("ShirtNum", LoginMenu.TeamID, 2);
 
-            int[] p3Stats = Player.CollectStats(LoginMenu.TeamID, 3);
             p3SHO.Text = Convert.ToString(p3Stats[0]);
             p3DRI.Text = Convert.ToString(p3Stats[1]);
             p3PAC.Text = Convert.ToString(p3Stats[2]);
@@ -57,7 +61,6 @@ namespace _5_A_Side
             p3Name.Text = Player.GetAttribute("Name", LoginMenu.TeamID, 3);
             p3ShirtNum.Text = Player.GetAttribute("ShirtNum", LoginMenu.TeamID, 3);
 
-            int[] p4Stats = Player.CollectStats(LoginMenu.TeamID, 4);
             p4SHO.Text = Convert.ToString(p4Stats[0]);
             p4DRI.Text = Convert.ToString(p4Stats[1]);
             p4PAC.Text = Convert.ToString(p4Stats[2]);
@@ -68,7 +71,6 @@ namespace _5_A_Side
             p4Name.Text = Player.GetAttribute("Name", LoginMenu.TeamID, 4);
             p4ShirtNum.Text = Player.GetAttribute("ShirtNum", LoginMenu.TeamID, 4);
 
-            int[] p5Stats = Player.CollectStats(LoginMenu.TeamID, 5);
             p5SHO.Text = Convert.ToString(p5Stats[0]);
             p5DRI.Text = Convert.ToString(p5Stats[1]);
             p5PAC.Text = Convert.ToString(p5Stats[2]);
@@ -79,7 +81,6 @@ namespace _5_A_Side
             p5Name.Text = Player.GetAttribute("Name", LoginMenu.TeamID, 5);
             p5ShirtNum.Text = Player.GetAttribute("ShirtNum", LoginMenu.TeamID, 5);
 
-            int[] p6Stats = Player.CollectStats(LoginMenu.TeamID, 6);
             subSHO.Text = Convert.ToString(p6Stats[0]);
             subDRI.Text = Convert.ToString(p6Stats[1]);
             subPAC.Text = Convert.ToString(p6Stats[2]);

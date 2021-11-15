@@ -12,9 +12,7 @@ namespace _5_A_Side
 {
     public partial class MatchViewer : Form
     {
-        //setting the connection string for connecting to the database
-        SqlConnection Con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\tomra\OneDrive\Documents\FootballGame.mdf;Integrated Security=True;Connect Timeout=30");
-        SqlCommand Com = new SqlCommand();
+
 
 
         //variables for individual player attributes (user team);
@@ -153,43 +151,23 @@ namespace _5_A_Side
 
         public void GetCurrentFixture()
         {
-            Con.Open(); //open connection to DB
-            Com.CommandText = "Select CurrFixtureID from UserTable Where Id = " + LoginMenu.UserID; //selects the which fixture is next to be played for this user's account
-            Com.Connection = Con; 
-            SqlDataReader reader = Com.ExecuteReader(); //execute command
-            reader.Read(); //read the next record that meets the conditions of the select statement
-            fixtureID = Convert.ToInt32(reader["CurrFixtureID"]); 
-            reader.Close();
-            Con.Close(); //closing connection
+            fixtureID = Convert.ToInt32(Sql.Select("Select CurrFixtureID from UserTable Where Id = " + LoginMenu.UserID.ToString(), 0, "CurrFixtureID")); 
         }
 
         public void AssignTeams()
-        {
-            Con.Open();
-            //selecting Fixture from Fixtures table
-            Com.CommandText = "Select * from Fixtures where Id = " + fixtureID; //using fixtureID pulled from userTable to find out which teams are playing
-            Com.Connection = Con;
-            SqlDataReader reader = Com.ExecuteReader();
-            reader.Read();
-            if (Convert.ToInt32(reader["HomeTeamID"]) == 1) //if the ID for the home team is 1 (which is the ID used in the fixture table for the user's team), user is at home
+        { 
+            if (Convert.ToInt32(Sql.Select("Select * from Fixtures where Id = " + fixtureID.ToString(), 0, "HomeTeamID")) == 1) //if the ID for the home team is 1 (which is the ID used in the fixture table for the user's team), user is at home
             {
                 userAtHome = true; //user team is at home
-                cpuTeamID = Convert.ToInt32(reader["AwayTeamID"]); //if user is at home, the cpuTeam must be away, so we can assing that teams ID
+                cpuTeamID = Convert.ToInt32(Sql.Select("Select * from Fixtures where Id = " + fixtureID.ToString(), 0, "AwayTeamID")); //if user is at home, the cpuTeam must be away, so we can assing that teams ID
             }
             else
             {
-                userAtHome = false; //we know the user team is awat
-                cpuTeamID = Convert.ToInt32(reader["HomeTeamID"]); //therefore home team is cpu team
+                userAtHome = false; //we know the user team is away
+                cpuTeamID = Convert.ToInt32(Sql.Select("Select * from Fixtures where Id = " + fixtureID.ToString(), 0, "HomeTeamID")); //therefore home team is cpu team
             }
-            reader.Close();
             //selecting and assigning the user team's player attributes
-            Com.CommandText = "Select * from Players Where TeamId = " + LoginMenu.TeamID;
-            Com.Connection = Con;
-            reader = Com.ExecuteReader();
-            while (reader.Read())
-            {
-                if (Convert.ToInt32(reader["PlayerType"]) == 1)
-                {
+            int capStats = Player.CollectStats(TeamID, 1);
                     p1ShootingVal = Convert.ToInt32(reader["Shooting"]);
                     p1DribblingVal = Convert.ToInt32(reader["Dribbling"]);
                     p1PaceVal = Convert.ToInt32(reader["Pace"]);
