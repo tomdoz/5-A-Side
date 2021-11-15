@@ -9,23 +9,55 @@ namespace _5_A_Side
 {
     public class Sql
     {
-        public static void SqlInsert(string command, string Connection)
+        public static SqlConnection Con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\tomra\OneDrive\Documents\FootballGame.mdf;Integrated Security=True;Connect Timeout=30");
+        public static SqlCommand Com = new SqlCommand();
+        public static SqlDataReader reader;
+
+        public static void Insert(string command)
         {
-            SqlConnection Con = new SqlConnection(@Connection);
-            SqlCommand Com = new SqlCommand();
             Con.Open();
             Com.Connection = Con;
             Com.CommandText = command;
             Com.ExecuteNonQuery();
+            Con.Close();
         }
-        public static void SqlSelect(string command, string Connection)
+
+        public static string Select(string command, int readMultiplier, string targetColumn)
         {
-            SqlConnection Con = new SqlConnection(@Connection);
-            SqlCommand Com = new SqlCommand();
             Con.Open();
             Com.Connection = Con;
             Com.CommandText = command;
-            SqlDataReader reader = Com.ExecuteReader();
+            reader = Com.ExecuteReader();
+            for (int i = 0; i < readMultiplier; i++)
+            {
+                reader.Read();
+            }
+            reader.Close();
+            Con.Close();
+            return Convert.ToString(reader[targetColumn]);
+        }
+
+        public static void Update(string command)
+        {
+            Con.Open();
+            Com.Connection = Con;
+            Com.CommandText = command;
+            Com.ExecuteNonQuery();
+            Con.Close();
+        }
+
+        public static int CountRows(string table)
+        {
+            Con.Open();
+            Com.Connection = Con;
+            Com.CommandText = ("Select * from " + table);
+            reader = Com.ExecuteReader();
+            int count = 0;
+            while (reader.Read())
+            {
+                count++;
+            }
+            return count;
         }
     }
 }
