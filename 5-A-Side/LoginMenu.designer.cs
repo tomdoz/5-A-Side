@@ -45,10 +45,10 @@ namespace _5_A_Side
             this.TitleLabel.BackColor = System.Drawing.Color.Transparent;
             this.TitleLabel.Font = new System.Drawing.Font("Segoe UI Black", 30F, System.Drawing.FontStyle.Bold);
             this.TitleLabel.ForeColor = System.Drawing.Color.DarkRed;
-            this.TitleLabel.Location = new System.Drawing.Point(12, 7);
-            this.TitleLabel.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.TitleLabel.Location = new System.Drawing.Point(24, 13);
+            this.TitleLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.TitleLabel.Name = "TitleLabel";
-            this.TitleLabel.Size = new System.Drawing.Size(699, 54);
+            this.TitleLabel.Size = new System.Drawing.Size(1406, 106);
             this.TitleLabel.TabIndex = 1;
             this.TitleLabel.Text = "Five-A-Side Fantasy Dream League";
             // 
@@ -58,19 +58,19 @@ namespace _5_A_Side
             this.LoginTXT.BackColor = System.Drawing.Color.Transparent;
             this.LoginTXT.Font = new System.Drawing.Font("Segoe UI Black", 20F, System.Drawing.FontStyle.Bold);
             this.LoginTXT.ForeColor = System.Drawing.Color.Orange;
-            this.LoginTXT.Location = new System.Drawing.Point(253, 63);
-            this.LoginTXT.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.LoginTXT.Location = new System.Drawing.Point(506, 121);
+            this.LoginTXT.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.LoginTXT.Name = "LoginTXT";
-            this.LoginTXT.Size = new System.Drawing.Size(166, 37);
+            this.LoginTXT.Size = new System.Drawing.Size(328, 72);
             this.LoginTXT.TabIndex = 2;
             this.LoginTXT.Text = "Login now!";
             // 
             // userTxt
             // 
-            this.userTxt.Location = new System.Drawing.Point(246, 120);
-            this.userTxt.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.userTxt.Location = new System.Drawing.Point(492, 231);
+            this.userTxt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.userTxt.Name = "userTxt";
-            this.userTxt.Size = new System.Drawing.Size(267, 20);
+            this.userTxt.Size = new System.Drawing.Size(530, 31);
             this.userTxt.TabIndex = 3;
             // 
             // Username
@@ -79,10 +79,10 @@ namespace _5_A_Side
             this.Username.BackColor = System.Drawing.Color.Transparent;
             this.Username.Font = new System.Drawing.Font("Segoe UI Black", 20F, System.Drawing.FontStyle.Bold);
             this.Username.ForeColor = System.Drawing.Color.Black;
-            this.Username.Location = new System.Drawing.Point(10, 104);
-            this.Username.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.Username.Location = new System.Drawing.Point(20, 200);
+            this.Username.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Username.Name = "Username";
-            this.Username.Size = new System.Drawing.Size(234, 37);
+            this.Username.Size = new System.Drawing.Size(462, 72);
             this.Username.TabIndex = 4;
             this.Username.Text = "Enter username:";
             // 
@@ -90,11 +90,11 @@ namespace _5_A_Side
             // 
             this.passwordTxt.BackColor = System.Drawing.Color.Black;
             this.passwordTxt.ForeColor = System.Drawing.Color.White;
-            this.passwordTxt.Location = new System.Drawing.Point(246, 169);
-            this.passwordTxt.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.passwordTxt.Location = new System.Drawing.Point(492, 325);
+            this.passwordTxt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.passwordTxt.Name = "passwordTxt";
             this.passwordTxt.PasswordChar = '*';
-            this.passwordTxt.Size = new System.Drawing.Size(267, 20);
+            this.passwordTxt.Size = new System.Drawing.Size(530, 31);
             this.passwordTxt.TabIndex = 5;
             // 
             // passwordPrompt
@@ -103,20 +103,20 @@ namespace _5_A_Side
             this.passwordPrompt.BackColor = System.Drawing.Color.Transparent;
             this.passwordPrompt.Font = new System.Drawing.Font("Segoe UI Black", 20F, System.Drawing.FontStyle.Bold);
             this.passwordPrompt.ForeColor = System.Drawing.Color.Transparent;
-            this.passwordPrompt.Location = new System.Drawing.Point(15, 153);
-            this.passwordPrompt.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.passwordPrompt.Location = new System.Drawing.Point(30, 294);
+            this.passwordPrompt.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.passwordPrompt.Name = "passwordPrompt";
-            this.passwordPrompt.Size = new System.Drawing.Size(231, 37);
+            this.passwordPrompt.Size = new System.Drawing.Size(459, 72);
             this.passwordPrompt.TabIndex = 6;
             this.passwordPrompt.Text = "Enter password:";
             // 
             // loginButton
             // 
             this.loginButton.Font = new System.Drawing.Font("Segoe UI Black", 15F, System.Drawing.FontStyle.Bold);
-            this.loginButton.Location = new System.Drawing.Point(492, 209);
-            this.loginButton.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.loginButton.Location = new System.Drawing.Point(984, 402);
+            this.loginButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.loginButton.Name = "loginButton";
-            this.loginButton.Size = new System.Drawing.Size(217, 72);
+            this.loginButton.Size = new System.Drawing.Size(434, 138);
             this.loginButton.TabIndex = 7;
             this.loginButton.Text = "CLICK TO LOGIN TO YOUR ACCOUNT";
             this.loginButton.UseVisualStyleBackColor = true;
@@ -124,11 +124,11 @@ namespace _5_A_Side
             // 
             // LoginMenu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(719, 305);
+            this.ClientSize = new System.Drawing.Size(1438, 587);
             this.Controls.Add(this.loginButton);
             this.Controls.Add(this.passwordPrompt);
             this.Controls.Add(this.passwordTxt);
@@ -136,7 +136,7 @@ namespace _5_A_Side
             this.Controls.Add(this.userTxt);
             this.Controls.Add(this.LoginTXT);
             this.Controls.Add(this.TitleLabel);
-            this.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "LoginMenu";
             this.Text = "LoginMenu";
             this.ResumeLayout(false);

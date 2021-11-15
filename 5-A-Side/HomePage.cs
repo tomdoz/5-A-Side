@@ -38,6 +38,8 @@ namespace _5_A_Side
                 playNextMatchButton.Enabled = false;
                 teamDisplayButton.Enabled = false;
                 nextGameweek.Visible = false;
+                resetButton.Visible = false;
+                resetButton.Enabled = false;
                 //show and enable button needed to create team
                 teamInputButton.Visible = true;
                 teamInputButton.Enabled = true;
@@ -55,6 +57,8 @@ namespace _5_A_Side
                 nextGameweek.Visible = true;
                 playNextMatchButton.Enabled = true;
                 teamDisplayButton.Enabled = true;
+                resetButton.Visible = true;
+                resetButton.Enabled = true;
                 //hide disable button to create team as user already has one
                 teamInputButton.Visible = false;
                 teamInputButton.Enabled = false;
