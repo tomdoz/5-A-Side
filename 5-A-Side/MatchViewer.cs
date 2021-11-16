@@ -89,7 +89,7 @@ namespace _5_A_Side
             int userGA = Convert.ToInt32(Sql.Select("Select * from UserTable Where Id = " + LoginMenu.UserID.ToString(), 0, "UserGA"));
             int userNumMatches = Convert.ToInt32(Sql.Select("Select * from UserTable Where Id = " + LoginMenu.UserID.ToString(), 0, "UserMatches"));
             int cpuPoints, cpuWins, cpuLosses, cpuDraws, cpuGF, cpuGA, cpuNumMatches;
-            Com.CommandText = "Update Teams SET GF = " + (userGF + Convert.ToInt32(userScoreLabel.Text)) + "Where Id = " + LoginMenu.TeamID;
+            Com.CommandText = "Update Teams SET GF = " + (userGF + userScore)) + "Where Id = " + LoginMenu.TeamID;
             Com.Connection = Con;
             Com.ExecuteNonQuery();
             //selecting leagueTableData for cpu so it can be updated

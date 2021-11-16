@@ -113,6 +113,7 @@ namespace _5_A_Side
         //variables for averages of each attribute for each stat for user and cpu teams
         public int[] userAverages = new int[7];
         public int[] cpuAverages = new int[7];
+
         //variables for game running
         public int fixtureID;
         public int cpuTeamID;
@@ -292,6 +293,105 @@ namespace _5_A_Side
         public void UpdateCurrFixture()
         {
             Sql.Update("Update UserTable Set CurrFixtureID = " + (fixtureID + 1) + " Where Id = " + LoginMenu.UserID.ToString());
+        }
+
+        public int MatchResult(int GoalsFor, int GoalsAgainst)
+        {
+            int Result;
+            if (GoalsFor > GoalsAgainst)
+            {
+                Result = 3;
+            }
+            else if (GoalsAgainst > GoalsFor)
+            {
+                Result = 0;
+            }
+            else
+            {
+                Result = 1;
+            }
+            return Result;
+        }
+        public void LeagueTableUpdate(int GoalsFor,int GoalsAgainst, int Result, int TeamID)
+        {
+            //getting current values for 
+            if (TeamID == LoginMenu.TeamID)
+            {
+                int Points = Convert.ToInt32(Sql.Select("Select * from UserTable Where Id = " + LoginMenu.UserID.ToString(), 0, "UserPoints"));
+                int Wins = Convert.ToInt32(Sql.Select("Select * from UserTable Where Id = " + LoginMenu.UserID.ToString(), 0, "UserWins"));
+                int Losses = Convert.ToInt32(Sql.Select("Select * from UserTable Where Id = " + LoginMenu.UserID.ToString(), 0, "UserLosses"));
+                int Draws = Convert.ToInt32(Sql.Select("Select * from UserTable Where Id = " + LoginMenu.UserID.ToString(), 0, "UserDraws"));
+                int GF = Convert.ToInt32(Sql.Select("Select * from UserTable Where Id = " + LoginMenu.UserID.ToString(), 0, "UserGF"));
+                int GA = Convert.ToInt32(Sql.Select("Select * from UserTable Where Id = " + LoginMenu.UserID.ToString(), 0, "UserGA"));
+                int NumMatches = Convert.ToInt32(Sql.Select("Select * from UserTable Where Id = " + LoginMenu.UserID.ToString(), 0, "UserMatches"));
+                Update("Update Teams SET GF = " + (GF + GoalsFor).ToString() + "Where Id = " + LoginMenu.TeamID.ToString());
+                Update("Update UserTable SET UserWins = " + (Wins + 1).ToString() + ", UserDraws = " + Draws.ToString() + ", UserLosses = " + Losses.ToString() + ", UserGF = " + (GF + GoalsFor).ToString() + ", UserGA = " + (GA + GoalsAgainst).ToString() + ", UserPoints = " + (Points + Result).ToString() + ", UserMatches = " + (NumMatches + 1).ToString() + " WHERE Id = " + LoginMenu.UserID.ToString());
+            }
+            else
+            {
+                switch (TeamID)
+                {
+                    case 1002: //MU
+                        int Points = Convert.ToInt32(Sql.Select("Select * from MUTable Where Id = " + LoginMenu.UserID.ToString(), 0, "MUPoints"));
+                        int Wins = Convert.ToInt32(Sql.Select("Select * from MUTable Where Id = " + LoginMenu.UserID.ToString(), 0, "MUWins"));
+                        int Losses = Convert.ToInt32(Sql.Select("Select * from MUTable Where Id = " + LoginMenu.UserID.ToString(), 0, "MULosses"));
+                        int Draws = Convert.ToInt32(Sql.Select("Select * from MUTable Where Id = " + LoginMenu.UserID.ToString(), 0, "MUDraws"));
+                        int GF = Convert.ToInt32(Sql.Select("Select * from MUTable Where Id = " + LoginMenu.UserID.ToString(), 0, "MUGF"));
+                        int GA = Convert.ToInt32(Sql.Select("Select * from MUTable Where Id = " + LoginMenu.UserID.ToString(), 0, "MUGA"));
+                        int NumMatches = Convert.ToInt32(Sql.Select("Select * from MUTable Where Id = " + LoginMenu.UserID.ToString(), 0, "MUMatches"));
+                        Update("Update Teams SET GF = " + (GF + GoalsFor).ToString() + "Where Id = " + LoginMenu.TeamID.ToString());
+                        Update("Update MUTable SET MUWins = " + (Wins + 1).ToString() + ", MUDraws = " + Draws.ToString() + ", MULosses = " + Losses.ToString() + ", MUGF = " + (GF + GoalsFor).ToString() + ", MUGA = " + (GA + GoalsAgainst).ToString() + ", MUPoints = " + (Points + Result).ToString() + ", MUMatches = " + (NumMatches + 1).ToString() + " WHERE Id = " + LoginMenu.UserID.ToString());
+                        break;
+
+                    case 1003: //CHE
+                        Points = Convert.ToInt32(Sql.Select("Select * from CHETable Where Id = " + LoginMenu.UserID.ToString(), 0, "CHEPoints"));
+                        Wins = Convert.ToInt32(Sql.Select("Select * from CHETable Where Id = " + LoginMenu.UserID.ToString(), 0, "CHEWins"));
+                        Losses = Convert.ToInt32(Sql.Select("Select * from CHETable Where Id = " + LoginMenu.UserID.ToString(), 0, "CHELosses"));
+                        Draws = Convert.ToInt32(Sql.Select("Select * from CHETable Where Id = " + LoginMenu.UserID.ToString(), 0, "CHEDraws"));
+                        GF = Convert.ToInt32(Sql.Select("Select * from CHETable Where Id = " + LoginMenu.UserID.ToString(), 0, "CHEGF"));
+                        GA = Convert.ToInt32(Sql.Select("Select * from CHETable Where Id = " + LoginMenu.UserID.ToString(), 0, "CHEGA"));
+                        NumMatches = Convert.ToInt32(Sql.Select("Select * from CHETable Where Id = " + LoginMenu.UserID.ToString(), 0, "CHEMatches"));
+                        Update("Update Teams SET GF = " + (GF + GoalsFor).ToString() + "Where Id = " + LoginMenu.TeamID.ToString());
+                        Update("Update CHETable SET CHEWins = " + (Wins + 1).ToString() + ", CHEDraws = " + Draws.ToString() + ", CHELosses = " + Losses.ToString() + ", CHEGF = " + (GF + GoalsFor).ToString() + ", CHEGA = " + (GA + GoalsAgainst).ToString() + ", CHEPoints = " + (Points + Result).ToString() + ", CHEMatches = " + (NumMatches + 1).ToString() + " WHERE Id = " + LoginMenu.UserID.ToString());
+                        break;
+
+                    case 1004: //SOU
+                        Points = Convert.ToInt32(Sql.Select("Select * from SOUTable Where Id = " + LoginMenu.UserID.ToString(), 0, "SOUPoints"));
+                        Wins = Convert.ToInt32(Sql.Select("Select * from SOUTable Where Id = " + LoginMenu.UserID.ToString(), 0, "SOUWins"));
+                        Losses = Convert.ToInt32(Sql.Select("Select * from SOUTable Where Id = " + LoginMenu.UserID.ToString(), 0, "SOULosses"));
+                        Draws = Convert.ToInt32(Sql.Select("Select * from SOUTable Where Id = " + LoginMenu.UserID.ToString(), 0, "SOUDraws"));
+                        GF = Convert.ToInt32(Sql.Select("Select * from SOUTable Where Id = " + LoginMenu.UserID.ToString(), 0, "SOUGF"));
+                        GA = Convert.ToInt32(Sql.Select("Select * from SOUTable Where Id = " + LoginMenu.UserID.ToString(), 0, "SOUGA"));
+                        NumMatches = Convert.ToInt32(Sql.Select("Select * from SOUTable Where Id = " + LoginMenu.UserID.ToString(), 0, "SOUMatches"));
+                        Update("Update Teams SET GF = " + (GF + GoalsFor).ToString() + "Where Id = " + LoginMenu.TeamID.ToString());
+                        Update("Update SOUTable SET SOUWins = " + (Wins + 1).ToString() + ", SOUDraws = " + Draws.ToString() + ", SOULosses = " + Losses.ToString() + ", SOUGF = " + (GF + GoalsFor).ToString() + ", SOUGA = " + (GA + GoalsAgainst).ToString() + ", SOUPoints = " + (Points + Result).ToString() + ", SOUMatches = " + (NumMatches + 1).ToString() + " WHERE Id = " + LoginMenu.UserID.ToString());
+                        break;
+
+                    case 1005: //WOL
+                        Points = Convert.ToInt32(Sql.Select("Select * from WOLTable Where Id = " + LoginMenu.UserID.ToString(), 0, "WOLPoints"));
+                        Wins = Convert.ToInt32(Sql.Select("Select * from WOLTable Where Id = " + LoginMenu.UserID.ToString(), 0, "WOLWins"));
+                        Losses = Convert.ToInt32(Sql.Select("Select * from WOLTable Where Id = " + LoginMenu.UserID.ToString(), 0, "WOLLosses"));
+                        Draws = Convert.ToInt32(Sql.Select("Select * from WOLTable Where Id = " + LoginMenu.UserID.ToString(), 0, "WOLDraws"));
+                        GF = Convert.ToInt32(Sql.Select("Select * from WOLTable Where Id = " + LoginMenu.UserID.ToString(), 0, "WOLGF"));
+                        GA = Convert.ToInt32(Sql.Select("Select * from WOLTable Where Id = " + LoginMenu.UserID.ToString(), 0, "WOLGA"));
+                        NumMatches = Convert.ToInt32(Sql.Select("Select * from WOLTable Where Id = " + LoginMenu.UserID.ToString(), 0, "WOLMatches"));
+                        Update("Update Teams SET GF = " + (GF + GoalsFor).ToString() + "Where Id = " + LoginMenu.TeamID.ToString());
+                        Update("Update WOLTable SET WOLWins = " + (Wins + 1).ToString() + ", WOLDraws = " + Draws.ToString() + ", WOLLosses = " + Losses.ToString() + ", WOLGF = " + (GF + GoalsFor).ToString() + ", WOLGA = " + (GA + GoalsAgainst).ToString() + ", WOLPoints = " + (Points + Result).ToString() + ", WOLMatches = " + (NumMatches + 1).ToString() + " WHERE Id = " + LoginMenu.UserID.ToString());
+                        break;
+
+                    case 1006: //NOR
+                        Points = Convert.ToInt32(Sql.Select("Select * from NORTable Where Id = " + LoginMenu.UserID.ToString(), 0, "NORPoints"));
+                        Wins = Convert.ToInt32(Sql.Select("Select * from NORTable Where Id = " + LoginMenu.UserID.ToString(), 0, "NORWins"));
+                        Losses = Convert.ToInt32(Sql.Select("Select * from NORTable Where Id = " + LoginMenu.UserID.ToString(), 0, "NORLosses"));
+                        Draws = Convert.ToInt32(Sql.Select("Select * from NORTable Where Id = " + LoginMenu.UserID.ToString(), 0, "NORDraws"));
+                        GF = Convert.ToInt32(Sql.Select("Select * from NORTable Where Id = " + LoginMenu.UserID.ToString(), 0, "NORGF"));
+                        GA = Convert.ToInt32(Sql.Select("Select * from NORTable Where Id = " + LoginMenu.UserID.ToString(), 0, "NORGA"));
+                        NumMatches = Convert.ToInt32(Sql.Select("Select * from NORTable Where Id = " + LoginMenu.UserID.ToString(), 0, "NORMatches"));
+                        Update("Update Teams SET GF = " + (GF + GoalsFor).ToString() + "Where Id = " + LoginMenu.TeamID.ToString());
+                        Update("Update NORTable SET NORWins = " + (Wins + 1).ToString() + ", NORDraws = " + Draws.ToString() + ", NORLosses = " + Losses.ToString() + ", NORGF = " + (GF + GoalsFor).ToString() + ", NORGA = " + (GA + GoalsAgainst).ToString() + ", NORPoints = " + (Points + Result).ToString() + ", NORMatches = " + (NumMatches + 1).ToString() + " WHERE Id = " + LoginMenu.UserID.ToString());
+                        break;
+                }
+            }
         }
     }
 
