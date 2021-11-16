@@ -29,7 +29,6 @@ namespace _5_A_Side
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RestOfLeagueResults));
             this.title = new System.Windows.Forms.Label();
             this.homeTeam1 = new System.Windows.Forms.Label();
@@ -43,7 +42,6 @@ namespace _5_A_Side
             this.awayTeam2Score = new System.Windows.Forms.Label();
             this.homeTeam2Score = new System.Windows.Forms.Label();
             this.advanceButton = new System.Windows.Forms.Button();
-            this.matchTimer = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // title
@@ -198,11 +196,6 @@ namespace _5_A_Side
             this.advanceButton.UseVisualStyleBackColor = false;
             this.advanceButton.Click += new System.EventHandler(this.advanceButton_Click);
             // 
-            // matchTimer
-            // 
-            this.matchTimer.Enabled = true;
-            this.matchTimer.Tick += new System.EventHandler(this.matchTimer_Tick);
-            // 
             // RestOfLeagueResults
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -243,6 +236,5 @@ namespace _5_A_Side
         private System.Windows.Forms.Label awayTeam2Score;
         private System.Windows.Forms.Label homeTeam2Score;
         private System.Windows.Forms.Button advanceButton;
-        private System.Windows.Forms.Timer matchTimer;
     }
 }
