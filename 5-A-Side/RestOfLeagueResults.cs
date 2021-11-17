@@ -35,23 +35,34 @@ namespace _5_A_Side
         {
             InitializeComponent();
             LoadTeams(fixture1, homeTeam1, awayTeam1, home1ScoreRecord, away1ScoreRecord, home1Score, away1Score, homeTeam1Score, awayTeam1Score);
-            LoadTeams(fixture2, homeTeam2, awayTeam2, home2ScoreRecord, away2ScoreRecord, home2Score, away2Score, homeTeam2Score, awayTeam2Score);
         }
 
         public void LoadTeams(Match fixture, Label homeTeam, Label awayTeam, int[] homeScoreRecord, int[] awayScoreRecord, int homeScore, int awayScore, Label homeScoreLab, Label awayScoreLab)
         {
-            fixture.MatchSetup();
-            fixture.UpdateCurrFixture();
-            Debug.WriteLine(fixture.fixtureID);
-            homeTeam.Text = fixture.userName;
-            awayTeam.Text = fixture.cpuName;
-            Debug.WriteLine("home score chance = " + fixture.userScoreChance);
-            Debug.WriteLine("away score chance = " + fixture.cpuScoreChance);
-            homeScoreRecord = fixture.SimulateMatch(fixture.userScoreChance);
-            awayScoreRecord = fixture.SimulateMatch(fixture.cpuScoreChance);
-            DecodeRecords(homeScoreRecord, awayScoreRecord);
-            homeScoreLab.Text = homeScore.ToString();
-            awayScoreLab.Text = awayScore.ToString();
+            fixture1.MatchSetup();
+            fixture1.UpdateCurrFixture();
+            Debug.WriteLine(fixture1.fixtureID);
+            away1ScoreRecord = fixture1.SimulateMatch(fixture1.cpuScoreChance);
+            homeTeam1.Text = fixture1.userName;
+            awayTeam1.Text = fixture1.cpuName;
+            Debug.WriteLine("home score chance = " + fixture1.userScoreChance);
+            Debug.WriteLine("away score chance = " + fixture1.cpuScoreChance);
+            home1ScoreRecord = fixture1.SimulateMatch(fixture1.userScoreChance);
+            DecodeRecords(home1ScoreRecord, away1ScoreRecord);
+            homeTeam1Score.Text = home1Score.ToString();
+            awayTeam1Score.Text = away1Score.ToString();
+            fixture2.MatchSetup();
+            fixture2.UpdateCurrFixture();
+            away2ScoreRecord = fixture2.SimulateMatch(fixture2.cpuScoreChance);
+            Debug.WriteLine(fixture2.fixtureID);
+            homeTeam2.Text = fixture2.userName;
+            awayTeam2.Text = fixture2.cpuName;
+            Debug.WriteLine("home score chance = " + fixture2.userScoreChance);
+            Debug.WriteLine("away score chance = " + fixture2.cpuScoreChance);
+            home2ScoreRecord = fixture2.SimulateMatch(fixture2.userScoreChance);
+            DecodeRecords(home2ScoreRecord, away2ScoreRecord);
+            homeTeam2Score.Text = home2Score.ToString();
+            awayTeam2Score.Text = away2Score.ToString();
         }
 
         public void DecodeRecords(int[] home, int[] away)
