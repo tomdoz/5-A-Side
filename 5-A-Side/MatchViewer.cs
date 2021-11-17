@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Data.Sql;
+using System.Diagnostics;
 
 namespace _5_A_Side
 {
@@ -46,6 +47,8 @@ namespace _5_A_Side
             }
             userScoreRecord = match.SimulateMatch(match.userScoreChance);
             cpuScoreRecord = match.SimulateMatch(match.cpuScoreChance);
+            Debug.WriteLine("MatchViewer userScoreChance = " + match.userScoreChance);
+            Debug.WriteLine("MatchViewer cpuScoreChance = " + match.cpuScoreChance);
         }
 
         public void UserScoreGoal()

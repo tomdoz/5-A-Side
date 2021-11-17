@@ -121,7 +121,7 @@ namespace _5_A_Side
         public string userName;
         public string cpuName;
         public int cpuTeamID;
-        public int homeTeamID;
+        public int userTeamID;
         public bool userAtHome = false;
         public bool cpuAtHome = false;
         public int gameClockIncrementer = 0;
@@ -134,7 +134,7 @@ namespace _5_A_Side
             AssignTeams();
             TeamAvgStats();
             userScoreChance = ChanceGenerator(userAtHome, userAverages, cpuAverages);
-            cpuScoreChance = ChanceGenerator(userAtHome, userAverages, cpuAverages);
+            cpuScoreChance = ChanceGenerator(userAtHome, cpuAverages, userAverages);
         }
 
         public void GetCurrentFixture()
@@ -144,20 +144,33 @@ namespace _5_A_Side
 
         public void AssignTeams()
         {
-            if (Convert.ToInt32(Sql.Select("Select * from Fixtures where Id = " + fixtureID.ToString(), 0, "HomeTeamID")) == 1) //if the ID for the home team is 1 (which is the ID used in the fixture table for the user's team), user is at home
+            if (Convert.ToInt32(Select("Select * from Fixtures where Id = " + fixtureID.ToString(), 0, "HomeTeamID")) == 1 || (Convert.ToInt32(Select("Select * from Fixtures where Id = " + fixtureID.ToString(), 0, "AwayTeamID")) == 1))
             {
-                userAtHome = true; //user team is at home
-                cpuAtHome = false;
-                cpuTeamID = Convert.ToInt32(Sql.Select("Select * from Fixtures where Id = " + fixtureID.ToString(), 0, "AwayTeamID")); //if user is at home, the cpuTeam must be away, so we can assing that teams ID
+                if (Convert.ToInt32(Sql.Select("Select * from Fixtures where Id = " + fixtureID.ToString(), 0, "HomeTeamID")) == 1) //if the ID for the home team is 1 (which is the ID used in the fixture table for the user's team), user is at home
+                {
+                    userAtHome = true; //user team is at home
+                    cpuAtHome = false;
+                    userTeamID = LoginMenu.TeamID;
+                    cpuTeamID = Convert.ToInt32(Sql.Select("Select * from Fixtures where Id = " + fixtureID.ToString(), 0, "AwayTeamID")); //if user is at home, the cpuTeam must be away, so we can assing that teams ID
+                }
+                else
+                {
+                    userAtHome = false; //we know the user team is away
+                    cpuAtHome = true;
+                    userTeamID = LoginMenu.TeamID;
+                    cpuTeamID = Convert.ToInt32(Sql.Select("Select * from Fixtures where Id = " + fixtureID.ToString(), 0, "HomeTeamID")); //therefore home team is cpu team
+                }
             }
             else
             {
-                userAtHome = false; //we know the user team is away
-                cpuAtHome = true;
-                cpuTeamID = Convert.ToInt32(Sql.Select("Select * from Fixtures where Id = " + fixtureID.ToString(), 0, "HomeTeamID")); //therefore home team is cpu team
+                userAtHome = true;
+                cpuAtHome = false;
+                userTeamID = Convert.ToInt32(Sql.Select("Select * from Fixtures where Id = " + fixtureID.ToString(), 0, "HomeTeamID"));
+                cpuTeamID = Convert.ToInt32(Sql.Select("Select * from Fixtures where Id = " + fixtureID.ToString(), 0, "AwayTeamID"));
             }
+
             //selecting and assigning the user team's player attributes
-            int[] capStats = Player.CollectStats(LoginMenu.TeamID, 1);
+            int[] capStats = Player.CollectStats(userTeamID, 1);
             p1ShootingVal = capStats[0];
             p1DribblingVal = capStats[1];
             p1PaceVal = capStats[2];
@@ -165,7 +178,7 @@ namespace _5_A_Side
             p1ReliableVal = capStats[4];
             p1TackleVal = capStats[5];
             p1AggroVal = capStats[6];
-            int[] p2Stats = Player.CollectStats(LoginMenu.TeamID, 2);
+            int[] p2Stats = Player.CollectStats(userTeamID, 2);
             p2ShootingVal = p2Stats[0];
             p2DribblingVal = p2Stats[1];
             p2PaceVal = p2Stats[2];
@@ -173,7 +186,7 @@ namespace _5_A_Side
             p2ReliableVal = p2Stats[4];
             p2TackleVal = p2Stats[5];
             p2AggroVal = p2Stats[6];
-            int[] p3Stats = Player.CollectStats(LoginMenu.TeamID, 3);
+            int[] p3Stats = Player.CollectStats(userTeamID, 3);
             p3ShootingVal = p3Stats[0];
             p3DribblingVal = p3Stats[1];
             p3PaceVal = p3Stats[2];
@@ -181,7 +194,7 @@ namespace _5_A_Side
             p3ReliableVal = p3Stats[4];
             p3TackleVal = p3Stats[5];
             p3AggroVal = p3Stats[6];
-            int[] p4Stats = Player.CollectStats(LoginMenu.TeamID, 4);
+            int[] p4Stats = Player.CollectStats(userTeamID, 4);
             p4ShootingVal = p4Stats[0];
             p4DribblingVal = p4Stats[1];
             p4PaceVal = p4Stats[2];
@@ -189,7 +202,7 @@ namespace _5_A_Side
             p4ReliableVal = p4Stats[4];
             p4TackleVal = p4Stats[5];
             p4AggroVal = p4Stats[6];
-            int[] p5Stats = Player.CollectStats(LoginMenu.TeamID, 5);
+            int[] p5Stats = Player.CollectStats(userTeamID, 5);
             p5ShootingVal = p5Stats[0];
             p5DribblingVal = p5Stats[1];
             p5PaceVal = p5Stats[2];
@@ -197,7 +210,7 @@ namespace _5_A_Side
             p5ReliableVal = p5Stats[4];
             p5TackleVal = p5Stats[5];
             p5AggroVal = p5Stats[6];
-            int[] p6Stats = Player.CollectStats(LoginMenu.TeamID, 6);
+            int[] p6Stats = Player.CollectStats(userTeamID, 6);
             subShootingVal = p6Stats[0];
             subDribblingVal = p6Stats[1];
             subPaceVal = p6Stats[2];
@@ -206,9 +219,9 @@ namespace _5_A_Side
             subTackleVal = p6Stats[5];
             subAggroVal = p6Stats[6];
             //selecting user team's name
-            userName = Sql.Select("Select TeamName from Teams where Id = " + LoginMenu.TeamID.ToString(), 0, "TeamName");
+            userName = Sql.Select("Select TeamName from Teams where Id = " + userTeamID.ToString(), 0, "TeamName");
             //selecting and assinging the cpu team's player attributes
-            int[] cpuCapStats = Player.CollectStats(LoginMenu.TeamID, 1);
+            int[] cpuCapStats = Player.CollectStats(cpuTeamID, 1);
             cpuP1ShootingVal = cpuCapStats[0];
             cpuP1DribblingVal = cpuCapStats[1];
             cpuP1PaceVal = cpuCapStats[2];
@@ -216,7 +229,7 @@ namespace _5_A_Side
             cpuP1ReliableVal = cpuCapStats[4];
             cpuP1TackleVal = cpuCapStats[5];
             cpuP1AggroVal = cpuCapStats[6];
-            int[] cpuP2Stats = Player.CollectStats(LoginMenu.TeamID, 2);
+            int[] cpuP2Stats = Player.CollectStats(cpuTeamID, 2);
             cpuP2ShootingVal = cpuP2Stats[0];
             cpuP2DribblingVal = cpuP2Stats[1];
             cpuP2PaceVal = cpuP2Stats[2];
@@ -224,7 +237,7 @@ namespace _5_A_Side
             cpuP2ReliableVal = cpuP2Stats[4];
             cpuP2TackleVal = cpuP2Stats[5];
             cpuP2AggroVal = cpuP2Stats[6];
-            int[] cpuP3Stats = Player.CollectStats(LoginMenu.TeamID, 3);
+            int[] cpuP3Stats = Player.CollectStats(cpuTeamID, 3);
             cpuP3ShootingVal = cpuP3Stats[0];
             cpuP3DribblingVal = cpuP3Stats[1];
             cpuP3PaceVal = cpuP3Stats[2];
@@ -232,7 +245,7 @@ namespace _5_A_Side
             cpuP3ReliableVal = cpuP3Stats[4];
             cpuP3TackleVal = cpuP3Stats[5];
             cpuP3AggroVal = cpuP3Stats[6];
-            int[] cpuP4Stats = Player.CollectStats(LoginMenu.TeamID, 4);
+            int[] cpuP4Stats = Player.CollectStats(cpuTeamID, 4);
             cpuP4ShootingVal = cpuP4Stats[0];
             cpuP4DribblingVal = cpuP4Stats[1];
             cpuP4PaceVal = cpuP4Stats[2];
@@ -240,7 +253,7 @@ namespace _5_A_Side
             cpuP4ReliableVal = cpuP4Stats[4];
             cpuP4TackleVal = cpuP4Stats[5];
             cpuP4AggroVal = cpuP4Stats[6];
-            int[] cpuP5Stats = Player.CollectStats(LoginMenu.TeamID, 5);
+            int[] cpuP5Stats = Player.CollectStats(cpuTeamID, 5);
             cpuP5ShootingVal = cpuP5Stats[0];
             cpuP5DribblingVal = cpuP5Stats[1];
             cpuP5PaceVal = cpuP5Stats[2];
@@ -248,7 +261,7 @@ namespace _5_A_Side
             cpuP5ReliableVal = cpuP5Stats[4];
             cpuP5TackleVal = cpuP5Stats[5];
             cpuP5AggroVal = cpuP5Stats[6];
-            int[] cpuP6Stats = Player.CollectStats(LoginMenu.TeamID, 6);
+            int[] cpuP6Stats = Player.CollectStats(cpuTeamID, 6);
             cpuSubShootingVal = cpuP6Stats[0];
             cpuSubDribblingVal = cpuP6Stats[1];
             cpuSubPaceVal = cpuP6Stats[2];
