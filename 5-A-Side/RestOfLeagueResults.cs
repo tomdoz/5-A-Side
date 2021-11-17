@@ -49,24 +49,25 @@ namespace _5_A_Side
             Debug.WriteLine("home score chance = " + fixture.userScoreChance);
             Debug.WriteLine("away score chance = " + fixture.cpuScoreChance);
             homeScoreRecord = fixture.SimulateMatch(fixture.userScoreChance);
-            DecodeRecords(homeScoreRecord, awayScoreRecord);
+            homeScore = DecodeRecord(homeScoreRecord);
+            awayScore = DecodeRecord(awayScoreRecord);
+            Debug.WriteLine("homeScore = " + homeScore);
             homeScoreLab.Text = homeScore.ToString();
             awayScoreLab.Text = awayScore.ToString();
         }
 
-        public void DecodeRecords(int[] home, int[] away)
+        public int DecodeRecord(int[] array)
         {
+            int Score = 0;
             for (int i = 0; i < 19; i++)
             {
-                if (home[i] == 1)
+                Debug.WriteLine("array" + i + " = " + array[i]);
+                if (array[i] == 1)
                 {
-                    home1Score++;
-                }
-                if (away[i] == 1)
-                {
-                    away1Score++;
+                    Score++;
                 }
             }
+            return Score;
         }
 
         private void advanceButton_Click(object sender, EventArgs e)
