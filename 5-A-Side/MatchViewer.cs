@@ -97,12 +97,12 @@ namespace _5_A_Side
                     matchEnded = true;
                     userScore = Convert.ToInt32(userScoreLabel.Text);
                     cpuScore = Convert.ToInt32(cpuScoreLabel.Text);
-                    int UserResult = match.MatchResult(userScore, cpuScore);
+                    int userResult = match.MatchResult(userScore, cpuScore);
                     int CPUResult = match.MatchResult(cpuScore, userScore);
                     string matchEndMsg = "The Match has ended, the game finished " + userScore + " - " + cpuScore;
                     string matchEndMsgTitle = "Match Ended";
                     MessageBox.Show(matchEndMsg, matchEndMsgTitle);
-                    match.LeagueTableUpdate(userScore, cpuScore, userScore,LoginMenu.TeamID);
+                    match.LeagueTableUpdate(userScore, cpuScore, userResult,LoginMenu.TeamID);
                     match.LeagueTableUpdate(cpuScore, userScore, CPUResult, match.cpuTeamID);
                     match.UpdateCurrFixture();
                     RestOfLeagueResults rest = new RestOfLeagueResults();
