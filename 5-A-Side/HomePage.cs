@@ -7,16 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
-using System.Data.Sql;
 
 namespace _5_A_Side
 {
     public partial class HomePage : Form
     {
-        //declaring connection string
-        SqlConnection Con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\tomra\OneDrive\Documents\FootballGame.mdf;Integrated Security=True;Connect Timeout=30");
-        SqlCommand Com = new SqlCommand();
 
         public HomePage()
         {
@@ -101,12 +96,7 @@ namespace _5_A_Side
 
         public void GetNextGameweek()
         {
-            Con.Open(); //open the connection to the database
-            Com.CommandText = "Select UserMatches from UserTable where Id = " + LoginMenu.UserID; //select the number of matches the user has played
-            Com.Connection = Con;
-            SqlDataReader reader = Com.ExecuteReader();
-            reader.Read(); //read the selected data
-            int nextGameweekVal = Convert.ToInt32(reader["UserMatches"]); //assign the value stored in the selected record in the NumMatches column
+            int nextGameweekVal = Convert.ToInt32(Sql.Select("Select UserMatches from UserTable where Id = " + LoginMenu.UserID.ToString(), 0, "UserMatches")); //assign the value stored in the selected record in the NumMatches column
             nextGameweekVal++; //increment this value, so it is the NEXT gameweek
             if (nextGameweekVal == 11) //if this value is 11, then the season has ended, so change the label to display that
             {
@@ -117,8 +107,6 @@ namespace _5_A_Side
             {
                 nextGameweek.Text = "Next gameweek: " + Convert.ToInt32(nextGameweekVal); //if the season hasn't ended, change the label to show the next gameweek
             }
-            reader.Close(); //close the reader
-            Con.Close(); //close the connection
         }
 
         public void SeasonEnded()
@@ -136,17 +124,8 @@ namespace _5_A_Side
         private void resetButton_Click(object sender, EventArgs e)
         {
             //user can choose to reset their progress in a season and start again
-            Con.Open(); //open connection to the DB
-            Com.CommandText = "Update UserTable SET UserGF = " + 0 + ", UserGA = " + 0 + ", UserPoints = " + 0 + ", UserMatches = " + 0 + ",  MUGF = " + 0 + ", MUGA = " + 0 + ", MUPoints = " + 0 + ", MUMatches = " + 0 + ", CHEGF = " + 0 + ", CHEGA = " + 0 + ", CHEPoints = " + 0 + ", CHEMatches = " + 0 + ", WOLGF = " + 0 + ", WOLGA = " + 0 + ", WOLPoints = " + 0 + ", WOLMatches = " + 0 + ", SOUGF = " + 0 + ", SOUGA = " + 0 + ", SOUPoints = " + 0 + ", SOUMatches = " + 0 + ", NORGF = " + 0 + ", NORGA = " + 0 + ", NORPoints = " + 0 + ", NORMatches = " + 0; //update all records in the Teams table, to have 0 in all the columns that allow progress
-            Com.Connection = Con;
-            Com.ExecuteNonQuery(); //executes this command
-            Com.CommandText = "Update UserTable SET CurrFixtureID = " + 1 + " WHERE Id = " + LoginMenu.UserID; //updates the current fixture ID in the current user's account record to be 0, so when a match is next played the season is started again
-            Com.Connection = Con;
-            Com.ExecuteNonQuery(); //executes the command
-            Com.CommandText = "Update Teams SET GF = " + 0;
-            Com.Connection = Con;
-            Com.ExecuteNonQuery();
-            Con.Close(); //closes the connection
+            Sql.Update("Update UserTable SET UserGF = " + 0.ToString() + ", CurrFixtureID = " + 1 + ", UserGA = " + 0.ToString() + ", UserPoints = " + 0.ToString() + ", UserMatches = " + 0.ToString() + ",  MUGF = " + 0.ToString() + ", MUGA = " + 0.ToString() + ", MUPoints = " + 0.ToString() + ", MUMatches = " + 0.ToString() + ", CHEGF = " + 0.ToString() + ", CHEGA = " + 0.ToString() + ", CHEPoints = " + 0.ToString() + ", CHEMatches = " + 0.ToString() + ", WOLGF = " + 0.ToString() + ", WOLGA = " + 0.ToString() + ", WOLPoints = " + 0.ToString() + ", WOLMatches = " + 0.ToString() + ", SOUGF = " + 0.ToString() + ", SOUGA = " + 0.ToString() + ", SOUPoints = " + 0.ToString() + ", SOUMatches = " + 0.ToString() + ", NORGF = " + 0.ToString() + ", NORGA = " + 0.ToString().ToString() + ", NORPoints = " + 0.ToString().ToString() + ", NORMatches = " + 0.ToString().ToString());
+            Sql.Update("Update Teams SET GF = " + 0.ToString());
             //notifying the user that this was successful
             MessageBox.Show("All league table data is cleared, and the current matchweek has been reset to the first round of fixtures!", "Success!");
             GetNextGameweek(); //updating the current gameweek so it reflects that the season has been reset
