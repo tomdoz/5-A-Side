@@ -400,12 +400,12 @@ namespace _5_A_Side
                     Com.Connection = Con;
                     reader = Com.ExecuteReader();
                     reader.Read();
-                    wins3.Text = Convert.ToString(reader[Team + "Wins"]);
-                    draws3.Text = Convert.ToString(reader[Team + "Losses"]);
-                    losses3.Text = Convert.ToString(reader[Team + "Draws"]);
-                    points3.Text = Convert.ToString(reader[Team + "Points"]);
-                    GD3.Text = Convert.ToString((Convert.ToInt32(reader[Team + "GF"]) - Convert.ToInt32(reader[Team + "GA"])));
-                    matches3.Text = Convert.ToString(reader[Team + "Matches"]);
+                    pos5.Text = Convert.ToString(reader[Team + "Wins"]);
+                    matches4.Text = Convert.ToString(reader[Team + "Losses"]);
+                    pos4.Text = Convert.ToString(reader[Team + "Draws"]);
+                    team4.Text = Convert.ToString(reader[Team + "Points"]);
+                    points4.Text = Convert.ToString((Convert.ToInt32(reader[Team + "GF"]) - Convert.ToInt32(reader[Team + "GA"])));
+                    points5.Text = Convert.ToString(reader[Team + "Matches"]);
                     reader.Close();
                     if (Team == "User")
                     {
@@ -413,27 +413,27 @@ namespace _5_A_Side
                         Com.Connection = Con;
                         reader = Com.ExecuteReader();
                         reader.Read();
-                        team3.Text = Convert.ToString(reader["TeamName"]);
+                        GF5.Text = Convert.ToString(reader["TeamName"]);
                     }
                     if (Team == "MU")
                     {
-                        team3.Text = "Manchester United";
+                        GF5.Text = "Manchester United";
                     }
                     if (Team == "CHE")
                     {
-                        team3.Text = "Chelsea";
+                        GF5.Text = "Chelsea";
                     }
                     if (Team == "SOU")
                     {
-                        team3.Text = "Southampton";
+                        GF5.Text = "Southampton";
                     }
                     if (Team == "WOL")
                     {
-                        team3.Text = "Wolves";
+                        GF5.Text = "Wolves";
                     }
                     if (Team == "NOR")
                     {
-                        team3.Text = "Norwich";
+                        GF5.Text = "Norwich";
                     }
                     Con.Close();
                     break;
@@ -444,12 +444,12 @@ namespace _5_A_Side
                     Com.Connection = Con;
                     reader = Com.ExecuteReader();
                     reader.Read();
-                    wins2.Text = Convert.ToString(reader[Team + "Wins"]);
-                    draws2.Text = Convert.ToString(reader[Team + "Losses"]);
-                    losses2.Text = Convert.ToString(reader[Team + "Draws"]);
-                    points2.Text = Convert.ToString(reader[Team + "Points"]);
-                    GD2.Text = Convert.ToString((Convert.ToInt32(reader[Team + "GF"]) - Convert.ToInt32(reader[Team + "GA"])));
-                    matches2.Text = Convert.ToString(reader[Team + "Matches"]);
+                    points3.Text = Convert.ToString(reader[Team + "Wins"]);
+                    GF3.Text = Convert.ToString(reader[Team + "Losses"]);
+                    matches2.Text = Convert.ToString(reader[Team + "Draws"]);
+                    GF2.Text = Convert.ToString(reader[Team + "Points"]);
+                    points2.Text = Convert.ToString((Convert.ToInt32(reader[Team + "GF"]) - Convert.ToInt32(reader[Team + "GA"])));
+                    team2.Text = Convert.ToString(reader[Team + "Matches"]);
                     reader.Close();
                     if (Team == "User")
                     {
@@ -457,27 +457,27 @@ namespace _5_A_Side
                         Com.Connection = Con;
                         reader = Com.ExecuteReader();
                         reader.Read();
-                        team2.Text = Convert.ToString(reader["TeamName"]);
+                        pos3.Text = Convert.ToString(reader["TeamName"]);
                     }
                     if (Team == "MU")
                     {
-                        team2.Text = "Manchester United";
+                        pos3.Text = "Manchester United";
                     }
                     if (Team == "CHE")
                     {
-                        team2.Text = "Chelsea";
+                        pos3.Text = "Chelsea";
                     }
                     if (Team == "SOU")
                     {
-                        team2.Text = "Southampton";
+                        pos3.Text = "Southampton";
                     }
                     if (Team == "WOL")
                     {
-                        team2.Text = "Wolves";
+                        pos3.Text = "Wolves";
                     }
                     if (Team == "NOR")
                     {
-                        team2.Text = "Norwich";
+                        pos3.Text = "Norwich";
                     }
                     Con.Close();
                     break;
@@ -488,12 +488,12 @@ namespace _5_A_Side
                     Com.Connection = Con;
                     reader = Com.ExecuteReader();
                     reader.Read();
-                    wins1.Text = Convert.ToString(reader[Team + "Wins"]);
-                    draws1.Text = Convert.ToString(reader[Team + "Losses"]);
-                    losses1.Text = Convert.ToString(reader[Team + "Draws"]);
-                    points1.Text = Convert.ToString(reader[Team + "Points"]);
-                    GD1.Text = Convert.ToString((Convert.ToInt32(reader[Team + "GF"]) - Convert.ToInt32(reader[Team + "GA"])));
-                    matches1.Text = Convert.ToString(reader[Team + "Matches"]);
+                    points1.Text = Convert.ToString(reader[Team + "Wins"]);
+                    team1.Text = Convert.ToString(reader[Team + "Losses"]);
+                    matches3.Text = Convert.ToString(reader[Team + "Draws"]);
+                    GF4.Text = Convert.ToString(reader[Team + "Points"]);
+                    Matches1.Text = Convert.ToString((Convert.ToInt32(reader[Team + "GF"]) - Convert.ToInt32(reader[Team + "GA"])));
+                    GF1.Text = Convert.ToString(reader[Team + "Matches"]);
                     reader.Close();
                     if (Team == "User")
                     {
@@ -501,27 +501,27 @@ namespace _5_A_Side
                         Com.Connection = Con;
                         reader = Com.ExecuteReader();
                         reader.Read();
-                        team1.Text = Convert.ToString(reader["TeamName"]);
+                        pos2.Text = Convert.ToString(reader["TeamName"]);
                     }
                     if (Team == "MU")
                     {
-                        team1.Text = "Manchester United";
+                        pos2.Text = "Manchester United";
                     }
                     if (Team == "CHE")
                     {
-                        team1.Text = "Chelsea";
+                        pos2.Text = "Chelsea";
                     }
                     if (Team == "SOU")
                     {
-                        team1.Text = "Southampton";
+                        pos2.Text = "Southampton";
                     }
                     if (Team == "WOL")
                     {
-                        team1.Text = "Wolves";
+                        pos2.Text = "Wolves";
                     }
                     if (Team == "NOR")
                     {
-                        team1.Text = "Norwich";
+                        pos2.Text = "Norwich";
                     }
                     Con.Close();
                     break;
@@ -533,6 +533,11 @@ namespace _5_A_Side
             HomePage home = new HomePage();
             home.Show();
             this.Close();
+        }
+
+        private void matches3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -9,6 +9,36 @@ namespace _5_A_Side
 {
     public class Utilities
     {
+        public static bool InputChecking(string input, int minLen, int minNums)
+        {
+            if (input.Length < minLen)
+            {
+                return false;
+            }
+            else
+            {
+                int numCount = 0;
+                char[] numChars = new char[10] { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
+                for (int i = 0; i < minNums; i++)
+                {
+                    for (int j = 0; j < numChars.Count(); j++)
+                    {
+                        if (input[i] == numChars[j])
+                        {
+                            numCount++;
+                        }
+                    }
+                }
+                if (numCount < minNums)
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+        }
         public static string hashPassword(string password)
         {
             SHA1CryptoServiceProvider sha1 = new SHA1CryptoServiceProvider();
@@ -88,4 +118,6 @@ namespace _5_A_Side
             return result;
         }
     }
+
+    
 }

@@ -7,16 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
-using System.Data.Sql;
+using System.Diagnostics;
 
 
 namespace _5_A_Side
 {
     public partial class TopScorers : Form
     {
-        SqlConnection Con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\tomra\OneDrive\Documents\FootballGame.mdf;Integrated Security=True;Connect Timeout=30");
-        SqlCommand Com = new SqlCommand();
         public int TeamID;
         public int TeamIDForFixtures;
         public int GF;
@@ -29,7 +26,7 @@ namespace _5_A_Side
         {
             InitializeComponent();
             DisplayScorerTable(1, player1, team1, goals1, lastMatch1);
-            DisplayScorerTable(2, player2, team2, goals2, lastMatch2 );
+            DisplayScorerTable(2, player2, team2, goals2, lastMatch2);
             DisplayScorerTable(3, player3, team3, goals3, lastMatch3);
             DisplayScorerTable(4, player4, team4, goals4, lastMatch4);
             DisplayScorerTable(5, player5, team5, goals5, lastMatch5);
@@ -48,15 +45,48 @@ namespace _5_A_Side
 
         public void RankingTeams(int Rank) //Ranking teams by who scores the most goals
         {
-            Sql.Select("SELECT * FROM Teams ORDER BY GF Desc", Rank, "Id");
-            TeamID = Convert.ToInt32(Sql.Select("SELECT * FROM Teams ORDER BY GF Desc", Rank, "Id"));
+            TeamID = Convert.ToInt32(Sql.Select("Select * From Teams Order By GF Desc", Rank - 1, "Id"));
             TeamIDForFixtures = TeamID;
             if (TeamID == LoginMenu.TeamID)
             {
                 TeamIDForFixtures = 1;
             }
-            GF = Convert.ToInt32(Sql.Select("SELECT * FROM Teams Where Id = " + TeamID.ToString(), 0, "GF"));
-            teamName = Convert.ToString(Sql.Select("SELECT * FROM Teams ORDER BY GF Desc", 0, "TeamName"));
+            string code = GetTeamCode(TeamIDForFixtures);
+            GF = Convert.ToInt32(Sql.Select("SELECT * FROM UserTable Where Id = " + LoginMenu.UserID, 0, code + "GF"));
+            Debug.WriteLine("GF = " + GF);
+            teamName = Sql.Select("SELECT * FROM Teams WHERE Id = " + TeamID, 0, "TeamName");
+        }
+
+        public string GetTeamCode(int TeamIDForFixtures)
+        {
+            string code = "";
+            switch (TeamIDForFixtures)
+            {
+                case 1:
+                    code = "User";
+                    break;
+
+                case 1002:
+                    code = "MU";
+                    break;
+
+                case 1003:
+                    code = "CHE";
+                    break;
+
+                case 1004:
+                    code = "SOU";
+                    break;
+
+                case 1005:
+                    code = "WOL";
+                    break;
+
+                case 1006:
+                    code = "NOR";
+                    break;
+            }
+            return code;
         }
 
         public void RankingPlayersByShooting()
