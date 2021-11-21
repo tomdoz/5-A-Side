@@ -31,43 +31,43 @@ namespace _5_A_Side
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LeagueTable));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.team6 = new System.Windows.Forms.Label();
+            this.pos6 = new System.Windows.Forms.Label();
+            this.points6 = new System.Windows.Forms.Label();
+            this.matches6 = new System.Windows.Forms.Label();
+            this.GD6 = new System.Windows.Forms.Label();
             this.team4 = new System.Windows.Forms.Label();
             this.pos4 = new System.Windows.Forms.Label();
             this.points5 = new System.Windows.Forms.Label();
             this.points4 = new System.Windows.Forms.Label();
-            this.GF5 = new System.Windows.Forms.Label();
+            this.GD5 = new System.Windows.Forms.Label();
             this.team5 = new System.Windows.Forms.Label();
             this.matches4 = new System.Windows.Forms.Label();
             this.pos5 = new System.Windows.Forms.Label();
             this.points3 = new System.Windows.Forms.Label();
-            this.GF3 = new System.Windows.Forms.Label();
-            this.team3 = new System.Windows.Forms.Label();
+            this.GD3 = new System.Windows.Forms.Label();
             this.pos3 = new System.Windows.Forms.Label();
             this.points2 = new System.Windows.Forms.Label();
             this.team2 = new System.Windows.Forms.Label();
             this.matches2 = new System.Windows.Forms.Label();
-            this.GF2 = new System.Windows.Forms.Label();
+            this.GD2 = new System.Windows.Forms.Label();
             this.points1 = new System.Windows.Forms.Label();
             this.team1 = new System.Windows.Forms.Label();
             this.pos1 = new System.Windows.Forms.Label();
             this.pos2 = new System.Windows.Forms.Label();
             this.Matches1 = new System.Windows.Forms.Label();
-            this.GF1 = new System.Windows.Forms.Label();
-            this.matches3 = new System.Windows.Forms.Label();
-            this.GF4 = new System.Windows.Forms.Label();
+            this.GD1 = new System.Windows.Forms.Label();
             this.teamHeading = new System.Windows.Forms.Label();
             this.posHeading = new System.Windows.Forms.Label();
             this.pointsHeading = new System.Windows.Forms.Label();
             this.GDHeading = new System.Windows.Forms.Label();
             this.matchesPlayedHeading = new System.Windows.Forms.Label();
+            this.GD4 = new System.Windows.Forms.Label();
+            this.matches3 = new System.Windows.Forms.Label();
+            this.team3 = new System.Windows.Forms.Label();
+            this.matches5 = new System.Windows.Forms.Label();
             this.topTitleLabel = new System.Windows.Forms.Label();
             this.homeButton = new System.Windows.Forms.PictureBox();
-            this.GF6 = new System.Windows.Forms.Label();
-            this.matches6 = new System.Windows.Forms.Label();
-            this.matches5 = new System.Windows.Forms.Label();
-            this.points6 = new System.Windows.Forms.Label();
-            this.pos6 = new System.Windows.Forms.Label();
-            this.team6 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.homeButton)).BeginInit();
             this.SuspendLayout();
@@ -85,34 +85,34 @@ namespace _5_A_Side
             this.tableLayoutPanel1.Controls.Add(this.pos6, 0, 6);
             this.tableLayoutPanel1.Controls.Add(this.points6, 0, 6);
             this.tableLayoutPanel1.Controls.Add(this.matches6, 0, 6);
-            this.tableLayoutPanel1.Controls.Add(this.GF6, 0, 6);
+            this.tableLayoutPanel1.Controls.Add(this.GD6, 0, 6);
             this.tableLayoutPanel1.Controls.Add(this.team4, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.pos4, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.points5, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.points4, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.GF5, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.GD5, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.team5, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.matches4, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.pos5, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.points3, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.GF3, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.GD3, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.pos3, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.points2, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.team2, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.matches2, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.GF2, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.GD2, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.points1, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.team1, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.pos1, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.pos2, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.Matches1, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.GF1, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.GD1, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.teamHeading, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.posHeading, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.pointsHeading, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.GDHeading, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.matchesPlayedHeading, 4, 0);
-            this.tableLayoutPanel1.Controls.Add(this.GF4, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.GD4, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.matches3, 2, 2);
             this.tableLayoutPanel1.Controls.Add(this.team3, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.matches5, 4, 5);
@@ -129,6 +129,61 @@ namespace _5_A_Side
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1420, 437);
             this.tableLayoutPanel1.TabIndex = 5;
+            // 
+            // team6
+            // 
+            this.team6.AutoSize = true;
+            this.team6.Font = new System.Drawing.Font("Segoe UI Black", 8F, System.Drawing.FontStyle.Bold);
+            this.team6.Location = new System.Drawing.Point(287, 373);
+            this.team6.Name = "team6";
+            this.team6.Size = new System.Drawing.Size(24, 30);
+            this.team6.TabIndex = 79;
+            this.team6.Text = "1";
+            this.team6.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // pos6
+            // 
+            this.pos6.AutoSize = true;
+            this.pos6.Font = new System.Drawing.Font("Segoe UI Black", 8F, System.Drawing.FontStyle.Bold);
+            this.pos6.Location = new System.Drawing.Point(4, 373);
+            this.pos6.Name = "pos6";
+            this.pos6.Size = new System.Drawing.Size(26, 30);
+            this.pos6.TabIndex = 78;
+            this.pos6.Text = "6";
+            this.pos6.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // points6
+            // 
+            this.points6.AutoSize = true;
+            this.points6.Font = new System.Drawing.Font("Segoe UI Black", 8F, System.Drawing.FontStyle.Bold);
+            this.points6.Location = new System.Drawing.Point(570, 373);
+            this.points6.Name = "points6";
+            this.points6.Size = new System.Drawing.Size(24, 30);
+            this.points6.TabIndex = 77;
+            this.points6.Text = "1";
+            this.points6.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // matches6
+            // 
+            this.matches6.AutoSize = true;
+            this.matches6.Font = new System.Drawing.Font("Segoe UI Black", 8F, System.Drawing.FontStyle.Bold);
+            this.matches6.Location = new System.Drawing.Point(1136, 373);
+            this.matches6.Name = "matches6";
+            this.matches6.Size = new System.Drawing.Size(24, 30);
+            this.matches6.TabIndex = 74;
+            this.matches6.Text = "1";
+            this.matches6.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // GD6
+            // 
+            this.GD6.AutoSize = true;
+            this.GD6.Font = new System.Drawing.Font("Segoe UI Black", 8F, System.Drawing.FontStyle.Bold);
+            this.GD6.Location = new System.Drawing.Point(853, 373);
+            this.GD6.Name = "GD6";
+            this.GD6.Size = new System.Drawing.Size(24, 30);
+            this.GD6.TabIndex = 73;
+            this.GD6.Text = "1";
+            this.GD6.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // team4
             // 
@@ -175,16 +230,16 @@ namespace _5_A_Side
             this.points4.Text = "1";
             this.points4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // GF5
+            // GD5
             // 
-            this.GF5.AutoSize = true;
-            this.GF5.Font = new System.Drawing.Font("Segoe UI Black", 8F, System.Drawing.FontStyle.Bold);
-            this.GF5.Location = new System.Drawing.Point(853, 311);
-            this.GF5.Name = "GF5";
-            this.GF5.Size = new System.Drawing.Size(24, 30);
-            this.GF5.TabIndex = 68;
-            this.GF5.Text = "1";
-            this.GF5.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.GD5.AutoSize = true;
+            this.GD5.Font = new System.Drawing.Font("Segoe UI Black", 8F, System.Drawing.FontStyle.Bold);
+            this.GD5.Location = new System.Drawing.Point(853, 311);
+            this.GD5.Name = "GD5";
+            this.GD5.Size = new System.Drawing.Size(24, 30);
+            this.GD5.TabIndex = 68;
+            this.GD5.Text = "1";
+            this.GD5.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // team5
             // 
@@ -230,27 +285,16 @@ namespace _5_A_Side
             this.points3.Text = "1";
             this.points3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // GF3
+            // GD3
             // 
-            this.GF3.AutoSize = true;
-            this.GF3.Font = new System.Drawing.Font("Segoe UI Black", 8F, System.Drawing.FontStyle.Bold);
-            this.GF3.Location = new System.Drawing.Point(853, 187);
-            this.GF3.Name = "GF3";
-            this.GF3.Size = new System.Drawing.Size(24, 30);
-            this.GF3.TabIndex = 63;
-            this.GF3.Text = "1";
-            this.GF3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // team3
-            // 
-            this.team3.AutoSize = true;
-            this.team3.Font = new System.Drawing.Font("Segoe UI Black", 8F, System.Drawing.FontStyle.Bold);
-            this.team3.Location = new System.Drawing.Point(287, 187);
-            this.team3.Name = "team3";
-            this.team3.Size = new System.Drawing.Size(24, 30);
-            this.team3.TabIndex = 62;
-            this.team3.Text = "1";
-            this.team3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.GD3.AutoSize = true;
+            this.GD3.Font = new System.Drawing.Font("Segoe UI Black", 8F, System.Drawing.FontStyle.Bold);
+            this.GD3.Location = new System.Drawing.Point(853, 187);
+            this.GD3.Name = "GD3";
+            this.GD3.Size = new System.Drawing.Size(24, 30);
+            this.GD3.TabIndex = 63;
+            this.GD3.Text = "1";
+            this.GD3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // pos3
             // 
@@ -296,16 +340,16 @@ namespace _5_A_Side
             this.matches2.Text = "1";
             this.matches2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // GF2
+            // GD2
             // 
-            this.GF2.AutoSize = true;
-            this.GF2.Font = new System.Drawing.Font("Segoe UI Black", 8F, System.Drawing.FontStyle.Bold);
-            this.GF2.Location = new System.Drawing.Point(853, 125);
-            this.GF2.Name = "GF2";
-            this.GF2.Size = new System.Drawing.Size(24, 30);
-            this.GF2.TabIndex = 57;
-            this.GF2.Text = "1";
-            this.GF2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.GD2.AutoSize = true;
+            this.GD2.Font = new System.Drawing.Font("Segoe UI Black", 8F, System.Drawing.FontStyle.Bold);
+            this.GD2.Location = new System.Drawing.Point(853, 125);
+            this.GD2.Name = "GD2";
+            this.GD2.Size = new System.Drawing.Size(24, 30);
+            this.GD2.TabIndex = 57;
+            this.GD2.Text = "1";
+            this.GD2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // points1
             // 
@@ -362,38 +406,16 @@ namespace _5_A_Side
             this.Matches1.Text = "1";
             this.Matches1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // GF1
+            // GD1
             // 
-            this.GF1.AutoSize = true;
-            this.GF1.Font = new System.Drawing.Font("Segoe UI Black", 8F, System.Drawing.FontStyle.Bold);
-            this.GF1.Location = new System.Drawing.Point(853, 63);
-            this.GF1.Name = "GF1";
-            this.GF1.Size = new System.Drawing.Size(24, 30);
-            this.GF1.TabIndex = 51;
-            this.GF1.Text = "1";
-            this.GF1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // matches3
-            // 
-            this.matches3.AutoSize = true;
-            this.matches3.Font = new System.Drawing.Font("Segoe UI Black", 8F, System.Drawing.FontStyle.Bold);
-            this.matches3.Location = new System.Drawing.Point(1136, 187);
-            this.matches3.Name = "matches3";
-            this.matches3.Size = new System.Drawing.Size(24, 30);
-            this.matches3.TabIndex = 50;
-            this.matches3.Text = "1";
-            this.matches3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // GF4
-            // 
-            this.GF4.AutoSize = true;
-            this.GF4.Font = new System.Drawing.Font("Segoe UI Black", 8F, System.Drawing.FontStyle.Bold);
-            this.GF4.Location = new System.Drawing.Point(853, 249);
-            this.GF4.Name = "GF4";
-            this.GF4.Size = new System.Drawing.Size(24, 30);
-            this.GF4.TabIndex = 49;
-            this.GF4.Text = "1";
-            this.GF4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.GD1.AutoSize = true;
+            this.GD1.Font = new System.Drawing.Font("Segoe UI Black", 8F, System.Drawing.FontStyle.Bold);
+            this.GD1.Location = new System.Drawing.Point(853, 63);
+            this.GD1.Name = "GD1";
+            this.GD1.Size = new System.Drawing.Size(24, 30);
+            this.GD1.TabIndex = 51;
+            this.GD1.Text = "1";
+            this.GD1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // teamHeading
             // 
@@ -450,6 +472,50 @@ namespace _5_A_Side
             this.matchesPlayedHeading.Text = "Matches Played";
             this.matchesPlayedHeading.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // GD4
+            // 
+            this.GD4.AutoSize = true;
+            this.GD4.Font = new System.Drawing.Font("Segoe UI Black", 8F, System.Drawing.FontStyle.Bold);
+            this.GD4.Location = new System.Drawing.Point(853, 249);
+            this.GD4.Name = "GD4";
+            this.GD4.Size = new System.Drawing.Size(24, 30);
+            this.GD4.TabIndex = 49;
+            this.GD4.Text = "1";
+            this.GD4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // matches3
+            // 
+            this.matches3.AutoSize = true;
+            this.matches3.Font = new System.Drawing.Font("Segoe UI Black", 8F, System.Drawing.FontStyle.Bold);
+            this.matches3.Location = new System.Drawing.Point(1136, 187);
+            this.matches3.Name = "matches3";
+            this.matches3.Size = new System.Drawing.Size(24, 30);
+            this.matches3.TabIndex = 50;
+            this.matches3.Text = "1";
+            this.matches3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // team3
+            // 
+            this.team3.AutoSize = true;
+            this.team3.Font = new System.Drawing.Font("Segoe UI Black", 8F, System.Drawing.FontStyle.Bold);
+            this.team3.Location = new System.Drawing.Point(287, 187);
+            this.team3.Name = "team3";
+            this.team3.Size = new System.Drawing.Size(24, 30);
+            this.team3.TabIndex = 62;
+            this.team3.Text = "1";
+            this.team3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // matches5
+            // 
+            this.matches5.AutoSize = true;
+            this.matches5.Font = new System.Drawing.Font("Segoe UI Black", 8F, System.Drawing.FontStyle.Bold);
+            this.matches5.Location = new System.Drawing.Point(1136, 311);
+            this.matches5.Name = "matches5";
+            this.matches5.Size = new System.Drawing.Size(24, 30);
+            this.matches5.TabIndex = 76;
+            this.matches5.Text = "1";
+            this.matches5.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // topTitleLabel
             // 
             this.topTitleLabel.AutoSize = true;
@@ -475,72 +541,6 @@ namespace _5_A_Side
             this.homeButton.TabIndex = 25;
             this.homeButton.TabStop = false;
             this.homeButton.Click += new System.EventHandler(this.homeButton_Click);
-            // 
-            // GF6
-            // 
-            this.GF6.AutoSize = true;
-            this.GF6.Font = new System.Drawing.Font("Segoe UI Black", 8F, System.Drawing.FontStyle.Bold);
-            this.GF6.Location = new System.Drawing.Point(853, 373);
-            this.GF6.Name = "GF6";
-            this.GF6.Size = new System.Drawing.Size(24, 30);
-            this.GF6.TabIndex = 73;
-            this.GF6.Text = "1";
-            this.GF6.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // matches6
-            // 
-            this.matches6.AutoSize = true;
-            this.matches6.Font = new System.Drawing.Font("Segoe UI Black", 8F, System.Drawing.FontStyle.Bold);
-            this.matches6.Location = new System.Drawing.Point(1136, 373);
-            this.matches6.Name = "matches6";
-            this.matches6.Size = new System.Drawing.Size(24, 30);
-            this.matches6.TabIndex = 74;
-            this.matches6.Text = "1";
-            this.matches6.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // matches5
-            // 
-            this.matches5.AutoSize = true;
-            this.matches5.Font = new System.Drawing.Font("Segoe UI Black", 8F, System.Drawing.FontStyle.Bold);
-            this.matches5.Location = new System.Drawing.Point(1136, 311);
-            this.matches5.Name = "matches5";
-            this.matches5.Size = new System.Drawing.Size(24, 30);
-            this.matches5.TabIndex = 76;
-            this.matches5.Text = "1";
-            this.matches5.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // points6
-            // 
-            this.points6.AutoSize = true;
-            this.points6.Font = new System.Drawing.Font("Segoe UI Black", 8F, System.Drawing.FontStyle.Bold);
-            this.points6.Location = new System.Drawing.Point(570, 373);
-            this.points6.Name = "points6";
-            this.points6.Size = new System.Drawing.Size(24, 30);
-            this.points6.TabIndex = 77;
-            this.points6.Text = "1";
-            this.points6.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // pos6
-            // 
-            this.pos6.AutoSize = true;
-            this.pos6.Font = new System.Drawing.Font("Segoe UI Black", 8F, System.Drawing.FontStyle.Bold);
-            this.pos6.Location = new System.Drawing.Point(4, 373);
-            this.pos6.Name = "pos6";
-            this.pos6.Size = new System.Drawing.Size(26, 30);
-            this.pos6.TabIndex = 78;
-            this.pos6.Text = "6";
-            this.pos6.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // team6
-            // 
-            this.team6.AutoSize = true;
-            this.team6.Font = new System.Drawing.Font("Segoe UI Black", 8F, System.Drawing.FontStyle.Bold);
-            this.team6.Location = new System.Drawing.Point(287, 373);
-            this.team6.Name = "team6";
-            this.team6.Size = new System.Drawing.Size(24, 30);
-            this.team6.TabIndex = 79;
-            this.team6.Text = "1";
-            this.team6.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // LeagueTable
             // 
@@ -570,26 +570,26 @@ namespace _5_A_Side
         private System.Windows.Forms.Label pos4;
         private System.Windows.Forms.Label points5;
         private System.Windows.Forms.Label points4;
-        private System.Windows.Forms.Label GF5;
+        private System.Windows.Forms.Label GD5;
         private System.Windows.Forms.Label team5;
         private System.Windows.Forms.Label matches4;
         private System.Windows.Forms.Label pos5;
         private System.Windows.Forms.Label points3;
-        private System.Windows.Forms.Label GF3;
+        private System.Windows.Forms.Label GD3;
         private System.Windows.Forms.Label team3;
         private System.Windows.Forms.Label pos3;
         private System.Windows.Forms.Label points2;
         private System.Windows.Forms.Label team2;
         private System.Windows.Forms.Label matches2;
-        private System.Windows.Forms.Label GF2;
+        private System.Windows.Forms.Label GD2;
         private System.Windows.Forms.Label points1;
         private System.Windows.Forms.Label team1;
         private System.Windows.Forms.Label pos1;
         private System.Windows.Forms.Label pos2;
         private System.Windows.Forms.Label Matches1;
-        private System.Windows.Forms.Label GF1;
+        private System.Windows.Forms.Label GD1;
         private System.Windows.Forms.Label matches3;
-        private System.Windows.Forms.Label GF4;
+        private System.Windows.Forms.Label GD4;
         private System.Windows.Forms.Label teamHeading;
         private System.Windows.Forms.Label posHeading;
         private System.Windows.Forms.Label pointsHeading;
@@ -601,7 +601,7 @@ namespace _5_A_Side
         private System.Windows.Forms.Label pos6;
         private System.Windows.Forms.Label points6;
         private System.Windows.Forms.Label matches6;
-        private System.Windows.Forms.Label GF6;
+        private System.Windows.Forms.Label GD6;
         private System.Windows.Forms.Label matches5;
     }
 }

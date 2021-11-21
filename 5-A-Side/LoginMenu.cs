@@ -17,13 +17,9 @@ namespace _5_A_Side
         public static int UserID;
         public static int TeamID;
 
-        SqlConnection Con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\tomra\OneDrive\Documents\FootballGame.mdf;Integrated Security=True;Connect Timeout=30");
-        SqlCommand Com = new SqlCommand();
-
         public LoginMenu()
         {
             InitializeComponent();
-            Con.Close();
         }
 
         private void loginButton_Click(object sender, EventArgs e)
@@ -43,6 +39,10 @@ namespace _5_A_Side
 
             if (loginDetailsCorrect == true)
             {
+                if (Sql.Select("Select * From Teams Where Id = " + TeamID, 0, "GF") == "0")
+                {
+                    Sql.Update("Update Teams Set GF = 0");
+                }
                 MessageBox.Show("Enjoy the time playing!", "Login successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 HomePage home = new HomePage();
                 home.Show();

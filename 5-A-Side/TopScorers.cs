@@ -42,10 +42,9 @@ namespace _5_A_Side
 
         }
 
-
         public void RankingTeams(int Rank) //Ranking teams by who scores the most goals
         {
-            TeamID = Convert.ToInt32(Sql.Select("Select * From Teams Order By GF Desc", Rank - 1, "Id"));
+            TeamID = Convert.ToInt32(Sql.Select("Select * From Teams Order By GF Desc", (Rank - 1), "Id"));
             TeamIDForFixtures = TeamID;
             if (TeamID == LoginMenu.TeamID)
             {
@@ -53,7 +52,7 @@ namespace _5_A_Side
             }
             string code = GetTeamCode(TeamIDForFixtures);
             GF = Convert.ToInt32(Sql.Select("SELECT * FROM UserTable Where Id = " + LoginMenu.UserID, 0, code + "GF"));
-            Debug.WriteLine("GF = " + GF);
+            Debug.WriteLine(TeamID + "GF = " + GF);
             teamName = Sql.Select("SELECT * FROM Teams WHERE Id = " + TeamID, 0, "TeamName");
         }
 
@@ -140,7 +139,7 @@ namespace _5_A_Side
         {
                 player.Text = playerName;
                 team.Text = teamName;
-                goals.Text = Convert.ToString(GF / 3);
+                goals.Text = Convert.ToString(GF);
                 lastMatch.Text = LastMatch;
         }
 

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Security.Cryptography;
+using System.Diagnostics;
 
 namespace _5_A_Side
 {
@@ -19,7 +20,7 @@ namespace _5_A_Side
             {
                 int numCount = 0;
                 char[] numChars = new char[10] { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
-                for (int i = 0; i < minNums; i++)
+                for (int i = 0; i < input.Length; i++)
                 {
                     for (int j = 0; j < numChars.Count(); j++)
                     {
@@ -29,13 +30,13 @@ namespace _5_A_Side
                         }
                     }
                 }
-                if (numCount < minNums)
+                if (numCount >= minNums)
                 {
-                    return false;
+                    return true;
                 }
                 else
                 {
-                    return true;
+                    return false;
                 }
             }
         }

@@ -268,10 +268,6 @@ namespace _5_A_Side
                     Com.Connection = Con;
                     SqlDataReader reader = Com.ExecuteReader();
                     reader.Read();
-                    wins6.Text = Convert.ToString(reader[Team + "Wins"]);
-                    draws6.Text = Convert.ToString(reader[Team + "Losses"]);
-                    losses6.Text = Convert.ToString(reader[Team + "Draws"]);
-                    points6.Text = Convert.ToString(reader[Team + "Points"]);
                     GD6.Text = Convert.ToString((Convert.ToInt32(reader[Team + "GF"]) - Convert.ToInt32(reader[Team + "GA"])));
                     matches6.Text = Convert.ToString(reader[Team + "Matches"]);
                     reader.Close();
@@ -312,10 +308,6 @@ namespace _5_A_Side
                     Com.Connection = Con;
                     reader = Com.ExecuteReader();
                     reader.Read();
-                    wins5.Text = Convert.ToString(reader[Team + "Wins"]);
-                    draws5.Text = Convert.ToString(reader[Team + "Losses"]);
-                    losses5.Text = Convert.ToString(reader[Team + "Draws"]);
-                    points5.Text = Convert.ToString(reader[Team + "Points"]);
                     GD5.Text = Convert.ToString((Convert.ToInt32(reader[Team + "GF"]) - Convert.ToInt32(reader[Team + "GA"])));
                     matches5.Text = Convert.ToString(reader[Team + "Matches"]);
                     reader.Close();
@@ -356,9 +348,6 @@ namespace _5_A_Side
                     Com.Connection = Con;
                     reader = Com.ExecuteReader();
                     reader.Read();
-                    wins4.Text = Convert.ToString(reader[Team + "Wins"]);
-                    draws4.Text = Convert.ToString(reader[Team + "Losses"]);
-                    losses4.Text = Convert.ToString(reader[Team + "Draws"]);
                     points4.Text = Convert.ToString(reader[Team + "Points"]);
                     GD4.Text = Convert.ToString((Convert.ToInt32(reader[Team + "GF"]) - Convert.ToInt32(reader[Team + "GA"])));
                     matches4.Text = Convert.ToString(reader[Team + "Matches"]);
@@ -400,12 +389,9 @@ namespace _5_A_Side
                     Com.Connection = Con;
                     reader = Com.ExecuteReader();
                     reader.Read();
-                    pos5.Text = Convert.ToString(reader[Team + "Wins"]);
-                    matches4.Text = Convert.ToString(reader[Team + "Losses"]);
-                    pos4.Text = Convert.ToString(reader[Team + "Draws"]);
-                    team4.Text = Convert.ToString(reader[Team + "Points"]);
-                    points4.Text = Convert.ToString((Convert.ToInt32(reader[Team + "GF"]) - Convert.ToInt32(reader[Team + "GA"])));
-                    points5.Text = Convert.ToString(reader[Team + "Matches"]);
+                    points3.Text = Convert.ToString(reader[Team + "Points"]);
+                    GD3.Text = Convert.ToString((Convert.ToInt32(reader[Team + "GF"]) - Convert.ToInt32(reader[Team + "GA"])));
+                    matches3.Text = Convert.ToString(reader[Team + "Matches"]);
                     reader.Close();
                     if (Team == "User")
                     {
@@ -413,27 +399,27 @@ namespace _5_A_Side
                         Com.Connection = Con;
                         reader = Com.ExecuteReader();
                         reader.Read();
-                        GF5.Text = Convert.ToString(reader["TeamName"]);
+                        team3.Text = Convert.ToString(reader["TeamName"]);
                     }
                     if (Team == "MU")
                     {
-                        GF5.Text = "Manchester United";
+                        team3.Text = "Manchester United";
                     }
                     if (Team == "CHE")
                     {
-                        GF5.Text = "Chelsea";
+                        team3.Text = "Chelsea";
                     }
                     if (Team == "SOU")
                     {
-                        GF5.Text = "Southampton";
+                        team3.Text = "Southampton";
                     }
                     if (Team == "WOL")
                     {
-                        GF5.Text = "Wolves";
+                        team3.Text = "Wolves";
                     }
                     if (Team == "NOR")
                     {
-                        GF5.Text = "Norwich";
+                        team3.Text = "Norwich";
                     }
                     Con.Close();
                     break;
@@ -444,12 +430,9 @@ namespace _5_A_Side
                     Com.Connection = Con;
                     reader = Com.ExecuteReader();
                     reader.Read();
-                    points3.Text = Convert.ToString(reader[Team + "Wins"]);
-                    GF3.Text = Convert.ToString(reader[Team + "Losses"]);
-                    matches2.Text = Convert.ToString(reader[Team + "Draws"]);
-                    GF2.Text = Convert.ToString(reader[Team + "Points"]);
-                    points2.Text = Convert.ToString((Convert.ToInt32(reader[Team + "GF"]) - Convert.ToInt32(reader[Team + "GA"])));
-                    team2.Text = Convert.ToString(reader[Team + "Matches"]);
+                    points2.Text = Convert.ToString(reader[Team + "Points"]);
+                    GD2.Text = Convert.ToString((Convert.ToInt32(reader[Team + "GF"]) - Convert.ToInt32(reader[Team + "GA"])));
+                    matches2.Text = Convert.ToString(reader[Team + "Matches"]);
                     reader.Close();
                     if (Team == "User")
                     {
@@ -457,27 +440,27 @@ namespace _5_A_Side
                         Com.Connection = Con;
                         reader = Com.ExecuteReader();
                         reader.Read();
-                        pos3.Text = Convert.ToString(reader["TeamName"]);
+                        team2.Text = Convert.ToString(reader["TeamName"]);
                     }
                     if (Team == "MU")
                     {
-                        pos3.Text = "Manchester United";
+                        team2.Text = "Manchester United";
                     }
                     if (Team == "CHE")
                     {
-                        pos3.Text = "Chelsea";
+                        team2.Text = "Chelsea";
                     }
                     if (Team == "SOU")
                     {
-                        pos3.Text = "Southampton";
+                        team2.Text = "Southampton";
                     }
                     if (Team == "WOL")
                     {
-                        pos3.Text = "Wolves";
+                        team2.Text = "Wolves";
                     }
                     if (Team == "NOR")
                     {
-                        pos3.Text = "Norwich";
+                        team2.Text = "Norwich";
                     }
                     Con.Close();
                     break;
@@ -488,12 +471,9 @@ namespace _5_A_Side
                     Com.Connection = Con;
                     reader = Com.ExecuteReader();
                     reader.Read();
-                    points1.Text = Convert.ToString(reader[Team + "Wins"]);
-                    team1.Text = Convert.ToString(reader[Team + "Losses"]);
-                    matches3.Text = Convert.ToString(reader[Team + "Draws"]);
-                    GF4.Text = Convert.ToString(reader[Team + "Points"]);
-                    Matches1.Text = Convert.ToString((Convert.ToInt32(reader[Team + "GF"]) - Convert.ToInt32(reader[Team + "GA"])));
-                    GF1.Text = Convert.ToString(reader[Team + "Matches"]);
+                    points1.Text = Convert.ToString(reader[Team + "Points"]);
+                    GD1.Text = Convert.ToString((Convert.ToInt32(reader[Team + "GF"]) - Convert.ToInt32(reader[Team + "GA"])));
+                    Matches1.Text = Convert.ToString(reader[Team + "Matches"]);
                     reader.Close();
                     if (Team == "User")
                     {
@@ -501,27 +481,27 @@ namespace _5_A_Side
                         Com.Connection = Con;
                         reader = Com.ExecuteReader();
                         reader.Read();
-                        pos2.Text = Convert.ToString(reader["TeamName"]);
+                        team1.Text = Convert.ToString(reader["TeamName"]);
                     }
                     if (Team == "MU")
                     {
-                        pos2.Text = "Manchester United";
+                        team1.Text = "Manchester United";
                     }
                     if (Team == "CHE")
                     {
-                        pos2.Text = "Chelsea";
+                        team1.Text = "Chelsea";
                     }
                     if (Team == "SOU")
                     {
-                        pos2.Text = "Southampton";
+                        team1.Text = "Southampton";
                     }
                     if (Team == "WOL")
                     {
-                        pos2.Text = "Wolves";
+                        team1.Text = "Wolves";
                     }
                     if (Team == "NOR")
                     {
-                        pos2.Text = "Norwich";
+                        team1.Text = "Norwich";
                     }
                     Con.Close();
                     break;
