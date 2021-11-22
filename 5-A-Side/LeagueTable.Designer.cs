@@ -217,7 +217,6 @@ namespace _5_A_Side
             this.points5.TabIndex = 70;
             this.points5.Text = "1";
             this.points5.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.points5.Click += new System.EventHandler(this.matches3_Click);
             // 
             // points4
             // 

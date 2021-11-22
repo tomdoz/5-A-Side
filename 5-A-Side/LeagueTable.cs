@@ -9,14 +9,11 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Diagnostics;
-using System.Data.Sql;
 
 namespace _5_A_Side
 {
     public partial class LeagueTable : Form
     {
-        SqlConnection Con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\tomra\OneDrive\Documents\FootballGame.mdf;Integrated Security=True;Connect Timeout=30"); 
-        SqlCommand Com = new SqlCommand();
         int[] PointTotals = new int[6];
         int UserRank;
         int MURank;
@@ -284,11 +281,6 @@ namespace _5_A_Side
             HomePage home = new HomePage();
             home.Show();
             this.Close();
-        }
-
-        private void matches3_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
