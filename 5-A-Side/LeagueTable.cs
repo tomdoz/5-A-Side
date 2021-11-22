@@ -36,8 +36,8 @@ namespace _5_A_Side
             InitializeComponent();
             OrderTeams();
             Debug.WriteLine(Convert.ToString(UserRank));
-            FillRow(UserRank, "User", LoginMenu.UserID ,UserPoints);
-            FillRow(MURank, "MU", 1002 ,MUPoints);
+            FillRow(UserRank, "User", LoginMenu.TeamID ,UserPoints);
+            FillRow(MURank, "MU", 1002, MUPoints);
             FillRow(CHERank, "CHE", 1003 ,CHEPoints);
             FillRow(SOURank, "SOU", 1004, SOUPoints);
             FillRow(WOLRank, "WOL", 1005, WOLPoints);
@@ -235,42 +235,42 @@ namespace _5_A_Side
             switch (Rank)
             {
                 case 1:
-                    GD6.Text = Convert.ToString((Convert.ToInt32(Sql.Select("Select * From UserTable Where Id = " + LoginMenu.UserID, 0, Team + "GA")) - Convert.ToInt32(Sql.Select("Select * From UserTable Where Id = " + LoginMenu.UserID, 0, Team + "GF"))));
+                    GD6.Text = Convert.ToString((Convert.ToInt32(Sql.Select("Select * From UserTable Where Id = " + LoginMenu.UserID, 0, Team + "GF")) - Convert.ToInt32(Sql.Select("Select * From UserTable Where Id = " + LoginMenu.UserID, 0, Team + "GA"))));
                     matches6.Text = Convert.ToString(Sql.Select("Select * From UserTable Where Id = " + LoginMenu.UserID, 0, Team + "Matches"));
                     points6.Text = Convert.ToString(Sql.Select("Select * From UserTable Where Id = " + LoginMenu.UserID, 0, Team + "Points"));
                     team6.Text = Sql.Select("Select TeamName From Teams Where Id = " + teamID, 0, "TeamName");
                     break;
 
                 case 2:
-                    GD5.Text = Convert.ToString((Convert.ToInt32(Sql.Select("Select * From UserTable Where Id = " + LoginMenu.UserID, 0, Team + "GA")) - Convert.ToInt32(Sql.Select("Select * From UserTable Where Id = " + LoginMenu.UserID, 0, Team + "GF"))));
+                    GD5.Text = Convert.ToString((Convert.ToInt32(Sql.Select("Select * From UserTable Where Id = " + LoginMenu.UserID, 0, Team + "GF")) - Convert.ToInt32(Sql.Select("Select * From UserTable Where Id = " + LoginMenu.UserID, 0, Team + "GA"))));
                     matches5.Text = Convert.ToString(Sql.Select("Select * From UserTable Where Id = " + LoginMenu.UserID, 0, Team + "Matches"));
                     points5.Text = Convert.ToString(Sql.Select("Select * From UserTable Where Id = " + LoginMenu.UserID, 0, Team + "Points"));
                     team5.Text = Sql.Select("Select TeamName From Teams Where Id = " + teamID, 0, "TeamName");
                     break;
 
                 case 3:
-                    GD4.Text = Convert.ToString((Convert.ToInt32(Sql.Select("Select * From UserTable Where Id = " + LoginMenu.UserID, 0, Team + "GA")) - Convert.ToInt32(Sql.Select("Select * From UserTable Where Id = " + LoginMenu.UserID, 0, Team + "GF"))));
+                    GD4.Text = Convert.ToString((Convert.ToInt32(Sql.Select("Select * From UserTable Where Id = " + LoginMenu.UserID, 0, Team + "GF")) - Convert.ToInt32(Sql.Select("Select * From UserTable Where Id = " + LoginMenu.UserID, 0, Team + "GA"))));
                     matches4.Text = Convert.ToString(Sql.Select("Select * From UserTable Where Id = " + LoginMenu.UserID, 0, Team + "Matches"));
                     points4.Text = Convert.ToString(Sql.Select("Select * From UserTable Where Id = " + LoginMenu.UserID, 0, Team + "Points"));
                     team4.Text = Sql.Select("Select TeamName From Teams Where Id = " + teamID, 0, "TeamName");
                     break;
 
                 case 4:
-                    GD3.Text = Convert.ToString((Convert.ToInt32(Sql.Select("Select * From UserTable Where Id = " + LoginMenu.UserID, 0, Team + "GA")) - Convert.ToInt32(Sql.Select("Select * From UserTable Where Id = " + LoginMenu.UserID, 0, Team + "GF"))));
+                    GD3.Text = Convert.ToString((Convert.ToInt32(Sql.Select("Select * From UserTable Where Id = " + LoginMenu.UserID, 0, Team + "GF")) - Convert.ToInt32(Sql.Select("Select * From UserTable Where Id = " + LoginMenu.UserID, 0, Team + "GA"))));
                     matches3.Text = Convert.ToString(Sql.Select("Select * From UserTable Where Id = " + LoginMenu.UserID, 0, Team + "Matches"));
                     points3.Text = Convert.ToString(Sql.Select("Select * From UserTable Where Id = " + LoginMenu.UserID, 0, Team + "Points"));
                     team3.Text = Sql.Select("Select TeamName From Teams Where Id = " + teamID, 0, "TeamName");
                     break;
 
                 case 5:
-                    GD2.Text = Convert.ToString((Convert.ToInt32(Sql.Select("Select * From UserTable Where Id = " + LoginMenu.UserID, 0, Team + "GA")) - Convert.ToInt32(Sql.Select("Select * From UserTable Where Id = " + LoginMenu.UserID, 0, Team + "GF"))));
-                    matches2.Text = Convert.ToString(Sql.Select("Select * From UserTable Where Id = " + LoginMenu.UserID, 0, Team + "Matches"));
+                    GD2.Text = Convert.ToString((Convert.ToInt32(Sql.Select("Select * From UserTable Where Id = " + LoginMenu.UserID, 0, Team + "GF")) - Convert.ToInt32(Sql.Select("Select * From UserTable Where Id = " + LoginMenu.UserID, 0, Team + "GA"))));
+                    matches2.Text = Sql.Select("Select * From UserTable Where Id = " + LoginMenu.UserID, 0, Team + "Matches");
                     points2.Text = Convert.ToString(Sql.Select("Select * From UserTable Where Id = " + LoginMenu.UserID, 0, Team + "Points"));
                     team2.Text = Sql.Select("Select TeamName From Teams Where Id = " + teamID, 0, "TeamName");
                     break;
 
                 case 6:
-                    GD1.Text = Convert.ToString((Convert.ToInt32(Sql.Select("Select * From UserTable Where Id = " + LoginMenu.UserID, 0, Team + "GA")) - Convert.ToInt32(Sql.Select("Select * From UserTable Where Id = " + LoginMenu.UserID, 0, Team + "GF"))));
+                    GD1.Text = Convert.ToString((Convert.ToInt32(Sql.Select("Select * From UserTable Where Id = " + LoginMenu.UserID, 0, Team + "GF")) - Convert.ToInt32(Sql.Select("Select * From UserTable Where Id = " + LoginMenu.UserID, 0, Team + "GA"))));
                     matches1.Text = Convert.ToString(Sql.Select("Select * From UserTable Where Id = " + LoginMenu.UserID, 0, Team + "Matches"));
                     points1.Text = Convert.ToString(Sql.Select("Select * From UserTable Where Id = " + LoginMenu.UserID, 0, Team + "Points"));
                     team1.Text = Sql.Select("Select TeamName From Teams Where Id = " + teamID, 0, "TeamName");
