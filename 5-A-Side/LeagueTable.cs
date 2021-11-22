@@ -36,58 +36,30 @@ namespace _5_A_Side
             InitializeComponent();
             OrderTeams();
             Debug.WriteLine(Convert.ToString(UserRank));
-            FillRow(UserRank, "User");
-            FillRow(MURank, "MU");
-            FillRow(CHERank, "CHE");
-            FillRow(SOURank, "SOU");
-            FillRow(WOLRank, "WOL");
-            FillRow(NORRank, "NOR");
+            FillRow(UserRank, "User", LoginMenu.UserID ,UserPoints);
+            FillRow(MURank, "MU", 1002 ,MUPoints);
+            FillRow(CHERank, "CHE", 1003 ,CHEPoints);
+            FillRow(SOURank, "SOU", 1004, SOUPoints);
+            FillRow(WOLRank, "WOL", 1005, WOLPoints);
+            FillRow(NORRank, "NOR", 1006, NORPoints);
         }
 
         public void OrderTeams()
         {
             int[] PointsToSort = new int[6];
-            Con.Open();
-            Com.CommandText = "Select * From UserTable Where Id = " + LoginMenu.UserID;
-            Com.Connection = Con;
-            SqlDataReader reader = Com.ExecuteReader();
-            reader.Read();
-            UserPoints = Convert.ToInt32(reader["UserPoints"]);
-            MUPoints = Convert.ToInt32(reader["MUPoints"]);
-            CHEPoints = Convert.ToInt32(reader["CHEPoints"]);
-            SOUPoints = Convert.ToInt32(reader["SOUPoints"]);
-            WOLPoints = Convert.ToInt32(reader["WOLPoints"]);
-            NORPoints = Convert.ToInt32(reader["NORPoints"]);
+            string[] teamCodes = new string[6] { "User", "MU", "CHE", "SOU", "WOL", "NOR" };
+            UserPoints = Convert.ToInt32(Sql.Select("Select * From UserTable Where Id = " + LoginMenu.UserID, 0, "UserPoints"));
+            MUPoints = Convert.ToInt32(Sql.Select("Select * From UserTable Where Id = " + LoginMenu.UserID, 0, "MUPoints"));
+            CHEPoints = Convert.ToInt32(Sql.Select("Select * From UserTable Where Id = " + LoginMenu.UserID, 0, "CHEPoints"));
+            SOUPoints = Convert.ToInt32(Sql.Select("Select * From UserTable Where Id = " + LoginMenu.UserID, 0, "SOUPoints"));
+            WOLPoints = Convert.ToInt32(Sql.Select("Select * From UserTable Where Id = " + LoginMenu.UserID, 0, "WOLPoints"));
+            NORPoints = Convert.ToInt32(Sql.Select("Select * From UserTable Where Id = " + LoginMenu.UserID, 0, "NORPoints"));
+
+
             for (int i = 0; i < PointsToSort.Length; i++)
             {
-                switch (i)
-                {
-                    case 0:
-                        PointsToSort[i] = Convert.ToInt32(reader["UserPoints"]);
-                        break;
-
-                    case 1:
-                        PointsToSort[i] = Convert.ToInt32(reader["MUPoints"]);
-                        break;
-
-                    case 2:
-                        PointsToSort[i] = Convert.ToInt32(reader["CHEPoints"]);
-                        break;
-
-                    case 3:
-                        PointsToSort[i] = Convert.ToInt32(reader["SOUPoints"]);
-                        break;
-
-                    case 4:
-                        PointsToSort[i] = Convert.ToInt32(reader["WOLPoints"]);
-                        break;
-
-                    case 5:
-                        PointsToSort[i] = Convert.ToInt32(reader["NORPoints"]);
-                        break;
-                }
+                PointsToSort[i] = Convert.ToInt32(Sql.Select("Select * From UserTable Where Id = " + LoginMenu.UserID, 0, teamCodes[i] + "Points"));
             }
-            Con.Close();
             PointTotals = Utilities.mergeSort(PointsToSort);
             for (int i = 0; i < PointTotals.Length; i++)
             {
@@ -258,254 +230,53 @@ namespace _5_A_Side
             }
         }
 
-        public void FillRow(int Rank, string Team)
+        public void FillRow(int Rank, string Team, int teamID, int points)
         {
             switch (Rank)
             {
-                case 1: //team is in last place 
-                    Con.Open();
-                    Com.CommandText = "SELECT * FROM UserTable WHERE Id = " + LoginMenu.UserID;
-                    Com.Connection = Con;
-                    SqlDataReader reader = Com.ExecuteReader();
-                    reader.Read();
-                    GD6.Text = Convert.ToString((Convert.ToInt32(reader[Team + "GF"]) - Convert.ToInt32(reader[Team + "GA"])));
-                    matches6.Text = Convert.ToString(reader[Team + "Matches"]);
-                    reader.Close();
-                    if (Team == "User")
-                    {
-                        Com.CommandText = "Select TeamName From Teams Where Id = " + LoginMenu.TeamID;
-                        Com.Connection = Con;
-                        reader = Com.ExecuteReader();
-                        reader.Read();
-                        team6.Text = Convert.ToString(reader["TeamName"]);
-                    }
-                    if (Team == "MU")
-                    {
-                        team6.Text = "Manchester United";
-                    }
-                    if (Team == "CHE")
-                    {
-                        team6.Text = "Chelsea";
-                    }
-                    if (Team == "SOU")
-                    {
-                        team6.Text = "Southampton";
-                    }
-                    if (Team == "WOL")
-                    {
-                        team6.Text = "Wolves";
-                    }
-                    if (Team == "NOR")
-                    {
-                        team6.Text = "Norwich";
-                    }
-                    Con.Close();
+                case 1:
+                    GD6.Text = Convert.ToString((Convert.ToInt32(Sql.Select("Select * From UserTable Where Id = " + LoginMenu.UserID, 0, Team + "GA")) - Convert.ToInt32(Sql.Select("Select * From UserTable Where Id = " + LoginMenu.UserID, 0, Team + "GF"))));
+                    matches6.Text = Convert.ToString(Sql.Select("Select * From UserTable Where Id = " + LoginMenu.UserID, 0, Team + "Matches"));
+                    points6.Text = Convert.ToString(Sql.Select("Select * From UserTable Where Id = " + LoginMenu.UserID, 0, Team + "Points"));
+                    team6.Text = Sql.Select("Select TeamName From Teams Where Id = " + teamID, 0, "TeamName");
                     break;
 
                 case 2:
-                    Con.Open();
-                    Com.CommandText = "SELECT * FROM UserTable WHERE Id = " + LoginMenu.UserID;
-                    Com.Connection = Con;
-                    reader = Com.ExecuteReader();
-                    reader.Read();
-                    GD5.Text = Convert.ToString((Convert.ToInt32(reader[Team + "GF"]) - Convert.ToInt32(reader[Team + "GA"])));
-                    matches5.Text = Convert.ToString(reader[Team + "Matches"]);
-                    reader.Close();
-                    if (Team == "User")
-                    {
-                        Com.CommandText = "Select TeamName From Teams Where Id = " + LoginMenu.TeamID;
-                        Com.Connection = Con;
-                        reader = Com.ExecuteReader();
-                        reader.Read();
-                        team5.Text = Convert.ToString(reader["TeamName"]);
-                    }
-                    if (Team == "MU")
-                    {
-                        team5.Text = "Manchester United";
-                    }
-                    if (Team == "CHE")
-                    {
-                        team5.Text = "Chelsea";
-                    }
-                    if (Team == "SOU")
-                    {
-                        team5.Text = "Southampton";
-                    }
-                    if (Team == "WOL")
-                    {
-                        team5.Text = "Wolves";
-                    }
-                    if (Team == "NOR")
-                    {
-                        team5.Text = "Norwich";
-                    }
-                    Con.Close();
+                    GD5.Text = Convert.ToString((Convert.ToInt32(Sql.Select("Select * From UserTable Where Id = " + LoginMenu.UserID, 0, Team + "GA")) - Convert.ToInt32(Sql.Select("Select * From UserTable Where Id = " + LoginMenu.UserID, 0, Team + "GF"))));
+                    matches5.Text = Convert.ToString(Sql.Select("Select * From UserTable Where Id = " + LoginMenu.UserID, 0, Team + "Matches"));
+                    points5.Text = Convert.ToString(Sql.Select("Select * From UserTable Where Id = " + LoginMenu.UserID, 0, Team + "Points"));
+                    team5.Text = Sql.Select("Select TeamName From Teams Where Id = " + teamID, 0, "TeamName");
                     break;
 
                 case 3:
-                    Con.Open();
-                    Com.CommandText = "SELECT * FROM UserTable WHERE Id = " + LoginMenu.UserID;
-                    Com.Connection = Con;
-                    reader = Com.ExecuteReader();
-                    reader.Read();
-                    points4.Text = Convert.ToString(reader[Team + "Points"]);
-                    GD4.Text = Convert.ToString((Convert.ToInt32(reader[Team + "GF"]) - Convert.ToInt32(reader[Team + "GA"])));
-                    matches4.Text = Convert.ToString(reader[Team + "Matches"]);
-                    reader.Close();
-                    if (Team == "User")
-                    {
-                        Com.CommandText = "Select TeamName From Teams Where Id = " + LoginMenu.TeamID;
-                        Com.Connection = Con;
-                        reader = Com.ExecuteReader();
-                        reader.Read();
-                        team4.Text = Convert.ToString(reader["TeamName"]);
-                    }
-                    if (Team == "MU")
-                    {
-                        team4.Text = "Manchester United";
-                    }
-                    if (Team == "CHE")
-                    {
-                        team4.Text = "Chelsea";
-                    }
-                    if (Team == "SOU")
-                    {
-                        team4.Text = "Southampton";
-                    }
-                    if (Team == "WOL")
-                    {
-                        team4.Text = "Wolves";
-                    }
-                    if (Team == "NOR")
-                    {
-                        team4.Text = "Norwich";
-                    }
-                    Con.Close();
+                    GD4.Text = Convert.ToString((Convert.ToInt32(Sql.Select("Select * From UserTable Where Id = " + LoginMenu.UserID, 0, Team + "GA")) - Convert.ToInt32(Sql.Select("Select * From UserTable Where Id = " + LoginMenu.UserID, 0, Team + "GF"))));
+                    matches4.Text = Convert.ToString(Sql.Select("Select * From UserTable Where Id = " + LoginMenu.UserID, 0, Team + "Matches"));
+                    points4.Text = Convert.ToString(Sql.Select("Select * From UserTable Where Id = " + LoginMenu.UserID, 0, Team + "Points"));
+                    team4.Text = Sql.Select("Select TeamName From Teams Where Id = " + teamID, 0, "TeamName");
                     break;
 
                 case 4:
-                    Con.Open();
-                    Com.CommandText = "SELECT * FROM UserTable WHERE Id = " + LoginMenu.UserID;
-                    Com.Connection = Con;
-                    reader = Com.ExecuteReader();
-                    reader.Read();
-                    points3.Text = Convert.ToString(reader[Team + "Points"]);
-                    GD3.Text = Convert.ToString((Convert.ToInt32(reader[Team + "GF"]) - Convert.ToInt32(reader[Team + "GA"])));
-                    matches3.Text = Convert.ToString(reader[Team + "Matches"]);
-                    reader.Close();
-                    if (Team == "User")
-                    {
-                        Com.CommandText = "Select TeamName From Teams Where Id= " + LoginMenu.TeamID;
-                        Com.Connection = Con;
-                        reader = Com.ExecuteReader();
-                        reader.Read();
-                        team3.Text = Convert.ToString(reader["TeamName"]);
-                    }
-                    if (Team == "MU")
-                    {
-                        team3.Text = "Manchester United";
-                    }
-                    if (Team == "CHE")
-                    {
-                        team3.Text = "Chelsea";
-                    }
-                    if (Team == "SOU")
-                    {
-                        team3.Text = "Southampton";
-                    }
-                    if (Team == "WOL")
-                    {
-                        team3.Text = "Wolves";
-                    }
-                    if (Team == "NOR")
-                    {
-                        team3.Text = "Norwich";
-                    }
-                    Con.Close();
+                    GD3.Text = Convert.ToString((Convert.ToInt32(Sql.Select("Select * From UserTable Where Id = " + LoginMenu.UserID, 0, Team + "GA")) - Convert.ToInt32(Sql.Select("Select * From UserTable Where Id = " + LoginMenu.UserID, 0, Team + "GF"))));
+                    matches3.Text = Convert.ToString(Sql.Select("Select * From UserTable Where Id = " + LoginMenu.UserID, 0, Team + "Matches"));
+                    points3.Text = Convert.ToString(Sql.Select("Select * From UserTable Where Id = " + LoginMenu.UserID, 0, Team + "Points"));
+                    team3.Text = Sql.Select("Select TeamName From Teams Where Id = " + teamID, 0, "TeamName");
                     break;
 
                 case 5:
-                    Con.Open();
-                    Com.CommandText = "SELECT * FROM UserTable WHERE Id = " + LoginMenu.UserID;
-                    Com.Connection = Con;
-                    reader = Com.ExecuteReader();
-                    reader.Read();
-                    points2.Text = Convert.ToString(reader[Team + "Points"]);
-                    GD2.Text = Convert.ToString((Convert.ToInt32(reader[Team + "GF"]) - Convert.ToInt32(reader[Team + "GA"])));
-                    matches2.Text = Convert.ToString(reader[Team + "Matches"]);
-                    reader.Close();
-                    if (Team == "User")
-                    {
-                        Com.CommandText = "Select TeamName From Teams Where Id = " + LoginMenu.TeamID;
-                        Com.Connection = Con;
-                        reader = Com.ExecuteReader();
-                        reader.Read();
-                        team2.Text = Convert.ToString(reader["TeamName"]);
-                    }
-                    if (Team == "MU")
-                    {
-                        team2.Text = "Manchester United";
-                    }
-                    if (Team == "CHE")
-                    {
-                        team2.Text = "Chelsea";
-                    }
-                    if (Team == "SOU")
-                    {
-                        team2.Text = "Southampton";
-                    }
-                    if (Team == "WOL")
-                    {
-                        team2.Text = "Wolves";
-                    }
-                    if (Team == "NOR")
-                    {
-                        team2.Text = "Norwich";
-                    }
-                    Con.Close();
+                    GD2.Text = Convert.ToString((Convert.ToInt32(Sql.Select("Select * From UserTable Where Id = " + LoginMenu.UserID, 0, Team + "GA")) - Convert.ToInt32(Sql.Select("Select * From UserTable Where Id = " + LoginMenu.UserID, 0, Team + "GF"))));
+                    matches2.Text = Convert.ToString(Sql.Select("Select * From UserTable Where Id = " + LoginMenu.UserID, 0, Team + "Matches"));
+                    points2.Text = Convert.ToString(Sql.Select("Select * From UserTable Where Id = " + LoginMenu.UserID, 0, Team + "Points"));
+                    team2.Text = Sql.Select("Select TeamName From Teams Where Id = " + teamID, 0, "TeamName");
                     break;
 
                 case 6:
-                    Con.Open();
-                    Com.CommandText = "SELECT * FROM UserTable WHERE Id = " + LoginMenu.UserID;
-                    Com.Connection = Con;
-                    reader = Com.ExecuteReader();
-                    reader.Read();
-                    points1.Text = Convert.ToString(reader[Team + "Points"]);
-                    GD1.Text = Convert.ToString((Convert.ToInt32(reader[Team + "GF"]) - Convert.ToInt32(reader[Team + "GA"])));
-                    Matches1.Text = Convert.ToString(reader[Team + "Matches"]);
-                    reader.Close();
-                    if (Team == "User")
-                    {
-                        Com.CommandText = "Select * From Teams Where Id = " + LoginMenu.TeamID;
-                        Com.Connection = Con;
-                        reader = Com.ExecuteReader();
-                        reader.Read();
-                        team1.Text = Convert.ToString(reader["TeamName"]);
-                    }
-                    if (Team == "MU")
-                    {
-                        team1.Text = "Manchester United";
-                    }
-                    if (Team == "CHE")
-                    {
-                        team1.Text = "Chelsea";
-                    }
-                    if (Team == "SOU")
-                    {
-                        team1.Text = "Southampton";
-                    }
-                    if (Team == "WOL")
-                    {
-                        team1.Text = "Wolves";
-                    }
-                    if (Team == "NOR")
-                    {
-                        team1.Text = "Norwich";
-                    }
-                    Con.Close();
+                    GD1.Text = Convert.ToString((Convert.ToInt32(Sql.Select("Select * From UserTable Where Id = " + LoginMenu.UserID, 0, Team + "GA")) - Convert.ToInt32(Sql.Select("Select * From UserTable Where Id = " + LoginMenu.UserID, 0, Team + "GF"))));
+                    matches1.Text = Convert.ToString(Sql.Select("Select * From UserTable Where Id = " + LoginMenu.UserID, 0, Team + "Matches"));
+                    points1.Text = Convert.ToString(Sql.Select("Select * From UserTable Where Id = " + LoginMenu.UserID, 0, Team + "Points"));
+                    team1.Text = Sql.Select("Select TeamName From Teams Where Id = " + teamID, 0, "TeamName");
                     break;
             }
+
         }
 
         private void homeButton_Click(object sender, EventArgs e)

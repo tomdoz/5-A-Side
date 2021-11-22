@@ -55,7 +55,7 @@ namespace _5_A_Side
             this.team1 = new System.Windows.Forms.Label();
             this.pos1 = new System.Windows.Forms.Label();
             this.pos2 = new System.Windows.Forms.Label();
-            this.Matches1 = new System.Windows.Forms.Label();
+            this.matches1 = new System.Windows.Forms.Label();
             this.GD1 = new System.Windows.Forms.Label();
             this.teamHeading = new System.Windows.Forms.Label();
             this.posHeading = new System.Windows.Forms.Label();
@@ -105,7 +105,7 @@ namespace _5_A_Side
             this.tableLayoutPanel1.Controls.Add(this.team1, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.pos1, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.pos2, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.Matches1, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.matches1, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.GD1, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.teamHeading, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.posHeading, 0, 0);
@@ -395,16 +395,16 @@ namespace _5_A_Side
             this.pos2.Text = "2";
             this.pos2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // Matches1
+            // matches1
             // 
-            this.Matches1.AutoSize = true;
-            this.Matches1.Font = new System.Drawing.Font("Segoe UI Black", 8F, System.Drawing.FontStyle.Bold);
-            this.Matches1.Location = new System.Drawing.Point(1136, 63);
-            this.Matches1.Name = "Matches1";
-            this.Matches1.Size = new System.Drawing.Size(24, 30);
-            this.Matches1.TabIndex = 52;
-            this.Matches1.Text = "1";
-            this.Matches1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.matches1.AutoSize = true;
+            this.matches1.Font = new System.Drawing.Font("Segoe UI Black", 8F, System.Drawing.FontStyle.Bold);
+            this.matches1.Location = new System.Drawing.Point(1136, 63);
+            this.matches1.Name = "matches1";
+            this.matches1.Size = new System.Drawing.Size(24, 30);
+            this.matches1.TabIndex = 52;
+            this.matches1.Text = "1";
+            this.matches1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // GD1
             // 
@@ -586,7 +586,7 @@ namespace _5_A_Side
         private System.Windows.Forms.Label team1;
         private System.Windows.Forms.Label pos1;
         private System.Windows.Forms.Label pos2;
-        private System.Windows.Forms.Label Matches1;
+        private System.Windows.Forms.Label matches1;
         private System.Windows.Forms.Label GD1;
         private System.Windows.Forms.Label matches3;
         private System.Windows.Forms.Label GD4;

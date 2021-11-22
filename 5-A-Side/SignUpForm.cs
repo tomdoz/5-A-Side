@@ -25,7 +25,7 @@ namespace _5_A_Side
                 MessageBox.Show(message, title);
             }
             else
-            {   if (Duplicate(userNameTxt.Text, "UserTable", "Username") == true)
+            {   if (Utilities.Duplicate(userNameTxt.Text, "UserTable", "Username") == true)
                 {
                     string message = "The username you have requested is already taken, please use a different one";
                     string title = "Error: Username taken!";
@@ -42,16 +42,6 @@ namespace _5_A_Side
             }
         }
 
-        public bool Duplicate(string input, string targetTable, string targetColumn)
-        {
-            for (int i = 0; i < Sql.CountRows("UserTable"); i++)
-            {
-                if (input == Sql.Select("Select " + targetColumn + " from " + targetTable, i, targetColumn))
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
+
     }
 }

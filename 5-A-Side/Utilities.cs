@@ -10,6 +10,18 @@ namespace _5_A_Side
 {
     public class Utilities
     {
+        public static bool Duplicate(string input, string targetTable, string targetColumn)
+        {
+            for (int i = 0; i < Sql.CountRows("UserTable"); i++)
+            {
+                if (input == Sql.Select("Select " + targetColumn + " from " + targetTable, i, targetColumn))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
         public static bool InputChecking(string input, int minLen, int minNums)
         {
             if (input.Length < minLen)
