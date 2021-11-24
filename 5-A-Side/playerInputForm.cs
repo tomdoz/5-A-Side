@@ -486,49 +486,15 @@ namespace _5_A_Side
 
         private void InsertToDB(int Shooting, int Dribbling, int Pace, int Physicality, int Reliability, int Tackling, int Aggression, string FirstName, string LastName, int ShirtNum, int TeamID, int PlayerType)
         {
-            Con.Open();
-            string query = "insert into Players (Shooting, Dribbling, Pace, Physicality, Reliability, Tackling, Aggression, Name, ShirtNum, TeamID, PlayerType) values('" + Shooting + "', '" + Dribbling + "', '" + Pace + "', '" + Physicality + "', '" + Reliability + "', '" + Tackling + "', '" + Aggression + "', '" + (FirstName + " " + LastName) + "', '" + ShirtNum + "', '" + TeamID + "', '" + PlayerType + "')";
-            SqlCommand cmd = new SqlCommand(query, Con);
-            cmd.ExecuteNonQuery();
-            Con.Close();
+            Sql.Insert("insert into Players (Shooting, Dribbling, Pace, Physicality, Reliability, Tackling, Aggression, Name, ShirtNum, TeamID, PlayerType) values('" + Shooting + "', '" + Dribbling + "', '" + Pace + "', '" + Physicality + "', '" + Reliability + "', '" + Tackling + "', '" + Aggression + "', '" + (FirstName + " " + LastName) + "', '" + ShirtNum + "', '" + TeamID + "', '" + PlayerType + "')");
         }
 
         private void CreateTeam()
-        {
-            Con.Open();
-            //Selecting current user entry in UserTable to find their Name
-            string selectQuery = "select * from UserTable where Id=" + Convert.ToString(LoginMenu.UserID);
-            Com.CommandText = selectQuery;
-            Com.Connection = Con;
-            SqlDataReader reader = Com.ExecuteReader();
-            string NameVal = "";
-            reader.Read();
-            NameVal = (reader["Name"].ToString());
-            //Inserting team name and manager name into Teams table
-            reader.Close();
-            string query = "insert into Teams (TeamName, Manager) values('" + teamNameTxt.Text + "', '" + NameVal + "')";
-            SqlCommand cmd = new SqlCommand(query, Con);
-            cmd.ExecuteNonQuery();
-            //Selecting the Team we have just entered from teams table to update the current User's TeamID column and to insert into each player's TeamID column
-            Com.CommandText = "select * from Teams";
-            Com.Connection = Con;
-            SqlDataReader reader2 = Com.ExecuteReader();
-            while (reader2.Read())
-            {
-                string teamNameReader = Convert.ToString(reader2["TeamName"]);
-                string managerReader = Convert.ToString(reader2["Manager"]);
-
-                if (teamNameTxt.Text == teamNameReader  && NameVal == managerReader)
-                {
-                    LoginMenu.TeamID = Convert.ToInt32(reader2["Id"]);
-                }
-            }
-            reader2.Close();
-            //updating the TeamID of the current user in the UserTable
-            Com.CommandText = "UPDATE UserTable SET TeamID = " + LoginMenu.TeamID + " WHERE Id = " + LoginMenu.UserID;
-            Com.Connection = Con;
-            Com.ExecuteNonQuery();
-            Con.Close();
+        { 
+            string NameVal = Sql.Select("Select Name from UserTable Where Id = " + LoginMenu.UserID, 0, "Name");
+            Sql.Update("insert into Teams (TeamName, Manager) values('" + teamNameTxt.Text + "', '" + NameVal + "')");
+            LoginMenu.TeamID = Convert.ToInt32(Sql.Select("Select * From Teams Where TeamName = " + teamNameTxt.Text + "AND Manager = " + NameVal, 0, "Id"));
+            Sql.Update("UPDATE UserTable SET TeamID = " + LoginMenu.TeamID + " WHERE Id = " + LoginMenu.UserID);
         }
 
     }
