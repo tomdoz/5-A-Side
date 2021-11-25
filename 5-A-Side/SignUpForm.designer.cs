@@ -32,12 +32,8 @@ namespace _5_A_Side
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SignUpForm));
             this.topTitleLabel = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.enterDOB = new System.Windows.Forms.Label();
-            this.dobPicker = new System.Windows.Forms.DateTimePicker();
             this.nameTxt = new System.Windows.Forms.TextBox();
             this.firstName = new System.Windows.Forms.Label();
-            this.emailAddTxt = new System.Windows.Forms.TextBox();
-            this.emailLabel = new System.Windows.Forms.Label();
             this.PWTxt = new System.Windows.Forms.TextBox();
             this.enterPWLabel = new System.Windows.Forms.Label();
             this.userNameTxt = new System.Windows.Forms.TextBox();
@@ -61,13 +57,9 @@ namespace _5_A_Side
             // 
             // groupBox1
             // 
-            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox1.Controls.Add(this.enterDOB);
-            this.groupBox1.Controls.Add(this.dobPicker);
+            this.groupBox1.BackColor = System.Drawing.Color.White;
             this.groupBox1.Controls.Add(this.nameTxt);
             this.groupBox1.Controls.Add(this.firstName);
-            this.groupBox1.Controls.Add(this.emailAddTxt);
-            this.groupBox1.Controls.Add(this.emailLabel);
             this.groupBox1.Controls.Add(this.PWTxt);
             this.groupBox1.Controls.Add(this.enterPWLabel);
             this.groupBox1.Controls.Add(this.userNameTxt);
@@ -81,28 +73,9 @@ namespace _5_A_Side
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Create your account here!";
             // 
-            // enterDOB
-            // 
-            this.enterDOB.AutoSize = true;
-            this.enterDOB.BackColor = System.Drawing.SystemColors.Window;
-            this.enterDOB.Location = new System.Drawing.Point(66, 288);
-            this.enterDOB.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.enterDOB.Name = "enterDOB";
-            this.enterDOB.Size = new System.Drawing.Size(135, 25);
-            this.enterDOB.TabIndex = 9;
-            this.enterDOB.Text = "Date of birth:";
-            // 
-            // dobPicker
-            // 
-            this.dobPicker.Location = new System.Drawing.Point(216, 288);
-            this.dobPicker.Margin = new System.Windows.Forms.Padding(2);
-            this.dobPicker.Name = "dobPicker";
-            this.dobPicker.Size = new System.Drawing.Size(370, 31);
-            this.dobPicker.TabIndex = 8;
-            // 
             // nameTxt
             // 
-            this.nameTxt.Location = new System.Drawing.Point(216, 215);
+            this.nameTxt.Location = new System.Drawing.Point(216, 239);
             this.nameTxt.Margin = new System.Windows.Forms.Padding(2);
             this.nameTxt.Name = "nameTxt";
             this.nameTxt.Size = new System.Drawing.Size(332, 31);
@@ -112,35 +85,16 @@ namespace _5_A_Side
             // 
             this.firstName.AutoSize = true;
             this.firstName.BackColor = System.Drawing.SystemColors.Window;
-            this.firstName.Location = new System.Drawing.Point(28, 217);
+            this.firstName.Location = new System.Drawing.Point(28, 241);
             this.firstName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.firstName.Name = "firstName";
             this.firstName.Size = new System.Drawing.Size(176, 25);
             this.firstName.TabIndex = 6;
             this.firstName.Text = "Enter your name:";
             // 
-            // emailAddTxt
-            // 
-            this.emailAddTxt.Location = new System.Drawing.Point(216, 162);
-            this.emailAddTxt.Margin = new System.Windows.Forms.Padding(2);
-            this.emailAddTxt.Name = "emailAddTxt";
-            this.emailAddTxt.Size = new System.Drawing.Size(332, 31);
-            this.emailAddTxt.TabIndex = 5;
-            // 
-            // emailLabel
-            // 
-            this.emailLabel.AutoSize = true;
-            this.emailLabel.BackColor = System.Drawing.SystemColors.Window;
-            this.emailLabel.Location = new System.Drawing.Point(0, 165);
-            this.emailLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.emailLabel.Name = "emailLabel";
-            this.emailLabel.Size = new System.Drawing.Size(209, 25);
-            this.emailLabel.TabIndex = 4;
-            this.emailLabel.Text = "Enter email address:";
-            // 
             // PWTxt
             // 
-            this.PWTxt.Location = new System.Drawing.Point(216, 115);
+            this.PWTxt.Location = new System.Drawing.Point(214, 157);
             this.PWTxt.Margin = new System.Windows.Forms.Padding(2);
             this.PWTxt.Name = "PWTxt";
             this.PWTxt.PasswordChar = '*';
@@ -151,7 +105,7 @@ namespace _5_A_Side
             // 
             this.enterPWLabel.AutoSize = true;
             this.enterPWLabel.BackColor = System.Drawing.SystemColors.Window;
-            this.enterPWLabel.Location = new System.Drawing.Point(30, 115);
+            this.enterPWLabel.Location = new System.Drawing.Point(28, 157);
             this.enterPWLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.enterPWLabel.Name = "enterPWLabel";
             this.enterPWLabel.Size = new System.Drawing.Size(180, 25);
@@ -217,12 +171,8 @@ namespace _5_A_Side
         private System.Windows.Forms.TextBox userNameTxt;
         private System.Windows.Forms.Label enterUserLabel;
         private System.Windows.Forms.Label enterPWLabel;
-        private System.Windows.Forms.Label enterDOB;
-        private System.Windows.Forms.DateTimePicker dobPicker;
         private System.Windows.Forms.TextBox nameTxt;
         private System.Windows.Forms.Label firstName;
-        private System.Windows.Forms.TextBox emailAddTxt;
-        private System.Windows.Forms.Label emailLabel;
         private System.Windows.Forms.TextBox PWTxt;
         private System.Windows.Forms.Button signUpButton;
     }

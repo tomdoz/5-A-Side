@@ -39,9 +39,12 @@ namespace _5_A_Side
 
             if (loginDetailsCorrect == true)
             {
-                if (Sql.Select("Select * From Teams Where Id = " + TeamID, 0, "GF") == "0")
+                if (Sql.Select("Select * From UserTable Where Id = " + LoginMenu.UserID, 0, "TeamID") != "0")
                 {
-                    Sql.Update("Update Teams Set GF = 0");
+                    if (Sql.Select("Select * From Teams Where Id = " + TeamID, 0, "GF") == "0")
+                    {
+                        Sql.Update("Update Teams Set GF = 0");
+                    }
                 }
                 MessageBox.Show("Enjoy the time playing!", "Login successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 HomePage home = new HomePage();
