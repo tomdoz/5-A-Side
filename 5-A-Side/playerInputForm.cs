@@ -490,10 +490,21 @@ namespace _5_A_Side
         }
 
         private void CreateTeam()
-        { 
+        {
             string NameVal = Sql.Select("Select Name from UserTable Where Id = " + LoginMenu.UserID, 0, "Name");
             Sql.Update("insert into Teams (TeamName, Manager, GF) values('" + teamNameTxt.Text + "', '" + NameVal + "', '" + 0 + "')");
-            LoginMenu.TeamID = Convert.ToInt32(Sql.Select("Select * From Teams Where TeamName = " + teamNameTxt.Text + " AND Manager = " + NameVal, 0, "Id"));
+            string TeamName;
+            string Manager;
+            for (int i = 0; i < Sql.CountRows("Teams"); i++)
+            {
+                TeamName = Sql.Select("Select * From Teams", i, "TeamName");
+                Manager = Sql.Select("Select * From Teams", i, "Manager");
+                if (TeamName == teamNameTxt.Text && Manager == NameVal)
+                {
+                    LoginMenu.TeamID = Convert.ToInt32(Sql.Select("Select * From Teams", i, "Id"));
+                    break;
+                }
+            }
             Sql.Update("UPDATE UserTable SET TeamID = " + LoginMenu.TeamID + " WHERE Id = " + LoginMenu.UserID);
         }
 
