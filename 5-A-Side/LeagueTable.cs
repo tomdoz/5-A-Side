@@ -32,13 +32,46 @@ namespace _5_A_Side
         {
             InitializeComponent();
             OrderTeams();
-            Debug.WriteLine(Convert.ToString(UserRank));
+            int[] Ranks = new int[6] { UserRank, MURank, CHERank, SOURank, WOLRank, NORRank };
+            string[] Codes = new string[6] { "User", "MU", "CHE", "SOU", "WOL", "NOR" };
+            Ranks = PointsDrawCheck(Ranks, Codes);
+            UserRank = Ranks[0];
+            MURank = Ranks[1];
+            CHERank = Ranks[2];
+            SOURank = Ranks[3];
+            WOLRank = Ranks[4];
+            NORRank = Ranks[5];
             FillRow(UserRank, "User", LoginMenu.TeamID ,UserPoints);
             FillRow(MURank, "MU", 1002, MUPoints);
             FillRow(CHERank, "CHE", 1003 ,CHEPoints);
             FillRow(SOURank, "SOU", 1004, SOUPoints);
             FillRow(WOLRank, "WOL", 1005, WOLPoints);
             FillRow(NORRank, "NOR", 1006, NORPoints);
+        }
+
+        public int[] PointsDrawCheck(int[] ranks, string[] codes)
+        {
+            for (int i = 0; i < ranks.Length; i++)
+            {
+                for (int j = i+1; j < ranks.Length; j++)
+                {
+                    if (ranks[i] == ranks[j])
+                    {
+                        int iGD = Convert.ToInt32((Convert.ToInt32(Sql.Select("Select * From UserTable Where Id = " + LoginMenu.UserID, 0, codes[i] + "GF")) - Convert.ToInt32(Sql.Select("Select * From UserTable Where Id = " + LoginMenu.UserID, 0, codes[i] + "GA"))));
+                        int jGD = Convert.ToInt32((Convert.ToInt32(Sql.Select("Select * From UserTable Where Id = " + LoginMenu.UserID, 0, codes[j] + "GF")) - Convert.ToInt32(Sql.Select("Select * From UserTable Where Id = " + LoginMenu.UserID, 0, codes[j] + "GA"))));
+                        if (iGD > jGD)
+                        {
+                            ranks[j] = ranks[j] - 1;
+                        }
+                        else if (jGD > iGD)
+                        {
+                            ranks[i] = ranks[i] - 1;
+                        }
+                    }
+                    
+                }
+            }
+            return ranks;
         }
 
         public void OrderTeams()
