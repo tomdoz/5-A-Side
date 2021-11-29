@@ -18,8 +18,14 @@ namespace _5_A_Side
             InitializeComponent();
             UserHasTeam(); //checking if the user has a team
             GetNextGameweek(); //setting the next the next gameweek (next match to be played) e.g. if teams have played 2 matches next gameweek is 3
-            
+            DisplayUserName();
         }
+
+        public void DisplayUserName()
+        {
+            usernameLabel.Text = Sql.Select("Select * From UserTable Where Id = " + LoginMenu.UserID, 0, "Username");
+        }
+
 
         public void UserHasTeam()
         {
@@ -137,6 +143,13 @@ namespace _5_A_Side
             //when button clicked, open LeagueTable form, close current form
             LeagueTable league = new LeagueTable();
             league.Show();
+            this.Close();
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            LoginMenu login = new LoginMenu();
+            login.Show();
             this.Close();
         }
     }

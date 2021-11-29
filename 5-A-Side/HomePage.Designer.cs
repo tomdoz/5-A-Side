@@ -38,6 +38,8 @@ namespace _5_A_Side
             this.nextGameweek = new System.Windows.Forms.Label();
             this.resetButton = new System.Windows.Forms.Button();
             this.showLeagueTable = new System.Windows.Forms.Button();
+            this.usernameLabel = new System.Windows.Forms.Label();
+            this.btnLogout = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // TitleLabel
@@ -139,6 +141,32 @@ namespace _5_A_Side
             this.showLeagueTable.UseVisualStyleBackColor = true;
             this.showLeagueTable.Click += new System.EventHandler(this.showLeagueTable_Click);
             // 
+            // usernameLabel
+            // 
+            this.usernameLabel.AutoSize = true;
+            this.usernameLabel.BackColor = System.Drawing.Color.Transparent;
+            this.usernameLabel.Font = new System.Drawing.Font("Segoe UI Black", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.usernameLabel.ForeColor = System.Drawing.Color.White;
+            this.usernameLabel.Location = new System.Drawing.Point(140, 656);
+            this.usernameLabel.Name = "usernameLabel";
+            this.usernameLabel.Size = new System.Drawing.Size(317, 54);
+            this.usernameLabel.TabIndex = 11;
+            this.usernameLabel.Text = "usernameLabel";
+            // 
+            // btnLogout
+            // 
+            this.btnLogout.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btnLogout.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnLogout.BackgroundImage")));
+            this.btnLogout.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnLogout.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogout.Location = new System.Drawing.Point(27, 615);
+            this.btnLogout.Margin = new System.Windows.Forms.Padding(6);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(104, 116);
+            this.btnLogout.TabIndex = 12;
+            this.btnLogout.UseVisualStyleBackColor = false;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
+            // 
             // HomePage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -147,6 +175,8 @@ namespace _5_A_Side
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1558, 760);
+            this.Controls.Add(this.btnLogout);
+            this.Controls.Add(this.usernameLabel);
             this.Controls.Add(this.resetButton);
             this.Controls.Add(this.nextGameweek);
             this.Controls.Add(this.teamDisplayButton);
@@ -176,5 +206,7 @@ namespace _5_A_Side
         private System.Windows.Forms.Label nextGameweek;
         private System.Windows.Forms.Button resetButton;
         private System.Windows.Forms.Button showLeagueTable;
+        private System.Windows.Forms.Label usernameLabel;
+        private System.Windows.Forms.Button btnLogout;
     }
 }

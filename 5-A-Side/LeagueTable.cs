@@ -31,9 +31,9 @@ namespace _5_A_Side
         public LeagueTable()
         {
             InitializeComponent();
-            OrderTeams();
-            int[] Ranks = new int[6] { UserRank, MURank, CHERank, SOURank, WOLRank, NORRank };
             string[] Codes = new string[6] { "User", "MU", "CHE", "SOU", "WOL", "NOR" };
+            OrderTeams(Codes);
+            int[] Ranks = new int[6] { UserRank, MURank, CHERank, SOURank, WOLRank, NORRank };
             Ranks = PointsDrawCheck(Ranks, Codes);
             UserRank = Ranks[0];
             MURank = Ranks[1];
@@ -41,12 +41,12 @@ namespace _5_A_Side
             SOURank = Ranks[3];
             WOLRank = Ranks[4];
             NORRank = Ranks[5];
-            FillRow(UserRank, "User", LoginMenu.TeamID ,UserPoints);
-            FillRow(MURank, "MU", 1002, MUPoints);
-            FillRow(CHERank, "CHE", 1003 ,CHEPoints);
-            FillRow(SOURank, "SOU", 1004, SOUPoints);
-            FillRow(WOLRank, "WOL", 1005, WOLPoints);
-            FillRow(NORRank, "NOR", 1006, NORPoints);
+            FillRow(UserRank, "User", LoginMenu.TeamID);
+            FillRow(MURank, "MU", 1002);
+            FillRow(CHERank, "CHE", 1003);
+            FillRow(SOURank, "SOU", 1004);
+            FillRow(WOLRank, "WOL", 1005);
+            FillRow(NORRank, "NOR", 1006);
         }
 
         public int[] PointsDrawCheck(int[] ranks, string[] codes)
@@ -74,10 +74,9 @@ namespace _5_A_Side
             return ranks;
         }
 
-        public void OrderTeams()
+        public void OrderTeams(string[] teamCodes)
         {
             int[] PointsToSort = new int[6];
-            string[] teamCodes = new string[6] { "User", "MU", "CHE", "SOU", "WOL", "NOR" };
             UserPoints = Convert.ToInt32(Sql.Select("Select * From UserTable Where Id = " + LoginMenu.UserID, 0, "UserPoints"));
             MUPoints = Convert.ToInt32(Sql.Select("Select * From UserTable Where Id = " + LoginMenu.UserID, 0, "MUPoints"));
             CHEPoints = Convert.ToInt32(Sql.Select("Select * From UserTable Where Id = " + LoginMenu.UserID, 0, "CHEPoints"));
@@ -260,7 +259,7 @@ namespace _5_A_Side
             }
         }
 
-        public void FillRow(int Rank, string Team, int teamID, int points)
+        public void FillRow(int Rank, string Team, int teamID)
         {
             switch (Rank)
             {
