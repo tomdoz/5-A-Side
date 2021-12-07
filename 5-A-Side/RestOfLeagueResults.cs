@@ -56,8 +56,8 @@ namespace _5_A_Side
             awayScoreLab.Text = awayScore.ToString();
             int homeResult = fixture1.MatchResult(homeScore, awayScore);
             int awayResult = fixture.MatchResult(awayScore, homeScore);
-            fixture.LeagueTableUpdate(homeScore, awayScore, homeResult, fixture.userTeamID);
-            fixture.LeagueTableUpdate(awayScore, homeScore, awayResult, fixture.cpuTeamID);
+            fixture.LeagueTableUpdate(homeScore, awayScore, homeResult, fixture.userTeamID, fixture.GetTeamCode(fixture.userTeamID));
+            fixture.LeagueTableUpdate(awayScore, homeScore, awayResult, fixture.cpuTeamID, fixture.GetTeamCode(fixture.cpuTeamID));
         }
 
         public int DecodeRecord(int[] array)

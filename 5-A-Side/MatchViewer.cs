@@ -102,8 +102,9 @@ namespace _5_A_Side
                     string matchEndMsg = "The Match has ended, the game finished " + userScore + " - " + cpuScore;
                     string matchEndMsgTitle = "Match Ended";
                     MessageBox.Show(matchEndMsg, matchEndMsgTitle);
-                    match.LeagueTableUpdate(userScore, cpuScore, userResult,LoginMenu.TeamID);
-                    match.LeagueTableUpdate(cpuScore, userScore, CPUResult, match.cpuTeamID);
+                    Debug.WriteLine(match.GetTeamCode(LoginMenu.TeamID));
+                    match.LeagueTableUpdate(userScore, cpuScore, userResult, LoginMenu.TeamID, match.GetTeamCode(LoginMenu.TeamID));
+                    match.LeagueTableUpdate(cpuScore, userScore, CPUResult, match.cpuTeamID, match.GetTeamCode(match.cpuTeamID));
                     match.UpdateCurrFixture();
                     RestOfLeagueResults rest = new RestOfLeagueResults();
                     rest.Show();

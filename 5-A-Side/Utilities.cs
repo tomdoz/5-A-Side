@@ -54,11 +54,17 @@ namespace _5_A_Side
         }
         public static string hashPassword(string password)
         {
-            SHA1CryptoServiceProvider sha1 = new SHA1CryptoServiceProvider();
-
-            byte[] password_bytes = Encoding.ASCII.GetBytes(password);
-            byte[] encrypted_bytes = sha1.ComputeHash(password_bytes);
-            return Convert.ToBase64String(encrypted_bytes);
+            int[] passwordChars = new int[password.Length];
+            int[] encryptionKey = new int[password.Length];
+            string encrypted = "";
+            for (int i = 0; i < password.Length; i++)
+            {
+                encryptionKey[i] = Convert.ToInt32(password[i]) + (i - 8);
+                passwordChars[i] = Convert.ToInt32(password[i]);
+                encrypted += Convert.ToChar(encryptionKey[i] ^ passwordChars[i]);
+            }
+            Debug.WriteLine("encryption = " + encrypted);
+            return encrypted;
 
         }
 
