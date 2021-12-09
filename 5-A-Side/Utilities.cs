@@ -68,7 +68,7 @@ namespace _5_A_Side
 
         }
 
-        public static int[] mergeSort(int[] array)
+        public static int[] MergeSort(int[] array)
         {
             int[] left;
             int[] right;
@@ -86,19 +86,19 @@ namespace _5_A_Side
             for (int i = 0; i < midPoint; i++)
                 left[i] = array[i];
   
-            int x = 0;
+            int index = 0;
             for (int i = midPoint; i < array.Length; i++)
             {
-                right[x] = array[i];
-                x++;
+                right[index] = array[i];
+                index++;
             }
-            left = mergeSort(left);
-            right = mergeSort(right);
-            result = merge(left, right);
+            left = MergeSort(left);
+            right = MergeSort(right);
+            result = Merge(left, right);
             return result;
         }
 
-        public static int[] merge(int[] left, int[] right)
+        public static int[] Merge(int[] left, int[] right)
         {
             int resultLength = right.Length + left.Length;
             int[] result = new int[resultLength];
