@@ -63,12 +63,12 @@ namespace _5_A_Side
                 passwordChars[i] = Convert.ToInt32(password[i]);
                 encrypted += Convert.ToChar(encryptionKey[i] ^ passwordChars[i]);
             }
-            Debug.WriteLine("encryption = " + encrypted);
+            Debug.WriteLine(encrypted);
             return encrypted;
 
         }
 
-        public static int[] MergeSort(int[] array)
+        public static int[] mergeSort(int[] array)
         {
             int[] left;
             int[] right;
@@ -92,8 +92,8 @@ namespace _5_A_Side
                 right[index] = array[i];
                 index++;
             }
-            left = MergeSort(left);
-            right = MergeSort(right);
+            left = mergeSort(left);
+            right = mergeSort(right);
             result = Merge(left, right);
             return result;
         }

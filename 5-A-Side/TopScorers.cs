@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
+using System.Data.SqlClient;
 
 
 namespace _5_A_Side
@@ -52,7 +53,6 @@ namespace _5_A_Side
             }
             string code = GetTeamCode(TeamIDForFixtures);
             GF = Convert.ToInt32(Sql.Select("SELECT * FROM UserTable Where Id = " + LoginMenu.UserID, 0, code + "GF"));
-            Debug.WriteLine(TeamID + "GF = " + GF);
             teamName = Sql.Select("SELECT * FROM Teams WHERE Id = " + TeamID, 0, "TeamName");
         }
 
@@ -137,10 +137,10 @@ namespace _5_A_Side
 
         public void FillRow(Label player, Label team, Label goals, Label lastMatch)
         {
-                player.Text = playerName;
-                team.Text = teamName;
-                goals.Text = Convert.ToString(GF);
-                lastMatch.Text = LastMatch;
+            player.Text = playerName;
+            team.Text = teamName;
+            goals.Text = Convert.ToString(GF);
+            lastMatch.Text = LastMatch;
         }
 
         private void homeButton_Click(object sender, EventArgs e)
@@ -149,5 +149,5 @@ namespace _5_A_Side
             home.Show();
             this.Close();
         }
-    }
+    } 
 }
