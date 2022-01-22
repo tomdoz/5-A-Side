@@ -9,107 +9,21 @@ namespace _5_A_Side
 {
     public class Match : Sql
     {
-        //variables for individual player attributes (user team);
+        //arrays for individual player attributes (user team);
+        public int[] capStats = new int[7];
+        public int[] p2Stats = new int[7];
+        public int[] p3Stats = new int[7];
+        public int[] p4Stats = new int[7];
+        public int[] p5Stats = new int[7];
+        public int[] p6Stats = new int[7];
 
-        //captain attribute variables
-        public int p1ShootingVal;
-        public int p1DribblingVal;
-        public int p1PaceVal;
-        public int p1PhysicalVal;
-        public int p1ReliableVal;
-        public int p1TackleVal;
-        public int p1AggroVal;
-        //player 2 attribute variables
-        public int p2ShootingVal;
-        public int p2DribblingVal;
-        public int p2PaceVal;
-        public int p2PhysicalVal;
-        public int p2ReliableVal;
-        public int p2TackleVal;
-        public int p2AggroVal;
-        //player 3 attribute variables;
-        public int p3ShootingVal;
-        public int p3DribblingVal;
-        public int p3PaceVal;
-        public int p3PhysicalVal;
-        public int p3ReliableVal;
-        public int p3TackleVal;
-        public int p3AggroVal;
-        //player 4 attribute variables;
-        public int p4ShootingVal;
-        public int p4DribblingVal;
-        public int p4PaceVal;
-        public int p4PhysicalVal;
-        public int p4ReliableVal;
-        public int p4TackleVal;
-        public int p4AggroVal;
-        //player 5 attribute variables;
-        public int p5ShootingVal;
-        public int p5DribblingVal;
-        public int p5PaceVal;
-        public int p5PhysicalVal;
-        public int p5ReliableVal;
-        public int p5TackleVal;
-        public int p5AggroVal;
-        //substitute attribute variables
-        public int subShootingVal;
-        public int subDribblingVal;
-        public int subPaceVal;
-        public int subPhysicalVal;
-        public int subReliableVal;
-        public int subTackleVal;
-        public int subAggroVal;
-
-        //variables for individual player attributes (cpu team);
-
-        //captain attribute variables
-        public int cpuP1ShootingVal;
-        public int cpuP1DribblingVal;
-        public int cpuP1PaceVal;
-        public int cpuP1PhysicalVal;
-        public int cpuP1ReliableVal;
-        public int cpuP1TackleVal;
-        public int cpuP1AggroVal;
-        //player 2 attribute variables
-        public int cpuP2ShootingVal;
-        public int cpuP2DribblingVal;
-        public int cpuP2PaceVal;
-        public int cpuP2PhysicalVal;
-        public int cpuP2ReliableVal;
-        public int cpuP2TackleVal;
-        public int cpuP2AggroVal;
-        //player 3 attribute variables;
-        public int cpuP3ShootingVal;
-        public int cpuP3DribblingVal;
-        public int cpuP3PaceVal;
-        public int cpuP3PhysicalVal;
-        public int cpuP3ReliableVal;
-        public int cpuP3TackleVal;
-        public int cpuP3AggroVal;
-        //player 4 attribute variables;
-        public int cpuP4ShootingVal;
-        public int cpuP4DribblingVal;
-        public int cpuP4PaceVal;
-        public int cpuP4PhysicalVal;
-        public int cpuP4ReliableVal;
-        public int cpuP4TackleVal;
-        public int cpuP4AggroVal;
-        //player 5 attRibute variables;
-        public int cpuP5ShootingVal;
-        public int cpuP5DribblingVal;
-        public int cpuP5PaceVal;
-        public int cpuP5PhysicalVal;
-        public int cpuP5ReliableVal;
-        public int cpuP5TackleVal;
-        public int cpuP5AggroVal;
-        //substitute attribute variables
-        public int cpuSubShootingVal;
-        public int cpuSubDribblingVal;
-        public int cpuSubPaceVal;
-        public int cpuSubPhysicalVal;
-        public int cpuSubReliableVal;
-        public int cpuSubTackleVal;
-        public int cpuSubAggroVal;
+        //arrays for individual player attributes (cpu team)
+        public int[] cpuCapStats = new int[7];
+        public int[] cpuP2Stats = new int[7];
+        public int[] cpuP3Stats = new int[7];
+        public int[] cpuP4Stats = new int[7];
+        public int[] cpuP5Stats = new int[7];
+        public int[] cpuP6Stats = new int[7];
 
         //variables for averages of each attribute for each stat for user and cpu teams
         public int[] userAverages = new int[7];
@@ -170,105 +84,21 @@ namespace _5_A_Side
             }
 
             //selecting and assigning the user team's player attributes
-            int[] capStats = Player.CollectStats(userTeamID, 1);
-            p1ShootingVal = capStats[0];
-            p1DribblingVal = capStats[1];
-            p1PaceVal = capStats[2];
-            p1PhysicalVal = capStats[3];
-            p1ReliableVal = capStats[4];
-            p1TackleVal = capStats[5];
-            p1AggroVal = capStats[6];
-            int[] p2Stats = Player.CollectStats(userTeamID, 2);
-            p2ShootingVal = p2Stats[0];
-            p2DribblingVal = p2Stats[1];
-            p2PaceVal = p2Stats[2];
-            p2PhysicalVal = p2Stats[3];
-            p2ReliableVal = p2Stats[4];
-            p2TackleVal = p2Stats[5];
-            p2AggroVal = p2Stats[6];
-            int[] p3Stats = Player.CollectStats(userTeamID, 3);
-            p3ShootingVal = p3Stats[0];
-            p3DribblingVal = p3Stats[1];
-            p3PaceVal = p3Stats[2];
-            p3PhysicalVal = p3Stats[3];
-            p3ReliableVal = p3Stats[4];
-            p3TackleVal = p3Stats[5];
-            p3AggroVal = p3Stats[6];
-            int[] p4Stats = Player.CollectStats(userTeamID, 4);
-            p4ShootingVal = p4Stats[0];
-            p4DribblingVal = p4Stats[1];
-            p4PaceVal = p4Stats[2];
-            p4PhysicalVal = p4Stats[3];
-            p4ReliableVal = p4Stats[4];
-            p4TackleVal = p4Stats[5];
-            p4AggroVal = p4Stats[6];
-            int[] p5Stats = Player.CollectStats(userTeamID, 5);
-            p5ShootingVal = p5Stats[0];
-            p5DribblingVal = p5Stats[1];
-            p5PaceVal = p5Stats[2];
-            p5PhysicalVal = p5Stats[3];
-            p5ReliableVal = p5Stats[4];
-            p5TackleVal = p5Stats[5];
-            p5AggroVal = p5Stats[6];
-            int[] p6Stats = Player.CollectStats(userTeamID, 6);
-            subShootingVal = p6Stats[0];
-            subDribblingVal = p6Stats[1];
-            subPaceVal = p6Stats[2];
-            subPhysicalVal = p6Stats[3];
-            subReliableVal = p6Stats[4];
-            subTackleVal = p6Stats[5];
-            subAggroVal = p6Stats[6];
+            capStats = Player.CollectStats(userTeamID, 1);
+            p2Stats = Player.CollectStats(userTeamID, 2);
+            p3Stats = Player.CollectStats(userTeamID, 3);
+            p4Stats = Player.CollectStats(userTeamID, 4);
+            p5Stats = Player.CollectStats(userTeamID, 5);
+            p6Stats = Player.CollectStats(userTeamID, 6);
             //selecting user team's name
             userName = Sql.Select("Select TeamName from Teams where Id = " + userTeamID.ToString(), 0, "TeamName");
             //selecting and assinging the cpu team's player attributes
-            int[] cpuCapStats = Player.CollectStats(cpuTeamID, 1);
-            cpuP1ShootingVal = cpuCapStats[0];
-            cpuP1DribblingVal = cpuCapStats[1];
-            cpuP1PaceVal = cpuCapStats[2];
-            cpuP1PhysicalVal = cpuCapStats[3];
-            cpuP1ReliableVal = cpuCapStats[4];
-            cpuP1TackleVal = cpuCapStats[5];
-            cpuP1AggroVal = cpuCapStats[6];
-            int[] cpuP2Stats = Player.CollectStats(cpuTeamID, 2);
-            cpuP2ShootingVal = cpuP2Stats[0];
-            cpuP2DribblingVal = cpuP2Stats[1];
-            cpuP2PaceVal = cpuP2Stats[2];
-            cpuP2PhysicalVal = cpuP2Stats[3];
-            cpuP2ReliableVal = cpuP2Stats[4];
-            cpuP2TackleVal = cpuP2Stats[5];
-            cpuP2AggroVal = cpuP2Stats[6];
-            int[] cpuP3Stats = Player.CollectStats(cpuTeamID, 3);
-            cpuP3ShootingVal = cpuP3Stats[0];
-            cpuP3DribblingVal = cpuP3Stats[1];
-            cpuP3PaceVal = cpuP3Stats[2];
-            cpuP3PhysicalVal = cpuP3Stats[3];
-            cpuP3ReliableVal = cpuP3Stats[4];
-            cpuP3TackleVal = cpuP3Stats[5];
-            cpuP3AggroVal = cpuP3Stats[6];
-            int[] cpuP4Stats = Player.CollectStats(cpuTeamID, 4);
-            cpuP4ShootingVal = cpuP4Stats[0];
-            cpuP4DribblingVal = cpuP4Stats[1];
-            cpuP4PaceVal = cpuP4Stats[2];
-            cpuP4PhysicalVal = cpuP4Stats[3];
-            cpuP4ReliableVal = cpuP4Stats[4];
-            cpuP4TackleVal = cpuP4Stats[5];
-            cpuP4AggroVal = cpuP4Stats[6];
-            int[] cpuP5Stats = Player.CollectStats(cpuTeamID, 5);
-            cpuP5ShootingVal = cpuP5Stats[0];
-            cpuP5DribblingVal = cpuP5Stats[1];
-            cpuP5PaceVal = cpuP5Stats[2];
-            cpuP5PhysicalVal = cpuP5Stats[3];
-            cpuP5ReliableVal = cpuP5Stats[4];
-            cpuP5TackleVal = cpuP5Stats[5];
-            cpuP5AggroVal = cpuP5Stats[6];
-            int[] cpuP6Stats = Player.CollectStats(cpuTeamID, 6);
-            cpuSubShootingVal = cpuP6Stats[0];
-            cpuSubDribblingVal = cpuP6Stats[1];
-            cpuSubPaceVal = cpuP6Stats[2];
-            cpuSubPhysicalVal = cpuP6Stats[3];
-            cpuSubReliableVal = cpuP6Stats[4];
-            cpuSubTackleVal = cpuP6Stats[5];
-            cpuSubAggroVal = cpuP6Stats[6];
+            cpuCapStats = Player.CollectStats(cpuTeamID, 1);
+            cpuP2Stats = Player.CollectStats(cpuTeamID, 2);
+            cpuP3Stats = Player.CollectStats(cpuTeamID, 3);
+            cpuP4Stats = Player.CollectStats(cpuTeamID, 4);
+            cpuP5Stats = Player.CollectStats(cpuTeamID, 5);
+            cpuP6Stats = Player.CollectStats(cpuTeamID, 6);
             //selecting cpu team's name
             cpuName = Sql.Select("Select TeamName from Teams where Id = " + cpuTeamID.ToString(), 0, "TeamName");
         }
@@ -276,22 +106,22 @@ namespace _5_A_Side
         public void TeamAvgStats()
         {
             //using a simple mean calculation
-            int userSHO = (p1ShootingVal + p2ShootingVal + p3ShootingVal + p4ShootingVal + p5ShootingVal) / 5;
-            int userDRI = (p1DribblingVal + p2DribblingVal + p3DribblingVal + p4DribblingVal + p5DribblingVal) / 5;
-            int userPAC = (p1PaceVal + p2PaceVal + p3PaceVal + p4PaceVal + p5PaceVal) / 5;
-            int userPHY = (p1PhysicalVal + p2PhysicalVal + p3PhysicalVal + p4PhysicalVal + p5PhysicalVal) / 5;
-            int userREL = (p1ReliableVal + p2ReliableVal + p3ReliableVal + p4ReliableVal + p5ReliableVal) / 5;
-            int userTAC = (p1TackleVal + p2TackleVal + p3TackleVal + p4TackleVal + p5TackleVal) / 5;
-            int userAGG = (p1AggroVal + p2AggroVal + p3AggroVal + p4AggroVal + p5AggroVal) / 5;
+            int userSHO = (capStats[0] + p2Stats[0] + p3Stats[0] + p4Stats[0] + p5Stats[0] + p6Stats[0]) / 5;
+            int userDRI = (capStats[1] + p2Stats[1] + p3Stats[1] + p4Stats[1] + p5Stats[1] + p6Stats[1]) / 5;
+            int userPAC = (capStats[2] + p2Stats[2] + p3Stats[2] + p4Stats[2] + p5Stats[2] + p6Stats[2]) / 5;
+            int userPHY = (capStats[3] + p2Stats[3] + p3Stats[3] + p4Stats[3] + p5Stats[3] + p6Stats[3]) / 5;
+            int userREL = (capStats[4] + p2Stats[4] + p3Stats[4] + p4Stats[4] + p5Stats[4] + p6Stats[4]) / 5;
+            int userTAC = (capStats[5] + p2Stats[5] + p3Stats[5] + p4Stats[5] + p5Stats[5] + p6Stats[5]) / 5;
+            int userAGG = (capStats[6] + p2Stats[6] + p3Stats[6] + p4Stats[6] + p5Stats[6] + p6Stats[6]) / 5;
             int[] userAveragesTemp = { userSHO, userDRI, userPAC, userPHY, userREL, userTAC, userAGG };
             userAverages = userAveragesTemp;
-            int cpuSHO = (cpuP1ShootingVal + cpuP2ShootingVal + cpuP3ShootingVal + cpuP4ShootingVal + cpuP5ShootingVal) / 5;
-            int cpuDRI = (cpuP1DribblingVal + cpuP2DribblingVal + cpuP3DribblingVal + cpuP4DribblingVal + cpuP5DribblingVal) / 5;
-            int cpuPAC = (cpuP1PaceVal + cpuP2PaceVal + cpuP3PaceVal + cpuP4PaceVal + cpuP5PaceVal) / 5;
-            int cpuPHY = (cpuP1PhysicalVal + cpuP2PhysicalVal + cpuP3PhysicalVal + cpuP4PhysicalVal + cpuP5PhysicalVal) / 5;
-            int cpuREL = (cpuP1ReliableVal + cpuP2ReliableVal + cpuP3ReliableVal + cpuP4ReliableVal + cpuP5ReliableVal) / 5;
-            int cpuTAC = (cpuP1TackleVal + cpuP2TackleVal + cpuP3TackleVal + cpuP4TackleVal + cpuP5TackleVal) / 5;
-            int cpuAGG = (cpuP1AggroVal + cpuP2AggroVal + cpuP3AggroVal + cpuP4AggroVal + cpuP5AggroVal) / 5;
+            int cpuSHO = (cpuCapStats[0] + cpuP2Stats[0] + cpuP3Stats[0] + cpuP4Stats[0] + cpuP5Stats[0] + cpuP6Stats[0]) / 5;
+            int cpuDRI = (cpuCapStats[1] + cpuP2Stats[1] + cpuP3Stats[1] + cpuP4Stats[1] + cpuP5Stats[1] + cpuP6Stats[1]) / 5;
+            int cpuPAC = (cpuCapStats[2] + cpuP2Stats[2] + cpuP3Stats[2] + cpuP4Stats[2] + cpuP5Stats[2] + cpuP6Stats[2]) / 5;
+            int cpuPHY = (cpuCapStats[3] + cpuP2Stats[3] + cpuP3Stats[3] + cpuP4Stats[3] + cpuP5Stats[3] + cpuP6Stats[3]) / 5;
+            int cpuREL = (cpuCapStats[4] + cpuP2Stats[4] + cpuP3Stats[4] + cpuP4Stats[4] + cpuP5Stats[4] + cpuP6Stats[4]) / 5;
+            int cpuTAC = (cpuCapStats[5] + cpuP2Stats[5] + cpuP3Stats[5] + cpuP4Stats[5] + cpuP5Stats[5] + cpuP6Stats[5]) / 5;
+            int cpuAGG = (cpuCapStats[6] + cpuP2Stats[6] + cpuP3Stats[6] + cpuP4Stats[6] + cpuP5Stats[6] + cpuP6Stats[6]) / 5;
             int[] cpuAveragesTemp = new int[7] { cpuSHO, cpuDRI, cpuPAC, cpuPHY, cpuREL, cpuTAC, cpuAGG };
             cpuAverages = cpuAveragesTemp;
         }

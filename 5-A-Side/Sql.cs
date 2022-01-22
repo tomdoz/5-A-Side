@@ -21,7 +21,16 @@ namespace _5_A_Side
             Com.ExecuteNonQuery();
             Con.Close();
         }
-        
+        public static int Count(string table)
+        {
+            Con.Open();
+            Com.Connection = Con;
+            Com.CommandText = "Select COUNT(*) From " + table;
+            int test = Convert.ToInt32(Com.ExecuteScalar());
+            Con.Close();
+            return test;
+        }
+
         public static string Select(string command, int readMultiplier, string targetColumn)
         {
             Con.Open();

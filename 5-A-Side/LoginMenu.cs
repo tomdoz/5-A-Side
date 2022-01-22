@@ -24,7 +24,7 @@ namespace _5_A_Side
 
         private void loginButton_Click(object sender, EventArgs e)
         {
-            int UsersCount = Sql.CountRows("UserTable");
+            int UsersCount = Sql.Count("UserTable");
             for (int i = 0; i < UsersCount; i++)
             {
                 string readerUsernameVal = Sql.Select("Select * from UserTable", i, "Username");

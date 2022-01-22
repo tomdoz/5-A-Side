@@ -12,8 +12,6 @@ namespace _5_A_Side
 {
     public partial class playerInputForm : Form
     {
-        SqlConnection Con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\tomra\OneDrive\Documents\FootballGame.mdf;Integrated Security=True;Connect Timeout=30");
-        SqlCommand Com = new SqlCommand();
 
         //captain attribute variables
         public int p1ShootingVal = 0;
@@ -495,7 +493,7 @@ namespace _5_A_Side
             Sql.Update("insert into Teams (TeamName, Manager, GF) values('" + teamNameTxt.Text + "', '" + NameVal + "', '" + 0 + "')");
             string TeamName;
             string Manager;
-            for (int i = 0; i < Sql.CountRows("Teams"); i++)
+            for (int i = 0; i < Sql.Count("Teams"); i++)
             {
                 TeamName = Sql.Select("Select * From Teams", i, "TeamName");
                 Manager = Sql.Select("Select * From Teams", i, "Manager");

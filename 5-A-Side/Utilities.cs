@@ -12,7 +12,8 @@ namespace _5_A_Side
     {
         public static bool Duplicate(string input, string targetTable, string targetColumn)
         {
-            for (int i = 0; i < Sql.CountRows("UserTable"); i++)
+            int Count = Convert.ToInt32(Sql.Count("UserTable"));
+            for (int i = 0; i < Count; i++)
             {
                 if (input == Sql.Select("Select " + targetColumn + " from " + targetTable, i, targetColumn))
                 {
@@ -63,7 +64,6 @@ namespace _5_A_Side
                 passwordChars[i] = Convert.ToInt32(password[i]);
                 encrypted += Convert.ToChar(encryptionKey[i] ^ passwordChars[i]);
             }
-            Debug.WriteLine(encrypted);
             return encrypted;
 
         }

@@ -46,12 +46,9 @@ namespace _5_A_Side
             awayScoreRecord = fixture.SimulateMatch(fixture.cpuScoreChance);
             homeTeam.Text = fixture.userName;
             awayTeam.Text = fixture.cpuName;
-            Debug.WriteLine("home score chance = " + fixture.userScoreChance);
-            Debug.WriteLine("away score chance = " + fixture.cpuScoreChance);
             homeScoreRecord = fixture.SimulateMatch(fixture.userScoreChance);
             homeScore = DecodeRecord(homeScoreRecord);
             awayScore = DecodeRecord(awayScoreRecord);
-            Debug.WriteLine("homeScore = " + homeScore);
             homeScoreLab.Text = homeScore.ToString();
             awayScoreLab.Text = awayScore.ToString();
             int homeResult = fixture1.MatchResult(homeScore, awayScore);
