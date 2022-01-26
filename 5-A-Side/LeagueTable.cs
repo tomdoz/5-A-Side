@@ -76,19 +76,13 @@ namespace _5_A_Side
 
         public void OrderTeams(string[] teamCodes)
         {
-            int[] PointsToSort = new int[6];
             UserPoints = Convert.ToInt32(Sql.Select("Select * From UserTable Where Id = " + LoginMenu.UserID, 0, "UserPoints"));
             MUPoints = Convert.ToInt32(Sql.Select("Select * From UserTable Where Id = " + LoginMenu.UserID, 0, "MUPoints"));
             CHEPoints = Convert.ToInt32(Sql.Select("Select * From UserTable Where Id = " + LoginMenu.UserID, 0, "CHEPoints"));
             SOUPoints = Convert.ToInt32(Sql.Select("Select * From UserTable Where Id = " + LoginMenu.UserID, 0, "SOUPoints"));
             WOLPoints = Convert.ToInt32(Sql.Select("Select * From UserTable Where Id = " + LoginMenu.UserID, 0, "WOLPoints"));
             NORPoints = Convert.ToInt32(Sql.Select("Select * From UserTable Where Id = " + LoginMenu.UserID, 0, "NORPoints"));
-
-
-            for (int i = 0; i < PointsToSort.Length; i++)
-            {
-                PointsToSort[i] = Convert.ToInt32(Sql.Select("Select * From UserTable Where Id = " + LoginMenu.UserID, 0, teamCodes[i] + "Points"));
-            }
+            int[] PointsToSort = new int[6] {UserPoints , MUPoints , CHEPoints , SOUPoints , WOLPoints , NORPoints };
             PointTotals = Utilities.mergeSort(PointsToSort);
             for (int i = 0; i < PointTotals.Length; i++)
             {
