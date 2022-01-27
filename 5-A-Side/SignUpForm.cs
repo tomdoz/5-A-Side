@@ -18,7 +18,7 @@ namespace _5_A_Side
 
         private void signUpButton_Click(object sender, EventArgs e)
         {
-            if (Utilities.InputChecking(PWTxt.Text, 8, 1) == false || Utilities.InputChecking(userNameTxt.Text, 8, 0) == false || Utilities.InputChecking(nameTxt.Text, 8, 0) == false)
+            if (Utilities.InputChecking(PWTxt.Text, 8, 1, 50) == false || Utilities.InputChecking(userNameTxt.Text, 8, 0, 50) == false || Utilities.InputChecking(nameTxt.Text, 8, 0, 50) == false)
             {
                 string message = "Name, Username or Password do not meet requirements. 8 characters are needed for all three, and the password needs a number in it";
                 string title = "Error!";

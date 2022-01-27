@@ -23,9 +23,9 @@ namespace _5_A_Side
             return false;
         }
 
-        public static bool InputChecking(string input, int minLen, int minNums)
+        public static bool InputChecking(string input, int minLen, int maxLen, int minNums)
         {
-            if (input.Length < minLen)
+            if (input.Length < minLen || input.Length > maxLen)
             {
                 return false;
             }
