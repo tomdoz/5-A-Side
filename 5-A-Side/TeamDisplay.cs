@@ -13,24 +13,24 @@ namespace _5_A_Side
 
     public partial class TeamDisplay : Form
     {
-        SqlConnection Con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\tomra\OneDrive\Documents\FootballGame.mdf;Integrated Security=True;Connect Timeout=30");
-        SqlCommand Com = new SqlCommand();
 
         public TeamDisplay()
         {
             InitializeComponent();
-            LoadTeam();
+            LoadTeam(); 
         }
 
         public void LoadTeam()
         {
-            int[] capStats = Player.CollectStats(LoginMenu.TeamID, 1);
+            //CollectStats returns an array of the 7 attributes of a player in order
+            int[] capStats = Player.CollectStats(LoginMenu.TeamID, 1); 
             int[] p2Stats = Player.CollectStats(LoginMenu.TeamID, 2);
             int[] p3Stats = Player.CollectStats(LoginMenu.TeamID, 3);
             int[] p4Stats = Player.CollectStats(LoginMenu.TeamID, 4);
             int[] p5Stats = Player.CollectStats(LoginMenu.TeamID, 5);
             int[] p6Stats = Player.CollectStats(LoginMenu.TeamID, 6);
 
+            //The values of these stats and the players names and shirt numbers are then displayed on the appropriate labels
             captainSHO.Text = Convert.ToString(capStats[0]);
             captainDRI.Text = Convert.ToString(capStats[1]);
             captainPAC.Text = Convert.ToString(capStats[2]);
@@ -90,12 +90,12 @@ namespace _5_A_Side
             subAGG.Text = Convert.ToString(p6Stats[6]);
             subName.Text = Player.GetAttribute("Name", LoginMenu.TeamID, 6);
             subShirtNum.Text = Player.GetAttribute("ShirtNum", LoginMenu.TeamID, 6);
-
+            //Display the teamName and Manager name for this team by selecting from the Team table
             teamNameLabel.Text = Sql.Select("Select * from Teams Where Id = " + LoginMenu.TeamID.ToString(), 0, "TeamName");
             managerNameLabel.Text = Sql.Select("Select * from Teams Where Id = " + LoginMenu.TeamID.ToString(), 0, "Manager");
         }
 
-        private void homeButton_Click(object sender, EventArgs e)
+        private void homeButton_Click(object sender, EventArgs e) //Open new homepage form and close this form
         {
             HomePage home = new HomePage();
             home.Show();

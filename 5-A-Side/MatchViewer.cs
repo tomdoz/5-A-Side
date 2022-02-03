@@ -15,7 +15,7 @@ namespace _5_A_Side
     {
         public bool matchEnded = false;
         public int gameClockIncrementer = 0;
-        public Match match = new Match();
+        public Match match = new Match(); //Inialises a new match object for the match to be played
         public int userScore = 0;
         public int cpuScore = 0;
         public int[] userScoreRecord = new int[19];
@@ -25,17 +25,17 @@ namespace _5_A_Side
         {
             InitializeComponent();
             LoadTeams(); //when new MatchViewer form is opened, load the correct teams
-            matchTimer.Enabled = true;
+            matchTimer.Enabled = true; //start match timer
         }
 
-        public void DisplayTeams()
+        public void DisplayTeams() //Displays proper team names for teams playing in the match
         {
-            userName.Text = match.userName;
+            userName.Text = match.userName; 
             cpuTeamLabel.Text = match.cpuName;
         }
         public void LoadTeams()
         {
-            match.MatchSetup();
+            match.MatchSetup(); 
             DisplayTeams();
             if (match.userAtHome == false)
             {
@@ -45,38 +45,38 @@ namespace _5_A_Side
                 rightAway.Hide();
                 rightHome.Show();
             }
-            userScoreRecord = match.SimulateMatch(match.userScoreChance);
+            userScoreRecord = match.SimulateMatch(match.userScoreChance); //Stores the Score records of the user and cpu teams 
             cpuScoreRecord = match.SimulateMatch(match.cpuScoreChance);
-            Debug.WriteLine("MatchViewer userScoreChance = " + match.userScoreChance);
-            Debug.WriteLine("MatchViewer cpuScoreChance = " + match.cpuScoreChance);
         }
 
         public void UserScoreGoal()
-        {
+        {  
+            //Increments the User's score by one
             userScoreLabel.Text = Convert.ToString(Convert.ToInt32(userScoreLabel.Text) + 1);
             string userScoreMsg = "Your team has scored. The score is now " + userScoreLabel.Text + " - " + cpuScoreLabel.Text;
             string userScoreMsgTitle = TimerLabel.Text + " GOAL!";
             matchTimer.Stop();
-            MessageBox.Show(userScoreMsg, userScoreMsgTitle);
+            MessageBox.Show(userScoreMsg, userScoreMsgTitle); //Display appropriate messagebox and pause the match timer until it is dismissed
             matchTimer.Start();
         }
 
         public void CPUScoreGoal()
         {
+            //Increments the CPU's score by one
             cpuScoreLabel.Text = Convert.ToString(Convert.ToInt32(cpuScoreLabel.Text) + 1);
             string cpuScoreMsg = "The opposition team has scored. The score is now " + userScoreLabel.Text + " - " + cpuScoreLabel.Text;
             string cpuScoreMsgTitle = TimerLabel.Text + " GOAL!";
             matchTimer.Stop();
-            MessageBox.Show(cpuScoreMsg, cpuScoreMsgTitle);
+            MessageBox.Show(cpuScoreMsg, cpuScoreMsgTitle); //Display appropriate messagebox and pause the match time until the messagebox is dismissed
             matchTimer.Start();
         }
 
         public void DecodeScoreRecords()
-        {
+        {   //if index i in scoreRecord is 1, a goal is scored.
             int i = gameClockIncrementer / 5;
             if (userScoreRecord[i] == 1)
             {
-                UserScoreGoal();
+                UserScoreGoal();    
             }
             if(cpuScoreRecord[i] == 1)
             {
@@ -86,10 +86,12 @@ namespace _5_A_Side
 
         private void matchTimer_Tick(object sender, EventArgs e)
         {
+            //Method called everytime the matchTimer is enabled and the interval elapses
             if (matchEnded == false)
             {
+                //if the match hasn't ended (e.g. clock isn't > 90 minutes)
                 DecodeScoreRecords();
-                TimerLabel.Text = Convert.ToString(gameClockIncrementer + 5) + "'";
+                TimerLabel.Text = Convert.ToString(gameClockIncrementer + 5) + "'"; //increment timer by 5 minutes
                 gameClockIncrementer += 5;
 
                 if (gameClockIncrementer == 90)
@@ -99,16 +101,17 @@ namespace _5_A_Side
                     cpuScore = Convert.ToInt32(cpuScoreLabel.Text);
                     int userResult = match.MatchResult(userScore, cpuScore);
                     int CPUResult = match.MatchResult(cpuScore, userScore);
+                    //Display approriate messagebox to inform user game has ended
                     string matchEndMsg = "The Match has ended, the game finished " + userScore + " - " + cpuScore;
                     string matchEndMsgTitle = "Match Ended";
                     MessageBox.Show(matchEndMsg, matchEndMsgTitle);
-                    Debug.WriteLine(match.GetTeamCode(LoginMenu.TeamID));
+                    //update the LeagueTable in user's record in UserTable to reflect results of this match
                     match.LeagueTableUpdate(userScore, cpuScore, userResult, LoginMenu.TeamID, match.GetTeamCode(LoginMenu.TeamID));
                     match.LeagueTableUpdate(cpuScore, userScore, CPUResult, match.cpuTeamID, match.GetTeamCode(match.cpuTeamID));
                     match.UpdateCurrFixture();
-                    RestOfLeagueResults rest = new RestOfLeagueResults();
+                    RestOfLeagueResults rest = new RestOfLeagueResults(); //open new RestOfLeagueResults form
                     rest.Show();
-                    this.Close();
+                    this.Close(); //Close this form
                 }
             }
         }

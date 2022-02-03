@@ -42,7 +42,7 @@ namespace _5_A_Side
         public int userScoreChance;
         public int cpuScoreChance;
 
-        public void MatchSetup()
+        public void MatchSetup() //Runs the methods to set up an Instance of the match class with the approriate data to the point where the match can be simulated
         {
             GetCurrentFixture();
             AssignTeams();
@@ -51,12 +51,12 @@ namespace _5_A_Side
             cpuScoreChance = ChanceGenerator(userAtHome, cpuAverages, userAverages);
         }
 
-        public void GetCurrentFixture()
+        public void GetCurrentFixture() //Selects the current fixture which is the fixture that will be played out in this match instance
         {
             fixtureID = Convert.ToInt32(Sql.Select("Select CurrFixtureID from UserTable Where Id = " + LoginMenu.UserID.ToString(), 0, "CurrFixtureID"));
         }
 
-        public void AssignTeams()
+        public void AssignTeams() //assigns the correct teams to the appropriate variables using the fixture ID
         {
             if (Convert.ToInt32(Select("Select * from Fixtures where Id = " + fixtureID.ToString(), 0, "HomeTeamID")) == 1 || (Convert.ToInt32(Select("Select * from Fixtures where Id = " + fixtureID.ToString(), 0, "AwayTeamID")) == 1))
             {
@@ -125,7 +125,7 @@ namespace _5_A_Side
             int[] cpuAveragesTemp = new int[7] { cpuSHO, cpuDRI, cpuPAC, cpuPHY, cpuREL, cpuTAC, cpuAGG };
             cpuAverages = cpuAveragesTemp;
         }
-
+        //Algorithm to find the % chance (0-100) of a team scoring every 5 in-game minutes
         public int ChanceGenerator(bool AtHome, int[] teamAverages, int[] opposingAverages)
         {
             int scoreChance = Convert.ToInt32(((0.6 * teamAverages[0]) + (0.5 * teamAverages[2]) + (0.3 * teamAverages[1]) + (0.1 * teamAverages[3])) / 4); //loading the attacking attribute stats into weighted average equation
@@ -146,23 +146,23 @@ namespace _5_A_Side
             return scoreChance;
         }
 
-        public void UpdateCurrFixture()
+        public void UpdateCurrFixture() //Updates the Current Fixture for this UserAccount so the next time a match instance is created the fixture used isn't repeated
         {
             Sql.Update("Update UserTable Set CurrFixtureID = " + (fixtureID + 1) + " Where Id = " + LoginMenu.UserID.ToString());
         }
 
-        public int[] SimulateMatch(int ScoreChance)
+        public int[] SimulateMatch(int ScoreChance) //Checks whether each team would score every 5 minutes and saves this data in an array
         {
-            int[] Score = new int[19];
+            int[] Score = new int[19]; //Length of 19 because that is how many 5 minute intervals there are in a match (0, 5, 10 ... 90)
             for (int i = 0; i < 19; i++)
             {
                 if (ScoreGoalCheck(ScoreChance) == true)
                 {
-                    Score[i] = 1;
+                    Score[i] = 1; //1 assigned if goal scored
                 }
                 else
                 {
-                    Score[i] = 0;
+                    Score[i] = 0; //0 assigned if no goal scored
                 }
             }
             return Score;
@@ -185,22 +185,22 @@ namespace _5_A_Side
         public int MatchResult(int GoalsFor, int GoalsAgainst)
         {
             int Result;
-            if (GoalsFor > GoalsAgainst)
+            if (GoalsFor > GoalsAgainst) //If team A scored more goals than team B,
             {
-                Result = 3;
+                Result = 3; //they get 3 points (Win)
             }
-            else if (GoalsAgainst > GoalsFor)
+            else if (GoalsAgainst > GoalsFor) //If team A scored less goals than team B
             {
-                Result = 0;
+                Result = 0; //they get 0 points (Loss)
             }
-            else
+            else //Team A and B scored equal goals
             {
-                Result = 1;
+                Result = 1; //Team A gets 1 points (Draw)
             }
             return Result;
         }
 
-        public string GetTeamCode(int TeamID)
+        public string GetTeamCode(int TeamID) //Returns the teamCode that prefaces the league table data in UserTable attributes for each team
         {
             string output = "User";
             switch (TeamID)
@@ -230,10 +230,12 @@ namespace _5_A_Side
 
         public void LeagueTableUpdate(int GoalsFor, int GoalsAgainst, int Result, int TeamID, string Code)
         {
+            //Selects the current values for points, and appends the correct values to reflect how the match went. 
             int Points = Convert.ToInt32(Sql.Select("Select * from UserTable Where Id = " + LoginMenu.UserID, 0, Code + "Points"));
             int GF = Convert.ToInt32(Sql.Select("Select * from UserTable Where Id = " + LoginMenu.UserID, 0, Code + "GF"));
             int GA = Convert.ToInt32(Sql.Select("Select * from UserTable Where Id = " + LoginMenu.UserID, 0, "UserGA"));
             int NumMatches = Convert.ToInt32(Sql.Select("Select * from UserTable Where Id = " + LoginMenu.UserID, 0, Code + "Matches"));
+            //Appended values then used to Update the correct records in UserTable and Teams
             Update("Update UserTable SET " + Code + "GF = " + (GF + GoalsFor) + ", " + Code + "GA = " + (GA + GoalsAgainst) + ", " + Code + "Points = " + (Points + Result).ToString() + ", " + Code + "Matches = " + (NumMatches + 1).ToString() + " WHERE Id = " + LoginMenu.UserID.ToString());
             Update("Update Teams SET GF = " + (Select("Select * from UserTable Where Id = " + LoginMenu.UserID, 0, Code + "GF")) + "Where Id = " + TeamID);
         }

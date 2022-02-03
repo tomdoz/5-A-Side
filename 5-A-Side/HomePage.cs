@@ -1,4 +1,5 @@
-﻿using System;
+﻿//This class acts as the backbone of the program, with most of the functionality of the prorgram being launched from it. The user, navigates through this form to open the playerInputForm, TeamDisplay, MatchViewer, TopScorers and LeagueTable. The user can also logout of their account.
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;

@@ -1,4 +1,5 @@
-﻿using System;
+﻿//Ranks all the teams in the league season by the amount of points they obtained. Corrects for any draws on points that have occured using the team with the higher goal difference
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -31,16 +32,17 @@ namespace _5_A_Side
         public LeagueTable()
         {
             InitializeComponent();
-            string[] Codes = new string[6] { "User", "MU", "CHE", "SOU", "WOL", "NOR" };
-            OrderTeams(Codes);
+            string[] Codes = new string[6] { "User", "MU", "CHE", "SOU", "WOL", "NOR" }; //Used to query UserTable for league table data 
+            OrderTeams(Codes); //Calls methods to rank teams by points
             int[] Ranks = new int[6] { UserRank, MURank, CHERank, SOURank, WOLRank, NORRank };
-            Ranks = PointsDrawCheck(Ranks, Codes);
+            Ranks = PointsDrawCheck(Ranks, Codes); //Checks and corrects for point draws
             UserRank = Ranks[0];
             MURank = Ranks[1];
             CHERank = Ranks[2];
             SOURank = Ranks[3];
             WOLRank = Ranks[4];
             NORRank = Ranks[5];
+            //Displays the data of the league table on the correct row
             FillRow(UserRank, "User", LoginMenu.TeamID);
             FillRow(MURank, "MU", 1002);
             FillRow(CHERank, "CHE", 1003);
@@ -49,16 +51,18 @@ namespace _5_A_Side
             FillRow(NORRank, "NOR", 1006);
         }
 
-        public int[] PointsDrawCheck(int[] ranks, string[] codes)
+        public int[] PointsDrawCheck(int[] ranks, string[] codes) //Method checks if teams have the same points (as they will have an equal Rank)
         {
             for (int i = 0; i < ranks.Length; i++)
             {
                 for (int j = i+1; j < ranks.Length; j++)
                 {
-                    if (ranks[i] == ranks[j])
+                    if (ranks[i] == ranks[j]) //If the ranks are equal
                     {
+                        //Check the goal difference of both teams
                         int iGD = Convert.ToInt32((Convert.ToInt32(Sql.Select("Select * From UserTable Where Id = " + LoginMenu.UserID, 0, codes[i] + "GF")) - Convert.ToInt32(Sql.Select("Select * From UserTable Where Id = " + LoginMenu.UserID, 0, codes[i] + "GA"))));
                         int jGD = Convert.ToInt32((Convert.ToInt32(Sql.Select("Select * From UserTable Where Id = " + LoginMenu.UserID, 0, codes[j] + "GF")) - Convert.ToInt32(Sql.Select("Select * From UserTable Where Id = " + LoginMenu.UserID, 0, codes[j] + "GA"))));
+                        //Whichever team has the greater goal difference should have the better rank.
                         if (iGD > jGD)
                         {
                             ranks[j] = ranks[j] - 1;
@@ -74,21 +78,23 @@ namespace _5_A_Side
             return ranks;
         }
 
-        public void OrderTeams(string[] teamCodes)
+        public void OrderTeams(string[] teamCodes) //Ordering teams by the number of points they have scord
         {
+            //Selecting the values of all the points of all 6 teams in the league from the current User's record in UserTable
             UserPoints = Convert.ToInt32(Sql.Select("Select * From UserTable Where Id = " + LoginMenu.UserID, 0, "UserPoints"));
             MUPoints = Convert.ToInt32(Sql.Select("Select * From UserTable Where Id = " + LoginMenu.UserID, 0, "MUPoints"));
             CHEPoints = Convert.ToInt32(Sql.Select("Select * From UserTable Where Id = " + LoginMenu.UserID, 0, "CHEPoints"));
             SOUPoints = Convert.ToInt32(Sql.Select("Select * From UserTable Where Id = " + LoginMenu.UserID, 0, "SOUPoints"));
             WOLPoints = Convert.ToInt32(Sql.Select("Select * From UserTable Where Id = " + LoginMenu.UserID, 0, "WOLPoints"));
             NORPoints = Convert.ToInt32(Sql.Select("Select * From UserTable Where Id = " + LoginMenu.UserID, 0, "NORPoints"));
+            //adding the points to an array to sort
             int[] PointsToSort = new int[6] {UserPoints , MUPoints , CHEPoints , SOUPoints , WOLPoints , NORPoints };
-            PointTotals = Utilities.mergeSort(PointsToSort);
-            for (int i = 0; i < PointTotals.Length; i++)
+            PointTotals = Utilities.mergeSort(PointsToSort); //Sorting them in order (smallest to biggest) using a merge sort
+            for (int i = 0; i < PointTotals.Length; i++) 
             {
                 switch (i)
                 {
-                    case 0:
+                    case 0: //Check which team has the same points as the team in index 0 of the sorted array, give them rank 1
                         if (UserPoints == PointTotals[i])
                         {
                             UserRank = 1;
@@ -115,11 +121,11 @@ namespace _5_A_Side
                         }
                         break;
 
-                    case 1:
+                    case 1: //Check which team has the same points as the team in index 1 of the sorted array, give them rank 2
                         if (UserPoints == PointTotals[i])
                         {
                             UserRank = 2;
-                        }
+                           }
                         if (MUPoints == PointTotals[i])
                         {
                             MURank = 2;
@@ -142,7 +148,7 @@ namespace _5_A_Side
                         }
                         break;
 
-                    case 2:
+                    case 2: //Check which team has the same points as the team in index 2 of the sorted array, give them rank 3
                         if (UserPoints == PointTotals[i])
                         {
                             UserRank = 3;
@@ -169,7 +175,7 @@ namespace _5_A_Side
                         }
                         break;
 
-                    case 3:
+                    case 3: //Check which team has the same points as the team in index 3 of the sorted array, give them rank 4
                         if (UserPoints == PointTotals[i])
                         {
                             UserRank = 4;
@@ -196,7 +202,7 @@ namespace _5_A_Side
                         }
                         break;
 
-                    case 4:
+                    case 4: //Check which team has the same points as the team in index 4 of the sorted array, give them rank 5
                         if (UserPoints == PointTotals[i])
                         {
                             UserRank = 5;
@@ -223,7 +229,7 @@ namespace _5_A_Side
                         }
                         break;
 
-                    case 5:
+                    case 5: //Check which team has the same points as the team in index 5 of the sorted array, give them rank 2
                         if (UserPoints == PointTotals[i])
                         {
                             UserRank = 6;
@@ -255,6 +261,7 @@ namespace _5_A_Side
 
         public void FillRow(int Rank, string Team, int teamID)
         {
+            //Switch the rank where 1 is the worst team (6th place), and 6 is the best team (1st place), append the correct data into the correct labels by querying UserTable 
             switch (Rank)
             {
                 case 1:
@@ -304,6 +311,7 @@ namespace _5_A_Side
 
         private void homeButton_Click(object sender, EventArgs e)
         {
+            //Open new homepage form and close this form
             HomePage home = new HomePage();
             home.Show();
             this.Close();
