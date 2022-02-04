@@ -1,4 +1,5 @@
-﻿using System;
+﻿//Form class which allows the user to create their team. They can input the teamname, and the details of their players, as well as using the 7 sliders for each player to allot skill points into the 7 attributes that describe a player's footballing ability.
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;

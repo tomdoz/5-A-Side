@@ -1,4 +1,5 @@
-﻿using System;
+﻿//A new instance of this class is created and shown at the end of every "user-team" match that the user watches in realtime. It simulates and displays the two remaining fixtures that weren't played by the user in this gameweek.
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;

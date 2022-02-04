@@ -1,4 +1,5 @@
-﻿using System;
+﻿//Each new instance of this class represents a virtual match taking place between two teams, with the result of this match being returned as an array of 1s and 0s, and the results being used to update the record in the UserTable
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

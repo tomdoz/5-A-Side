@@ -1,4 +1,5 @@
-﻿using System;
+﻿//The first UI seen by the user when the program opens, allowing the user to choose whether they would like to login or sign up depending on whether they already have an account or not
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,16 +20,16 @@ namespace _5_A_Side
 
         private void signUpButton_Click(object sender, EventArgs e)
         {
-            SignUpForm signUp = new SignUpForm();
+            SignUpForm signUp = new SignUpForm(); //Open a new instance of the sign up form
             signUp.Show();
-            this.Hide();
+            this.Hide(); //Close this form
         }
 
         private void loginButton_Click(object sender, EventArgs e)
         {
-            LoginMenu login = new LoginMenu();
+            LoginMenu login = new LoginMenu(); //Open new instance of the login form
             login.Show();
-            this.Hide();
+            this.Hide(); //Close this form
         }
     }
 }

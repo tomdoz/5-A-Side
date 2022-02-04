@@ -1,4 +1,5 @@
-﻿using System;
+﻿//Displays a visual representation of the user's team. This includes the team and manager names, and the name, shirt number and attribute values of each player
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;

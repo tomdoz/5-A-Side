@@ -1,4 +1,5 @@
-﻿using System;
+﻿//Simulates a match between the user's team and a cpu team and displays the results in "real-time" by showing if a goal was scored every five minutes (from 0-90)
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
