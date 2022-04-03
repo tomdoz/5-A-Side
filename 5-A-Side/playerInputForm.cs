@@ -13,7 +13,8 @@ namespace _5_A_Side
 {
     public partial class playerInputForm : Form
     {
-
+        SqlCommand Com = new SqlCommand();
+        SqlConnection Con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\tomra\OneDrive\Documents\FootballGame.mdf;Integrated Security=True;Connect Timeout=30");
         //captain attribute variables
         public int p1ShootingVal = 0;
         public int p1DribblingVal = 0;
@@ -485,13 +486,24 @@ namespace _5_A_Side
 
         private void InsertToDB(int Shooting, int Dribbling, int Pace, int Physicality, int Reliability, int Tackling, int Aggression, string FirstName, string LastName, int ShirtNum, int TeamID, int PlayerType)
         {
-            Sql.Insert("insert into Players (Shooting, Dribbling, Pace, Physicality, Reliability, Tackling, Aggression, Name, ShirtNum, TeamID, PlayerType) values('" + Shooting + "', '" + Dribbling + "', '" + Pace + "', '" + Physicality + "', '" + Reliability + "', '" + Tackling + "', '" + Aggression + "', '" + (FirstName + " " + LastName) + "', '" + ShirtNum + "', '" + TeamID + "', '" + PlayerType + "')");
+            Con.Open();
+            Com.Connection = Con;
+            Com.CommandText = ("insert into Players (Shooting, Dribbling, Pace, Physicality, Reliability, Tackling, Aggression, Name, ShirtNum, TeamID, PlayerType) values('" + Shooting + "', '" + Dribbling + "', '" + Pace + "', '" + Physicality + "', '" + Reliability + "', '" + Tackling + "', '" + Aggression + "', @Name, @ShirtNum, '" + TeamID + "', '" + PlayerType + "')");
+            Com.Parameters.AddWithValue("@Name", (FirstName + " " + LastName));
+            Com.Parameters.AddWithValue("@ShirtNum", ShirtNum);
+            Com.ExecuteNonQuery();
+            Con.Close();
         }
 
         private void CreateTeam()
         {
             string NameVal = Sql.Select("Select Name from UserTable Where Id = " + LoginMenu.UserID, 0, "Name");
-            Sql.Update("insert into Teams (TeamName, Manager, GF) values('" + teamNameTxt.Text + "', '" + NameVal + "', '" + 0 + "')");
+            Con.Open();
+            Com.Connection = Con;
+            Com.CommandText = ("Insert into Teams (TeamName, Manager, GF) values(@TeamName, '" + NameVal + "', '" + 0 + "')");
+            Com.Parameters.AddWithValue("@TeamName", teamNameTxt.Text);
+            Com.ExecuteNonQuery();
+            Con.Close();
             string TeamName;
             string Manager;
             for (int i = 0; i < Sql.Count("Teams"); i++)
